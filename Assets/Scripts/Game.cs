@@ -20,7 +20,10 @@ public class Game : MonoBehaviour {
     [Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
     public bool PriceActive = false;
     public Animator price;
-   
+    [Space(5f)]
+    [Header("CКРОЛЛ ВСЯКИЙ")]
+    public ScrollRect scrollPreview;
+
 
     // Use this for initialization
     void Start () {
@@ -36,11 +39,12 @@ public class Game : MonoBehaviour {
             int id = cases[i].id;
             A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { OpenPreview(id); });
         }
-		
-	}
+        
+    }
     public void OpenPreview(int id)
     {
         main.SetActive(false);
+        scrollPreview.verticalNormalizedPosition = 1f;
         //Отображаем товары кейса
         for (int i = 0; i < cases[id].items.Length; i++)
         {
