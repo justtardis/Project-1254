@@ -39,8 +39,11 @@ public class Game : MonoBehaviour {
             int id = cases[i].id;
             A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { OpenPreview(id); });
         }
-        
+        print(Base64Encode("Какой-то текст"));
+        print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
     }
+
+  
     public void OpenPreview(int id)
     {
         main.SetActive(false);
@@ -60,7 +63,7 @@ public class Game : MonoBehaviour {
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
             A.SetActive(false);
         }
-        preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = "$" + cases[id].price;
+        preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
         preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { scr.OpenCase(id); });
         preview.SetActive(true);
@@ -82,6 +85,22 @@ public class Game : MonoBehaviour {
         }
     }
     #endregion
+
+    #region МЕТОДЫ КОДИРОВАНИЯ ДЛЯ СОКРЫТИЯ ИНФОРМАЦИИ
+    //Не каждый сообразит, что это base64 и не каждый смекнет, че с ним делать
+    public static string Base64Encode(string plainText)
+    {
+        var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        return System.Convert.ToBase64String(plainTextBytes);
+    }
+
+    public static string Base64Decode(string base64EncodedData)
+    {
+        var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+        return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+    }
+    #endregion
+
 }
 
 

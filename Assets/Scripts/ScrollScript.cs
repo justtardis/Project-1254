@@ -25,13 +25,13 @@ public class ScrollScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (isOpened)
         {
             speed = Mathf.MoveTowards(speed, 0, velocity * Time.deltaTime);
             gameObject.transform.Translate(new Vector2(speed, 0) * Time.deltaTime);
             timeLeft = speed * (-1) / velocity;
-            timer.text = "00:" + timeLeft.ToString("00.0#");
+            timer.text = "00:" + timeLeft.ToString("00.00#");
             progressCounter.text = (100-(int)((timeLeft / allTime) * 100)) + "%";
             progressFill.fillAmount = 1 - timeLeft / allTime;
             RaycastHit2D hit = Physics2D.Raycast(Vector2.down, Vector2.up);
