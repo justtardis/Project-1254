@@ -5,8 +5,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Item
 {
-    public int id;
     public string name; // имя
+    public int id;
     public float price; // цена
     public Sprite picture; //картинка
     public int group;

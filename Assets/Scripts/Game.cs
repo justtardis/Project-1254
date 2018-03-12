@@ -17,6 +17,11 @@ public class Game : MonoBehaviour {
     public GameObject roulett; // окно рулетки
     public ScrollScript scr;
 
+    [Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
+    public bool PriceActive = false;
+    public Animator price;
+   
+
     // Use this for initialization
     void Start () {
         silver = 200;
@@ -33,12 +38,6 @@ public class Game : MonoBehaviour {
         }
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void OpenPreview(int id)
     {
         main.SetActive(false);
@@ -63,14 +62,31 @@ public class Game : MonoBehaviour {
         preview.SetActive(true);
     }
 
-    
-
+    #region СЮДА ПИШЕМ ВЕСЬ КОД НА РАЗНЫЕ КНОПКИ
+    //Код кнопкт с ценой в превью, чтобы анимация работала туда-сюда
+    public void PriceButton()
+    {
+        if (!PriceActive)
+        {
+            PriceActive = true;
+            price.SetBool("Active", PriceActive);
+        }
+        else
+        {
+            PriceActive = false;
+            price.SetBool("Active", PriceActive);
+        }
+    }
+    #endregion
 }
+
+
 
 //Класс кейса
 [System.Serializable]
 public class Case
 {
+    public string Namecase;
     public int id; 
     public string name; // имя
     public float price; // цена
