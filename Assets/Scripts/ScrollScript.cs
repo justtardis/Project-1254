@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScrollScript : MonoBehaviour {
 
     public Game g;
+    public Inventory inv;
     public GameObject scrollCont;
     public bool isOpened;
     public float speed = -20;
@@ -44,6 +45,7 @@ public class ScrollScript : MonoBehaviour {
                     ShowResult();
                     progressPanel.SetActive(false);
                     resPanel.SetActive(true);
+                    isOpened = false;
                 }
             }
             else if (speed == 0)
@@ -61,6 +63,18 @@ public class ScrollScript : MonoBehaviour {
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
     }
+
+    public void addToInventory()
+    {
+        inv.items[inv.invSize, 1] = resItem;
+        inv.items[inv.invSize, 0] = caseID;
+        inv.invSize++;
+        inv.LoadInventory();
+        g.roulett.SetActive(false);
+        inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
+    }
+
+
 
     public void OpenCase(int id)
     {
