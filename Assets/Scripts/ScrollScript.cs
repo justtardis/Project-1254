@@ -29,12 +29,13 @@ public class ScrollScript : MonoBehaviour {
 		if (isOpened)
         {
             speed = Mathf.MoveTowards(speed, 0, velocity * Time.deltaTime);
-            gameObject.transform.Translate(new Vector2(speed, 0) * Time.deltaTime);
+            scrollCont.transform.Translate(new Vector2(speed, 0) * Time.deltaTime); //явно указал контейнер с объектами, а не gameobject
             timeLeft = speed * (-1) / velocity;
             timer.text = "00:" + timeLeft.ToString("00.00#");
             progressCounter.text = (100-(int)((timeLeft / allTime) * 100)) + "%";
             progressFill.fillAmount = 1 - timeLeft / allTime;
             RaycastHit2D hit = Physics2D.Raycast(Vector2.down, Vector2.up);
+            Debug.DrawLine(Vector2.down, Vector2.up);
             if (hit.collider != null)
             {
                 if (speed == 0 && progressPanel.activeSelf)
@@ -55,7 +56,7 @@ public class ScrollScript : MonoBehaviour {
 
     public void ShowResult()
     {
-        resPanel.transform.GetChild(3).GetComponent<Text>().text = g.cases[caseID].items[resItem].name;
+        resPanel.transform.GetChild(3).GetComponent<Text>().text = g.cases[caseID].items[resItem].name.ToUpper(); //Добавил toUpper для верхнего регистра
         resPanel.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[resItem].price.ToString();
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);

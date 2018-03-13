@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
 
-    public float silver; // серебро
-    public float gold; // золото
+    public int silver; // серебро | заменил на целые числа
+    public int gold; // золото
+    public Text silverText;
+    public Text goldText;
     public Case[] cases; //кейсы
     public GameObject casePref; //префаб кейса
     public GameObject itemPref; //префаб товара
@@ -25,10 +27,18 @@ public class Game : MonoBehaviour {
     public ScrollRect scrollPreview;
 
 
+    //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
+    private void Awake()
+    {
+        //silver = 99; 
+        //gold = 5;
+    }
+
     // Use this for initialization
     void Start () {
-        silver = 200;
-        gold = 5;
+
+        silverText.text = silver.ToString(); //отображаем серебро в панели на главной
+        goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
         {
             GameObject A = Instantiate(casePref, casePref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
