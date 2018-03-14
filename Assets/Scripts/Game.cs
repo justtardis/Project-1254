@@ -22,11 +22,23 @@ public class Game : MonoBehaviour {
     [Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
     public bool PriceActive = false;
     public Animator price;
+    [Header("----------------------------------------------------------")]
+    public Color whiteEnabled;
+    public Color whiteDisabled;
     [Space(5f)]
     [Header("CКРОЛЛ ВСЯКИЙ")]
     public ScrollRect scrollPreview;
-
-
+    [Space(5f)]
+    [Header("Меню и его компоненты")]
+    public GameObject Menu_panel; // сама менюшка
+    public bool MenuActive = false; // флаг на вызов меню (кликнули на бургер или нет)
+    public bool inMove = false; // флаг для движения меню (движется или нет). Нужна на Туда-обратно
+    [Space(5f)]
+    [Header("Прелоадер")]
+    public Text progressLoader;
+    public GameObject preLoader;
+    public bool preLoaderActive = false;
+    public int progress = 0;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
     private void Awake()
     {
@@ -94,7 +106,127 @@ public class Game : MonoBehaviour {
             price.SetBool("Active", PriceActive);
         }
     }
+
+    public void ClickMenu()
+    {
+        // блок, если меню нужно
+        if (!MenuActive)
+        {
+            MenuActive = true;
+            inMove = true;          
+        }
+        // блок, если меню не нужно
+        else
+        {
+            MenuActive = false;
+            inMove = true;
+        } 
+    }
+
+    public void Preloader()
+    {
+        preLoaderActive = true;
+        preLoader.SetActive(true);
+        ClickMenu();
+    }
+
+    // Кнопки в меню
+    // Это главная кнопка
+    public void ClickMain()
+    {
+        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
+        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
+        for(int i = 1; i<6; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        ClickMenu(); // Чтобы меню уезжало
+    }
+
+    // Это кнопка инвентаря
+    public void ClickInventory()
+    {
+        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку главной меняем на светло-белый 
+        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок главной меняем на светло-белый 
+
+        Menu_panel.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка инвентаря 
+        Menu_panel.transform.GetChild(2).GetChild(1).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок инвентаря 
+        for (int i = 2; i < 6; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        ClickMenu(); // Чтобы меню уезжало
+    }
+
+    // Это кнопка магазина
+    public void ClickShop()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        Menu_panel.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка магазина 
+        Menu_panel.transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок магазина 
+        for (int i = 3; i < 6; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        ClickMenu(); // Чтобы меню уезжало
+    }
+
+    // Это кнопка казино
+    public void ClickCasino()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        Menu_panel.transform.GetChild(2).GetChild(3).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка казино 
+        Menu_panel.transform.GetChild(2).GetChild(3).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок казино 
+        for (int i = 4; i < 6; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        ClickMenu(); // Чтобы меню уезжало
+    }
+
+    // Это кнопка магазина
+    public void ClickAchievement()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        Menu_panel.transform.GetChild(2).GetChild(4).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка Наград 
+        Menu_panel.transform.GetChild(2).GetChild(4).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок наград 
+
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
+        ClickMenu(); // Чтобы меню уезжало
+    }
+
+    // Это кнопка настроек
+    public void ClickSettings()
+    {
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка настроек
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок настроек 
+        for (int i = 0; i < 5; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовоки всех меняем на светло-белый
+        }
+        ClickMenu(); // Чтобы меню уезжало
+    }
     #endregion
+
+
 
     #region МЕТОДЫ КОДИРОВАНИЯ ДЛЯ СОКРЫТИЯ ИНФОРМАЦИИ
     //Не каждый сообразит, что это base64 и не каждый смекнет, че с ним делать
@@ -111,6 +243,49 @@ public class Game : MonoBehaviour {
     }
     #endregion
 
+    private void FixedUpdate()
+    {
+        if (preLoaderActive)
+        {
+            progressLoader.text = progress.ToString() + "%";
+            if (progress == 100)
+            {
+                preLoaderActive = false;
+                preLoader.SetActive(false);
+                progress = 0;
+            }
+            else
+            {
+                progress += 1;
+            }
+        }
+        // Если меню должно двигаться, 
+        if (inMove)
+        {
+            // смотрим, нужно ли оно
+            // Если да, то
+            if (MenuActive)
+            {
+                Menu_panel.SetActive(MenuActive);
+                // Везем его к нужной точке. Позже заменим -300 на переменную, значение которое присваиваем в зависимости от разрешения экрана
+                Menu_panel.transform.localPosition = new Vector2(Mathf.Lerp(Menu_panel.transform.localPosition.x, -300, 6 * Time.deltaTime), Menu_panel.transform.localPosition.y);
+                if (Menu_panel.transform.localPosition.x >= -302)
+                {
+                    inMove = false;
+                }
+            }
+            // Если нет, то
+            else if(!MenuActive)
+            {
+                Menu_panel.transform.localPosition = new Vector2(Mathf.Lerp(Menu_panel.transform.localPosition.x, -1000, 6 * Time.deltaTime), Menu_panel.transform.localPosition.y);
+                if (Menu_panel.transform.localPosition.x <= -995)
+                {
+                    inMove = false;
+                    Menu_panel.SetActive(MenuActive);
+                }
+            }
+        }
+    }
 }
 
 

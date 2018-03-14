@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: dcff4ce3ab4a3664ebfdc2226d555c20
-timeCreated: 1520953151
+guid: 976a99676be50804dbd501fcda1c493f
+timeCreated: 1520913155
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -73,7 +73,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -81,7 +81,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -89,7 +89,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -104,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1080
-        width: 360
-        height: 360
+        y: 1200
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,10 +117,10 @@ TextureImporter:
       name: Auto_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 360
-        y: 1080
-        width: 360
-        height: 360
+        x: 400
+        y: 1200
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: Auto_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1080
-        width: 360
-        height: 360
+        x: 800
+        y: 1200
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +145,10 @@ TextureImporter:
       name: Auto_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 1080
-        width: 360
-        height: 360
+        x: 1200
+        y: 1200
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: Auto_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 1080
-        width: 360
-        height: 360
+        x: 1600
+        y: 1200
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,9 +174,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 720
-        width: 360
-        height: 360
+        y: 800
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: Auto_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 360
-        y: 720
-        width: 360
-        height: 360
+        x: 400
+        y: 800
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: Auto_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 720
-        y: 720
-        width: 360
-        height: 360
+        x: 800
+        y: 800
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: Auto_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 720
-        width: 360
-        height: 360
+        x: 1200
+        y: 800
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +229,10 @@ TextureImporter:
       name: Auto_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 720
-        width: 360
-        height: 360
+        x: 1600
+        y: 800
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,9 +244,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 360
-        width: 360
-        height: 360
+        y: 400
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: Auto_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 360
-        y: 360
-        width: 360
-        height: 360
+        x: 400
+        y: 400
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,10 +271,10 @@ TextureImporter:
       name: Auto_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 720
-        y: 360
-        width: 360
-        height: 360
+        x: 800
+        y: 400
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Auto_SpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 360
-        width: 360
-        height: 360
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: Auto_SpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 360
-        width: 360
-        height: 360
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,8 +315,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 360
-        height: 360
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: Auto_SpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 360
+        x: 400
         y: 0
-        width: 360
-        height: 360
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
