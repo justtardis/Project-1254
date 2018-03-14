@@ -22,6 +22,7 @@ public class ScrollScript : MonoBehaviour {
     public Image progressFill;
     // Use this for initialization
     void Start () {
+        
         speed = -10;
 	}
 	
@@ -66,8 +67,8 @@ public class ScrollScript : MonoBehaviour {
 
     public void addToInventory()
     {
-        inv.items[inv.invSize, 1] = resItem;
-        inv.items[inv.invSize, 0] = caseID;
+        inv.items[inv.invSize][1] = resItem;
+        inv.items[inv.invSize][0] = caseID;
         inv.invSize++;
         inv.LoadInventory();
         g.roulett.SetActive(false);
@@ -78,6 +79,7 @@ public class ScrollScript : MonoBehaviour {
 
     public void OpenCase(int id)
     {
+        scrollCont.transform.localPosition = new Vector2(4799f, scrollCont.transform.position.y);
         caseID = id;
         speed = -10;
         g.preview.SetActive(false);
