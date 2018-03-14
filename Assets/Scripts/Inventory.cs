@@ -113,7 +113,7 @@ public class Inventory : MonoBehaviour {
     public void restartGame()
     {
         PlayerPrefs.DeleteAll();
-        Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);        
     }
 
     public void SaveGame()

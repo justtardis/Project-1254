@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Game : MonoBehaviour {
+public class Game : MonoBehaviour
+{
 
     public int silver; // серебро | заменил на целые числа
     public int gold; // золото
@@ -38,7 +39,20 @@ public class Game : MonoBehaviour {
     public Text progressLoader;
     public GameObject preLoader;
     public bool preLoaderActive = false;
-    public int progress = 0;
+    public float progress = 0f;
+    public bool Get = false;
+    [Space(5f)]
+    [Header("Все панели и окна")]
+
+    public GameObject[] Panels;
+    public GameObject PanelAct;
+    // 0 - Main
+    // 1 - Inventory
+    // 2 - Shop
+    // 3 - Casino
+    // 4 - Achievement
+    // 5 - Settings
+    // 6 - HeaderCounter
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
     private void Awake()
     {
@@ -47,7 +61,8 @@ public class Game : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         silverText.text = silver.ToString(); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
@@ -65,7 +80,7 @@ public class Game : MonoBehaviour {
         print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
     }
 
-  
+
     public void OpenPreview(int id)
     {
         main.SetActive(false);
@@ -110,23 +125,47 @@ public class Game : MonoBehaviour {
     public void ClickMenu()
     {
         // блок, если меню нужно
-        if (!MenuActive)
+        if (!MenuActive && !Get)
         {
             MenuActive = true;
-            inMove = true;          
+            inMove = true;
         }
         // блок, если меню не нужно
         else
         {
             MenuActive = false;
             inMove = true;
-        } 
+        }
     }
 
-    public void Preloader()
+    public void Preloader(GameObject panelActive)
     {
-        preLoaderActive = true;
-        preLoader.SetActive(true);
+        if (!panelActive.activeSelf)
+        {
+            if (panelActive == Panels[0])
+            {
+                for (int i = 1; i < Panels.Length; i++)
+                {
+                    Panels[i].SetActive(false);
+                }
+                PanelAct = Panels[0];
+                ClickMain();
+            }
+            else if (panelActive == Panels[1])
+            {
+                PanelAct = Panels[1];
+                Panels[0].SetActive(false); // Главная
+                Panels[2].SetActive(false); // Шапка, временно. Будет 6
+                ClickInventory();
+            }
+            preLoaderActive = true;
+            preLoader.SetActive(true);
+        }
+        else
+        {
+
+        }
+        
         ClickMenu();
     }
 
@@ -136,12 +175,11 @@ public class Game : MonoBehaviour {
     {
         Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
         Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
-        for(int i = 1; i<6; i++)
+        for (int i = 1; i < 6; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
         }
-        ClickMenu(); // Чтобы меню уезжало
     }
 
     // Это кнопка инвентаря
@@ -157,7 +195,6 @@ public class Game : MonoBehaviour {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
         }
-        ClickMenu(); // Чтобы меню уезжало
     }
 
     // Это кнопка магазина
@@ -175,7 +212,6 @@ public class Game : MonoBehaviour {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
         }
-        ClickMenu(); // Чтобы меню уезжало
     }
 
     // Это кнопка казино
@@ -193,7 +229,6 @@ public class Game : MonoBehaviour {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
         }
-        ClickMenu(); // Чтобы меню уезжало
     }
 
     // Это кнопка магазина
@@ -209,7 +244,6 @@ public class Game : MonoBehaviour {
 
         Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
         Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
-        ClickMenu(); // Чтобы меню уезжало
     }
 
     // Это кнопка настроек
@@ -222,7 +256,6 @@ public class Game : MonoBehaviour {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовоки всех меняем на светло-белый
         }
-        ClickMenu(); // Чтобы меню уезжало
     }
     #endregion
 
@@ -245,20 +278,28 @@ public class Game : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        #region ВОТ ЭТОТ КОД ОТВЕЧАЕТ ЗА ПРЕЛОАДЕР И АКТИВАЦИЮ НУЖНОЙ ПАНЕЛИ ПОСЛЕ
         if (preLoaderActive)
         {
-            progressLoader.text = progress.ToString() + "%";
-            if (progress == 100)
+            progressLoader.text = progress.ToString("#") + "%";
+            if (progress >= 99f)
             {
+                Get = false;
                 preLoaderActive = false;
                 preLoader.SetActive(false);
                 progress = 0;
+                if (PanelAct == Panels[0]) // Если панель главная, то покажем еще и шапку
+                {
+                    Panels[2].SetActive(true);
+                }
+                PanelAct.SetActive(true);
             }
             else
             {
-                progress += 1;
+                progress += 0.7f;
             }
         }
+        #endregion
         // Если меню должно двигаться, 
         if (inMove)
         {
@@ -275,7 +316,7 @@ public class Game : MonoBehaviour {
                 }
             }
             // Если нет, то
-            else if(!MenuActive)
+            else if (!MenuActive)
             {
                 Menu_panel.transform.localPosition = new Vector2(Mathf.Lerp(Menu_panel.transform.localPosition.x, -1000, 6 * Time.deltaTime), Menu_panel.transform.localPosition.y);
                 if (Menu_panel.transform.localPosition.x <= -995)
@@ -295,7 +336,7 @@ public class Game : MonoBehaviour {
 public class Case
 {
     public string Namecase;
-    public int id; 
+    public int id;
     public string name; // имя
     public float price; // цена
     public Item[] items;

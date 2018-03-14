@@ -72,14 +72,16 @@ public class ScrollScript : MonoBehaviour {
         inv.invSize++;
         inv.LoadInventory();
         g.roulett.SetActive(false);
-        inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
+        g.Get = true;
+        g.Preloader(g.Panels[0]); // Переход на главную
+        //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }
 
 
 
     public void OpenCase(int id)
     {
-        scrollCont.transform.localPosition = new Vector2(4799f, scrollCont.transform.position.y);
+        scrollCont.transform.localPosition = new Vector2(4799f, 0f);
         caseID = id;
         speed = -10;
         g.preview.SetActive(false);
