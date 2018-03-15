@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     public GameObject main; // главное окно
     public GameObject preview; // окно предпросмотра
     public GameObject roulett; // окно рулетки
+    public GameObject noMoney;
     public ScrollScript scr;
 
     [Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
@@ -80,6 +81,19 @@ public class Game : MonoBehaviour
         print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
     }
 
+    public void CheckCase(int id)
+    {
+        if (cases[id].price <= silver)
+        {
+            silver = silver - (int)cases[id].price;
+            scr.OpenCase(id);
+        }
+        else
+        {
+            noMoney.SetActive(true);
+        }
+    }
+
 
     public void OpenPreview(int id)
     {
@@ -102,7 +116,7 @@ public class Game : MonoBehaviour
         }
         preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
-        preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { scr.OpenCase(id); });
+        preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
         preview.SetActive(true);
     }
 
@@ -326,6 +340,7 @@ public class Game : MonoBehaviour
                 }
             }
         }
+        silverText.text = silver.ToString();
     }
 }
 

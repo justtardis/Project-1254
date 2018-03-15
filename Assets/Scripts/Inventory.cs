@@ -12,8 +12,11 @@ public class Inventory : MonoBehaviour {
     public Game g;
     public GameObject invPanel; // инвентарь
     public GameObject itemPref; // префаб товара в инвентаре
+    public bool isMult; // включена ли множественная продажа
     public Sprite itemPrev;
     public Sprite emptyPrev;
+    public GameObject prevPanel; // окно предпросмотра перед продажей
+    public GameObject sellPanel; // кнопка множественной продажи
 
     private void Awake()
     {
@@ -74,6 +77,7 @@ public class Inventory : MonoBehaviour {
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
                 A.transform.GetChild(3).gameObject.SetActive(false);
+                A.GetComponent<Item_ID>().id = i;
                 A.SetActive(true);
             }
             else
@@ -84,6 +88,7 @@ public class Inventory : MonoBehaviour {
                 A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
+                A.GetComponent<Item_ID>().id = i;
                 A.transform.GetChild(3).gameObject.SetActive(false);
                 A.SetActive(true);
             }
@@ -94,6 +99,47 @@ public class Inventory : MonoBehaviour {
         {
             GameObject A = invPanel.transform.GetChild(i).gameObject;
             A.SetActive(false);
+        }
+
+    }
+
+    public void sellItem(int id)
+    {
+        prevPanel.SetActive(false);
+    }
+
+    public void changeMult()
+    {
+        isMult = !isMult;
+        sellPanel.transform.GetChild(0).gameObject.SetActive(!isMult);
+        sellPanel.transform.GetChild(1).gameObject.SetActive(isMult);
+        if (!isMult)
+        {
+            for (int i = 0; i < invSize; i++)
+            {
+                invPanel.transform.GetChild(i).GetChild(3).gameObject.SetActive(false);
+            }
+        }
+        //вдруг если чего ещё дописать
+    }
+
+    public void clickOnItem(GameObject item)
+    {
+        if (isMult)
+        {
+            item.transform.GetChild(3).gameObject.SetActive(true);
+        }
+        else
+        {
+            int id = item.GetComponent<Item_ID>().id;
+            int caseID = items[id][0];
+            int itemID = items[id][1];
+            prevPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].name.ToUpper();
+            prevPanel.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[itemID].picture;
+            prevPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(g.cases[caseID].items[itemID].group == 4);
+            prevPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].price.ToString();
+            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(id); });
+            prevPanel.SetActive(true);
         }
     }
 
