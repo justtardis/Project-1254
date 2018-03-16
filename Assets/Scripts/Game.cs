@@ -85,7 +85,7 @@ public class Game : MonoBehaviour
     {
         if (cases[id].price <= silver)
         {
-            silver = silver - (int)cases[id].price;
+            silver = silver - cases[id].price;
             scr.OpenCase(id);
         }
         else
@@ -116,6 +116,7 @@ public class Game : MonoBehaviour
         }
         preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
+        preview.transform.GetChild(5).GetComponent<Button>().onClick.RemoveAllListeners();
         preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
         preview.SetActive(true);
     }
@@ -310,7 +311,7 @@ public class Game : MonoBehaviour
             }
             else
             {
-                progress += 0.7f;
+                progress += 4.5f;
             }
         }
         #endregion
@@ -353,7 +354,7 @@ public class Case
     public string Namecase;
     public int id;
     public string name; // имя
-    public float price; // цена
+    public int price; // цена
     public Item[] items;
     public Sprite picture; //картинка
     public int[] groups = new int[4];
