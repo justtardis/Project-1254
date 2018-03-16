@@ -126,7 +126,8 @@ public class Inventory : MonoBehaviour {
                 A.SetActive(false);
             }
             else { 
-                items[i] = items[i + 1];
+                items[i][0] = items[i + 1][0];
+                items[i][1] = items[i + 1][1];
                 GameObject A = invPanel.transform.GetChild(i).gameObject;
                 A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
                 A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;

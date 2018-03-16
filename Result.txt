@@ -1,1 +1,1 @@
-{"items":["{\"Items\":[0,2]}","{\"Items\":[0,11]}","{\"Items\":[0,11]}","{\"Items\":[0,15]}","{\"Items\":[0,15]}","{\"Items\":[0,15]}"],"invSize":6,"silver":52594,"gold":5}
+{"items":["{\"Items\":[0,15]}","{\"Items\":[1,1]}","{\"Items\":[0,9]}"],"invSize":3,"silver":63613,"gold":5}
