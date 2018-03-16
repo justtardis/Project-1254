@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-
+    #region Переменные
     public int silver; // серебро | заменил на целые числа
     public int gold; // золото
     public Text silverText;
@@ -21,9 +21,9 @@ public class Game : MonoBehaviour
     public GameObject noMoney;
     public ScrollScript scr;
 
-    [Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
-    public bool PriceActive = false;
-    public Animator price;
+    //[Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
+    //public bool PriceActive = false;
+    //public Animator price;
     [Header("----------------------------------------------------------")]
     public Color whiteEnabled;
     public Color whiteDisabled;
@@ -43,8 +43,13 @@ public class Game : MonoBehaviour
     public float progress = 0f;
     public bool Get = false;
     [Space(5f)]
+    [Header("Тогглы")]
+    public int id_toggle;
+    public Animator[] toggles;
+    public int[] priceToggle;
+    public bool[] toggleActive;
+    [Space(5f)]
     [Header("Все панели и окна")]
-
     public GameObject[] Panels;
     public GameObject PanelAct;
     // 0 - Main
@@ -54,6 +59,8 @@ public class Game : MonoBehaviour
     // 4 - Achievement
     // 5 - Settings
     // 6 - HeaderCounter
+    #endregion
+
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
     private void Awake()
     {
@@ -97,6 +104,7 @@ public class Game : MonoBehaviour
 
     public void OpenPreview(int id)
     {
+
         main.SetActive(false);
         scrollPreview.verticalNormalizedPosition = 1f;
         //Отображаем товары кейса
@@ -114,7 +122,7 @@ public class Game : MonoBehaviour
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
             A.SetActive(false);
         }
-        preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
+        preview.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
         preview.transform.GetChild(5).GetComponent<Button>().onClick.RemoveAllListeners();
         preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
@@ -123,19 +131,19 @@ public class Game : MonoBehaviour
 
     #region СЮДА ПИШЕМ ВЕСЬ КОД НА РАЗНЫЕ КНОПКИ
     //Код кнопкт с ценой в превью, чтобы анимация работала туда-сюда
-    public void PriceButton()
-    {
-        if (!PriceActive)
-        {
-            PriceActive = true;
-            price.SetBool("Active", PriceActive);
-        }
-        else
-        {
-            PriceActive = false;
-            price.SetBool("Active", PriceActive);
-        }
-    }
+    //public void PriceButton()
+    //{
+    //    if (!PriceActive)
+    //    {
+    //        PriceActive = true;
+    //        price.SetBool("Active", PriceActive);
+    //    }
+    //    else
+    //    {
+    //        PriceActive = false;
+    //        price.SetBool("Active", PriceActive);
+    //    }
+    //}
 
     public void ClickMenu()
     {
@@ -150,6 +158,37 @@ public class Game : MonoBehaviour
         {
             MenuActive = false;
             inMove = true;
+        }
+    }
+
+    // Переключение тогглов. id необходим для запоминания того, что мы выбрали и списывания бабла согласно цене priceToggle
+    // Списывать деньги можно ТОЛЬКО, если игрок открыл кейс
+    public void ClickToggle(int id)
+    {
+        if (!toggleActive[id - 1]) // собственно, если тоггл был неактивен
+        {
+            // и у нас хватает больше, чем на самый дешевый апгрейд
+            if (gold >= priceToggle[id - 1])
+            {
+                // то еб*****(включаем че надо)
+                // Cначала выключаем все, что есть
+                for (int i = 0; i < toggleActive.Length; i++)
+                {
+                    toggles[i].SetBool("active", false);
+                    toggleActive[i] = false;
+                }
+                // Теперь можно включать нужное
+                id_toggle = id; // в id будет тот тоггл, который игрок щелкнул (1, 2 или 3)
+                toggleActive[id - 1] = true;
+                toggles[id - 1].SetBool("active", true);
+            }
+        }
+        else
+        {
+            // возвращаем анимацию в ноль, если тоггл был ранее активен
+            toggles[id - 1].SetBool("active", false);
+            toggleActive[id - 1] = false;
+            id_toggle = 0;
         }
     }
 
@@ -180,7 +219,7 @@ public class Game : MonoBehaviour
         {
 
         }
-        
+
         ClickMenu();
     }
 

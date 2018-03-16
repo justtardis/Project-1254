@@ -9,7 +9,7 @@ public class ScrollScript : MonoBehaviour {
     public Inventory inv;
     public GameObject scrollCont;
     public bool isOpened;
-    public float speed = -20;
+    public float speed = -20f;
     public float velocity = 3f;
     public GameObject resPanel;
     public GameObject progressPanel;
@@ -22,9 +22,9 @@ public class ScrollScript : MonoBehaviour {
     public Image progressFill;
     // Use this for initialization
     void Start () {
-        
-        speed = -10;
-	}
+       
+        //speed = -14.2f;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -86,13 +86,22 @@ public class ScrollScript : MonoBehaviour {
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }
 
-
-
     public void OpenCase(int id)
     {
+        //Я зарандомил значения скорости и торможения, чтобы игра была чуть интересней.
+        int rnd = Random.Range(1, 3);
+        if (rnd == 1)
+        {
+            speed = -14.2f;
+            velocity = Random.Range(2f, 2.1f);
+        }
+        else
+        {
+            speed = -20f;
+            velocity = Random.Range(3.9f, 4f);
+        }
         scrollCont.transform.localPosition = new Vector2(4799f, 0f);
         caseID = id;
-        speed = -10;
         progressPanel.SetActive(true);
         resPanel.SetActive(false);
         g.preview.SetActive(false);
@@ -151,7 +160,7 @@ public class ScrollScript : MonoBehaviour {
         }
         /*g.preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = "$" + cases[id].price;
         g.preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";*/
-        velocity = Random.Range(1.1f, 1.5f);
+       
         timeLeft = speed * (-1) / velocity;
         allTime = timeLeft;
         isOpened = true;
