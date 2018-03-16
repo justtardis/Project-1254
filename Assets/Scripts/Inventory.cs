@@ -17,6 +17,9 @@ public class Inventory : MonoBehaviour {
     public Sprite emptyPrev;
     public GameObject prevPanel; // окно предпросмотра перед продажей
     public GameObject sellPanel; // кнопка множественной продажи
+    public GameObject multSell; // подтверждение множественной продажи
+    public GameObject moneyPanel; // деньхи
+    public int multSum = 0; // сколько денех стоят отмеченные товары 
 
     private void Awake()
     {
@@ -62,8 +65,8 @@ public class Inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        moneyPanel.transform.GetChild(1).GetComponent<Text>().text = g.silver.ToString();
+    }
 
     public void LoadInventory()
     {
@@ -106,6 +109,49 @@ public class Inventory : MonoBehaviour {
     public void sellItem(int id)
     {
         prevPanel.SetActive(false);
+        int caseID = items[id][0];
+        int itemID = items[id][1];
+        g.silver = g.silver + (int)(g.cases[caseID].items[itemID].price);
+        for (int i = id; i < invSize; i++)
+        {
+            if (i == invSize - 1)
+            {
+                GameObject A = invPanel.transform.GetChild(i).gameObject;
+                /*A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
+                A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
+                A.transform.GetComponent<Image>().sprite = emptyPrev;
+                A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
+                A.transform.GetChild(3).gameObject.SetActive(false);
+                A.GetComponent<Item_ID>().id = i;*/
+                A.SetActive(false);
+            }
+            else { 
+                items[i] = items[i + 1];
+                GameObject A = invPanel.transform.GetChild(i).gameObject;
+                A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
+                A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
+                A.transform.GetComponent<Image>().sprite = itemPrev;
+                A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
+                A.transform.GetChild(3).gameObject.SetActive(invPanel.transform.GetChild(i+1).GetChild(3).gameObject.activeSelf);
+                //A.transform.GetChild(3).gameObject.SetActive(false);
+                A.GetComponent<Item_ID>().id = i;
+            }
+        }
+        invSize--;
+    }
+
+    public void sellMult()
+    {
+        for (int i = 0; i < invSize; i++)
+        {
+            if (invPanel.transform.GetChild(i).transform.GetChild(3).gameObject.activeSelf)
+            {
+                sellItem(i);
+                i--;
+            }
+        }
+        multSum = 0;
+        changeMult();
     }
 
     public void changeMult()
@@ -113,12 +159,19 @@ public class Inventory : MonoBehaviour {
         isMult = !isMult;
         sellPanel.transform.GetChild(0).gameObject.SetActive(!isMult);
         sellPanel.transform.GetChild(1).gameObject.SetActive(isMult);
+        multSell.SetActive(isMult);
+        moneyPanel.SetActive(!isMult);
         if (!isMult)
         {
             for (int i = 0; i < invSize; i++)
             {
                 invPanel.transform.GetChild(i).GetChild(3).gameObject.SetActive(false);
             }
+            multSum = 0;
+        }
+        else
+        {
+            
         }
         //вдруг если чего ещё дописать
     }
@@ -127,7 +180,17 @@ public class Inventory : MonoBehaviour {
     {
         if (isMult)
         {
-            item.transform.GetChild(3).gameObject.SetActive(true);
+            item.transform.GetChild(3).gameObject.SetActive(!item.transform.GetChild(3).gameObject.activeSelf);
+            int i = item.GetComponent<Item_ID>().id;
+            if (item.transform.GetChild(3).gameObject.activeSelf)
+            {
+                multSum = multSum + (int)g.cases[items[i][0]].items[items[i][1]].price; 
+            }
+            else
+            {
+                multSum = multSum - (int)g.cases[items[i][0]].items[items[i][1]].price;
+            }
+            multSell.transform.GetChild(2).GetComponent<Text>().text = multSum.ToString();
         }
         else
         {
@@ -138,7 +201,9 @@ public class Inventory : MonoBehaviour {
             prevPanel.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[itemID].picture;
             prevPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(g.cases[caseID].items[itemID].group == 4);
             prevPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].price.ToString();
-            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(id); });
+            int temp = id;
+            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(temp); });
             prevPanel.SetActive(true);
         }
     }
