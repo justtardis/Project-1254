@@ -21,9 +21,6 @@ public class Game : MonoBehaviour
     public GameObject noMoney;
     public ScrollScript scr;
 
-    //[Header("КНОПКИ И ВСЕ, ЧТО С НИМИ СВЯЗАНО")]
-    //public bool PriceActive = false;
-    //public Animator price;
     [Header("----------------------------------------------------------")]
     public Color whiteEnabled;
     public Color whiteDisabled;
@@ -45,9 +42,22 @@ public class Game : MonoBehaviour
     [Space(5f)]
     [Header("Тогглы")]
     public int id_toggle;
-    public Animator[] toggles;
     public int[] priceToggle;
     public bool[] toggleActive;
+    public bool[] moveToggle;
+    public GameObject[] togglePreview;
+    public Image[] bgTogglePreview;
+    public float[] timesColor;
+    public bool[] changes;
+    [Header("Настройки")]
+    public Color[] color;
+    public float[] t;
+    public bool[] change;
+    public Image[] bgToggle;
+    public GameObject[] touchOne;
+    public GameObject[] touchSecond;
+    public bool[] SettingsBool;
+    public bool[] move;
     [Space(5f)]
     [Header("Все панели и окна")]
     public GameObject[] Panels;
@@ -71,7 +81,6 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         silverText.text = silver.ToString(); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
@@ -84,6 +93,40 @@ public class Game : MonoBehaviour
             int id = cases[i].id;
             A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { OpenPreview(id); });
         }
+        #region Тут альфа-значения для тогглов в настройках. Для теста задаем булку в инспекторе. Не цикл, потому что touchOne и touchSecond
+        if (SettingsBool[0])
+        {
+            bgToggle[0].color = color[1];
+            touchOne[0].transform.localPosition = new Vector2(77.5f, touchOne[0].transform.localPosition.y);
+            touchOne[1].transform.localPosition = new Vector2(221f, touchOne[1].transform.localPosition.y);
+            touchOne[2].transform.localPosition = new Vector2(-31.665f, touchOne[2].transform.localPosition.y);
+        }
+        else
+        {
+            bgToggle[0].color = color[0];
+            touchOne[0].transform.localPosition = new Vector2(-77.5f, touchOne[0].transform.localPosition.y);
+            touchOne[1].transform.localPosition = new Vector2(31.665f, touchOne[1].transform.localPosition.y);
+            touchOne[2].transform.localPosition = new Vector2(-221f, touchOne[2].transform.localPosition.y);
+        }
+        if (SettingsBool[1])
+        {
+            bgToggle[1].color = color[1];
+            touchSecond[0].transform.localPosition = new Vector2(77.5f, touchSecond[0].transform.localPosition.y);
+            touchSecond[1].transform.localPosition = new Vector2(221f, touchSecond[1].transform.localPosition.y);
+            touchSecond[2].transform.localPosition = new Vector2(-31.665f, touchSecond[2].transform.localPosition.y);
+        }
+        else
+        {
+            bgToggle[1].color = color[0];
+            touchSecond[0].transform.localPosition = new Vector2(-77.5f, touchSecond[0].transform.localPosition.y);
+            touchSecond[1].transform.localPosition = new Vector2(31.665f, touchSecond[1].transform.localPosition.y);
+            touchSecond[2].transform.localPosition = new Vector2(-221f, touchSecond[2].transform.localPosition.y);
+        }
+        #endregion
+
+        //Тут альфа-значения для тогглов в превью. 
+        DefaultUPDToggle();
+       
         print(Base64Encode("Какой-то текст"));
         print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
     }
@@ -101,11 +144,10 @@ public class Game : MonoBehaviour
         }
     }
 
-
     public void OpenPreview(int id)
     {
-
         main.SetActive(false);
+        DefaultUPDToggle(); //дефолтные значения тогглов наверху
         scrollPreview.verticalNormalizedPosition = 1f;
         //Отображаем товары кейса
         for (int i = 0; i < cases[id].items.Length; i++)
@@ -124,26 +166,37 @@ public class Game : MonoBehaviour
         }
         preview.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
-        preview.transform.GetChild(5).GetComponent<Button>().onClick.RemoveAllListeners();
-        preview.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
+        preview.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
+        preview.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
         preview.SetActive(true);
     }
 
     #region СЮДА ПИШЕМ ВЕСЬ КОД НА РАЗНЫЕ КНОПКИ
-    //Код кнопкт с ценой в превью, чтобы анимация работала туда-сюда
-    //public void PriceButton()
-    //{
-    //    if (!PriceActive)
-    //    {
-    //        PriceActive = true;
-    //        price.SetBool("Active", PriceActive);
-    //    }
-    //    else
-    //    {
-    //        PriceActive = false;
-    //        price.SetBool("Active", PriceActive);
-    //    }
-    //}
+
+    private void DefaultUPDToggle()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            bgTogglePreview[i].color = color[0];
+            toggleActive[i] = false;
+        }
+        togglePreview[1].SetActive(true);
+        togglePreview[4].SetActive(true);
+        togglePreview[7].SetActive(true);
+        togglePreview[2].SetActive(false);
+        togglePreview[5].SetActive(false);
+        togglePreview[8].SetActive(false);
+        togglePreview[0].transform.localPosition = new Vector2(-77.5f, togglePreview[0].transform.localPosition.y);
+        togglePreview[3].transform.localPosition = new Vector2(-77.5f, togglePreview[3].transform.localPosition.y);
+        togglePreview[6].transform.localPosition = new Vector2(-77.5f, togglePreview[6].transform.localPosition.y);
+        togglePreview[1].transform.localPosition = new Vector2(31.665f, togglePreview[1].transform.localPosition.y);
+        togglePreview[4].transform.localPosition = new Vector2(31.665f, togglePreview[4].transform.localPosition.y);
+        togglePreview[7].transform.localPosition = new Vector2(31.665f, togglePreview[7].transform.localPosition.y);
+        togglePreview[2].transform.localPosition = new Vector2(-221f, togglePreview[2].transform.localPosition.y);
+        togglePreview[5].transform.localPosition = new Vector2(-221f, togglePreview[5].transform.localPosition.y);
+        togglePreview[8].transform.localPosition = new Vector2(-221f, togglePreview[8].transform.localPosition.y);
+
+    }
 
     public void ClickMenu()
     {
@@ -163,32 +216,41 @@ public class Game : MonoBehaviour
 
     // Переключение тогглов. id необходим для запоминания того, что мы выбрали и списывания бабла согласно цене priceToggle
     // Списывать деньги можно ТОЛЬКО, если игрок открыл кейс
+
     public void ClickToggle(int id)
     {
-        if (!toggleActive[id - 1]) // собственно, если тоггл был неактивен
+        if (!toggleActive[id - 1])
         {
-            // и у нас хватает больше, чем на самый дешевый апгрейд
             if (gold >= priceToggle[id - 1])
             {
-                // то еб*****(включаем че надо)
-                // Cначала выключаем все, что есть
-                for (int i = 0; i < toggleActive.Length; i++)
+                switch (id)
                 {
-                    toggles[i].SetBool("active", false);
-                    toggleActive[i] = false;
+                    case 1:
+                        toggleActive[0] = true;
+                        toggleActive[1] = false;
+                        toggleActive[2] = false;
+                        break;
+                    case 2:
+                        toggleActive[0] = false;
+                        toggleActive[1] = true;
+                        toggleActive[2] = false;
+                        break;
+                    case 3:
+                        toggleActive[0] = false;
+                        toggleActive[1] = false;
+                        toggleActive[2] = true;                        
+                        break;
                 }
-                // Теперь можно включать нужное
-                id_toggle = id; // в id будет тот тоггл, который игрок щелкнул (1, 2 или 3)
-                toggleActive[id - 1] = true;
-                toggles[id - 1].SetBool("active", true);
+                for (int i = 0; i < 3; i++)
+                {
+                    moveToggle[i] = true;
+                }
             }
         }
         else
         {
-            // возвращаем анимацию в ноль, если тоггл был ранее активен
-            toggles[id - 1].SetBool("active", false);
             toggleActive[id - 1] = false;
-            id_toggle = 0;
+            moveToggle[id - 1] = true;
         }
     }
 
@@ -198,31 +260,56 @@ public class Game : MonoBehaviour
         {
             if (panelActive == Panels[0])
             {
+                PanelAct = Panels[0];
                 for (int i = 1; i < Panels.Length; i++)
                 {
                     Panels[i].SetActive(false);
                 }
-                PanelAct = Panels[0];
+                Panels[4].SetActive(true); // шапка
                 ClickMain();
             }
+            // инвентарь
             else if (panelActive == Panels[1])
             {
-                PanelAct = Panels[1];
+                PanelAct = Panels[1]; // инвентарь
                 Panels[0].SetActive(false); // Главная
-                Panels[2].SetActive(false); // Шапка, временно. Будет 6
+                Panels[2].SetActive(false); // Превью
+                Panels[3].SetActive(false); // настройки
+                Panels[4].SetActive(false); // Шапка, временно 4
                 ClickInventory();
+            }
+            // Настройки (временно id = 2)
+            else if (panelActive == Panels[3])
+            {
+                PanelAct = Panels[3];
+                for (int i = 0; i < Panels.Length - 2; i++)
+                {
+                    Panels[i].SetActive(false);
+                }
+                Panels[4].SetActive(true); // Шапка, временно 4
+                ClickSettings();
             }
             preLoaderActive = true;
             preLoader.SetActive(true);
         }
-        else
-        {
-
-        }
-
+        else { }
         ClickMenu();
     }
 
+    // Тогглы настроек
+    public void Toggle(int id)
+    {
+        if (!SettingsBool[id - 1])
+        {
+            SettingsBool[id - 1] = true;
+            move[id - 1] = true;
+        }
+        else
+        {
+            SettingsBool[id - 1] = false;
+            move[id - 1] = true;
+        }
+    }
     // Кнопки в меню
     // Это главная кнопка
     public void ClickMain()
@@ -310,6 +397,7 @@ public class Game : MonoBehaviour
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовоки всех меняем на светло-белый
         }
+
     }
     #endregion
 
@@ -344,8 +432,16 @@ public class Game : MonoBehaviour
                 progress = 0;
                 if (PanelAct == Panels[0]) // Если панель главная, то покажем еще и шапку
                 {
-                    Panels[2].SetActive(true);
+                    Panels[4].SetActive(true);
                 }
+                //else if (PanelAct == Panels[1]) // Если панель инвентаря, то шапку отключим
+                //{
+                //    Panels[2].SetActive(false);
+                //}
+                //else if (PanelAct == Panels[2]) // Если панель настроек, то покажем еще и шапку
+                //{
+                //    Panels[2].SetActive(true);
+                //}
                 PanelAct.SetActive(true);
             }
             else
@@ -354,6 +450,286 @@ public class Game : MonoBehaviour
             }
         }
         #endregion
+
+        //Никогда не открывать :)
+        #region 1й Тоггл в настройках (Звуки)
+        if (move[0])
+        {
+            if (SettingsBool[0])
+            {
+                touchOne[2].SetActive(true);
+                touchOne[0].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[0].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), touchOne[0].transform.localPosition.y);
+                touchOne[1].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[1].transform.localPosition.x, 221f, 4 * Time.deltaTime), touchOne[1].transform.localPosition.y);
+                touchOne[2].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[2].transform.localPosition.x, -31.665f, 4 * Time.deltaTime), touchOne[2].transform.localPosition.y);
+                bgToggle[0].color = Color.Lerp(color[0], color[1], t[0]);
+                if (!change[0])
+                {
+                    t[0] += 4 * Time.deltaTime;
+                }
+                if (t[0] >= 1f)
+                {
+                    change[0] = true;
+                }
+                if (touchOne[0].transform.localPosition.x >= 77.49f)
+                {
+                    if (touchOne[1].transform.localPosition.x >= 219f)
+                    {
+                        touchOne[1].SetActive(false);
+                    }
+                    move[0] = false;
+
+                }
+            }
+            else if (!SettingsBool[0])
+            {
+                touchOne[1].SetActive(true);
+                touchOne[0].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[0].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), touchOne[0].transform.localPosition.y);
+                touchOne[1].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[1].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), touchOne[1].transform.localPosition.y);
+                touchOne[2].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[2].transform.localPosition.x, -221f, 4 * Time.deltaTime), touchOne[2].transform.localPosition.y);
+                bgToggle[0].color = Color.Lerp(color[0], color[1], t[0]);
+                if (change[0])
+                {
+                    t[0] -= 4 * Time.deltaTime;
+                }
+                if (t[0] <= 0f)
+                {
+                    change[0] = false;
+                }
+                if (touchOne[0].transform.localPosition.x <= -77.49f)
+                {
+                    if (touchOne[2].transform.localPosition.x <= -219f)
+                    {
+                        touchOne[2].SetActive(false);
+                    }
+                    move[0] = false;
+                }
+            }
+        }
+        #endregion
+        //Никогда не открывать :)
+        #region 2й Тоггл в настройках (Музыка)
+        if (move[1])
+        {
+            if (SettingsBool[1])
+            {
+                touchSecond[2].SetActive(true);
+                touchSecond[0].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[0].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), touchSecond[0].transform.localPosition.y);
+                touchSecond[1].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[1].transform.localPosition.x, 221f, 4 * Time.deltaTime), touchSecond[1].transform.localPosition.y);
+                touchSecond[2].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[2].transform.localPosition.x, -31.665f, 4 * Time.deltaTime), touchSecond[2].transform.localPosition.y);
+                bgToggle[1].color = Color.Lerp(color[0], color[1], t[1]);
+                if (!change[1])
+                {
+                    t[1] += 4 * Time.deltaTime;
+                }
+                if (t[1] >= 1f)
+                {
+                    change[1] = true;
+                }
+                if (touchSecond[0].transform.localPosition.x >= 77.49f)
+                {
+                    if (touchSecond[1].transform.localPosition.x >= 219f)
+                    {
+                        touchSecond[1].SetActive(false);
+                    }
+                    move[1] = false;
+                }
+            }
+            else if (!SettingsBool[1])
+            {
+                touchSecond[1].SetActive(true);
+                touchSecond[0].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[0].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), touchSecond[0].transform.localPosition.y);
+                touchSecond[1].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[1].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), touchSecond[1].transform.localPosition.y);
+                touchSecond[2].transform.localPosition = new Vector2(Mathf.Lerp(touchSecond[2].transform.localPosition.x, -221f, 4 * Time.deltaTime), touchSecond[2].transform.localPosition.y);
+                bgToggle[1].color = Color.Lerp(color[0], color[1], t[1]);
+                if (change[1])
+                {
+                    t[1] -= 4 * Time.deltaTime;
+                }
+                if (t[1] <= 0f)
+                {
+                    change[1] = false;
+                }
+                if (touchSecond[0].transform.localPosition.x <= -77.49f)
+                {
+                    if (touchSecond[2].transform.localPosition.x <= -219f)
+                    {
+                        touchSecond[2].SetActive(false);
+                    }
+                    move[1] = false;
+                }
+            }
+        }
+        #endregion
+
+        #region 1й Тоггл превью
+        if (moveToggle[0])
+        {
+            if (toggleActive[0])
+            {
+                togglePreview[2].SetActive(true);
+                togglePreview[0].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[0].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), togglePreview[0].transform.localPosition.y);
+                togglePreview[1].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[1].transform.localPosition.x, 221f, 4 * Time.deltaTime), togglePreview[1].transform.localPosition.y);
+                togglePreview[2].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[2].transform.localPosition.x, -31.665f, 4 * Time.deltaTime), togglePreview[2].transform.localPosition.y);
+                bgTogglePreview[0].color = Color.Lerp(color[0], color[1], timesColor[0]);
+                if (!changes[0])
+                {
+                    timesColor[0] += 4 * Time.deltaTime;
+                }
+                if (timesColor[0] >= 1f)
+                {
+                    changes[0] = true;
+                }
+                if (togglePreview[0].transform.localPosition.x >= 77.49f)
+                {
+                    if (togglePreview[1].transform.localPosition.x >= 219f)
+                    {
+                        togglePreview[1].SetActive(false);
+                    }
+                    moveToggle[0] = false;
+                    timesColor[0] = 0f;
+                }
+            }
+            else if (!toggleActive[0])
+            {
+                togglePreview[1].SetActive(true);
+                togglePreview[0].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[0].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), togglePreview[0].transform.localPosition.y);
+                togglePreview[1].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[1].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), togglePreview[1].transform.localPosition.y);
+                togglePreview[2].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[2].transform.localPosition.x, -221f, 4 * Time.deltaTime), togglePreview[2].transform.localPosition.y);
+                bgTogglePreview[0].color = Color.Lerp(color[0], color[1], timesColor[0]);
+                if (changes[0])
+                {
+                    timesColor[0] -= 4 * Time.deltaTime;
+                }
+                if (timesColor[0] <= 0f)
+                {
+                    changes[0] = false;
+                }
+                if (togglePreview[0].transform.localPosition.x <= -77.49f)
+                {
+                    if (togglePreview[2].transform.localPosition.x <= -219f)
+                    {
+                        togglePreview[2].SetActive(false);
+                    }
+                    moveToggle[0] = false;
+                    timesColor[0] = 0f;
+                }
+            }
+        }
+        #endregion
+
+        #region 2й Тоггл превью
+        if (moveToggle[1])
+        {
+            if (toggleActive[1])
+            {
+                togglePreview[5].SetActive(true);
+                togglePreview[3].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[3].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), togglePreview[3].transform.localPosition.y);
+                togglePreview[4].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[4].transform.localPosition.x, 221f, 4 * Time.deltaTime), togglePreview[4].transform.localPosition.y);
+                togglePreview[5].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[5].transform.localPosition.x, -31.665f, 4 * Time.deltaTime), togglePreview[5].transform.localPosition.y);
+                bgTogglePreview[1].color = Color.Lerp(color[0], color[1], timesColor[1]);
+                if (!changes[1])
+                {
+                    timesColor[1] += 4 * Time.deltaTime;
+                }
+                if (timesColor[1] >= 1f)
+                {
+                    changes[1] = true;
+                }
+                if (togglePreview[3].transform.localPosition.x >= 77.49f)
+                {
+                    if (togglePreview[4].transform.localPosition.x >= 219f)
+                    {
+                        togglePreview[4].SetActive(false);
+                    }
+                    moveToggle[1] = false;
+                    timesColor[1] = 0f;
+                }
+            }
+            else if (!toggleActive[1])
+            {
+                togglePreview[4].SetActive(true);
+                togglePreview[3].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[3].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), togglePreview[3].transform.localPosition.y);
+                togglePreview[4].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[4].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), togglePreview[4].transform.localPosition.y);
+                togglePreview[5].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[5].transform.localPosition.x, -221f, 4 * Time.deltaTime), togglePreview[5].transform.localPosition.y);
+                bgTogglePreview[1].color = Color.Lerp(color[0], color[1], timesColor[1]);
+                if (changes[1])
+                {
+                    timesColor[1] -= 4 * Time.deltaTime;
+                }
+                if (timesColor[1] <= 0f)
+                {
+                    changes[1] = false;
+                }
+                if (togglePreview[3].transform.localPosition.x <= -77.49f)
+                {
+                    if (togglePreview[5].transform.localPosition.x <= -219f)
+                    {
+                        togglePreview[5].SetActive(false);
+                    }
+                    moveToggle[1] = false;
+                    timesColor[1] = 0f;
+                }
+            }
+        }
+        #endregion
+
+        #region 3й Тоггл превью
+        if (moveToggle[2])
+        {
+            if (toggleActive[2])
+            {
+                togglePreview[8].SetActive(true);
+                togglePreview[6].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[6].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), togglePreview[6].transform.localPosition.y);
+                togglePreview[7].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[7].transform.localPosition.x, 221f, 4 * Time.deltaTime), togglePreview[7].transform.localPosition.y);
+                togglePreview[8].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[8].transform.localPosition.x, -31.665f, 4 * Time.deltaTime), togglePreview[8].transform.localPosition.y);
+                bgTogglePreview[2].color = Color.Lerp(color[0], color[1], timesColor[2]);
+                if (!changes[2])
+                {
+                    timesColor[2] += 4 * Time.deltaTime;
+                }
+                if (timesColor[2] >= 1f)
+                {
+                    changes[2] = true;
+                }
+                if (togglePreview[6].transform.localPosition.x >= 77.49f)
+                {
+                    if (togglePreview[7].transform.localPosition.x >= 219f)
+                    {
+                        togglePreview[7].SetActive(false);
+                    }
+                    moveToggle[2] = false;
+                    timesColor[2] = 0f;
+                }
+            }
+            else if (!toggleActive[2])
+            {
+                togglePreview[7].SetActive(true);
+                togglePreview[6].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[6].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), togglePreview[6].transform.localPosition.y);
+                togglePreview[7].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[7].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), togglePreview[7].transform.localPosition.y);
+                togglePreview[8].transform.localPosition = new Vector2(Mathf.Lerp(togglePreview[8].transform.localPosition.x, -221f, 4 * Time.deltaTime), togglePreview[8].transform.localPosition.y);
+                bgTogglePreview[2].color = Color.Lerp(color[0], color[1], timesColor[2]);
+                if (changes[2])
+                {
+                    timesColor[2] -= 4 * Time.deltaTime;
+                }
+                if (timesColor[2] <= 0f)
+                {
+                    changes[2] = false;
+                }
+                if (togglePreview[6].transform.localPosition.x <= -77.49f)
+                {
+                    if (togglePreview[8].transform.localPosition.x <= -219f)
+                    {
+                        togglePreview[8].SetActive(false);
+                    }
+                    moveToggle[2] = false;
+                    timesColor[2] = 0f;
+                }
+            }
+        }
+        #endregion
+
+        #region Меню
         // Если меню должно двигаться, 
         if (inMove)
         {
@@ -380,6 +756,7 @@ public class Game : MonoBehaviour
                 }
             }
         }
+        #endregion
         silverText.text = silver.ToString();
     }
 }

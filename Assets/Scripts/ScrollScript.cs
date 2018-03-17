@@ -82,7 +82,9 @@ public class ScrollScript : MonoBehaviour {
         g.silver = g.silver + (int)g.cases[caseID].items[resItem].price;
         g.roulett.SetActive(false);
         g.Get = true;
+        g.Panels[3].SetActive(true);
         g.Preloader(g.Panels[0]); // Переход на главную
+        //
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }
 
@@ -93,12 +95,12 @@ public class ScrollScript : MonoBehaviour {
         if (rnd == 1)
         {
             speed = -14.2f;
-            velocity = Random.Range(2f, 2.1f);
+            velocity = Random.Range(1.98f, 2.02f);
         }
         else
         {
             speed = -20f;
-            velocity = Random.Range(3.9f, 4f);
+            velocity = Random.Range(3.94f, 3.96f);
         }
         scrollCont.transform.localPosition = new Vector2(4799f, 0f);
         caseID = id;
