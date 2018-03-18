@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478071501}
+      - m_Target: {fileID: 1788649316}
         m_MethodName: addToInventory
         m_Mode: 1
         m_Arguments:
@@ -31255,7 +31255,7 @@ MonoBehaviour:
   preview: {fileID: 504296670}
   roulett: {fileID: 1529260281}
   noMoney: {fileID: 649156099}
-  scr: {fileID: 1478071501}
+  scr: {fileID: 1788649316}
   whiteEnabled: {r: 1, g: 1, b: 1, a: 1}
   whiteDisabled: {r: 1, g: 1, b: 1, a: 0.3529412}
   scrollPreview: {fileID: 1283040671}
@@ -34667,6 +34667,7 @@ GameObject:
   - component: {fileID: 1478071497}
   - component: {fileID: 1478071498}
   - component: {fileID: 1478071501}
+  - component: {fileID: 1478071502}
   m_Layer: 5
   m_Name: Scroll
   m_TagString: Untagged
@@ -34797,14 +34798,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478071495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb7e610837313b429dd0d29e03800b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   g: {fileID: 1313606215}
   inv: {fileID: 1313606216}
-  scrollCont: {fileID: 1478071495}
+  scrollCont: {fileID: 0}
   isOpened: 0
   speed: -5
   velocity: 3
@@ -34817,6 +34818,17 @@ MonoBehaviour:
   timer: {fileID: 988277381}
   progressCounter: {fileID: 1043528550}
   progressFill: {fileID: 262767193}
+--- !u!114 &1478071502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1478071495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700599eecd4df63459aa398f6d63773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1481383743
 GameObject:
   m_ObjectHideFlags: 0
@@ -41212,13 +41224,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1788649314}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb7e610837313b429dd0d29e03800b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   g: {fileID: 1313606215}
-  inv: {fileID: 0}
+  inv: {fileID: 1313606216}
   scrollCont: {fileID: 1478071495}
   isOpened: 0
   speed: -5
@@ -42529,7 +42541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478071501}
+      - m_Target: {fileID: 1788649316}
         m_MethodName: sellItem
         m_Mode: 1
         m_Arguments:
