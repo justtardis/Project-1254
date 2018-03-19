@@ -81,6 +81,10 @@ public class Inventory : MonoBehaviour {
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
                 A.transform.GetChild(3).gameObject.SetActive(false);
                 A.GetComponent<Item_ID>().id = i;
+                A.transform.GetChild(4).gameObject.SetActive(true);
+                A.transform.GetChild(0).gameObject.SetActive(true);
+                A.transform.GetChild(1).gameObject.SetActive(true);
+                //A.transform.GetChild(2).gameObject.SetActive(true);
                 A.SetActive(true);
             }
             else
@@ -92,18 +96,68 @@ public class Inventory : MonoBehaviour {
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
                 A.GetComponent<Item_ID>().id = i;
+                A.transform.GetChild(4).gameObject.SetActive(true);
                 A.transform.GetChild(3).gameObject.SetActive(false);
+                A.transform.GetChild(0).gameObject.SetActive(true);
+                A.transform.GetChild(1).gameObject.SetActive(true);
+                //A.transform.GetChild(2).gameObject.SetActive(true);
+                A.SetActive(true);
+            }
+            //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
+        }
+        addEmpty();
+
+    }
+
+    //функция добавления пустых ячеек
+    public void addEmpty()
+    {
+        int addSize = 3;
+        if (invSize < 9)
+        {
+            addSize = 12 - invSize;
+        }
+        else
+        {
+            if (invSize % 3 != 0)
+            {
+                addSize = 6 - invSize % 3;
+            }
+        }
+        for (int i = invSize; i < invSize + addSize; i++)
+        {
+            if (i < 100)
+            {
+                GameObject A = invPanel.transform.GetChild(i).gameObject;
+                A.transform.GetComponent<Image>().sprite = emptyPrev;
+                A.transform.GetChild(0).gameObject.SetActive(false);
+                A.transform.GetChild(1).gameObject.SetActive(false);
+                A.transform.GetChild(2).gameObject.SetActive(false);
+                A.transform.GetChild(3).gameObject.SetActive(false);
+                A.transform.GetChild(4).gameObject.SetActive(false);
+                A.GetComponent<Item_ID>().id = -1;
+                A.SetActive(true);
+            }
+            else
+            {
+                GameObject A = Instantiate(itemPref, itemPref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                A.transform.GetChild(0).gameObject.SetActive(false);
+                A.transform.GetChild(1).gameObject.SetActive(false);
+                A.transform.GetComponent<Image>().sprite = emptyPrev;
+                A.transform.GetChild(2).gameObject.SetActive(false);
+                A.transform.GetChild(3).gameObject.SetActive(false);
+                A.transform.GetChild(4).gameObject.SetActive(false);
+                A.GetComponent<Item_ID>().id = -1;
                 A.SetActive(true);
             }
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
         }
         //Удаляем ненужные ячейки
-        for (int i = invSize; i < 100; i++)
+        for (int i = invSize + addSize; i < 100; i++)
         {
             GameObject A = invPanel.transform.GetChild(i).gameObject;
             A.SetActive(false);
         }
-
     }
 
     public void sellItem(int id)
@@ -117,12 +171,6 @@ public class Inventory : MonoBehaviour {
             if (i == invSize - 1)
             {
                 GameObject A = invPanel.transform.GetChild(i).gameObject;
-                /*A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
-                A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
-                A.transform.GetComponent<Image>().sprite = emptyPrev;
-                A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
-                A.transform.GetChild(3).gameObject.SetActive(false);
-                A.GetComponent<Item_ID>().id = i;*/
                 A.SetActive(false);
             }
             else { 
@@ -139,6 +187,7 @@ public class Inventory : MonoBehaviour {
             }
         }
         invSize--;
+        addEmpty();
     }
 
     public void sellMult()
