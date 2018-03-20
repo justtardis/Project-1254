@@ -49,6 +49,14 @@ public class Game : MonoBehaviour
     public Image[] bgTogglePreview;
     public float[] timesColor;
     public bool[] changes;
+    [Space(5f)]
+    [Header("Лидерборд")]
+    public Sprite FilledBtn;
+    public Sprite LinearBtn;
+    public GameObject[] L;
+    public Image[] Btn;
+    public Text Header;
+    [Space(5f)]
     [Header("Настройки")]
     public Color[] color;
     public float[] t;
@@ -198,6 +206,31 @@ public class Game : MonoBehaviour
 
     }
 
+    public void Individual()
+    {
+        if (!L[0].activeSelf)
+        {
+            L[0].SetActive(true);
+            L[1].SetActive(false);
+            Btn[0].sprite = FilledBtn;
+            Btn[1].sprite = LinearBtn;
+            Header.text = "ЛИЧНЫЙ ПРОГРЕСС";
+        }
+    }
+
+    public void TopGamers()
+    {
+        if (!L[1].activeSelf)
+        {
+            L[0].SetActive(false);
+            L[1].SetActive(true);
+            Btn[0].sprite = LinearBtn;
+            Btn[1].sprite = FilledBtn;
+            Header.text = "ТОП-10 ЛУЧШИХ";
+        }
+
+    }
+
     public void ClickMenu()
     {
         // блок, если меню нужно
@@ -316,7 +349,7 @@ public class Game : MonoBehaviour
     {
         Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
         Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < 7; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
@@ -331,7 +364,7 @@ public class Game : MonoBehaviour
 
         Menu_panel.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка инвентаря 
         Menu_panel.transform.GetChild(2).GetChild(1).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок инвентаря 
-        for (int i = 2; i < 6; i++)
+        for (int i = 2; i < 7; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
@@ -348,7 +381,7 @@ public class Game : MonoBehaviour
         }
         Menu_panel.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка магазина 
         Menu_panel.transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок магазина 
-        for (int i = 3; i < 6; i++)
+        for (int i = 3; i < 7; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
@@ -365,7 +398,7 @@ public class Game : MonoBehaviour
         }
         Menu_panel.transform.GetChild(2).GetChild(3).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка казино 
         Menu_panel.transform.GetChild(2).GetChild(3).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок казино 
-        for (int i = 4; i < 6; i++)
+        for (int i = 4; i < 7; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
@@ -385,14 +418,29 @@ public class Game : MonoBehaviour
 
         Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
         Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
+    }
+    public void ClickTop()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+        }
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка топа
+        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок топа
+
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
     }
 
     // Это кнопка настроек
     public void ClickSettings()
     {
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка настроек
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок настроек 
-        for (int i = 0; i < 5; i++)
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка настроек
+        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок настроек 
+        for (int i = 0; i < 6; i++)
         {
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
             Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовоки всех меняем на светло-белый
