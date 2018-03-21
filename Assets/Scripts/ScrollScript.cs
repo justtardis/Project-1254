@@ -132,20 +132,65 @@ public class ScrollScript : MonoBehaviour {
                     break;
             }
         }
+        //Добавление шанса, если куплен
+        int chance = 0;
+        int[] c = { 0, 0, 0 }; // если будет изменение шанса, то это изменение для первого и т д
+        switch (g.id_toggle)
+        {
+            case 1:
+                chance = 50;
+                break;
+            case 2:
+                chance = 100;
+                break;
+            case 3:
+                chance = 150;
+                break;
+            default:
+                break;
+        }
+        if (g.id_toggle != -1)
+        {
+            int temp = chance / 3;
+            c[2] = chance - temp * 2;
+            c[1] = temp;
+            c[0] = temp;
+            for (int j = 0; j < 3; j++)
+            {
+                if (g.cases[id].groups[j] == 0)
+                {
+                    int k = 2;
+                    bool t = false; // скинули ли кому-то вероятность
+                    while (k > -1 && !t)
+                    {
+                        if (k != j && g.cases[id].groups[k] != 0)
+                        {
+                            c[k] = c[k] + c[j];
+                            c[j] = 0;
+                            t = true;
+                        }
+                        else
+                        {
+                            k--;
+                        }
+                    }
+                }
+            }
+        }
         //Отображаем товары
         for (int i = 0; i < 30; i++)
         {
             int rand = Random.Range(0, 1000);
             int itemID = 0;
-            if (rand < g.cases[id].groups[0])
+            if (rand < g.cases[id].groups[0] - c[1])
             {
                 itemID = Random.Range(0, count1);
             }
-            else if (rand < (g.cases[id].groups[0] + g.cases[id].groups[1]))
+            else if (rand < (g.cases[id].groups[0] + g.cases[id].groups[1]) - (c[1] + c[2]))
             {
                 itemID = Random.Range(count1, count1 + count2);
             }
-            else if (rand < (g.cases[id].groups[0] + g.cases[id].groups[1] + g.cases[id].groups[2]))
+            else if (rand < (g.cases[id].groups[0] + g.cases[id].groups[1] + g.cases[id].groups[2] - chance))
             {
                 itemID = Random.Range(count1 + count2, count1 + count2 + count3);
             }

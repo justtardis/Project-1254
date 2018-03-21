@@ -65,7 +65,7 @@ public class Inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        moneyPanel.transform.GetChild(1).GetComponent<Text>().text = g.silver.ToString();
+        moneyPanel.transform.GetChild(1).GetComponent<Text>().text = g.convertMoney(g.silver);
     }
 
     public void LoadInventory()

@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        silverText.text = silver.ToString(); //отображаем серебро в панели на главной
+        silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
         {
@@ -144,6 +144,20 @@ public class Game : MonoBehaviour
         if (cases[id].price <= silver)
         {
             silver = silver - cases[id].price;
+            switch (id_toggle)
+            {
+                case 1:
+                    gold -= 3;
+                    break;
+                case 2:
+                    gold -= 7;
+                    break;
+                case 3:
+                    gold -= 10;
+                    break;
+                default:
+                    break;
+            }
             scr.OpenCase(id);
         }
         else
@@ -155,6 +169,7 @@ public class Game : MonoBehaviour
     public void OpenPreview(int id)
     {
         main.SetActive(false);
+        id_toggle = -1; //чтобы можно было узнать, что никто не запущен
         DefaultUPDToggle(); //дефолтные значения тогглов наверху
         scrollPreview.verticalNormalizedPosition = 1f;
         //Отображаем товары кейса
@@ -274,6 +289,7 @@ public class Game : MonoBehaviour
                         toggleActive[2] = true;                        
                         break;
                 }
+                id_toggle = id;
                 for (int i = 0; i < 3; i++)
                 {
                     moveToggle[i] = true;
@@ -805,7 +821,29 @@ public class Game : MonoBehaviour
             }
         }
         #endregion
-        silverText.text = silver.ToString();
+        silverText.text = convertMoney(silver);
+        goldText.text = convertMoney(gold);
+    }
+
+    public string convertMoney(int money)
+    {
+        string res = "";
+        if (money < 1000000) // млрд
+        {
+            res = money.ToString("#,##0");
+            res = res.Replace(",", " ");
+        }
+        else if (money < 1000000000)// млн
+        {
+            res = money.ToString("#,###,##0");
+            res = res.Replace(",", " ");
+        }
+        else
+        {
+            res = money.ToString("#,###,###,##0");
+            res = res.Replace(",", " ");
+        }
+        return res;
     }
 }
 
