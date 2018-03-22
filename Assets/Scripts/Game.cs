@@ -73,6 +73,12 @@ public class Game : MonoBehaviour
     public bool[] SettingsBool;
     public bool[] move;
     [Space(5f)]
+    [Header("Лотерея")]
+    public string nickname = "Jack";
+    public LotteryManager Lm;
+    public GameObject LotteryConfirm;
+    public LotteryItem[] it;
+    [Space(5f)]
     [Header("Все панели и окна")]
     public GameObject[] Panels;
     public GameObject PanelAct;
@@ -140,7 +146,7 @@ public class Game : MonoBehaviour
 
         //Тут альфа-значения для тогглов в превью. 
         DefaultUPDToggle();
-       
+
         print(Base64Encode("Какой-то текст"));
         print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
     }
@@ -297,7 +303,7 @@ public class Game : MonoBehaviour
                     case 3:
                         toggleActive[0] = false;
                         toggleActive[1] = false;
-                        toggleActive[2] = true;                        
+                        toggleActive[2] = true;
                         break;
                 }
                 id_toggle = id;
@@ -370,6 +376,32 @@ public class Game : MonoBehaviour
             move[id - 1] = true;
         }
     }
+
+    public void ConfirmLotteryItem(int id, string name, Color color)
+    {
+        it[id - 1].GetComponent<Image>().color = color;
+        it[id - 1].isBusy = true;
+        it[id - 1].NameOfBusy = name;
+        Lm.isBusyCell[id - 1] = true;
+        Lm.countBusy -= 1;
+        Lm.FlagRefresh(); // нужно для обновления ячеекы
+    }
+
+    public void LotteryClickItem(LotteryItem item)
+    {
+        if (item.isBusy && item.NameOfBusy != nickname)
+        {
+            print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
+        }
+        else if (!item.isBusy)
+        {
+            LotteryConfirm.SetActive(true);
+            LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
+            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
+            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1]); }); // подтверждаем выбор
+        }
+    }
+
     // Кнопки в меню
     // Это главная кнопка
     public void ClickMain()
@@ -448,6 +480,8 @@ public class Game : MonoBehaviour
         Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
         Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
     }
+
+    //Это кнопка Топ-10
     public void ClickTop()
     {
         for (int i = 0; i < 5; i++)

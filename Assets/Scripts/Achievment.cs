@@ -51,7 +51,6 @@ public class Achievment : MonoBehaviour {
 [System.Serializable]
 public class Achievment_item
 {
-
     public Sprite icon;
     public string header;
     public string description;
