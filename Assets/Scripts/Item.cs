@@ -10,4 +10,5 @@ public class Item
     public float price; // цена
     public Sprite picture; //картинка
     public int group;
+    public bool received;
 }

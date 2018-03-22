@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
     public GameObject roulett; // окно рулетки
     public GameObject noMoney;
     public ScrollScript scr;
+    public Achievment ach;
 
     [Header("----------------------------------------------------------")]
     public Color whiteEnabled;
@@ -39,6 +40,11 @@ public class Game : MonoBehaviour
     public bool preLoaderActive = false;
     public float progress = 0f;
     public bool Get = false;
+    [Space(5f)]
+    [Header("Счётчики")]
+    public int casesNum; //сколько открыто кейсов
+    public int itemsSold; //сколько продано товаров
+    public int bonuses; //получено на ежедневных бонусах
     [Space(5f)]
     [Header("Тогглы")]
     public int id_toggle;
@@ -158,6 +164,11 @@ public class Game : MonoBehaviour
                 default:
                     break;
             }
+            casesNum++;
+            if (casesNum == 100) ach.achievments[1].get = true;
+            else if (casesNum == 1000) ach.achievments[2].get = true;
+            else if (casesNum == 5000) ach.achievments[3].get = true;
+            else if (casesNum == 10000) ach.achievments[4].get = true;
             scr.OpenCase(id);
         }
         else

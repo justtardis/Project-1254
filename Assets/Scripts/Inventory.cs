@@ -43,6 +43,10 @@ public class Inventory : MonoBehaviour {
                 }
                 
             }
+            for (int i = 0; i < g.ach.achievments.Length; i++)
+            {
+                g.ach.achievments[i].get = sv.achievments[i];
+            }
             g.gold = sv.gold;
             g.silver = sv.silver;
         }
@@ -186,6 +190,8 @@ public class Inventory : MonoBehaviour {
                 A.GetComponent<Item_ID>().id = i;
             }
         }
+        g.itemsSold++;
+        if (g.itemsSold == 100) g.ach.achievments[5].get = true;
         invSize--;
         addEmpty();
     }
@@ -283,9 +289,14 @@ public class Inventory : MonoBehaviour {
         sv.silver = g.silver;
         sv.invSize = invSize;
         sv.items = new string[invSize];
+        sv.achievments = new bool[g.ach.achievments.Length];
         for (int j = 0; j < invSize; j++)
         {
             sv.items[j] = JsonHelper.ToJson<int>(items[j]);
+        }
+        for (int i = 0; i < g.ach.achievments.Length; i++)
+        {
+            sv.achievments[i] = g.ach.achievments[i].get;
         }
         string json = JsonUtility.ToJson(sv);
         string mydocpath = Directory.GetCurrentDirectory();
@@ -299,7 +310,8 @@ public class Save
     public string[] items; // первое число - id кейса, второе - id товара
     public int invSize;
     public int silver; 
-    public int gold; 
+    public int gold;
+    public bool[] achievments;
 }
 
 public static class JsonHelper
