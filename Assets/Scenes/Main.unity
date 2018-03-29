@@ -19558,7 +19558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   g: {fileID: 1313606215}
-  alreadyThere: 0
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   bot:
   - name: 
     countCell: 0
@@ -43021,6 +43021,7 @@ GameObject:
   - component: {fileID: 1313606215}
   - component: {fileID: 1313606216}
   - component: {fileID: 1313606217}
+  - component: {fileID: 1313606218}
   m_Layer: 0
   m_Name: ScriptObject (Game.cs)
   m_TagString: Untagged
@@ -43480,6 +43481,19 @@ MonoBehaviour:
       \u0430\u0447\u0438\u0432\u043A\u0438"
     get: 0
   g: {fileID: 1313606215}
+--- !u!114 &1313606218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313606213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab88d19ccbe664489541fc6461567e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  siteName: http://casesim/data.php
+  res: 
 --- !u!1 &1318462440
 GameObject:
   m_ObjectHideFlags: 0
