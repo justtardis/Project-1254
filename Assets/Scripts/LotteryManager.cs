@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class LotteryManager : MonoBehaviour
 {
-    
+
     public Game g;
-    public bool alreadyThere;
+    public int[] arrTicket = new int[39];
+    int MINIMAL = 0;
+
     public BOT[] bot = new BOT[8]; // Максимум ботов за столом
     public int[] cell = new int[42]; // всего ячеек свободных
     public bool[] isBusyCell = new bool[42]; // всего занятых ячеек
@@ -17,19 +19,32 @@ public class LotteryManager : MonoBehaviour
     public int botCount; // число ботов-участников
     void Start()
     {
-        FlagRefresh();
-        botCount =  Random.Range(3, bot.Length); // Определим число ботов-участников
-        for (int i = 0; i < botCount; i++)
+        UnicRand();
+        // Для трех ботов
+        for (int i = 0; i < 5; i++)
         {
-            bot[i].name = BOT_NAMES[Random.Range(0, BOT_NAMES.Length)]; // Зададим рандомное имя боту.
-            bot[i].countCell =  Random.Range(1, 20);
+            bot[i].name = BOT_NAMES[Random.Range(0, BOT_NAMES.Length)];
+            bot[i].countCell = Random.Range(1, 8);
+            print(bot[i].countCell);
             bot[i].color = new Vector4(Random.Range(0f, 0.5f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
-            bot[i].leftCell = bot[i].countCell;
-            bot[i].arrayTicket = new int[bot[i].countCell];
-            UnicRand(bot[i]); // cгенерируем список билетов, которые бот купит
             
-            StartCoroutine(BotActive(bot[i]));
+            Razdacha(bot[i]);
+
         }
+
+        //FlagRefresh();
+        //botCount =  Random.Range(3, bot.Length); // Определим число ботов-участников
+        //for (int i = 0; i < botCount; i++)
+        //{
+        //    bot[i].name = BOT_NAMES[Random.Range(0, BOT_NAMES.Length)]; // Зададим рандомное имя боту.
+        //    bot[i].countCell =  Random.Range(1, 20);
+        //    bot[i].color = new Vector4(Random.Range(0f, 0.5f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+        //    bot[i].leftCell = bot[i].countCell;
+        //    bot[i].arrayTicket = new int[bot[i].countCell];
+        //    UnicRand(bot[i]); // cгенерируем список билетов, которые бот купит
+
+        //    StartCoroutine(BotActive(bot[i]));
+        //}
 
     }
 
@@ -48,17 +63,16 @@ public class LotteryManager : MonoBehaviour
         }
     }
 
-    void UnicRand(BOT bot) // Для генерации рандомных позиций целей
+    void UnicRand() // Для генерации рандомных позиций целей
     {
-        
-        //int[] arr = new int[bot.countCell];
-        for (int i = 0; i < bot.countCell;)
+        bool alreadyThere;
+        for (int i = 0; i < 39;)
         {
             alreadyThere = false;
             int newRandomValue = Random.Range(1, 43);
             for (int j = 0; j < i; j++)
             {
-                if (bot.arrayTicket[j] == newRandomValue)
+                if (arrTicket[j] == newRandomValue)
                 {
                     alreadyThere = true;
                     break;
@@ -66,11 +80,21 @@ public class LotteryManager : MonoBehaviour
             }
             if (!alreadyThere)
             {
-                bot.arrayTicket[i] = newRandomValue;
+                arrTicket[i] = newRandomValue;
                 i++;
             }
         }
-        print(bot.arrayTicket[0] + " " + bot.arrayTicket[1] + " " + bot.arrayTicket[2] + " " + bot.arrayTicket[3] + " " + bot.arrayTicket[4] + " " + bot.arrayTicket[5] + " " + bot.arrayTicket[6] + " " + bot.arrayTicket[7] + " " + bot.arrayTicket[8] + " " + bot.arrayTicket[9]);
+    }
+
+    void Razdacha(BOT bot)
+    {
+        int sum = MINIMAL + bot.countCell;
+        for (int i = MINIMAL; i < MINIMAL + bot.countCell; i++)
+        {
+            bot.arrayTicket[i] = arrTicket[i];
+        }
+        MINIMAL += bot.countCell;
+        print(MINIMAL);
     }
 
 
@@ -85,7 +109,7 @@ public class LotteryManager : MonoBehaviour
             // после повторяем операцию
             yield return new WaitForSeconds(2f); // Задержка перед покупкой
 
-            if (!isBusyCell[bot.arrayTicket[i]-1])
+            if (!isBusyCell[bot.arrayTicket[i] - 1])
             {
                 g.ConfirmLotteryItem(bot.arrayTicket[i], bot.name, bot.color); // подтверждаем покупку
                 bot.leftCell--;
