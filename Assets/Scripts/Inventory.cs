@@ -49,6 +49,7 @@ public class Inventory : MonoBehaviour {
             }
             g.gold = sv.gold;
             g.silver = sv.silver;
+            g.casesNum = sv.casesNum;
         }
         catch (System.Exception e)
         {
@@ -288,6 +289,7 @@ public class Inventory : MonoBehaviour {
         sv.gold = g.gold;
         sv.silver = g.silver;
         sv.invSize = invSize;
+        sv.casesNum = g.casesNum;
         sv.items = new string[invSize];
         sv.achievments = new bool[g.ach.achievments.Length];
         for (int j = 0; j < invSize; j++)
@@ -311,6 +313,7 @@ public class Save
     public int invSize;
     public int silver; 
     public int gold;
+    public int casesNum;
     public bool[] achievments;
 }
 

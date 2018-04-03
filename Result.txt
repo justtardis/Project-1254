@@ -1,1 +1,1 @@
-{"items":[],"invSize":0,"silver":125,"gold":2,"achievments":[true,true,false,false,false,false,false,false,false,false,false,false]}
+{"items":["{\"Items\":[1,12]}","{\"Items\":[1,10]}","{\"Items\":[1,1]}","{\"Items\":[1,8]}","{\"Items\":[1,12]}","{\"Items\":[1,5]}","{\"Items\":[1,11]}","{\"Items\":[0,6]}","{\"Items\":[0,7]}","{\"Items\":[0,3]}"],"invSize":10,"silver":2620,"gold":2,"casesNum":6,"achievments":[true,true,false,false,false,false,false,false,false,false,false,false]}

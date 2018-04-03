@@ -10,7 +10,10 @@ public class Game : MonoBehaviour
     public int gold; // золото
     public Text silverText;
     public Text goldText;
+    public Text usersText;
+    public Text casesText;
     public Case[] cases; //кейсы
+    public DataLoader dl; // класс для получения и обновления данных
     public GameObject casePref; //префаб кейса
     public GameObject itemPref; //префаб товара
     public GameObject caseContainer; //контейнер кейсов
@@ -21,6 +24,7 @@ public class Game : MonoBehaviour
     public GameObject noMoney;
     public ScrollScript scr;
     public Achievment ach;
+    public int userId = 2;
 
     [Header("----------------------------------------------------------")]
     public Color whiteEnabled;
@@ -171,6 +175,7 @@ public class Game : MonoBehaviour
                     break;
             }
             casesNum++;
+            dl.updateData(userId, casesNum);
             if (casesNum == 100) ach.achievments[1].get = true;
             else if (casesNum == 1000) ach.achievments[2].get = true;
             else if (casesNum == 5000) ach.achievments[3].get = true;
