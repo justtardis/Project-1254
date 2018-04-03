@@ -82,10 +82,17 @@ public class Game : MonoBehaviour
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
     public LotteryItem[] it;
+    public GameObject Inform_item;
+    public Text _InfText;
+    public Text countHeader;
+    public Image fillAm;
+    int allTickets = 0;
+    int tickets = 0;
     [Space(5f)]
     [Header("Все панели и окна")]
     public GameObject[] Panels;
     public GameObject PanelAct;
+    
     // 0 - Main
     // 1 - Inventory
     // 2 - Shop
@@ -107,6 +114,11 @@ public class Game : MonoBehaviour
     {
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
+        allTickets = Lm.countBusy;
+
+        fillAm.fillAmount = (float)(tickets / allTickets);
+        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+
         for (int i = 0; i < cases.Length; i++)
         {
             GameObject A = Instantiate(casePref, casePref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
@@ -389,6 +401,9 @@ public class Game : MonoBehaviour
         it[id - 1].NameOfBusy = name;
         Lm.isBusyCell[id - 1] = true;
         Lm.countBusy -= 1;
+        tickets += 1;
+        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+        fillAm.fillAmount = (float)tickets / allTickets; 
         Lm.FlagRefresh(); // нужно для обновления ячеекы
     }
 
@@ -396,7 +411,9 @@ public class Game : MonoBehaviour
     {
         if (item.isBusy && item.NameOfBusy != nickname)
         {
-            print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
+            Inform_item.SetActive(true);
+            _InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
+           // print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
         }
         else if (!item.isBusy)
         {

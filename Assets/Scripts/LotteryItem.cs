@@ -14,4 +14,5 @@ public class LotteryItem : MonoBehaviour
     {
        number.text = id.ToString();
     }
+
 }

@@ -66,7 +66,8 @@ public class LotteryManager : MonoBehaviour
         if (!isFinished)
         {
             isFinished = (DateTime.Now - start).Minutes > lotteryTime;
-            timeText.text = "Оставшееся время: 00:" + (lotteryTime - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+            //timeText.text = "Оставшееся время: 00:" + (lotteryTime - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+            timeText.text = "00:" + (lotteryTime - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
 
         }
     }
