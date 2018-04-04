@@ -9,7 +9,7 @@ public class LotteryManager : MonoBehaviour
 
     public Game g;
     public int[] arrTicket = new int[42];
-    int MINIMAL = 0;
+    //int MINIMAL = 0;
 
     public int ticketNum = 42;
     public Text timeText;
@@ -20,7 +20,7 @@ public class LotteryManager : MonoBehaviour
     public int[] cell = new int[42]; // всего ячеек свободных
     public bool[] isBusyCell = new bool[42]; // всего занятых ячеек
     public int countBusy = 42;
-    public bool ALLCELLSBUSY = false;
+    //public bool ALLCELLSBUSY = false;
     public bool isFinished = false;
     [SerializeField]
     private string[] BOT_NAMES = new string[8] { "xxxBOTxxx", "SergeyBot", "AlexBot", "SemenBot", "HenryBot", "ZombyBot", "PencilBot", "KillBot" };
@@ -64,12 +64,20 @@ public class LotteryManager : MonoBehaviour
     void Update()
     {
         if (!isFinished)
-        {
-            isFinished = (DateTime.Now - start).Minutes > lotteryTime;
-            //timeText.text = "Оставшееся время: 00:" + (lotteryTime - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
-            timeText.text = "00:" + (lotteryTime - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
-
+        { 
+            isFinished = (DateTime.Now - start).TotalMinutes > (lotteryTime);
+            if (!isFinished)
+            {
+                timeText.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+            }
+            else showWinner();
         }
+    }
+    
+    public void showWinner()
+    {
+        int winner = UnityEngine.Random.Range(1, ticketNum);
+        Debug.Log("Победил билет № " + winner + " с пользователем " + g.it[winner - 1].NameOfBusy);
     }
 
     public void FlagRefresh()
@@ -110,7 +118,7 @@ public class LotteryManager : MonoBehaviour
         }
     }
 
-    void Razdacha(BOT bot)
+    /*void Razdacha(BOT bot)
     {
         int sum = MINIMAL + bot.countCell;
         for (int i = MINIMAL; i < MINIMAL + bot.countCell; i++)
@@ -119,7 +127,7 @@ public class LotteryManager : MonoBehaviour
         }
         MINIMAL += bot.countCell;
         print(MINIMAL);
-    }
+    }*/
 
 
     // Каждому боту известно число занимаемых ячеек
@@ -127,30 +135,33 @@ public class LotteryManager : MonoBehaviour
     IEnumerator BotActive(BOT bot)
     {
         // Цикл ограничен числом билетов у бота
-        for (int i = 0; i < bot.countCell; i++)
+        while (!isFinished)
         {
-            // если билет уже куплен, двигаемся к ближайшему незанятому
-            // после повторяем операцию
-            yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
-
-            bool isBought = false;
-            int cellId = UnityEngine.Random.Range(0, ticketNum);
-
-            while (!isBought && cellId < ticketNum)
+            for (int i = 0; i < bot.countCell; i++)
             {
-                if (!g.it[cellId].isBusy)
-                {
-                    g.ConfirmLotteryItem(cellId+1, bot.name, bot.color); // подтверждаем покупку
-                    bot.leftCell--;
-                    isBought = true;
-                }
-                else
-                {
-                    cellId = UnityEngine.Random.Range(0, ticketNum);
-                }
-            }
-            
+                // если билет уже куплен, двигаемся к ближайшему незанятому
+                // после повторяем операцию
+                yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
 
+                bool isBought = false;
+                int cellId = UnityEngine.Random.Range(0, ticketNum);
+                bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
+                while (!isBought && !isFinished && countBusy !=0)
+                {
+                    if (!g.it[cellId].isBusy)
+                    {
+                        g.ConfirmLotteryItem(cellId + 1, bot.name, bot.color); // подтверждаем покупку
+                        bot.leftCell--;
+                        isBought = true;
+                    }
+                    else
+                    {
+                        cellId = UnityEngine.Random.Range(0, ticketNum);
+                    }
+                }
+
+
+            }
         }
     }
 }

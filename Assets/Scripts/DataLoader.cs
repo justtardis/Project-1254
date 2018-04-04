@@ -28,7 +28,7 @@ public class DataLoader : MonoBehaviour {
     {
         while (true)
         {
-            siteName = "http://casesim/getUserNum.php";
+            siteName = "http://localhost/casesim/getUserNum.php";
             WWW userData = new WWW(siteName);
             yield return userData;
             res = userData.text.Split('|');
@@ -42,7 +42,7 @@ public class DataLoader : MonoBehaviour {
         WWWForm form = new WWWForm();
         form.AddField("id", id.ToString());
         form.AddField("cases", cases.ToString());
-        siteName = "http://casesim/updateData.php";
+        siteName = "http://localhost/casesim/updateData.php";
         WWW www = new WWW(siteName, form);
         //res = www.text;
     }
