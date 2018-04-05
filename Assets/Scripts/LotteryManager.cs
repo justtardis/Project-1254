@@ -14,6 +14,11 @@ public class LotteryManager : MonoBehaviour
     public int ticketNum = 42;
     public Text timeText;
 
+    public GameObject winPanel;
+
+    public int price;
+    public int reward;
+
     public DateTime start;
     public int lotteryTime = 10; //время в минутах длительности лотереи 
     public BOT[] bot = new BOT[8]; // Максимум ботов за столом
@@ -77,6 +82,12 @@ public class LotteryManager : MonoBehaviour
     public void showWinner()
     {
         int winner = UnityEngine.Random.Range(1, ticketNum);
+        if (g.it[winner - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
+        {
+            winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
+            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = g.it[winner - 1].NameOfBusy;
+            winPanel.SetActive(true);
+        }
         Debug.Log("Победил билет № " + winner + " с пользователем " + g.it[winner - 1].NameOfBusy);
     }
 

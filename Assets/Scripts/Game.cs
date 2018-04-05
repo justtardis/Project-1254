@@ -92,7 +92,8 @@ public class Game : MonoBehaviour
     [Header("Все панели и окна")]
     public GameObject[] Panels;
     public GameObject PanelAct;
-    
+    public int curPanelId; 
+
     // 0 - Main
     // 1 - Inventory
     // 2 - Shop
@@ -100,6 +101,8 @@ public class Game : MonoBehaviour
     // 4 - Achievement
     // 5 - Settings
     // 6 - HeaderCounter
+    // 7 - Lottery
+    // 8 - Preview
     #endregion
 
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
@@ -341,7 +344,27 @@ public class Game : MonoBehaviour
     {
         if (!panelActive.activeSelf)
         {
-            if (panelActive == Panels[0])
+            for (int i = 0; i < Panels.Length; i++)
+            {
+                if (Panels[i]== panelActive)
+                {
+                    PanelAct = panelActive;
+                    curPanelId = i;
+                }
+                else
+                {
+                    Panels[i].SetActive(false);
+                }
+            }
+            
+            for (int i = 0; i < 7; i++)
+            {
+                Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
+                Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
+            }
+            Menu_panel.transform.GetChild(2).GetChild(curPanelId).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
+            Menu_panel.transform.GetChild(2).GetChild(curPanelId).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
+            /*if (panelActive == Panels[0])
             {
                 PanelAct = Panels[0];
                 for (int i = 1; i < Panels.Length; i++)
@@ -371,7 +394,7 @@ public class Game : MonoBehaviour
                 }
                 Panels[4].SetActive(true); // Шапка, временно 4
                 ClickSettings();
-            }
+            }*/
             preLoaderActive = true;
             preLoader.SetActive(true);
         }
@@ -563,7 +586,7 @@ public class Game : MonoBehaviour
                 progress = 0;
                 if (PanelAct == Panels[0]) // Если панель главная, то покажем еще и шапку
                 {
-                    Panels[4].SetActive(true);
+                    Panels[8].SetActive(true);
                 }
                 //else if (PanelAct == Panels[1]) // Если панель инвентаря, то шапку отключим
                 //{
