@@ -40,13 +40,14 @@ public class LotteryManager : MonoBehaviour
         botCount = 8;
         lotteryTime = 2;
         int countCell = (ticketNum - 3) / botCount + 1;
+        botCount = UnityEngine.Random.Range(3, 9);
         for (int i = 0; i < botCount; i++)
         {
             bot[i].name = BOT_NAMES[UnityEngine.Random.Range(0, BOT_NAMES.Length)];
             bot[i].countCell = UnityEngine.Random.Range(1, countCell + 1);
             bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
-            bot[i].color = new Vector4(UnityEngine.Random.Range(0f, 0.5f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), 1f);
+            bot[i].color = color[i];
 
             StartCoroutine(BotActive(bot[i]));
 

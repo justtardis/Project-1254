@@ -35,7 +35,7 @@ public class Achievment : MonoBehaviour {
 
     public void LoadWindow()
     {
-        GameObject panel = g.Panels[5];
+        GameObject panel = g.Panels[4];
         GameObject group = panel.transform.GetChild(1).GetChild(0).gameObject;
         for (int i = 0; i < 12; i++)
         {

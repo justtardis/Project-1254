@@ -584,18 +584,10 @@ public class Game : MonoBehaviour
                 preLoaderActive = false;
                 preLoader.SetActive(false);
                 progress = 0;
-                if (PanelAct == Panels[0]) // Если панель главная, то покажем еще и шапку
+                if (PanelAct != Panels[1]) // Если панель главная, то покажем еще и шапку
                 {
                     Panels[8].SetActive(true);
                 }
-                //else if (PanelAct == Panels[1]) // Если панель инвентаря, то шапку отключим
-                //{
-                //    Panels[2].SetActive(false);
-                //}
-                //else if (PanelAct == Panels[2]) // Если панель настроек, то покажем еще и шапку
-                //{
-                //    Panels[2].SetActive(true);
-                //}
                 PanelAct.SetActive(true);
             }
             else
