@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LotteryManager : MonoBehaviour
 {
-
+    public Color[] color;
     public Game g;
     public int[] arrTicket = new int[42];
     //int MINIMAL = 0;
@@ -30,6 +30,8 @@ public class LotteryManager : MonoBehaviour
     [SerializeField]
     private string[] BOT_NAMES = new string[8] { "xxxBOTxxx", "SergeyBot", "AlexBot", "SemenBot", "HenryBot", "ZombyBot", "PencilBot", "KillBot" };
     public int botCount = 8; // число ботов-участников
+
+
     void Start()
     {
         UnicRand();
