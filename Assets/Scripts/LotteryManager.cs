@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class LotteryManager : MonoBehaviour
 {
     public Color[] color;
+    public Sprite[] botIcon;
+    public int[] arrIcon = new int[8];
     public Game g;
     public int[] arrTicket = new int[42];
     //int MINIMAL = 0;
@@ -41,38 +43,23 @@ public class LotteryManager : MonoBehaviour
         lotteryTime = 2;
         int countCell = (ticketNum - 3) / botCount + 1;
         botCount = UnityEngine.Random.Range(3, 9);
+        botCount = 8;
         for (int i = 0; i < botCount; i++)
         {
             bot[i].name = BOT_NAMES[UnityEngine.Random.Range(0, BOT_NAMES.Length)];
             bot[i].countCell = UnityEngine.Random.Range(1, countCell + 1);
-            bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
+            //bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
+            bot[i].icon = botIcon[arrIcon[i]];
             bot[i].color = color[i];
-
             StartCoroutine(BotActive(bot[i]));
-
-        }
-
-        //FlagRefresh();
-        //botCount =  Random.Range(3, bot.Length); // Определим число ботов-участников
-        //for (int i = 0; i < botCount; i++)
-        //{
-        //    bot[i].name = BOT_NAMES[Random.Range(0, BOT_NAMES.Length)]; // Зададим рандомное имя боту.
-        //    bot[i].countCell =  Random.Range(1, 20);
-        //    bot[i].color = new Vector4(Random.Range(0f, 0.5f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
-        //    bot[i].leftCell = bot[i].countCell;
-        //    bot[i].arrayTicket = new int[bot[i].countCell];
-        //    UnicRand(bot[i]); // cгенерируем список билетов, которые бот купит
-
-        //    StartCoroutine(BotActive(bot[i]));
-        //}
-
+        }        
     }
 
     void Update()
     {
         if (!isFinished)
-        { 
+        {
             isFinished = (DateTime.Now - start).TotalMinutes > (lotteryTime);
             if (!isFinished)
             {
@@ -81,7 +68,7 @@ public class LotteryManager : MonoBehaviour
             else showWinner();
         }
     }
-    
+
     public void showWinner()
     {
         int winner = UnityEngine.Random.Range(1, ticketNum);
@@ -112,13 +99,13 @@ public class LotteryManager : MonoBehaviour
     void UnicRand() // Для генерации рандомных позиций целей
     {
         bool alreadyThere;
-        for (int i = 0; i < 39;)
+        for (int i = 0; i < 8;)
         {
             alreadyThere = false;
-            int newRandomValue = UnityEngine.Random.Range(1, 43);
+            int newRandomValue = UnityEngine.Random.Range(0, 14);
             for (int j = 0; j < i; j++)
             {
-                if (arrTicket[j] == newRandomValue)
+                if (arrIcon[j] == newRandomValue)
                 {
                     alreadyThere = true;
                     break;
@@ -126,7 +113,7 @@ public class LotteryManager : MonoBehaviour
             }
             if (!alreadyThere)
             {
-                arrTicket[i] = newRandomValue;
+                arrIcon[i] = newRandomValue;
                 i++;
             }
         }
@@ -160,11 +147,11 @@ public class LotteryManager : MonoBehaviour
                 bool isBought = false;
                 int cellId = UnityEngine.Random.Range(0, ticketNum);
                 bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
-                while (!isBought && !isFinished && countBusy !=0)
+                while (!isBought && !isFinished && countBusy != 0)
                 {
                     if (!g.it[cellId].isBusy)
                     {
-                        g.ConfirmLotteryItem(cellId + 1, bot.name, bot.color); // подтверждаем покупку
+                        g.ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
                         bot.leftCell--;
                         isBought = true;
                     }
@@ -173,8 +160,6 @@ public class LotteryManager : MonoBehaviour
                         cellId = UnityEngine.Random.Range(0, ticketNum);
                     }
                 }
-
-
             }
         }
     }
@@ -188,6 +173,7 @@ public class BOT
     public int leftCell;
     public int[] arrayTicket;
     public Color color;
-    public int startTime;
+    public Sprite icon;
+    //public int startTime;
     public int waitTime;
 }

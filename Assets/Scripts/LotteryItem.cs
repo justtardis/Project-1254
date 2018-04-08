@@ -8,6 +8,7 @@ public class LotteryItem : MonoBehaviour
     public int id;
     public bool isBusy = false;
     public string NameOfBusy = string.Empty;
+    public Image icon;
     public Text number;
 
     private void Start()

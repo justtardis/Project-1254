@@ -363,38 +363,7 @@ public class Game : MonoBehaviour
                 Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
             }
             Menu_panel.transform.GetChild(2).GetChild(curPanelId).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
-            Menu_panel.transform.GetChild(2).GetChild(curPanelId).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
-            /*if (panelActive == Panels[0])
-            {
-                PanelAct = Panels[0];
-                for (int i = 1; i < Panels.Length; i++)
-                {
-                    Panels[i].SetActive(false);
-                }
-                Panels[4].SetActive(true); // шапка
-                ClickMain();
-            }
-            // инвентарь
-            else if (panelActive == Panels[1])
-            {
-                PanelAct = Panels[1]; // инвентарь
-                Panels[0].SetActive(false); // Главная
-                Panels[2].SetActive(false); // Превью
-                Panels[3].SetActive(false); // настройки
-                Panels[4].SetActive(false); // Шапка, временно 4
-                ClickInventory();
-            }
-            // Настройки (временно id = 2)
-            else if (panelActive == Panels[3])
-            {
-                PanelAct = Panels[3];
-                for (int i = 0; i < Panels.Length - 2; i++)
-                {
-                    Panels[i].SetActive(false);
-                }
-                Panels[4].SetActive(true); // Шапка, временно 4
-                ClickSettings();
-            }*/
+            Menu_panel.transform.GetChild(2).GetChild(curPanelId).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной            
             preLoaderActive = true;
             preLoader.SetActive(true);
         }
@@ -417,9 +386,12 @@ public class Game : MonoBehaviour
         }
     }
 
-    public void ConfirmLotteryItem(int id, string name, Color color)
+    public void ConfirmLotteryItem(int id, string name, Color color, Sprite spr)
     {
         it[id - 1].GetComponent<Image>().color = color;
+        it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
+        it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
+        it[id - 1].transform.GetChild(1).GetComponent<Image>().sprite = spr;
         it[id - 1].isBusy = true;
         it[id - 1].NameOfBusy = name;
         Lm.isBusyCell[id - 1] = true;
@@ -443,115 +415,8 @@ public class Game : MonoBehaviour
             LotteryConfirm.SetActive(true);
             LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
             LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
-            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1]); }); // подтверждаем выбор
+            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1], Lm.botIcon[1]); }); // подтверждаем выбор
         }
-    }
-
-    // Кнопки в меню
-    // Это главная кнопка
-    public void ClickMain()
-    {
-        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка главной 
-        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок главной 
-        for (int i = 1; i < 7; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-    }
-
-    // Это кнопка инвентаря
-    public void ClickInventory()
-    {
-        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку главной меняем на светло-белый 
-        Menu_panel.transform.GetChild(2).GetChild(0).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок главной меняем на светло-белый 
-
-        Menu_panel.transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка инвентаря 
-        Menu_panel.transform.GetChild(2).GetChild(1).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок инвентаря 
-        for (int i = 2; i < 7; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-    }
-
-    // Это кнопка магазина
-    public void ClickShop()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-        Menu_panel.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка магазина 
-        Menu_panel.transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок магазина 
-        for (int i = 3; i < 7; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-    }
-
-    // Это кнопка казино
-    public void ClickCasino()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-        Menu_panel.transform.GetChild(2).GetChild(3).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка казино 
-        Menu_panel.transform.GetChild(2).GetChild(3).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок казино 
-        for (int i = 4; i < 7; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-    }
-
-    // Это кнопка магазина
-    public void ClickAchievement()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-        Menu_panel.transform.GetChild(2).GetChild(4).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка Наград 
-        Menu_panel.transform.GetChild(2).GetChild(4).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок наград 
-
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
-    }
-
-    //Это кнопка Топ-10
-    public void ClickTop()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовки всех меняем на светло-белый
-        }
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка топа
-        Menu_panel.transform.GetChild(2).GetChild(5).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок топа
-
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконку настроек меняем на светло-белый 
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовок настроек меняем на светло-белый
-    }
-
-    // Это кнопка настроек
-    public void ClickSettings()
-    {
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(0).GetComponent<Image>().color = whiteEnabled; // Иконка настроек
-        Menu_panel.transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().color = whiteEnabled; // Заголовок настроек 
-        for (int i = 0; i < 6; i++)
-        {
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
-            Menu_panel.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Text>().color = whiteDisabled; // Заголовоки всех меняем на светло-белый
-        }
-
     }
     #endregion
 
