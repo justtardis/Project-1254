@@ -77,6 +77,10 @@ public class LotteryManager : MonoBehaviour
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
             winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = g.it[winner - 1].NameOfBusy;
             winPanel.SetActive(true);
+            if (g.it[winner - 1].NameOfBusy == g.nickname)
+            {
+                g.silver = g.silver + reward;
+            }
         }
         Debug.Log("Победил билет № " + winner + " с пользователем " + g.it[winner - 1].NameOfBusy);
     }

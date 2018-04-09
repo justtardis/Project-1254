@@ -386,20 +386,36 @@ public class Game : MonoBehaviour
         }
     }
 
-    public void ConfirmLotteryItem(int id, string name, Color color, Sprite spr)
+    public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)
     {
-        it[id - 1].GetComponent<Image>().color = color;
-        it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
-        it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
-        it[id - 1].transform.GetChild(1).GetComponent<Image>().sprite = spr;
-        it[id - 1].isBusy = true;
-        it[id - 1].NameOfBusy = name;
-        Lm.isBusyCell[id - 1] = true;
-        Lm.countBusy -= 1;
-        tickets += 1;
-        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
-        fillAm.fillAmount = (float)tickets / allTickets; 
-        Lm.FlagRefresh(); // нужно для обновления ячеекы
+        if (!it[id - 1].isBusy)
+        {
+
+                it[id - 1].GetComponent<Image>().color = color1;
+                if (color1 != color[1])
+                {
+                    it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
+                    it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    it[id - 1].transform.GetChild(1).GetComponent<Image>().sprite = spr;
+                }
+                else
+                {
+                    silver = silver - Lm.price;
+                }
+                it[id - 1].isBusy = true;
+                it[id - 1].NameOfBusy = name;
+                Lm.isBusyCell[id - 1] = true;
+                Lm.countBusy -= 1;
+                tickets += 1;
+                countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+                fillAm.fillAmount = (float)tickets / allTickets;
+                Lm.FlagRefresh(); // нужно для обновления ячеекы
+        }
+        else
+        {
+            Inform_item.SetActive(true);
+            _InfText.text = string.Format("Билет {0} занят игроком {1}", it[id - 1].id, it[id - 1].NameOfBusy);
+        }
     }
 
     public void LotteryClickItem(LotteryItem item)
@@ -412,10 +428,17 @@ public class Game : MonoBehaviour
         }
         else if (!item.isBusy)
         {
-            LotteryConfirm.SetActive(true);
-            LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
-            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
-            LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1], Lm.botIcon[1]); }); // подтверждаем выбор
+            if (silver >= Lm.price)
+            {
+                LotteryConfirm.SetActive(true);
+                LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
+                LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
+                LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1], Lm.botIcon[1]); }); // подтверждаем выбор
+            }
+            else
+            {
+                noMoney.SetActive(true);
+            }
         }
     }
     #endregion
