@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 01032e6b17fc642498f754911b760249
+timeCreated: 1523502218
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: TT Lakes Compressed
+  fontNames:
+  - TT Lakes Compressed
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
