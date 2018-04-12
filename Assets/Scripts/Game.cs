@@ -81,13 +81,14 @@ public class Game : MonoBehaviour
     public string nickname = "Jack";
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
-    public LotteryItem[] it;
+    /*public LotteryItem[] it;
     public GameObject Inform_item;
     public Text _InfText;
     public Text countHeader;
     public Image fillAm;
     int allTickets = 0;
-    int tickets = 0;
+    int tickets = 0;*/
+    public Sprite[] botIcon;
     [Space(5f)]
     [Header("Все панели и окна")]
     public GameObject[] Panels;
@@ -117,10 +118,7 @@ public class Game : MonoBehaviour
     {
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
-        allTickets = Lm.countBusy;
-
-        fillAm.fillAmount = (float)(tickets / allTickets);
-        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+        
 
         for (int i = 0; i < cases.Length; i++)
         {
@@ -386,7 +384,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)
+    /*public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)
     {
         if (!it[id - 1].isBusy)
         {
@@ -440,7 +438,7 @@ public class Game : MonoBehaviour
                 noMoney.SetActive(true);
             }
         }
-    }
+    }*/
     #endregion
 
 

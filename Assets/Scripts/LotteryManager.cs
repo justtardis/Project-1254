@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LotteryManager : MonoBehaviour
 {
     public Color[] color;
-    public Sprite[] botIcon;
+    
     public int[] arrIcon = new int[8];
     public Game g;
     public int[] arrTicket = new int[42];
@@ -33,10 +33,22 @@ public class LotteryManager : MonoBehaviour
     private string[] BOT_NAMES = new string[8] { "xxxBOTxxx", "SergeyBot", "AlexBot", "SemenBot", "HenryBot", "ZombyBot", "PencilBot", "KillBot" };
     public int botCount = 8; // число ботов-участников
 
+    public LotteryItem[] it;
+    public GameObject Inform_item;
+    public Text _InfText;
+    public Text countHeader;
+    public Image fillAm;
+    int allTickets = 0;
+    int tickets = 0;
+
 
     void Start()
     {
         UnicRand();
+        allTickets = countBusy;
+
+        fillAm.fillAmount = (float)(tickets / allTickets);
+        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
         isFinished = false;
         start = DateTime.Now;
         botCount = 8;
@@ -50,7 +62,7 @@ public class LotteryManager : MonoBehaviour
             bot[i].countCell = UnityEngine.Random.Range(1, countCell + 1);
             //bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
-            bot[i].icon = botIcon[arrIcon[i]];
+            bot[i].icon = g.botIcon[arrIcon[i]];
             bot[i].color = color[i];
             StartCoroutine(BotActive(bot[i]));
         }        
@@ -72,17 +84,17 @@ public class LotteryManager : MonoBehaviour
     public void showWinner()
     {
         int winner = UnityEngine.Random.Range(1, ticketNum);
-        if (g.it[winner - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
+        if (it[winner - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
-            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = g.it[winner - 1].NameOfBusy;
+            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner - 1].NameOfBusy;
             winPanel.SetActive(true);
-            if (g.it[winner - 1].NameOfBusy == g.nickname)
+            if (it[winner - 1].NameOfBusy == g.nickname)
             {
                 g.silver = g.silver + reward;
             }
         }
-        Debug.Log("Победил билет № " + winner + " с пользователем " + g.it[winner - 1].NameOfBusy);
+        Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner - 1].NameOfBusy);
     }
 
     public void FlagRefresh()
@@ -91,7 +103,7 @@ public class LotteryManager : MonoBehaviour
         {
             if (!isBusyCell[i])
             {
-                cell[i] = g.it[i].id;
+                cell[i] = it[i].id;
             }
             else
             {
@@ -153,9 +165,9 @@ public class LotteryManager : MonoBehaviour
                 bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
                 while (!isBought && !isFinished && countBusy != 0)
                 {
-                    if (!g.it[cellId].isBusy)
+                    if (!it[cellId].isBusy)
                     {
-                        g.ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
+                        ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
                         bot.leftCell--;
                         isBought = true;
                     }
@@ -164,6 +176,62 @@ public class LotteryManager : MonoBehaviour
                         cellId = UnityEngine.Random.Range(0, ticketNum);
                     }
                 }
+            }
+        }
+    }
+
+    public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)
+    {
+        if (!it[id - 1].isBusy)
+        {
+            color1.a = 1f;
+            it[id - 1].GetComponent<Image>().color = color1;
+            if (color1 != color[1])
+            {
+                it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
+                it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
+                it[id - 1].transform.GetChild(1).GetComponent<Image>().sprite = spr;
+            }
+            else
+            {
+                g.silver = g.silver - price;
+            }
+            it[id - 1].isBusy = true;
+            it[id - 1].NameOfBusy = name;
+            isBusyCell[id - 1] = true;
+            countBusy -= 1;
+            tickets += 1;
+            countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+            fillAm.fillAmount = (float)tickets / allTickets;
+            FlagRefresh(); // нужно для обновления ячеекы
+        }
+        else
+        {
+            Inform_item.SetActive(true);
+            _InfText.text = string.Format("Билет {0} занят игроком {1}", it[id - 1].id, it[id - 1].NameOfBusy);
+        }
+    }
+
+    public void LotteryClickItem(LotteryItem item)
+    {
+        if (item.isBusy && item.NameOfBusy != g.nickname)
+        {
+            Inform_item.SetActive(true);
+            _InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
+            // print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
+        }
+        else if (!item.isBusy)
+        {
+            if (g.silver >= price)
+            {
+                g.LotteryConfirm.SetActive(true);
+                g.LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
+                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
+                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, g.nickname, color[1], g.botIcon[1]); }); // подтверждаем выбор
+            }
+            else
+            {
+                g.noMoney.SetActive(true);
             }
         }
     }
