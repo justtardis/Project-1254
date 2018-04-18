@@ -78,6 +78,9 @@ public class Game : MonoBehaviour
     public bool[] move;
     [Space(5f)]
     [Header("Лотерея")]
+    public Sprite[] spr_lot1;
+    public Sprite[] text_lot1_en;
+    public Sprite[] text_lot1_ru;
     public string nickname = "Jack";
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
