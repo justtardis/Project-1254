@@ -2852,6 +2852,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 36874900}
+  - component: {fileID: 36874901}
   m_Layer: 5
   m_Name: LotereaAny_Item
   m_TagString: Untagged
@@ -2884,6 +2885,145 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &36874901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36874899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 1313606215}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 42
+  timeText: {fileID: 843993496}
+  winPanel: {fileID: 824417892}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 42
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 101727836}
+  - {fileID: 2027799473}
+  - {fileID: 721598215}
+  - {fileID: 462469920}
+  - {fileID: 1455770166}
+  - {fileID: 1520595511}
+  - {fileID: 822349076}
+  - {fileID: 2039808818}
+  - {fileID: 472159944}
+  - {fileID: 2075292229}
+  - {fileID: 1376075108}
+  - {fileID: 1812763818}
+  - {fileID: 1216434350}
+  - {fileID: 1635329967}
+  - {fileID: 29320399}
+  - {fileID: 1977702085}
+  - {fileID: 1409555080}
+  - {fileID: 563590782}
+  - {fileID: 369585985}
+  - {fileID: 1266302281}
+  - {fileID: 244798328}
+  - {fileID: 536839837}
+  - {fileID: 1516052215}
+  - {fileID: 1053564578}
+  - {fileID: 1140517004}
+  - {fileID: 64478582}
+  - {fileID: 478826352}
+  - {fileID: 1916654340}
+  - {fileID: 1189513741}
+  - {fileID: 1447063976}
+  - {fileID: 857418326}
+  - {fileID: 1697956937}
+  - {fileID: 2072757624}
+  - {fileID: 822712403}
+  - {fileID: 209816638}
+  - {fileID: 629903831}
+  - {fileID: 2133329893}
+  - {fileID: 1202883524}
+  - {fileID: 501672276}
+  - {fileID: 850915673}
+  - {fileID: 356839070}
+  - {fileID: 2142896120}
+  Inform_item: {fileID: 646586091}
+  _InfText: {fileID: 2027724757}
+  countHeader: {fileID: 1263515005}
+  fillAm: {fileID: 1027905473}
 --- !u!1 &38464377
 GameObject:
   m_ObjectHideFlags: 0
@@ -16672,6 +16812,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 262523110}
+  - component: {fileID: 262523111}
   m_Layer: 5
   m_Name: LotereaSerebro_12-20k
   m_TagString: Untagged
@@ -16704,6 +16845,133 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0014338493}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &262523111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 262523109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 1313606215}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 30
+  timeText: {fileID: 674474918}
+  winPanel: {fileID: 824417892}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 42
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 1544140220}
+  - {fileID: 36126405}
+  - {fileID: 555693954}
+  - {fileID: 621590053}
+  - {fileID: 1035406721}
+  - {fileID: 381805473}
+  - {fileID: 1670325131}
+  - {fileID: 20054640}
+  - {fileID: 286653797}
+  - {fileID: 1217073435}
+  - {fileID: 841387734}
+  - {fileID: 213120419}
+  - {fileID: 494290184}
+  - {fileID: 1424694580}
+  - {fileID: 1698638979}
+  - {fileID: 1045737072}
+  - {fileID: 301808051}
+  - {fileID: 688730624}
+  - {fileID: 685765671}
+  - {fileID: 245593897}
+  - {fileID: 828749554}
+  - {fileID: 846861517}
+  - {fileID: 1037501328}
+  - {fileID: 1423986203}
+  - {fileID: 247865808}
+  - {fileID: 1646535896}
+  - {fileID: 701300932}
+  - {fileID: 1482011055}
+  - {fileID: 110482520}
+  - {fileID: 1672739707}
+  Inform_item: {fileID: 1479759077}
+  _InfText: {fileID: 1749852538}
+  countHeader: {fileID: 825519936}
+  fillAm: {fileID: 1944228227}
 --- !u!1 &262703558
 GameObject:
   m_ObjectHideFlags: 0
@@ -55694,6 +55962,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 839699624}
+  - component: {fileID: 839699625}
   m_Layer: 5
   m_Name: LotereaGold_250
   m_TagString: Untagged
@@ -55726,6 +55995,138 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &839699625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839699623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 1313606215}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 35
+  timeText: {fileID: 1641013532}
+  winPanel: {fileID: 824417892}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 35
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 168260511}
+  - {fileID: 34346492}
+  - {fileID: 1219434324}
+  - {fileID: 1295974508}
+  - {fileID: 1501423751}
+  - {fileID: 1610785691}
+  - {fileID: 1997097582}
+  - {fileID: 1817617477}
+  - {fileID: 1198594606}
+  - {fileID: 1376464704}
+  - {fileID: 517284846}
+  - {fileID: 312888427}
+  - {fileID: 1963608518}
+  - {fileID: 368643766}
+  - {fileID: 1842909043}
+  - {fileID: 1718335634}
+  - {fileID: 842432130}
+  - {fileID: 250790479}
+  - {fileID: 1957869113}
+  - {fileID: 1524502309}
+  - {fileID: 1320040247}
+  - {fileID: 1562018151}
+  - {fileID: 2147184212}
+  - {fileID: 279755923}
+  - {fileID: 778699973}
+  - {fileID: 1297810057}
+  - {fileID: 2078012574}
+  - {fileID: 1494028210}
+  - {fileID: 1808455413}
+  - {fileID: 887329363}
+  - {fileID: 2143699984}
+  - {fileID: 1346122400}
+  - {fileID: 755705548}
+  - {fileID: 1435955096}
+  - {fileID: 594860128}
+  Inform_item: {fileID: 1983822716}
+  _InfText: {fileID: 41591988}
+  countHeader: {fileID: 1283277809}
+  fillAm: {fileID: 1327232073}
 --- !u!1 &841387731
 GameObject:
   m_ObjectHideFlags: 0
@@ -69284,6 +69685,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1093823692}
+  - component: {fileID: 1093823693}
   m_Layer: 5
   m_Name: LotereaGold_50
   m_TagString: Untagged
@@ -69316,6 +69718,133 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1093823693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093823691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 1313606215}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 30
+  timeText: {fileID: 405066869}
+  winPanel: {fileID: 824417892}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 30
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 754061247}
+  - {fileID: 1663829116}
+  - {fileID: 1278449660}
+  - {fileID: 1016454972}
+  - {fileID: 1720417883}
+  - {fileID: 365350154}
+  - {fileID: 1224922519}
+  - {fileID: 936686019}
+  - {fileID: 1179136058}
+  - {fileID: 139231831}
+  - {fileID: 243267386}
+  - {fileID: 2143783041}
+  - {fileID: 831932742}
+  - {fileID: 1737454396}
+  - {fileID: 1809858276}
+  - {fileID: 1002436543}
+  - {fileID: 1369327387}
+  - {fileID: 802880475}
+  - {fileID: 370090774}
+  - {fileID: 473352154}
+  - {fileID: 482310961}
+  - {fileID: 72354047}
+  - {fileID: 744489500}
+  - {fileID: 924700064}
+  - {fileID: 1484240044}
+  - {fileID: 1342003393}
+  - {fileID: 17267294}
+  - {fileID: 199346440}
+  - {fileID: 1003988599}
+  - {fileID: 713940964}
+  Inform_item: {fileID: 1285116083}
+  _InfText: {fileID: 859079417}
+  countHeader: {fileID: 1747088269}
+  fillAm: {fileID: 1849211638}
 --- !u!1 &1094660198
 GameObject:
   m_ObjectHideFlags: 0
@@ -106590,6 +107119,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1687325780}
+  - component: {fileID: 1687325782}
+  - component: {fileID: 1687325781}
   m_Layer: 5
   m_Name: LotereaSerebro_25-50k
   m_TagString: Untagged
@@ -106622,6 +107153,284 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015254021}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1687325781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687325779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 0}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 42
+  timeText: {fileID: 969599763}
+  winPanel: {fileID: 0}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 42
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 387977588}
+  - {fileID: 1922568079}
+  - {fileID: 432294401}
+  - {fileID: 351158615}
+  - {fileID: 372235336}
+  - {fileID: 642621239}
+  - {fileID: 699682620}
+  - {fileID: 1877909220}
+  - {fileID: 2016165810}
+  - {fileID: 1935947248}
+  - {fileID: 179435709}
+  - {fileID: 1259879372}
+  - {fileID: 1605738967}
+  - {fileID: 1018765836}
+  - {fileID: 1670145448}
+  - {fileID: 1802980248}
+  - {fileID: 875623881}
+  - {fileID: 335976441}
+  - {fileID: 1689022989}
+  - {fileID: 41828781}
+  - {fileID: 2074245558}
+  - {fileID: 668538634}
+  - {fileID: 16459561}
+  - {fileID: 1854061457}
+  - {fileID: 917225232}
+  - {fileID: 1047113149}
+  - {fileID: 1467517428}
+  - {fileID: 1226740862}
+  - {fileID: 877397530}
+  - {fileID: 38464380}
+  - {fileID: 1648929248}
+  - {fileID: 1454272444}
+  - {fileID: 71731732}
+  - {fileID: 1659332128}
+  - {fileID: 1163494558}
+  - {fileID: 739060970}
+  - {fileID: 1481706391}
+  - {fileID: 637175870}
+  - {fileID: 501024336}
+  - {fileID: 726966939}
+  - {fileID: 1311490766}
+  - {fileID: 1922449134}
+  Inform_item: {fileID: 1800177287}
+  _InfText: {fileID: 885678657}
+  countHeader: {fileID: 1230143979}
+  fillAm: {fileID: 1176854268}
+--- !u!114 &1687325782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687325779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: []
+  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
+  g: {fileID: 1313606215}
+  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ticketNum: 42
+  timeText: {fileID: 969599763}
+  winPanel: {fileID: 824417892}
+  price: 0
+  reward: 0
+  lotteryTime: 10
+  bot:
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  - name: 
+    countCell: 0
+    leftCell: 0
+    arrayTicket: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
+    waitTime: 0
+  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countBusy: 42
+  isFinished: 0
+  BOT_NAMES:
+  - xxxBOTxxx
+  - SergeyBot
+  - AlexBot
+  - SemenBot
+  - HenryBot
+  - ZombyBot
+  - PencilBot
+  - KillBot
+  botCount: 8
+  it:
+  - {fileID: 387977588}
+  - {fileID: 1922568079}
+  - {fileID: 432294401}
+  - {fileID: 351158615}
+  - {fileID: 372235336}
+  - {fileID: 642621239}
+  - {fileID: 699682620}
+  - {fileID: 1877909220}
+  - {fileID: 2016165810}
+  - {fileID: 1935947248}
+  - {fileID: 179435709}
+  - {fileID: 1259879372}
+  - {fileID: 1605738967}
+  - {fileID: 1018765836}
+  - {fileID: 1670145448}
+  - {fileID: 1802980248}
+  - {fileID: 875623881}
+  - {fileID: 335976441}
+  - {fileID: 1689022989}
+  - {fileID: 41828781}
+  - {fileID: 2074245558}
+  - {fileID: 668538634}
+  - {fileID: 16459561}
+  - {fileID: 1854061457}
+  - {fileID: 917225232}
+  - {fileID: 1047113149}
+  - {fileID: 1467517428}
+  - {fileID: 1226740862}
+  - {fileID: 877397530}
+  - {fileID: 38464380}
+  - {fileID: 1648929248}
+  - {fileID: 1454272444}
+  - {fileID: 71731732}
+  - {fileID: 1659332128}
+  - {fileID: 1163494558}
+  - {fileID: 739060970}
+  - {fileID: 1481706391}
+  - {fileID: 637175870}
+  - {fileID: 501024336}
+  - {fileID: 726966939}
+  - {fileID: 1311490766}
+  - {fileID: 1922449134}
+  Inform_item: {fileID: 0}
+  _InfText: {fileID: 0}
+  countHeader: {fileID: 0}
+  fillAm: {fileID: 0}
 --- !u!1 &1689022986
 GameObject:
   m_ObjectHideFlags: 0
