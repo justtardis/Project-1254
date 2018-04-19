@@ -2905,6 +2905,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 
@@ -16865,6 +16866,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 
@@ -37748,6 +37750,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 100
   reward: 1500
+  waitTime: 0
   lotteryTime: 0
   bot:
   - name: 
@@ -56015,6 +56018,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 
@@ -69738,6 +69742,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 
@@ -79203,6 +79208,7 @@ MonoBehaviour:
   - {r: 0.19117647, g: 0.29716015, b: 1, a: 0}
   - {r: 0.8206897, g: 0, b: 1, a: 0}
   - {r: 1, g: 0.33823532, b: 0.7079109, a: 0}
+  - {r: 0.07450981, g: 0.08235294, b: 0.12941177, a: 1}
   arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
   g: {fileID: 1313606215}
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -79211,6 +79217,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 100
   reward: 10000
+  waitTime: 1
   lotteryTime: 2
   bot:
   - name: 
@@ -107173,6 +107180,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 
@@ -107312,6 +107320,7 @@ MonoBehaviour:
   winPanel: {fileID: 824417892}
   price: 0
   reward: 0
+  waitTime: 0
   lotteryTime: 10
   bot:
   - name: 

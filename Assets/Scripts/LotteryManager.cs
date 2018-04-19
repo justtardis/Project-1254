@@ -20,6 +20,7 @@ public class LotteryManager : MonoBehaviour
 
     public int price;
     public int reward;
+    public int waitTime; //время между лотереями
 
     public DateTime start;
     public int lotteryTime = 10; //время в минутах длительности лотереи 
@@ -38,24 +39,27 @@ public class LotteryManager : MonoBehaviour
     public Text _InfText;
     public Text countHeader;
     public Image fillAm;
-    int allTickets = 0;
+    //int allTickets = 0;
     int tickets = 0;
 
 
     void Start()
     {
-        UnicRand();
-        allTickets = countBusy;
+        startLottery();
+    }
 
-        fillAm.fillAmount = (float)(tickets / allTickets);
-        countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
+    public void startLottery()
+    {
+        UnicRand();
+        tickets = 0;
+        fillAm.fillAmount = (float)(tickets / ticketNum);
+        countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
         isFinished = false;
         start = DateTime.Now;
-        botCount = 8;
         lotteryTime = 2;
+        countBusy = ticketNum;
         int countCell = (ticketNum - 3) / botCount + 1;
         botCount = UnityEngine.Random.Range(3, 9);
-        botCount = 8;
         for (int i = 0; i < botCount; i++)
         {
             bot[i].name = BOT_NAMES[UnityEngine.Random.Range(0, BOT_NAMES.Length)];
@@ -65,7 +69,7 @@ public class LotteryManager : MonoBehaviour
             bot[i].icon = g.botIcon[arrIcon[i]];
             bot[i].color = color[i];
             StartCoroutine(BotActive(bot[i]));
-        }        
+        }
     }
 
     void Update()
@@ -78,6 +82,14 @@ public class LotteryManager : MonoBehaviour
                 timeText.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
             }
             else showWinner();
+        }
+        else
+        {
+            if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
+            {
+                StopCoroutine("BotActive");
+                startLottery();
+            }
         }
     }
 
@@ -94,6 +106,15 @@ public class LotteryManager : MonoBehaviour
                 g.silver = g.silver + reward;
             }
         }
+        for (int i = 0; i < ticketNum; i++)
+        {
+            it[i].isBusy = false;
+            it[i].transform.GetChild(0).gameObject.SetActive(true);
+            it[i].transform.GetChild(1).gameObject.SetActive(false);
+            it[i].GetComponent<Image>().color = color[8];
+        }
+        countHeader.text = 0 + " / " + ticketNum.ToString();
+        fillAm.fillAmount = 0;
         Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner - 1].NameOfBusy);
     }
 
@@ -201,8 +222,8 @@ public class LotteryManager : MonoBehaviour
             isBusyCell[id - 1] = true;
             countBusy -= 1;
             tickets += 1;
-            countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
-            fillAm.fillAmount = (float)tickets / allTickets;
+            countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
+            fillAm.fillAmount = (float)tickets / ticketNum;
             FlagRefresh(); // нужно для обновления ячеекы
         }
         else
