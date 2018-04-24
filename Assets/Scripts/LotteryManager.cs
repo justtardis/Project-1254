@@ -16,10 +16,15 @@ public class LotteryManager : MonoBehaviour
     public int ticketNum = 42;
     public Text timeText;
 
+    public int lotType; // тип лотереи: 1- серебро - серебро, 2 - серебро - золото, 3 - золото- золото, 4 - серебро - предмет
+
     public GameObject winPanel;
 
     public int price;
+    public int rewardMin;
+    public int rewardMax;
     public int reward;
+    public int[] rewardItem = new int[2];
     public int waitTime; //время между лотереями
 
     public DateTime start;
@@ -55,6 +60,20 @@ public class LotteryManager : MonoBehaviour
         fillAm.fillAmount = (float)(tickets / ticketNum);
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
         isFinished = false;
+        if (lotType != 4)
+        {
+            reward = UnityEngine.Random.Range(rewardMin, rewardMin);
+            reward = reward / 1000 * 1000;
+        }
+        else
+        {
+            int caseId = UnityEngine.Random.Range(0, g.cases.Length);
+            int i = 0;
+            while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4) i++;
+            int itemId = UnityEngine.Random.Range(i, g.cases[caseId].items.Length);
+            rewardItem[0] = caseId;
+            rewardItem[1] = itemId;
+        }
         start = DateTime.Now;
         lotteryTime = 2;
         countBusy = ticketNum;
@@ -103,6 +122,22 @@ public class LotteryManager : MonoBehaviour
             winPanel.SetActive(true);
             if (it[winner - 1].NameOfBusy == g.nickname)
             {
+                if (lotType == 1)
+                {
+                    g.silver = g.silver + reward;
+                }
+                else if (lotType != 4)
+                {
+                    g.gold = g.gold + reward;
+                }
+                else
+                {
+                    Inventory inv = g.gameObject.transform.GetComponent<Inventory>();
+                    inv.items[inv.invSize][1] = rewardItem[1];
+                    inv.items[inv.invSize][0] = rewardItem[0];
+                    inv.invSize++;
+                    inv.LoadInventory();
+                }
                 g.silver = g.silver + reward;
             }
         }
@@ -207,7 +242,7 @@ public class LotteryManager : MonoBehaviour
         {
             color1.a = 1f;
             it[id - 1].GetComponent<Image>().color = color1;
-            if (color1 != color[1])
+            if (color1 != g.color[1])
             {
                 it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
                 it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
@@ -215,7 +250,8 @@ public class LotteryManager : MonoBehaviour
             }
             else
             {
-                g.silver = g.silver - price;
+                if (lotType != 3) g.silver = g.silver - price;
+                else g.gold = g.gold - price;
             }
             it[id - 1].isBusy = true;
             it[id - 1].NameOfBusy = name;
@@ -243,12 +279,15 @@ public class LotteryManager : MonoBehaviour
         }
         else if (!item.isBusy)
         {
-            if (g.silver >= price)
+            int money;
+            if (lotType != 3) money = g.silver;
+            else money = g.gold;
+            if (money >= price)
             {
                 g.LotteryConfirm.SetActive(true);
                 g.LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
                 g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
-                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, g.nickname, color[1], g.botIcon[1]); }); // подтверждаем выбор
+                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, g.nickname, g.color[1], g.botIcon[1]); }); // подтверждаем выбор
             }
             else
             {

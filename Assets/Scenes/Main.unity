@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2902,9 +2902,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 42
   timeText: {fileID: 843993496}
+  lotType: 4
   winPanel: {fileID: 824417892}
   price: 0
+  rewardMin: 0
+  rewardMax: 0
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -3104,7 +3108,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -3339,7 +3343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -3499,7 +3503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -4618,7 +4622,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -4914,7 +4918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -5142,7 +5146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -6538,7 +6542,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -7044,7 +7048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -7204,7 +7208,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -8377,7 +8381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9006,7 +9010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9166,7 +9170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9858,7 +9862,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10222,7 +10226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10580,7 +10584,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10813,7 +10817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -11743,7 +11747,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -12676,7 +12680,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -12975,7 +12979,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -13466,7 +13470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -14650,7 +14654,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -14939,7 +14943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15099,7 +15103,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15259,7 +15263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15492,7 +15496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15991,7 +15995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -16406,7 +16410,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -16863,9 +16867,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 30
   timeText: {fileID: 674474918}
+  lotType: 1
   winPanel: {fileID: 824417892}
   price: 0
+  rewardMin: 12000
+  rewardMax: 20000
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -18420,7 +18428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -18996,7 +19004,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -19868,7 +19876,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -20462,7 +20470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -22287,7 +22295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -22589,7 +22597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -23224,7 +23232,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -23873,7 +23881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24174,7 +24182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24531,7 +24539,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24889,7 +24897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25049,7 +25057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25209,7 +25217,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25369,7 +25377,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -26207,7 +26215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -26367,7 +26375,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -27192,7 +27200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -29662,7 +29670,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -30784,7 +30792,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31017,7 +31025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31431,7 +31439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31591,7 +31599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -32101,7 +32109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -32551,7 +32559,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -33101,7 +33109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -33477,7 +33485,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -33711,7 +33719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -34480,7 +34488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -35267,7 +35275,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -35575,7 +35583,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -36627,7 +36635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -37138,7 +37146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -37747,9 +37755,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 42
   timeText: {fileID: 2026530163}
+  lotType: 0
   winPanel: {fileID: 824417892}
   price: 100
+  rewardMin: 0
+  rewardMax: 0
   reward: 1500
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 0
   bot:
@@ -38471,7 +38483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -40549,7 +40561,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -41032,7 +41044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -41476,7 +41488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -41841,7 +41853,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -42979,7 +42991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -43732,7 +43744,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -43966,7 +43978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -44268,7 +44280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -45077,7 +45089,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -45237,7 +45249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -46146,7 +46158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -47051,7 +47063,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -47476,7 +47488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -48311,7 +48323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -48736,7 +48748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -49972,7 +49984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -50385,7 +50397,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -52240,7 +52252,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -53544,7 +53556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -54124,7 +54136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -54378,7 +54390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -54901,7 +54913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -55139,7 +55151,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -55516,7 +55528,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56015,9 +56027,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 35
   timeText: {fileID: 1641013532}
+  lotType: 3
   winPanel: {fileID: 824417892}
   price: 0
+  rewardMin: 250
+  rewardMax: 251
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -56210,7 +56226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56438,7 +56454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56882,7 +56898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -57249,7 +57265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -57815,7 +57831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -58789,7 +58805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -59152,7 +59168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -59663,7 +59679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -60964,7 +60980,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -61541,7 +61557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -61701,7 +61717,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -62274,7 +62290,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -64991,7 +65007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -65151,7 +65167,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -65816,7 +65832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -66044,7 +66060,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -67097,7 +67113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -67257,7 +67273,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -67417,7 +67433,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -67904,7 +67920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68064,7 +68080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68224,7 +68240,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68600,7 +68616,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -69739,9 +69755,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 30
   timeText: {fileID: 405066869}
+  lotType: 2
   winPanel: {fileID: 824417892}
   price: 0
+  rewardMin: 50
+  rewardMax: 51
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -69997,7 +70017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -72150,7 +72170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -73156,7 +73176,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -74025,7 +74045,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -74858,7 +74878,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -75844,7 +75864,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -76152,7 +76172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -76522,7 +76542,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77140,7 +77160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77300,7 +77320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77518,7 +77538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77752,7 +77772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77912,7 +77932,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -79214,9 +79234,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 42
   timeText: {fileID: 2026530163}
+  lotType: 1
   winPanel: {fileID: 824417892}
   price: 100
+  rewardMin: 4000
+  rewardMax: 10000
   reward: 10000
+  rewardItem: 0000000000000000
   waitTime: 1
   lotteryTime: 2
   bot:
@@ -79690,7 +79714,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -80213,7 +80237,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -81035,7 +81059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -81456,7 +81480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -81964,7 +81988,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -82377,7 +82401,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -83266,7 +83290,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -83991,7 +84015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -84373,7 +84397,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -84601,7 +84625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -85331,7 +85355,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -85643,7 +85667,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -85939,7 +85963,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -86099,7 +86123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87103,7 +87127,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87602,7 +87626,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87762,7 +87786,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -88353,7 +88377,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -89831,7 +89855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -90805,7 +90829,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -90965,7 +90989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -91415,7 +91439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92077,7 +92101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92562,7 +92586,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92795,7 +92819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -93310,7 +93334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -93470,7 +93494,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -93754,7 +93778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -94597,7 +94621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -94757,7 +94781,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -95059,7 +95083,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -95652,7 +95676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -96004,7 +96028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -96881,7 +96905,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -97109,7 +97133,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -97269,7 +97293,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -97639,7 +97663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -98128,7 +98152,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -98871,7 +98895,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -99031,7 +99055,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -99906,7 +99930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -101020,7 +101044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -101340,7 +101364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -102655,7 +102679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -103135,7 +103159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -103991,7 +104015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -104256,7 +104280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -104959,7 +104983,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105271,7 +105295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105499,7 +105523,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105732,7 +105756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105892,7 +105916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -106126,7 +106150,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -106286,7 +106310,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -107177,9 +107201,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 42
   timeText: {fileID: 969599763}
+  lotType: 0
   winPanel: {fileID: 0}
   price: 0
+  rewardMin: 0
+  rewardMax: 0
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -107317,9 +107345,13 @@ MonoBehaviour:
   arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   ticketNum: 42
   timeText: {fileID: 969599763}
+  lotType: 1
   winPanel: {fileID: 824417892}
   price: 0
+  rewardMin: 25000
+  rewardMax: 50000
   reward: 0
+  rewardItem: 0000000000000000
   waitTime: 0
   lotteryTime: 10
   bot:
@@ -107519,7 +107551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -108481,7 +108513,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -108715,7 +108747,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 262523111}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -109475,7 +109507,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -110042,7 +110074,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -110202,7 +110234,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -111002,7 +111034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -111541,7 +111573,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -114774,7 +114806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -115002,7 +115034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -115162,7 +115194,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -115396,7 +115428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -115901,7 +115933,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -117094,7 +117126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -118021,7 +118053,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -119466,7 +119498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -121437,7 +121469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -122064,7 +122096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -122224,7 +122256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -123007,7 +123039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -124245,7 +124277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -124547,7 +124579,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -125407,7 +125439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -126544,7 +126576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -127760,7 +127792,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -128690,7 +128722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -129450,7 +129482,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -129610,7 +129642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131030,7 +131062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131319,7 +131351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131608,7 +131640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1687325782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131836,7 +131868,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -132064,7 +132096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -133283,7 +133315,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -134582,7 +134614,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1245789134}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -134957,7 +134989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -135609,7 +135641,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 36874901}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -135966,7 +135998,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -136126,7 +136158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 1093823693}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -136571,7 +136603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313606215}
+      - m_Target: {fileID: 839699625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
