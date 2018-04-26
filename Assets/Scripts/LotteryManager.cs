@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class LotteryManager : MonoBehaviour
 {
-    public Color[] color;
-    
     public int[] arrIcon = new int[8];
     public Game g;
     public int[] arrTicket = new int[42];
@@ -86,7 +84,7 @@ public class LotteryManager : MonoBehaviour
             //bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].icon = g.botIcon[arrIcon[i]];
-            bot[i].color = color[i];
+            bot[i].color = g.color[i+3];
             StartCoroutine(BotActive(bot[i]));
         }
     }
@@ -146,7 +144,7 @@ public class LotteryManager : MonoBehaviour
             it[i].isBusy = false;
             it[i].transform.GetChild(0).gameObject.SetActive(true);
             it[i].transform.GetChild(1).gameObject.SetActive(false);
-            it[i].GetComponent<Image>().color = color[8];
+            it[i].GetComponent<Image>().color = g.color[2];
         }
         countHeader.text = 0 + " / " + ticketNum.ToString();
         fillAm.fillAmount = 0;
