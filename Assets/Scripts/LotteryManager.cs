@@ -45,6 +45,10 @@ public class LotteryManager : MonoBehaviour
     //int allTickets = 0;
     int tickets = 0;
 
+    //Обекты для вывода информации на обложку лотереи
+    public Text timer; //время лотереи
+    public Text ticketsText; //количество билетов
+    public Text costText; //стоимость билетов
 
     void Start()
     {
@@ -53,10 +57,12 @@ public class LotteryManager : MonoBehaviour
 
     public void startLottery()
     {
+        ticketsText.text = "0 / " + ticketNum.ToString();
         UnicRand();
         tickets = 0;
         fillAm.fillAmount = (float)(tickets / ticketNum);
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
+        costText.text = price.ToString();
         isFinished = false;
         if (lotType != 4)
         {
@@ -97,6 +103,7 @@ public class LotteryManager : MonoBehaviour
             if (!isFinished)
             {
                 timeText.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+                timer.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
             }
             else showWinner();
         }
@@ -257,8 +264,9 @@ public class LotteryManager : MonoBehaviour
             countBusy -= 1;
             tickets += 1;
             countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
+            ticketsText.text = tickets.ToString() + " / " + ticketNum.ToString();
             fillAm.fillAmount = (float)tickets / ticketNum;
-            FlagRefresh(); // нужно для обновления ячеекы
+            //FlagRefresh(); // нужно для обновления ячеекы
         }
         else
         {
