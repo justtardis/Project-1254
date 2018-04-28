@@ -8,9 +8,9 @@ public class TextS : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        Color color = GetComponent<Image>().color;
-        color.a = 0.5f;
-        GetComponent<Image>().color = color;
+        //Color color = GetComponent<Image>().color;
+        //color.a = 0.5f;
+        //GetComponent<Image>().color = color;
 
     }
 	

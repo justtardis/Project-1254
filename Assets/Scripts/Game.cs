@@ -475,7 +475,7 @@ public class Game : MonoBehaviour
                 progress = 0;
                 if (PanelAct != Panels[1]) // Если панель главная, то покажем еще и шапку
                 {
-                    Panels[8].SetActive(true);
+                    Panels[7].SetActive(true);
                 }
                 PanelAct.SetActive(true);
             }
