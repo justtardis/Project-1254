@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -2852,7 +2852,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 36874900}
-  - component: {fileID: 36874901}
   m_Layer: 5
   m_Name: LotereaAny_Item
   m_TagString: Untagged
@@ -2885,152 +2884,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &36874901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 36874899}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 42
-  timeText: {fileID: 843993496}
-  lotType: 4
-  winPanel: {fileID: 824417892}
-  price: 0
-  rewardMin: 0
-  rewardMax: 0
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 42
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 101727836}
-  - {fileID: 2027799473}
-  - {fileID: 721598215}
-  - {fileID: 462469920}
-  - {fileID: 1455770166}
-  - {fileID: 1520595511}
-  - {fileID: 822349076}
-  - {fileID: 2039808818}
-  - {fileID: 472159944}
-  - {fileID: 2075292229}
-  - {fileID: 1376075108}
-  - {fileID: 1812763818}
-  - {fileID: 1216434350}
-  - {fileID: 1635329967}
-  - {fileID: 29320399}
-  - {fileID: 1977702085}
-  - {fileID: 1409555080}
-  - {fileID: 563590782}
-  - {fileID: 369585985}
-  - {fileID: 1266302281}
-  - {fileID: 244798328}
-  - {fileID: 536839837}
-  - {fileID: 1516052215}
-  - {fileID: 1053564578}
-  - {fileID: 1140517004}
-  - {fileID: 64478582}
-  - {fileID: 478826352}
-  - {fileID: 1916654340}
-  - {fileID: 1189513741}
-  - {fileID: 1447063976}
-  - {fileID: 857418326}
-  - {fileID: 1697956937}
-  - {fileID: 2072757624}
-  - {fileID: 822712403}
-  - {fileID: 209816638}
-  - {fileID: 629903831}
-  - {fileID: 2133329893}
-  - {fileID: 1202883524}
-  - {fileID: 501672276}
-  - {fileID: 850915673}
-  - {fileID: 356839070}
-  - {fileID: 2142896120}
-  Inform_item: {fileID: 646586091}
-  _InfText: {fileID: 2027724757}
-  countHeader: {fileID: 1263515005}
-  fillAm: {fileID: 1027905473}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &38464377
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,7 +2963,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -3345,7 +3198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -3505,7 +3358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -4624,7 +4477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -4920,7 +4773,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -5148,7 +5001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -6618,7 +6471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -7124,7 +6977,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -7284,7 +7137,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -8457,7 +8310,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9086,7 +8939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9246,7 +9099,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -9938,7 +9791,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10302,7 +10155,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10660,7 +10513,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -10893,7 +10746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -11006,7 +10859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322.14, y: -113.95011}
+  m_AnchoredPosition: {x: 374, y: -113.95011}
   m_SizeDelta: {x: 146.16, y: 53.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179565388
@@ -11268,9 +11121,9 @@ MonoBehaviour:
   _InfText: {fileID: 41591988}
   countHeader: {fileID: 1283277809}
   fillAm: {fileID: 1327232073}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
+  timer: {fileID: 1276971410}
+  ticketsText: {fileID: 482307984}
+  costText: {fileID: 1319421783}
 --- !u!4 &181523978
 Transform:
   m_ObjectHideFlags: 0
@@ -12065,7 +11918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -12998,7 +12851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -13297,7 +13150,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -13788,7 +13641,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -14972,7 +14825,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15261,7 +15114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15421,7 +15274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15581,7 +15434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -15814,7 +15667,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -16313,7 +16166,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -16728,7 +16581,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -17135,7 +16988,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 262523110}
-  - component: {fileID: 262523111}
   m_Layer: 5
   m_Name: LotereaSerebro_12-20k
   m_TagString: Untagged
@@ -17168,140 +17020,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0014338493}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &262523111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 262523109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 30
-  timeText: {fileID: 674474918}
-  lotType: 1
-  winPanel: {fileID: 824417892}
-  price: 0
-  rewardMin: 12000
-  rewardMax: 20000
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 42
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 1544140220}
-  - {fileID: 36126405}
-  - {fileID: 555693954}
-  - {fileID: 621590053}
-  - {fileID: 1035406721}
-  - {fileID: 381805473}
-  - {fileID: 1670325131}
-  - {fileID: 20054640}
-  - {fileID: 286653797}
-  - {fileID: 1217073435}
-  - {fileID: 841387734}
-  - {fileID: 213120419}
-  - {fileID: 494290184}
-  - {fileID: 1424694580}
-  - {fileID: 1698638979}
-  - {fileID: 1045737072}
-  - {fileID: 301808051}
-  - {fileID: 688730624}
-  - {fileID: 685765671}
-  - {fileID: 245593897}
-  - {fileID: 828749554}
-  - {fileID: 846861517}
-  - {fileID: 1037501328}
-  - {fileID: 1423986203}
-  - {fileID: 247865808}
-  - {fileID: 1646535896}
-  - {fileID: 701300932}
-  - {fileID: 1482011055}
-  - {fileID: 110482520}
-  - {fileID: 1672739707}
-  Inform_item: {fileID: 1479759077}
-  _InfText: {fileID: 1749852538}
-  countHeader: {fileID: 825519936}
-  fillAm: {fileID: 1944228227}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &262703558
 GameObject:
   m_ObjectHideFlags: 0
@@ -18748,7 +18466,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -19324,7 +19042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -20196,7 +19914,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -20790,7 +20508,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -22622,7 +22340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -22924,7 +22642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -23559,7 +23277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24208,7 +23926,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24509,7 +24227,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -24751,7 +24469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351.6, y: -210.7}
+  m_AnchoredPosition: {x: 403.46, y: -210.7}
   m_SizeDelta: {x: 88, y: 88.083}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364444913
@@ -24934,7 +24652,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25292,7 +25010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25452,7 +25170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25612,7 +25330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -25772,7 +25490,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -26610,7 +26328,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -26770,7 +26488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -27595,7 +27313,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -29296,7 +29014,7 @@ GameObject:
   - component: {fileID: 417592856}
   - component: {fileID: 417592855}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30065,7 +29783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31187,7 +30905,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31420,7 +31138,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31834,7 +31552,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -31994,7 +31712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -32504,7 +32222,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -32954,7 +32672,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -33504,7 +33222,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -33880,7 +33598,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -34114,7 +33832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -34883,7 +34601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -35670,7 +35388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -35978,7 +35696,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -36546,9 +36264,9 @@ MonoBehaviour:
   _InfText: {fileID: 885678657}
   countHeader: {fileID: 1230143979}
   fillAm: {fileID: 1027905473}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
+  timer: {fileID: 1704270170}
+  ticketsText: {fileID: 834709136}
+  costText: {fileID: 1008225695}
 --- !u!4 &543747783
 Transform:
   m_ObjectHideFlags: 0
@@ -37205,7 +36923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -37716,7 +37434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -39047,7 +38765,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -41199,7 +40917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -41682,7 +41400,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -42126,7 +41844,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -42491,7 +42209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -43629,7 +43347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -44146,7 +43864,7 @@ GameObject:
   - component: {fileID: 679822377}
   - component: {fileID: 679822376}
   m_Layer: 5
-  m_Name: Tickets_count (1)
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44382,7 +44100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -44616,7 +44334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -44918,7 +44636,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -45727,7 +45445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -45887,7 +45605,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -46796,7 +46514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -47701,7 +47419,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -48126,7 +47844,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -48961,7 +48679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -49386,7 +49104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -50622,7 +50340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -51035,7 +50753,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -52890,7 +52608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -53658,9 +53376,9 @@ MonoBehaviour:
   _InfText: {fileID: 859079417}
   countHeader: {fileID: 1747088269}
   fillAm: {fileID: 1849211638}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
+  timer: {fileID: 1817804094}
+  ticketsText: {fileID: 1811694680}
+  costText: {fileID: 1100345315}
 --- !u!4 &789422626
 Transform:
   m_ObjectHideFlags: 0
@@ -54357,7 +54075,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -55011,7 +54729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -55265,7 +54983,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -55788,7 +55506,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56026,7 +55744,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56403,7 +56121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -56951,80 +56669,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &837053260
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 837053261}
-  - component: {fileID: 837053263}
-  - component: {fileID: 837053262}
-  m_Layer: 5
-  m_Name: Prise
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &837053261
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 837053260}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-  m_Children: []
-  m_Father: {fileID: 993970959}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -235}
-  m_SizeDelta: {x: 318.5, y: 114.83}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &837053262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 837053260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9010143, b: 0.102941155, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 0b467dedd8bbc4248bce09c16bb794d2, type: 3}
-    m_FontSize: 80
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 80
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 50
---- !u!222 &837053263
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 837053260}
 --- !u!1 &837364254
 GameObject:
   m_ObjectHideFlags: 0
@@ -57101,7 +56745,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 839699624}
-  - component: {fileID: 839699625}
   m_Layer: 5
   m_Name: LotereaGold_250
   m_TagString: Untagged
@@ -57134,145 +56777,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &839699625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 839699623}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 35
-  timeText: {fileID: 1641013532}
-  lotType: 3
-  winPanel: {fileID: 824417892}
-  price: 0
-  rewardMin: 250
-  rewardMax: 251
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 35
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 168260511}
-  - {fileID: 34346492}
-  - {fileID: 1219434324}
-  - {fileID: 1295974508}
-  - {fileID: 1501423751}
-  - {fileID: 1610785691}
-  - {fileID: 1997097582}
-  - {fileID: 1817617477}
-  - {fileID: 1198594606}
-  - {fileID: 1376464704}
-  - {fileID: 517284846}
-  - {fileID: 312888427}
-  - {fileID: 1963608518}
-  - {fileID: 368643766}
-  - {fileID: 1842909043}
-  - {fileID: 1718335634}
-  - {fileID: 842432130}
-  - {fileID: 250790479}
-  - {fileID: 1957869113}
-  - {fileID: 1524502309}
-  - {fileID: 1320040247}
-  - {fileID: 1562018151}
-  - {fileID: 2147184212}
-  - {fileID: 279755923}
-  - {fileID: 778699973}
-  - {fileID: 1297810057}
-  - {fileID: 2078012574}
-  - {fileID: 1494028210}
-  - {fileID: 1808455413}
-  - {fileID: 887329363}
-  - {fileID: 2143699984}
-  - {fileID: 1346122400}
-  - {fileID: 755705548}
-  - {fileID: 1435955096}
-  - {fileID: 594860128}
-  Inform_item: {fileID: 1983822716}
-  _InfText: {fileID: 41591988}
-  countHeader: {fileID: 1283277809}
-  fillAm: {fileID: 1327232073}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &841387731
 GameObject:
   m_ObjectHideFlags: 0
@@ -57352,7 +56856,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -57580,7 +57084,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -58024,7 +57528,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -58391,7 +57895,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -58878,6 +58382,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856469391}
+--- !u!1 &856837361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 856837362}
+  - component: {fileID: 856837364}
+  - component: {fileID: 856837363}
+  m_Layer: 5
+  m_Name: Text_price
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &856837362
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856837361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 306.27, y: -253}
+  m_SizeDelta: {x: 290.85, y: 49.91}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &856837363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856837361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11461935, g: 0.7243946, b: 0.7794118, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 85
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0421\u0415\u0420\u0415\u0411\u0420\u0410 \u0417\u0410 \u0411\u0418\u041B\u0415\u0422"
+--- !u!222 &856837364
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856837361}
 --- !u!1 &857418323
 GameObject:
   m_ObjectHideFlags: 0
@@ -58957,7 +58535,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -59931,7 +59509,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -60294,7 +59872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -60805,7 +60383,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -61069,9 +60647,9 @@ MonoBehaviour:
   _InfText: {fileID: 1749852538}
   countHeader: {fileID: 825519936}
   fillAm: {fileID: 1944228227}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
+  timer: {fileID: 502752560}
+  ticketsText: {fileID: 78984956}
+  costText: {fileID: 1185951560}
 --- !u!4 &892132468
 Transform:
   m_ObjectHideFlags: 0
@@ -62269,7 +61847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -62846,7 +62424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -63006,7 +62584,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -63579,7 +63157,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -65118,80 +64696,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980865801}
---- !u!1 &982301763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 982301764}
-  - component: {fileID: 982301766}
-  - component: {fileID: 982301765}
-  m_Layer: 5
-  m_Name: Text1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &982301764
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 982301763}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-  m_Children: []
-  m_Father: {fileID: 993970959}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 337, y: 254.7}
-  m_SizeDelta: {x: 206.61, y: 74.38}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &982301765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 982301763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 838c15bd058319e44b351a1d022de576, type: 3}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 80
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u0411\u0418\u041B\u0415\u0422\n"
---- !u!222 &982301766
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 982301763}
 --- !u!1 &982849324
 GameObject:
   m_ObjectHideFlags: 0
@@ -65822,12 +65326,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
-  - {fileID: 1429920944}
-  - {fileID: 837053261}
-  - {fileID: 982301764}
   - {fileID: 1100345314}
-  - {fileID: 1700801365}
-  - {fileID: 1303956350}
+  - {fileID: 856837362}
+  - {fileID: 1817804096}
+  - {fileID: 1442243699}
+  - {fileID: 1811694682}
+  - {fileID: 1919016855}
+  - {fileID: 2075583052}
+  - {fileID: 1950504974}
   m_Father: {fileID: 1866739596}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65918,7 +65424,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 768b5a7c786b5f94286f35e546788fde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 222d0d74da8fa3c448c6c7000edb9e09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -66296,7 +65802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -66456,7 +65962,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -66843,7 +66349,7 @@ GameObject:
   - component: {fileID: 1008225696}
   - component: {fileID: 1008225695}
   m_Layer: 5
-  m_Name: PriceTicket
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67195,7 +66701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -67423,7 +66929,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68476,7 +67982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68636,7 +68142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -68796,7 +68302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -69283,7 +68789,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -69443,7 +68949,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -69603,7 +69109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -69979,7 +69485,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -71142,7 +70648,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1093823692}
-  - component: {fileID: 1093823693}
   m_Layer: 5
   m_Name: LotereaGold_50
   m_TagString: Untagged
@@ -71175,140 +70680,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015258789}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1093823693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093823691}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 30
-  timeText: {fileID: 405066869}
-  lotType: 2
-  winPanel: {fileID: 824417892}
-  price: 0
-  rewardMin: 50
-  rewardMax: 51
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 30
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 754061247}
-  - {fileID: 1663829116}
-  - {fileID: 1278449660}
-  - {fileID: 1016454972}
-  - {fileID: 1720417883}
-  - {fileID: 365350154}
-  - {fileID: 1224922519}
-  - {fileID: 936686019}
-  - {fileID: 1179136058}
-  - {fileID: 139231831}
-  - {fileID: 243267386}
-  - {fileID: 2143783041}
-  - {fileID: 831932742}
-  - {fileID: 1737454396}
-  - {fileID: 1809858276}
-  - {fileID: 1002436543}
-  - {fileID: 1369327387}
-  - {fileID: 802880475}
-  - {fileID: 370090774}
-  - {fileID: 473352154}
-  - {fileID: 482310961}
-  - {fileID: 72354047}
-  - {fileID: 744489500}
-  - {fileID: 924700064}
-  - {fileID: 1484240044}
-  - {fileID: 1342003393}
-  - {fileID: 17267294}
-  - {fileID: 199346440}
-  - {fileID: 1003988599}
-  - {fileID: 713940964}
-  Inform_item: {fileID: 1285116083}
-  _InfText: {fileID: 859079417}
-  countHeader: {fileID: 1747088269}
-  fillAm: {fileID: 1849211638}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &1094660198
 GameObject:
   m_ObjectHideFlags: 0
@@ -71456,7 +70827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -71676,12 +71047,12 @@ RectTransform:
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 993970959}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 339, y: 196}
-  m_SizeDelta: {x: 206.61, y: 74.54}
+  m_AnchoredPosition: {x: 315, y: -195.3}
+  m_SizeDelta: {x: 273.4, y: 101.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100345315
 MonoBehaviour:
@@ -71695,7 +71066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.50980395, b: 0.06666667, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -71703,19 +71074,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0b467dedd8bbc4248bce09c16bb794d2, type: 3}
-    m_FontSize: 45
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 85
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 80
-    m_Alignment: 1
+    m_MaxSize: 85
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10 000
+  m_Text: 25 000
 --- !u!222 &1100345316
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -73609,7 +72980,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -74615,7 +73986,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -75552,7 +74923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -76459,7 +75830,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77519,7 +76890,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -77632,7 +77003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322.59, y: -138.79999}
+  m_AnchoredPosition: {x: 374.44998, y: -138.79999}
   m_SizeDelta: {x: 147.06, y: 4.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200915481
@@ -77895,7 +77266,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -78265,7 +77636,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -78883,7 +78254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -79043,7 +78414,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -79261,7 +78632,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -79495,7 +78866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -79655,7 +79026,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -80898,7 +80269,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1245789133}
-  - component: {fileID: 1245789134}
   m_Layer: 5
   m_Name: LotereaSerebro_4-10k
   m_TagString: Untagged
@@ -80931,152 +80301,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0014214516}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1245789134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1245789132}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 42
-  timeText: {fileID: 2026530163}
-  lotType: 1
-  winPanel: {fileID: 824417892}
-  price: 100
-  rewardMin: 4000
-  rewardMax: 10000
-  reward: 10000
-  rewardItem: 0000000000000000
-  waitTime: 1
-  lotteryTime: 2
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 42
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 1663991489}
-  - {fileID: 1561148233}
-  - {fileID: 1037656245}
-  - {fileID: 220802243}
-  - {fileID: 1314012415}
-  - {fileID: 42113474}
-  - {fileID: 1323119030}
-  - {fileID: 109705639}
-  - {fileID: 333898513}
-  - {fileID: 2072350199}
-  - {fileID: 2130051110}
-  - {fileID: 173852314}
-  - {fileID: 465759184}
-  - {fileID: 235694513}
-  - {fileID: 1630612190}
-  - {fileID: 828061649}
-  - {fileID: 2102930087}
-  - {fileID: 1610337476}
-  - {fileID: 925343880}
-  - {fileID: 1283420956}
-  - {fileID: 1340203031}
-  - {fileID: 1581479396}
-  - {fileID: 1463672599}
-  - {fileID: 1711445949}
-  - {fileID: 342786540}
-  - {fileID: 154976677}
-  - {fileID: 680220584}
-  - {fileID: 1380174481}
-  - {fileID: 1462576274}
-  - {fileID: 259608565}
-  - {fileID: 2038648197}
-  - {fileID: 1745250078}
-  - {fileID: 381331630}
-  - {fileID: 1208049485}
-  - {fileID: 176772939}
-  - {fileID: 534977287}
-  - {fileID: 1520165185}
-  - {fileID: 1673039627}
-  - {fileID: 1047723098}
-  - {fileID: 153689387}
-  - {fileID: 1345572592}
-  - {fileID: 1097339848}
-  Inform_item: {fileID: 1191077947}
-  _InfText: {fileID: 456094747}
-  countHeader: {fileID: 609108190}
-  fillAm: {fileID: 1880717623}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &1246315548
 GameObject:
   m_ObjectHideFlags: 0
@@ -81430,7 +80654,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -81953,7 +81177,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -82565,7 +81789,7 @@ GameObject:
   - component: {fileID: 1276971411}
   - component: {fileID: 1276971410}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82775,7 +81999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -83196,7 +82420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -83704,7 +82928,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -84117,7 +83341,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -84594,80 +83818,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1303267493}
---- !u!1 &1303956349
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1303956350}
-  - component: {fileID: 1303956352}
-  - component: {fileID: 1303956351}
-  m_Layer: 5
-  m_Name: count_tickets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1303956350
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303956349}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-  m_Children: []
-  m_Father: {fileID: 993970959}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -339, y: 195.99983}
-  m_SizeDelta: {x: 206.61, y: 74.54}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1303956351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303956349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 0b467dedd8bbc4248bce09c16bb794d2, type: 3}
-    m_FontSize: 45
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 80
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 17 / 45
---- !u!222 &1303956352
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303956349}
 --- !u!1 &1304860290
 GameObject:
   m_ObjectHideFlags: 0
@@ -85006,7 +84156,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -85538,7 +84688,7 @@ MonoBehaviour:
   - {fileID: 1698956973}
   - {fileID: 126731816}
   - {fileID: 310632569}
-  - {fileID: 1245789132}
+  - {fileID: 285310214}
   - {fileID: 267113178}
   - {fileID: 709772487}
   - {fileID: 1788037146}
@@ -85739,7 +84889,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -86121,7 +85271,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -86349,7 +85499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87079,7 +86229,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87391,7 +86541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87687,7 +86837,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -87847,7 +86997,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -88851,7 +88001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -89350,7 +88500,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -89510,7 +88660,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -90101,7 +89251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -91579,7 +90729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92553,7 +91703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92713,7 +91863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -92868,80 +92018,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1429775222}
---- !u!1 &1429920943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1429920944}
-  - component: {fileID: 1429920946}
-  - component: {fileID: 1429920945}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1429920944
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1429920943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 993970959}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.79999995, y: 248}
-  m_SizeDelta: {x: 318.5, y: 79.3}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1429920945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1429920943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b9e9d18c22da42f45873276b3daecbae, type: 3}
-    m_FontSize: 60
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 70
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 00:00:00
---- !u!222 &1429920946
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1429920943}
 --- !u!1 &1431777992
 GameObject:
   m_ObjectHideFlags: 0
@@ -93163,7 +92239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -93601,6 +92677,81 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1440644733}
+--- !u!1 &1442243698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1442243699}
+  - component: {fileID: 1442243701}
+  - component: {fileID: 1442243700}
+  m_Layer: 5
+  m_Name: Text_timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1442243699
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442243698}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 283.2, y: 164.19983}
+  m_SizeDelta: {x: 336.99, y: 49.91}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1442243700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442243698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11461935, g: 0.7243946, b: 0.7794118, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 85
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0414\u041E \u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D\u0418\u042F
+    \u041B\u041E\u0422\u0415\u0420\u0415\u0418"
+--- !u!222 &1442243701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442243698}
 --- !u!1 &1442355095
 GameObject:
   m_ObjectHideFlags: 0
@@ -93825,7 +92976,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -94310,7 +93461,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -94543,7 +93694,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -95058,7 +94209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -95218,7 +94369,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -95502,7 +94653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -96345,7 +95496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -96505,7 +95656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -96807,7 +95958,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -97400,7 +96551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -97752,7 +96903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -98629,7 +97780,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -98857,7 +98008,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -99017,7 +98168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -99387,7 +98538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -99876,7 +99027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -100619,7 +99770,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -100779,7 +99930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -101728,7 +100879,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -102203,7 +101354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: -205.48999}
+  m_AnchoredPosition: {x: 146.86, y: -205.48999}
   m_SizeDelta: {x: 388.4, y: 129.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1589871347
@@ -102916,7 +102067,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -103076,7 +102227,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -103236,7 +102387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -104551,7 +103702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105031,7 +104182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -105898,7 +105049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -106163,7 +105314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -106866,7 +106017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -107178,7 +106329,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -107406,7 +106557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -107639,7 +106790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -107799,7 +106950,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -108033,7 +107184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -108193,7 +107344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -108962,7 +108113,7 @@ GameObject:
   - component: {fileID: 1687094929}
   - component: {fileID: 1687094928}
   m_Layer: 5
-  m_Name: Timer_text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109033,8 +108184,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1687325780}
-  - component: {fileID: 1687325782}
-  - component: {fileID: 1687325781}
   m_Layer: 5
   m_Name: LotereaSerebro_25-50k
   m_TagString: Untagged
@@ -109067,298 +108216,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0015254021}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1687325781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1687325779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 0}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 42
-  timeText: {fileID: 969599763}
-  lotType: 0
-  winPanel: {fileID: 0}
-  price: 0
-  rewardMin: 0
-  rewardMax: 0
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 42
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 387977588}
-  - {fileID: 1922568079}
-  - {fileID: 432294401}
-  - {fileID: 351158615}
-  - {fileID: 372235336}
-  - {fileID: 642621239}
-  - {fileID: 699682620}
-  - {fileID: 1877909220}
-  - {fileID: 2016165810}
-  - {fileID: 1935947248}
-  - {fileID: 179435709}
-  - {fileID: 1259879372}
-  - {fileID: 1605738967}
-  - {fileID: 1018765836}
-  - {fileID: 1670145448}
-  - {fileID: 1802980248}
-  - {fileID: 875623881}
-  - {fileID: 335976441}
-  - {fileID: 1689022989}
-  - {fileID: 41828781}
-  - {fileID: 2074245558}
-  - {fileID: 668538634}
-  - {fileID: 16459561}
-  - {fileID: 1854061457}
-  - {fileID: 917225232}
-  - {fileID: 1047113149}
-  - {fileID: 1467517428}
-  - {fileID: 1226740862}
-  - {fileID: 877397530}
-  - {fileID: 38464380}
-  - {fileID: 1648929248}
-  - {fileID: 1454272444}
-  - {fileID: 71731732}
-  - {fileID: 1659332128}
-  - {fileID: 1163494558}
-  - {fileID: 739060970}
-  - {fileID: 1481706391}
-  - {fileID: 637175870}
-  - {fileID: 501024336}
-  - {fileID: 726966939}
-  - {fileID: 1311490766}
-  - {fileID: 1922449134}
-  Inform_item: {fileID: 1800177287}
-  _InfText: {fileID: 885678657}
-  countHeader: {fileID: 1230143979}
-  fillAm: {fileID: 1176854268}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
---- !u!114 &1687325782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1687325779}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05142a6bd20da429e0ec465ccd561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrIcon: 0000000000000000000000000000000000000000000000000000000000000000
-  g: {fileID: 1313606215}
-  arrTicket: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  ticketNum: 42
-  timeText: {fileID: 969599763}
-  lotType: 1
-  winPanel: {fileID: 824417892}
-  price: 0
-  rewardMin: 25000
-  rewardMax: 50000
-  reward: 0
-  rewardItem: 0000000000000000
-  waitTime: 0
-  lotteryTime: 10
-  bot:
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  - name: 
-    countCell: 0
-    leftCell: 0
-    arrayTicket: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    icon: {fileID: 0}
-    waitTime: 0
-  cell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  isBusyCell: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  countBusy: 42
-  isFinished: 0
-  BOT_NAMES:
-  - xxxBOTxxx
-  - SergeyBot
-  - AlexBot
-  - SemenBot
-  - HenryBot
-  - ZombyBot
-  - PencilBot
-  - KillBot
-  botCount: 8
-  it:
-  - {fileID: 387977588}
-  - {fileID: 1922568079}
-  - {fileID: 432294401}
-  - {fileID: 351158615}
-  - {fileID: 372235336}
-  - {fileID: 642621239}
-  - {fileID: 699682620}
-  - {fileID: 1877909220}
-  - {fileID: 2016165810}
-  - {fileID: 1935947248}
-  - {fileID: 179435709}
-  - {fileID: 1259879372}
-  - {fileID: 1605738967}
-  - {fileID: 1018765836}
-  - {fileID: 1670145448}
-  - {fileID: 1802980248}
-  - {fileID: 875623881}
-  - {fileID: 335976441}
-  - {fileID: 1689022989}
-  - {fileID: 41828781}
-  - {fileID: 2074245558}
-  - {fileID: 668538634}
-  - {fileID: 16459561}
-  - {fileID: 1854061457}
-  - {fileID: 917225232}
-  - {fileID: 1047113149}
-  - {fileID: 1467517428}
-  - {fileID: 1226740862}
-  - {fileID: 877397530}
-  - {fileID: 38464380}
-  - {fileID: 1648929248}
-  - {fileID: 1454272444}
-  - {fileID: 71731732}
-  - {fileID: 1659332128}
-  - {fileID: 1163494558}
-  - {fileID: 739060970}
-  - {fileID: 1481706391}
-  - {fileID: 637175870}
-  - {fileID: 501024336}
-  - {fileID: 726966939}
-  - {fileID: 1311490766}
-  - {fileID: 1922449134}
-  Inform_item: {fileID: 0}
-  _InfText: {fileID: 0}
-  countHeader: {fileID: 0}
-  fillAm: {fileID: 0}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
 --- !u!1 &1689022986
 GameObject:
   m_ObjectHideFlags: 0
@@ -109438,7 +108295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -110400,7 +109257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -110634,7 +109491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262523111}
+      - m_Target: {fileID: 892132467}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -110753,80 +109610,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 0.000030518}
   m_SizeDelta: {x: 0, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1700801364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1700801365}
-  - component: {fileID: 1700801367}
-  - component: {fileID: 1700801366}
-  m_Layer: 5
-  m_Name: Text1 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1700801365
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1700801364}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-  m_Children: []
-  m_Father: {fileID: 993970959}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -339, y: 254.70015}
-  m_SizeDelta: {x: 206.61, y: 74.38}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1700801366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1700801364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 838c15bd058319e44b351a1d022de576, type: 3}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 80
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u041E\u0421\u0422\u0410\u041B\u041E\u0421\u042C"
---- !u!222 &1700801367
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1700801364}
 --- !u!1 &1701818275
 GameObject:
   m_ObjectHideFlags: 0
@@ -110974,7 +109757,7 @@ GameObject:
   - component: {fileID: 1704270171}
   - component: {fileID: 1704270170}
   m_Layer: 5
-  m_Name: CountTickets (1)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111468,7 +110251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -112035,7 +110818,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -112195,7 +110978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -112995,7 +111778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -113534,7 +112317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -115264,9 +114047,9 @@ MonoBehaviour:
   _InfText: {fileID: 2027724757}
   countHeader: {fileID: 1263515005}
   fillAm: {fileID: 1027905473}
-  timer: {fileID: 0}
-  ticketsText: {fileID: 0}
-  costText: {fileID: 0}
+  timer: {fileID: 417592855}
+  ticketsText: {fileID: 1171718632}
+  costText: {fileID: 1780548849}
 --- !u!4 &1764724703
 Transform:
   m_ObjectHideFlags: 0
@@ -117010,7 +115793,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -117238,7 +116021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -117398,7 +116181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -117479,6 +116262,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809858273}
+--- !u!1 &1811694679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1811694682}
+  - component: {fileID: 1811694681}
+  - component: {fileID: 1811694680}
+  m_Layer: 5
+  m_Name: Count_tickets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1811694680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811694679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.50980395, b: 0.06666667, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 65
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 85
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 17/30
+--- !u!222 &1811694681
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811694679}
+--- !u!224 &1811694682
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811694679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -346.02, y: -198.8}
+  m_SizeDelta: {x: 214.57, y: 101.06}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1812740846
 GameObject:
   m_ObjectHideFlags: 0
@@ -117632,7 +116489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -118137,7 +116994,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -118218,6 +117075,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817617474}
+--- !u!1 &1817804093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1817804096}
+  - component: {fileID: 1817804095}
+  - component: {fileID: 1817804094}
+  m_Layer: 5
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1817804094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817804093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.50980395, b: 0.06666667, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 00:01:25
+--- !u!222 &1817804095
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817804093}
+--- !u!224 &1817804096
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817804093}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 258.5, y: 225}
+  m_SizeDelta: {x: 386.2, y: 101.1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1819579669
 GameObject:
   m_ObjectHideFlags: 0
@@ -118737,7 +117668,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1836622087
@@ -119330,7 +118261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -120257,7 +119188,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -121776,7 +120707,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -123821,7 +122752,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -124031,6 +122962,80 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224572291716534490, guid: 7c7189bbd2b17ff48828eeaf8afcb99b,
     type: 2}
   m_PrefabInternal: {fileID: 1918006802}
+--- !u!1 &1919016854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1919016855}
+  - component: {fileID: 1919016857}
+  - component: {fileID: 1919016856}
+  m_Layer: 5
+  m_Name: Text_tickets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1919016855
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919016854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -366.3, y: -252.99998}
+  m_SizeDelta: {x: 168.86, y: 49.91}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1919016856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919016854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11461935, g: 0.7243946, b: 0.7794118, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 85
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0411\u0418\u041B\u0415\u0422\u041E\u0412"
+--- !u!222 &1919016857
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919016854}
 --- !u!1 &1919151533
 GameObject:
   m_ObjectHideFlags: 0
@@ -124448,7 +123453,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -124608,7 +123613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -125391,7 +124396,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -126117,6 +125122,80 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947406948}
+--- !u!1 &1950504973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1950504974}
+  - component: {fileID: 1950504976}
+  - component: {fileID: 1950504975}
+  m_Layer: 5
+  m_Name: Text_prise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1950504974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1950504973}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -363, y: 118.3}
+  m_SizeDelta: {x: 168.86, y: 49.91}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1950504975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1950504973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11461935, g: 0.7243946, b: 0.7794118, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 85
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u0417\u041E\u041B\u041E\u0422\u042B\u0425"
+--- !u!222 &1950504976
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1950504973}
 --- !u!1 &1952875182
 GameObject:
   m_ObjectHideFlags: 0
@@ -126629,7 +125708,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -126931,7 +126010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -127791,7 +126870,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -128928,7 +128007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -130144,7 +129223,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131074,7 +130153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131834,7 +130913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -131994,7 +131073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -133414,7 +132493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -133703,7 +132782,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -133992,7 +133071,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1687325782}
+      - m_Target: {fileID: 543747782}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -134220,7 +133299,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -134301,6 +133380,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2075292226}
+--- !u!1 &2075583051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2075583052}
+  - component: {fileID: 2075583054}
+  - component: {fileID: 2075583053}
+  m_Layer: 5
+  m_Name: Prise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2075583052
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075583051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 993970959}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -346.02, y: 206}
+  m_SizeDelta: {x: 214.6, y: 146.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2075583053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075583051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.5105475, b: 0.066176474, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3ab58f3ea396fc4d9846a02b5f2bafe, type: 3}
+    m_FontSize: 170
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 170
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 50
+--- !u!222 &2075583054
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075583051}
 --- !u!1 &2075634036
 GameObject:
   m_ObjectHideFlags: 0
@@ -134448,7 +133601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -135667,7 +134820,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -136966,7 +136119,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1245789134}
+      - m_Target: {fileID: 835267914}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -137341,7 +136494,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -137993,7 +137146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36874901}
+      - m_Target: {fileID: 1764724702}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -138350,7 +137503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -138510,7 +137663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093823693}
+      - m_Target: {fileID: 789422625}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
@@ -138955,7 +138108,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839699625}
+      - m_Target: {fileID: 181523977}
         m_MethodName: LotteryClickItem
         m_Mode: 2
         m_Arguments:
