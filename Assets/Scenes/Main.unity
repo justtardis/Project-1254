@@ -37942,7 +37942,7 @@ GameObject:
   - component: {fileID: 571746948}
   - component: {fileID: 571746953}
   m_Layer: 0
-  m_Name: Main Camera (LotteryManager.cs)
+  m_Name: 'Main Camera '
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56485,7 +56485,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 17/42
 --- !u!222 &834709137
@@ -81290,7 +81290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 209.7, y: 0.000045747}
+  m_AnchoredPosition: {x: 194.4, y: 0.000045747}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267581792
@@ -84355,7 +84355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   silver: 125
-  gold: 2
+  gold: 150
   silverText: {fileID: 1458733891}
   goldText: {fileID: 1397316376}
   usersText: {fileID: 927340252}
@@ -84555,6 +84555,188 @@ MonoBehaviour:
       received: 0
     picture: {fileID: 21300024, guid: e77c442ffd253044c832b43a1f62f0c1, type: 3}
     groups: fa000000fa000000fa000000fa000000
+  - Namecase: "\u041D\u043E\u0436\u0438"
+    id: 2
+    name: "\u041D\u041E\u0416\u0415\u0412\u041E\u0419"
+    price: 560
+    items:
+    - name: Gut Knife - Damascus Steel
+      id: 0
+      price: 154
+      picture: {fileID: 21300000, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 1
+      received: 0
+    - name: Gut Knife - Marble Fade
+      id: 1
+      price: 172
+      picture: {fileID: 21300002, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 1
+      received: 0
+    - name: Shadow Daggers - Urban Masked
+      id: 2
+      price: 315
+      picture: {fileID: 21300004, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 1
+      received: 0
+    - name: Flip Knife - Slaughter
+      id: 3
+      price: 352
+      picture: {fileID: 21300006, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 1
+      received: 0
+    - name: Shadow Daggers - Fade
+      id: 4
+      price: 390
+      picture: {fileID: 21300008, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 1
+      received: 0
+    - name: Falchion Knife - Damascus Steel
+      id: 5
+      price: 550
+      picture: {fileID: 21300010, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 2
+      received: 0
+    - name: Bowie Knife - Fade
+      id: 6
+      price: 780
+      picture: {fileID: 21300012, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 2
+      received: 0
+    - name: Karambit - Tiger Tooth
+      id: 7
+      price: 850
+      picture: {fileID: 21300014, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 2
+      received: 0
+    - name: Huntsman Knife - Case Hardened
+      id: 8
+      price: 1090
+      picture: {fileID: 21300016, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 2
+      received: 0
+    - name: Bayonet - Autotronic
+      id: 9
+      price: 1220
+      picture: {fileID: 21300018, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 2
+      received: 0
+    - name: Butterfly Knife - Marble Fade
+      id: 10
+      price: 1830
+      picture: {fileID: 21300020, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 3
+      received: 0
+    - name: Gut Knife - Safari Mesh
+      id: 11
+      price: 2390
+      picture: {fileID: 21300022, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 3
+      received: 0
+    - name: Karambit - Autotronic
+      id: 12
+      price: 3300
+      picture: {fileID: 21300024, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 3
+      received: 0
+    - name: Bayonet - Black Laminate
+      id: 13
+      price: 3960
+      picture: {fileID: 21300026, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 4
+      received: 0
+    - name: M9 Bayonet - Lore
+      id: 14
+      price: 4090
+      picture: {fileID: 21300028, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 4
+      received: 0
+    - name: 'Karambit - Case Hardened '
+      id: 15
+      price: 4240
+      picture: {fileID: 21300030, guid: 32ca1642f49e5f445959a87c5c031214, type: 3}
+      group: 4
+      received: 0
+    picture: {fileID: 21300000, guid: 8719cea2255650e4f976a5457436b37d, type: 3}
+    groups: fa000000fa000000fa000000fa000000
+  - Namecase: "\u0422\u0430\u043D\u043A\u0438"
+    id: 3
+    name: "\u0422\u0410\u041D\u041A\u041E\u0412\u042B\u0419"
+    price: 480
+    items:
+    - name: AC 4 EXPERIMENTAL
+      id: 0
+      price: 130
+      picture: {fileID: 21300000, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 1
+      received: 0
+    - name: TYPE 64
+      id: 1
+      price: 175
+      picture: {fileID: 21300002, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 1
+      received: 0
+    - name: PUDEL
+      id: 2
+      price: 220
+      picture: {fileID: 21300004, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 1
+      received: 0
+    - name: M56 SCORPION
+      id: 3
+      price: 340
+      picture: {fileID: 21300006, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 1
+      received: 0
+    - name: PANTHER/M10
+      id: 4
+      price: 460
+      picture: {fileID: 21300008, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 1
+      received: 0
+    - name: T26E4
+      id: 5
+      price: 610
+      picture: {fileID: 21300010, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 2
+      received: 0
+    - name: AMX CDC
+      id: 6
+      price: 860
+      picture: {fileID: 21300012, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 2
+      received: 0
+    - name: STRV S1
+      id: 7
+      price: 1100
+      picture: {fileID: 21300014, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 2
+      received: 0
+    - name: AMX M4 MLE. 49
+      id: 8
+      price: 1430
+      picture: {fileID: 21300016, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 3
+      received: 0
+    - name: IS-6
+      id: 9
+      price: 1890
+      picture: {fileID: 21300018, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 3
+      received: 0
+    - name: T34
+      id: 10
+      price: 2400
+      picture: {fileID: 21300020, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 4
+      received: 0
+    - name: "L\xD6WE"
+      id: 11
+      price: 2800
+      picture: {fileID: 21300022, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+      group: 4
+      received: 0
+    picture: {fileID: 21300022, guid: 286d114cdb2cb744d88c203333bb4483, type: 3}
+    groups: fa000000fa000000fa000000fa000000
   dl: {fileID: 1313606218}
   casePref: {fileID: 1953476742593256, guid: 36c16bd36e843c84bb1b894990d9a095, type: 2}
   itemPref: {fileID: 1470775789442884, guid: 89efe8fd3358b0445942f63ec268d109, type: 2}
@@ -84640,7 +84822,7 @@ MonoBehaviour:
   - {fileID: 831751899}
   - {fileID: 1830271913}
   - {fileID: 1270001819}
-  SettingsBool: 0001
+  SettingsBool: 0100
   move: 0000
   spr_lot1:
   - {fileID: 21300000, guid: 401f8d7a73e15e74982b1455c0d51f16, type: 3}
@@ -92107,6 +92289,7 @@ GameObject:
   - component: {fileID: 1434544900}
   - component: {fileID: 1434544902}
   - component: {fileID: 1434544901}
+  - component: {fileID: 1434544903}
   m_Layer: 5
   m_Name: Lepestki
   m_TagString: Untagged
@@ -92165,6 +92348,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1434544899}
+--- !u!95 &1434544903
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434544899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0f26694c8cac97489a714ef3b05b36c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1435955093
 GameObject:
   m_ObjectHideFlags: 0
