@@ -57,7 +57,7 @@ public class LotteryManager : MonoBehaviour
 
     public void startLottery()
     {
-        ticketsText.text = "0 / " + ticketNum.ToString();
+        ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
         UnicRand();
         tickets = 0;
         fillAm.fillAmount = (float)(tickets / ticketNum);
@@ -124,6 +124,7 @@ public class LotteryManager : MonoBehaviour
         {
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
             winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner - 1].NameOfBusy;
+            timeText.transform.parent.gameObject.SetActive(false);
             winPanel.SetActive(true);
             if (it[winner - 1].NameOfBusy == g.nickname)
             {
@@ -264,7 +265,7 @@ public class LotteryManager : MonoBehaviour
             countBusy -= 1;
             tickets += 1;
             countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
-            ticketsText.text = tickets.ToString() + " / " + ticketNum.ToString();
+            ticketsText.text = (ticketNum - tickets).ToString() + " / " + ticketNum.ToString();
             fillAm.fillAmount = (float)tickets / ticketNum;
             //FlagRefresh(); // нужно для обновления ячеекы
         }

@@ -82,8 +82,7 @@ public class ScrollScript : MonoBehaviour {
         g.silver = g.silver + (int)g.cases[caseID].items[resItem].price;
         g.roulett.SetActive(false);
         g.Get = true;
-        g.Panels[3].SetActive(true);
-        g.Preloader(g.Panels[0]); // Переход на главную
+        g.OpenPreview(caseID);
         //
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }
