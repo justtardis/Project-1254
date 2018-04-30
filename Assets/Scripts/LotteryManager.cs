@@ -112,40 +112,46 @@ public class LotteryManager : MonoBehaviour
             if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
             {
                 StopCoroutine("BotActive");
+                timer.transform.parent.gameObject.GetComponent<Button>().interactable = true;
                 startLottery();
+            }
+            else
+            {
+                timer.text = "00:" + (waitTime + lotteryTime  - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
             }
         }
     }
 
     public void showWinner()
     {
+        timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
         int winner = UnityEngine.Random.Range(1, ticketNum);
         if (it[winner - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
             winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner - 1].NameOfBusy;
             timeText.transform.parent.gameObject.SetActive(false);
-            winPanel.SetActive(true);
-            if (it[winner - 1].NameOfBusy == g.nickname)
+            winPanel.SetActive(true);  
+        }
+        if (it[winner - 1].NameOfBusy == g.nickname)
+        {
+            if (lotType == 1)
             {
-                if (lotType == 1)
-                {
-                    g.silver = g.silver + reward;
-                }
-                else if (lotType != 4)
-                {
-                    g.gold = g.gold + reward;
-                }
-                else
-                {
-                    Inventory inv = g.gameObject.transform.GetComponent<Inventory>();
-                    inv.items[inv.invSize][1] = rewardItem[1];
-                    inv.items[inv.invSize][0] = rewardItem[0];
-                    inv.invSize++;
-                    inv.LoadInventory();
-                }
                 g.silver = g.silver + reward;
             }
+            else if (lotType != 4)
+            {
+                g.gold = g.gold + reward;
+            }
+            else
+            {
+                Inventory inv = g.gameObject.transform.GetComponent<Inventory>();
+                inv.items[inv.invSize][1] = rewardItem[1];
+                inv.items[inv.invSize][0] = rewardItem[0];
+                inv.invSize++;
+                inv.LoadInventory();
+            }
+            g.silver = g.silver + reward;
         }
         for (int i = 0; i < ticketNum; i++)
         {
