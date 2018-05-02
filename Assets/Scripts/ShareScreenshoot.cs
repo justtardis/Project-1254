@@ -39,7 +39,7 @@ public class ShareScreenshoot : MonoBehaviour
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"),
                 uriObject);
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"),
-                "Смотри, что выбил из кейса!\nКейс-симулятор реальных вещей\n"+"http:\\google.com");
+                "Смотри, что выбил из кейса!\nКейс-симулятор реальных вещей\n"+"http:'\\google.com");
             intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
             AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
