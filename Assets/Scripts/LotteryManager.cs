@@ -49,6 +49,7 @@ public class LotteryManager : MonoBehaviour
     public Text timer; //время лотереи
     public Text ticketsText; //количество билетов
     public Text costText; //стоимость билетов
+    public GameObject winner; //победитель
 
     void Start()
     {
@@ -58,6 +59,7 @@ public class LotteryManager : MonoBehaviour
     public void startLottery()
     {
         ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
+        winner.SetActive(false);
         UnicRand();
         tickets = 0;
         fillAm.fillAmount = (float)(tickets / ticketNum);
@@ -125,15 +127,16 @@ public class LotteryManager : MonoBehaviour
     public void showWinner()
     {
         timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
-        int winner = UnityEngine.Random.Range(1, ticketNum);
-        if (it[winner - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
+        int winner1 = UnityEngine.Random.Range(1, ticketNum);
+        if (it[winner1 - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
-            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner - 1].NameOfBusy;
+            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
             timeText.transform.parent.gameObject.SetActive(false);
+            winPanel.transform.GetChild(9).GetComponent<Text>().text = reward.ToString();
             winPanel.SetActive(true);  
         }
-        if (it[winner - 1].NameOfBusy == g.nickname)
+        if (it[winner1 - 1].NameOfBusy == g.nickname)
         {
             if (lotType == 1)
             {
@@ -162,7 +165,9 @@ public class LotteryManager : MonoBehaviour
         }
         countHeader.text = 0 + " / " + ticketNum.ToString();
         fillAm.fillAmount = 0;
-        Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner - 1].NameOfBusy);
+        Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner1 - 1].NameOfBusy);
+        winner.SetActive(true);
+        winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
     }
 
     public void FlagRefresh()
