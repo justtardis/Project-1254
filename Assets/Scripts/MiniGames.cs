@@ -3,27 +3,182 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MiniGames : MonoBehaviour {
+public class MiniGames : MonoBehaviour
+{
+    public Sprite trueGet;
+    public Sprite falseGet;
+    public GameObject[] JacpotBlock;
+    public Sprite[] money;
+    public GameObject[] group;
+    public Game g;
 
-    // Первая игра будет крэш
-    // Нарастание от 0 до 200x
-    // Обрываем график  в рандомном значении
-    public float _counter = 0f;
-    public float _timer = 0.05f;
-    public Text crashCounter;
-    public bool b = false;
-    public void ss()
+    public int winOrLose = 0;  // 1 - игрок НЕ выигрывает, 2 - выигрывает
+    public int countWin = 0; // 1 - выигрывает 1 поле, 2 - 2 поля, 3 - все 3.
+    public int typeOfPrise = 0;  // 1 - серебро, 2 - золото, 3 - предмет топ
+    public int[] firstString = new int[3] { 9, 0, 0 };
+    public int[] secondString = new int[3] { 0, 0, 0 };
+    int stolb;
+    int[] arr = new int[2];
+    public bool[] check = new bool[6];
+    public GameObject[] Lep;
+    int index = 0;
+    int count = 0;
+
+    void Prise(int id, Sprite spr)
     {
-        if (!b) b = true;
-        else b = false;
-    }
-    private void FixedUpdate()
-    {
-        if (b)
+        JacpotBlock[id].transform.GetChild(3).gameObject.SetActive(true);
+        JacpotBlock[id].transform.GetChild(3).GetComponent<Image>().sprite = spr;
+        typeOfPrise = Random.Range(1, 4);
+        switch (typeOfPrise)
         {
-            crashCounter.text = (Mathf.Lerp(1f, 200f, _timer * Time.deltaTime)).ToString("0.#0");
-            _timer += _timer* 0.01f;
+            case 1:
+                int silver = Random.Range(50, 40000);
+                JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
+                JacpotBlock[id].transform.GetChild(4).gameObject.SetActive(true);
+                JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
+                JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[0];
+                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = silver.ToString();
+                break;
+            case 2:
+                int gold = Random.Range(5, 250);
+                JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
+                JacpotBlock[id].transform.GetChild(4).gameObject.SetActive(true);
+                JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
+                JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[1];
+                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = gold.ToString();
+
+                break;
+            case 3:
+                int caseId = Random.Range(0, g.cases.Length);
+                int i = 0;
+                while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                {
+                    i++;
+                }
+                int itemId = Random.Range(i, g.cases[caseId].items.Length);
+                JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
+                JacpotBlock[id].transform.GetChild(2).gameObject.SetActive(true);
+                JacpotBlock[id].transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseId].items[itemId].picture;
+                break;
         }
-        
+    }
+
+    
+    public void clickCircle(GameObject thisObj)
+    {
+        thisObj.GetComponent<idMini>().opened = true;
+        int id = thisObj.GetComponent<idMini>().id;
+        thisObj.GetComponent<Animator>().SetBool("Click", true);
+        thisObj.GetComponent<Button>().interactable = false;
+        if (check[id])
+        {
+            count += 1;
+            if (count >= 3)
+            {
+                group[0].SetActive(true);
+                group[1].SetActive(false);
+            }
+            if (secondString[id]> firstString[id])
+            {
+                Lep[id].SetActive(true);
+                Lep[id + 3].SetActive(true);
+                Prise(id, trueGet);
+                group[0].transform.GetChild(0).GetComponent<Text>().text = "Поздравляем!";
+            }
+            else Prise(id, falseGet);
+        }
+        else
+        {
+            check[id] = thisObj.GetComponent<idMini>().opened;
+        }    
+    }
+
+    private void Start()
+    {
+        Raund();
+    }
+
+    
+    void UnicRand() // Для генерации рандомных позиций целей
+    {
+        bool alreadyThere;
+        for (int i = 0; i < 2;)
+        {
+            alreadyThere = false;
+            int newRandomValue = Random.Range(0, 3);
+            for (int j = 0; j < i; j++)
+            {
+                if (arr[j] == newRandomValue)
+                {
+                    alreadyThere = true;
+                    break;
+                }
+            }
+            if (!alreadyThere)
+            {
+                arr[i] = newRandomValue;
+                i++;
+            }
+        }
+    }
+
+    public void Raund()
+    {
+        winOrLose = Random.Range(1, 3);
+        if (winOrLose == 1)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                firstString[i] = Random.Range(2, 9);
+                secondString[i] = Random.Range(1, firstString[i]);
+                group[0].transform.GetChild(0).GetComponent<Text>().text = "К сожалению, вы ничего не выиграли";
+            }
+        }
+        // победа
+        if (winOrLose == 2)
+        {
+            // число выигрышных столбцов
+            countWin = Random.Range(1, 4);
+            countWin = 2;
+            switch (countWin)
+            {
+                case 1:
+                    stolb = Random.Range(0, 3);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        firstString[i] = Random.Range(2, 10);
+                        secondString[i] = Random.Range(1, firstString[i]);
+                    }
+                    // Выигрышный столбец
+                    firstString[stolb] = Random.Range(1, 8);
+                    secondString[stolb] = Random.Range(firstString[stolb] + 1, 10);
+                    print("win  1");
+                    break;
+                case 2:
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        firstString[i] = Random.Range(2, 10);
+                        secondString[i] = Random.Range(1, firstString[i]);
+                    }
+                    UnicRand();
+
+                    for (int j = 0; j < 2; j++)
+                    {
+                        firstString[arr[j]] = Random.Range(1, 8);
+                        secondString[arr[j]] = Random.Range(firstString[arr[j]] + 1, 10);
+                        print("win  2");
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        firstString[i] = Random.Range(1, 10);
+                        secondString[i] = Random.Range(firstString[i] + 1, 10);
+                        print("win 3");
+                    }
+                    break;
+            }
+        }
     }
 }
