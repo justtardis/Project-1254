@@ -217,6 +217,7 @@ public class Game : MonoBehaviour
             A.transform.GetChild(0).GetComponent<Text>().text = cases[id].items[i].price.ToString();
             A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
             A.transform.GetChild(2).gameObject.SetActive(cases[id].items[i].group == 4);
+            A.SetActive(true);
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
         }
         //Удаляем ненужные ячейки

@@ -49,6 +49,8 @@ public class LotteryManager : MonoBehaviour
     public Text timer; //время лотереи
     public Text ticketsText; //количество билетов
     public Text costText; //стоимость билетов
+    public Text rewardText; //джекпот
+    public Image rewardSpr; //джекпот картиночкой
     public GameObject winner; //победитель
 
     void Start()
@@ -66,10 +68,17 @@ public class LotteryManager : MonoBehaviour
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
         costText.text = price.ToString();
         isFinished = false;
-        if (lotType != 4)
+        if (rewardSpr != null)
+        {
+            int rand = UnityEngine.Random.Range(0, 13);
+            reward = 4000 + rand * 500;
+            rewardSpr.sprite = g.spr_lot1[rand];
+        }
+        else if (lotType != 4)
         {
             reward = UnityEngine.Random.Range(rewardMin, rewardMin);
             reward = reward / 1000 * 1000;
+            rewardText.text = g.convertMoney(reward);
         }
         else
         {
@@ -133,7 +142,16 @@ public class LotteryManager : MonoBehaviour
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
             winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
             timeText.transform.parent.gameObject.SetActive(false);
-            winPanel.transform.GetChild(9).GetComponent<Text>().text = reward.ToString();
+            if (lotType != 4)
+            {
+                winPanel.transform.GetChild(9).GetComponent<Text>().text = g.convertMoney(reward);
+                winPanel.transform.GetChild(8).gameObject.SetActive(true);
+            }
+            else
+            {
+                winPanel.transform.GetChild(9).GetComponent<Text>().text = g.cases[rewardItem[0]].items[rewardItem[1]].name;
+                winPanel.transform.GetChild(8).gameObject.SetActive(false);
+            }
             winPanel.SetActive(true);  
         }
         if (it[winner1 - 1].NameOfBusy == g.nickname)
@@ -156,6 +174,11 @@ public class LotteryManager : MonoBehaviour
             }
             g.silver = g.silver + reward;
         }
+        if (it[winner1 - 1].isBusy)
+        {
+            winner.SetActive(true);
+            winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+        }
         for (int i = 0; i < ticketNum; i++)
         {
             it[i].isBusy = false;
@@ -166,8 +189,7 @@ public class LotteryManager : MonoBehaviour
         countHeader.text = 0 + " / " + ticketNum.ToString();
         fillAm.fillAmount = 0;
         Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner1 - 1].NameOfBusy);
-        winner.SetActive(true);
-        winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+        
     }
 
     public void FlagRefresh()
