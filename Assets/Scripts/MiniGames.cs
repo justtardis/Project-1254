@@ -24,7 +24,7 @@ public class MiniGames : MonoBehaviour
     int index = 0;
     int count = 0;
 
-    void Prise(int id, Sprite spr)
+    void Prise(int id, Sprite spr, bool isWin)
     {
         JacpotBlock[id].transform.GetChild(3).gameObject.SetActive(true);
         JacpotBlock[id].transform.GetChild(3).GetComponent<Image>().sprite = spr;
@@ -38,6 +38,10 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[0];
                 JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = silver.ToString();
+                if (isWin)
+                {
+                    g.silver = g.silver + silver;
+                }
                 break;
             case 2:
                 int gold = Random.Range(5, 250);
@@ -46,7 +50,10 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[1];
                 JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = gold.ToString();
-
+                if (isWin)
+                {
+                    g.gold = g.gold + gold;
+                }
                 break;
             case 3:
                 int caseId = Random.Range(0, g.cases.Length);
@@ -59,6 +66,14 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
                 JacpotBlock[id].transform.GetChild(2).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseId].items[itemId].picture;
+                if (isWin)
+                {
+                    Inventory inv = g.gameObject.transform.GetComponent<Inventory>();
+                    inv.items[inv.invSize][1] = itemId;
+                    inv.items[inv.invSize][0] = caseId;
+                    inv.invSize++;
+                    inv.LoadInventory();
+                }
                 break;
         }
     }
@@ -82,10 +97,10 @@ public class MiniGames : MonoBehaviour
             {
                 Lep[id].SetActive(true);
                 Lep[id + 3].SetActive(true);
-                Prise(id, trueGet);
+                Prise(id, trueGet, true);
                 group[0].transform.GetChild(0).GetComponent<Text>().text = "Поздравляем!";
             }
-            else Prise(id, falseGet);
+            else Prise(id, falseGet, false);
         }
         else
         {
