@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataLoader : MonoBehaviour {
 
-    public string siteName = "http://casesim/";
+    string siteName = "https://elminaross.000webhostapp.com";
     public Game g;
 
     public string[] res;
@@ -28,8 +28,8 @@ public class DataLoader : MonoBehaviour {
     {
         while (true)
         {
-            siteName = "http://casesim/getUserNum.php";
-            WWW userData = new WWW(siteName);
+            string siteName1 = siteName + "/getUserNum.php";
+            WWW userData = new WWW(siteName1);
             yield return userData;
             res = userData.text.Split('|');
             g.usersText.text = res[0];
@@ -43,8 +43,8 @@ public class DataLoader : MonoBehaviour {
         WWWForm form = new WWWForm();
         form.AddField("id", id.ToString());
         form.AddField("cases", cases.ToString());
-        siteName = "http://casesim/updateData.php";
-        WWW www = new WWW(siteName, form);
+        string siteName2 = siteName + "/updateData.php";
+        WWW www = new WWW(siteName2, form);
         //res = www.text;
     }
 
