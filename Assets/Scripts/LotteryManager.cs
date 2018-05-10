@@ -10,9 +10,11 @@ public class LotteryManager : MonoBehaviour
     public Game g;
     public int[] arrTicket = new int[42];
     //int MINIMAL = 0;
-
+    public SaveLottery sv;
     public int ticketNum = 42;
     public Text timeText;
+
+    public int id;
 
     public int lotType; // тип лотереи: 1- серебро - серебро, 2 - серебро - золото, 3 - золото- золото, 4 - серебро - предмет
 
@@ -55,7 +57,11 @@ public class LotteryManager : MonoBehaviour
 
     void Start()
     {
-        startLottery();
+        if (PlayerPrefs.HasKey("unitySV"))
+        {
+            sv = JsonUtility.FromJson<SaveLottery>(PlayerPrefs.GetString("unitySV"));
+        }
+            startLottery();
     }
 
     public void startLottery()
@@ -335,6 +341,31 @@ public class LotteryManager : MonoBehaviour
             }
         }
     }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    public void Save()
+    {
+        sv.reward = reward;
+        sv.itemCaseId = rewardItem[0];
+        sv.itemItemId = rewardItem[1];
+        //sv.bots = new string[bot.Length];
+        //sv.it = new string[it.Length];
+        sv.start[0] = start.Year;
+        sv.start[1] = start.Month;
+        sv.start[2] = start.Day;
+        sv.start[3] = start.Hour;
+        sv.start[4] = start.Minute;
+        sv.start[5] = start.Second;
+        sv.isFinished = isFinished;
+        sv.bots = JsonHelper.ToJson<BOT>(bot);
+        sv.it = JsonHelper.ToJson<LotteryItem>(it);
+        string json = JsonUtility.ToJson(sv);
+        PlayerPrefs.SetString("unitySV", JsonUtility.ToJson(sv));
+    }
 }
 
 [System.Serializable]
@@ -348,4 +379,16 @@ public class BOT
     public Sprite icon;
     //public int startTime;
     public int waitTime;
+}
+
+[System.Serializable]
+public class SaveLottery
+{
+    public int reward;
+    public int itemCaseId;
+    public int itemItemId;
+    public string bots;
+    public string it;
+    public int[] start = new int[6];
+    public bool isFinished;
 }
