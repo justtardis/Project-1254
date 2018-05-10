@@ -14,6 +14,8 @@ public class MiniGames : MonoBehaviour
 
     public GameObject[] button;
     public Sprite defIc;
+    private int price = 2000;
+    public Text priceText;
 
     public int winOrLose = 0;  // 1 - игрок НЕ выигрывает, 2 - выигрывает
     public int countWin = 0; // 1 - выигрывает 1 поле, 2 - 2 поля, 3 - все 3.
@@ -27,12 +29,24 @@ public class MiniGames : MonoBehaviour
     int index = 0;
     int count = 0;
 
+    public void BuyGame()
+    {
+        g.silver = g.silver - price;
+        group[2].SetActive(false);
+        for (int i = 0; i < 6; i++)
+        {
+            button[i].GetComponent<Button>().interactable = true;
+            button[i].GetComponent<Animator>().SetBool("Click", false);
+            check[i] = false;
+        }
+    }
+
     public void RestartGame()
     {
         count = 0;
         for (int i = 0; i < 6; i++)
         {
-            button[i].GetComponent<Button>().interactable = true;
+            //button[i].GetComponent<Button>().interactable = fa;
             button[i].GetComponent<Animator>().SetBool("Click", false);
             check[i] = false;
         }
@@ -48,9 +62,7 @@ public class MiniGames : MonoBehaviour
             JacpotBlock[j].transform.GetChild(4).GetComponent<Rev>().rev = 2;
             JacpotBlock[j].transform.GetChild(5).GetComponent<Animator>().SetBool("AnimTrigger", true);
             JacpotBlock[j].transform.GetChild(5).GetComponent<Rev>().rev = 2;
-
         }
-
     }
 
     void Prise(int id, Sprite spr, bool isWin)
@@ -64,6 +76,7 @@ public class MiniGames : MonoBehaviour
         {
             case 1:
                 int silver = Random.Range(50, 40000);
+
                 JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
                 JacpotBlock[id].transform.GetChild(4).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
@@ -176,6 +189,10 @@ public class MiniGames : MonoBehaviour
 
     public void Raund()
     {
+        for (int i = 0; i < 6; i++)
+        {
+            button[i].GetComponent<Button>().interactable = false;
+        }
         winOrLose = Random.Range(1, 3);
         if (winOrLose == 1)
         {
