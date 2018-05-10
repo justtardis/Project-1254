@@ -6,6 +6,8 @@ public class DataLoader : MonoBehaviour {
 
     string siteName = "https://elminaross.000webhostapp.com";
     public Game g;
+    private string GoogleID = "123jklffskj4nmsdfm53";
+    private string UserName = "Administrator";
 
     public string[] res;
 
