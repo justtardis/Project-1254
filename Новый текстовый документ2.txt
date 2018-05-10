@@ -1,0 +1,55 @@
+<?php
+//Variables for the connection
+	$servername = "localhost";
+	$server_username =  "id624507_mysql";
+	$server_password = "mysql";
+	$dbName = "id624507_casesimulatorgames";
+	
+//Variable from the user	
+	$nickname = $_POST["usernamePost"]; //"Lucas Test AC";
+	$email = $_POST["emailPost"];//"test email";
+	$password = $_POST["passwordPost"];//"123456";
+	$key = $_POST["key"];
+	
+	//$real_key = md5($username . $secretGameKey);
+	$secretGameKey = "556978";
+	$secretServerKey = "54321";
+	$real_key = $secretServerKey;
+	//$key = $secretGameKey;
+	
+	$conn = new mysqli($servername, $server_username, $server_password, $dbName);
+	//Check Connection
+	if(!$conn){
+		die("Connection Failed. ". mysqli_connect_error());
+	}	
+	
+		
+     if (strcasecmp($key, $secretGameKey) == 0) {
+		$sql = "INSERT INTO Users (nickname, email, password)
+			VALUES ('".$nickname."','".$email."','".$password."')";
+		$result = mysqli_query($conn ,$sql);
+		/*$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < 8; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		$sql = "INSERT INTO users (gamertag, email, password)
+			VALUES ('".$username."','".$email."','".$password."')";
+		$result = mysqli_query($conn ,$sql);
+		
+
+		echo md5($username . $secretServerKey);
+		$sql = "INSERT INTO users (gamertag, email, password)
+			VALUES ('".$username."','".$email."','".$password."')";
+		$result = mysqli_query($conn ,$sql);*/
+		echo "$real_key";
+	}
+	else
+	{
+		echo "false";
+	}
+	if(!result) echo "there was an error";
+	
+
+?>

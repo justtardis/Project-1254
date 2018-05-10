@@ -17,5 +17,21 @@ public class idMini : MonoBehaviour
         if (control == "first") text.text = mini.firstString[id].ToString();
         else if(control == "second") text.text = mini.secondString[id].ToString();
     }
+    void Reverse()
+    {
+        text.text = "?";
+    }
+
+    void AnimationEnd()
+    {
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+    }
 
 }
