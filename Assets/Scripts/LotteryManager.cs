@@ -57,11 +57,67 @@ public class LotteryManager : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("unitySV"))
+        LoadLottery();
+
+    }
+
+    public void LoadLottery()
+    {
+        string name = id.ToString() + "lottery";
+        if (PlayerPrefs.HasKey(name))
         {
-            sv = JsonUtility.FromJson<SaveLottery>(PlayerPrefs.GetString("unitySV"));
+            sv = JsonUtility.FromJson<SaveLottery>(PlayerPrefs.GetString(name));
+            reward = sv.reward;
+            tickets = sv.tickets;
+            rewardItem[0] = sv.itemCaseId;
+            rewardItem[1] = sv.itemItemId;
+            //sv.bots = new string[bot.Length];
+            //sv.it = new string[it.Length];
+            start = new System.DateTime(sv.start[0], sv.start[1], sv.start[2], sv.start[3], sv.start[4], sv.start[5]);
+            isFinished = sv.isFinished;
+            bot = JsonHelper.FromJson<BOT>(sv.bots);
+            LotteryItemS[] it2 = new LotteryItemS[it.Length];
+            it2 = JsonHelper.FromJson<LotteryItemS>(sv.it);
+            for (int i = 0; i < it.Length; i++)
+            {
+                it[i].id = it2[i].id;
+                it[i].isBusy = it2[i].isBusy;
+                it[i].NameOfBusy = it2[i].NameOfBusy;
+                if (it[i].isBusy)
+                {
+                    for (int j = 0; j < bot.Length; j++)
+                    {
+                        if (bot[j].name == it2[i].NameOfBusy)
+                        {
+                            it[i].icon.sprite = bot[j].icon;
+                            it[i].GetComponent<Image>().color = bot[j].color;
+                        }
+                    }
+                }
+            }
         }
+        else
+        {
             startLottery();
+        }
+        updateCover();
+    }
+
+    public void updateCover()
+    {
+        ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
+        fillAm.fillAmount = (float)(tickets / ticketNum);
+        countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
+        costText.text = price.ToString();
+        if (rewardSpr != null)
+        {
+            int rand = (reward - 4000) / 500;
+            rewardSpr.sprite = g.spr_lot1[rand];
+        }
+        else if (lotType != 4)
+        {
+            rewardText.text = g.convertMoney(reward);
+        }
     }
 
     public void startLottery()
@@ -96,7 +152,7 @@ public class LotteryManager : MonoBehaviour
             rewardItem[1] = itemId;
         }
         start = DateTime.Now;
-        lotteryTime = 2;
+        //lotteryTime = 2;
         countBusy = ticketNum;
         int countCell = (ticketNum - 3) / botCount + 1;
         botCount = UnityEngine.Random.Range(3, 9);
@@ -107,7 +163,7 @@ public class LotteryManager : MonoBehaviour
             //bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].icon = g.botIcon[arrIcon[i]];
-            bot[i].color = g.color[i+3];
+            bot[i].color = g.color[i + 3];
             StartCoroutine(BotActive(bot[i]));
         }
     }
@@ -134,7 +190,7 @@ public class LotteryManager : MonoBehaviour
             }
             else
             {
-                timer.text = "00:" + (waitTime + lotteryTime  - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+                timer.text = "00:" + (waitTime + lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
             }
         }
     }
@@ -158,7 +214,7 @@ public class LotteryManager : MonoBehaviour
                 winPanel.transform.GetChild(9).GetComponent<Text>().text = g.cases[rewardItem[0]].items[rewardItem[1]].name;
                 winPanel.transform.GetChild(8).gameObject.SetActive(false);
             }
-            winPanel.SetActive(true);  
+            winPanel.SetActive(true);
         }
         if (it[winner1 - 1].NameOfBusy == g.nickname)
         {
@@ -195,7 +251,7 @@ public class LotteryManager : MonoBehaviour
         countHeader.text = 0 + " / " + ticketNum.ToString();
         fillAm.fillAmount = 0;
         Debug.Log("Победил билет № " + winner + " с пользователем " + it[winner1 - 1].NameOfBusy);
-        
+
     }
 
     public void FlagRefresh()
@@ -361,10 +417,21 @@ public class LotteryManager : MonoBehaviour
         sv.start[4] = start.Minute;
         sv.start[5] = start.Second;
         sv.isFinished = isFinished;
+        sv.tickets = tickets;
         sv.bots = JsonHelper.ToJson<BOT>(bot);
-        sv.it = JsonHelper.ToJson<LotteryItem>(it);
+        LotteryItemS[] it2 = new LotteryItemS[it.Length];
+        for (int i = 0; i < it.Length; i++)
+        {
+            it2[i] = new LotteryItemS();
+            it2[i].id = it[i].id;
+            it2[i].isBusy = it[i].isBusy;
+            it2[i].NameOfBusy = it[i].NameOfBusy;
+            it2[i].icon = it[i].icon;
+        }
+        sv.it = JsonHelper.ToJson<LotteryItemS>(it2);
         string json = JsonUtility.ToJson(sv);
-        PlayerPrefs.SetString("unitySV", JsonUtility.ToJson(sv));
+        string name = id.ToString() + "lottery";
+        PlayerPrefs.SetString(name, JsonUtility.ToJson(sv));
     }
 }
 
@@ -382,11 +449,22 @@ public class BOT
 }
 
 [System.Serializable]
+public class LotteryItemS
+{
+    public int id;
+    public bool isBusy = false;
+    public string NameOfBusy = string.Empty;
+    public Image icon;
+    public Text number;
+}
+
+[System.Serializable]
 public class SaveLottery
 {
     public int reward;
     public int itemCaseId;
     public int itemItemId;
+    public int tickets;
     public string bots;
     public string it;
     public int[] start = new int[6];

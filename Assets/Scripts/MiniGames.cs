@@ -28,11 +28,334 @@ public class MiniGames : MonoBehaviour
     public GameObject[] Lep;
     int index = 0;
     int count = 0;
+    int silver = 0;
+    int gold = 0;
+    int rareCoins = 0;
+    int caseId = 0;
+    int itemId = 0;
+    int rareTOP = 0;
+    #region
+    public int count_win = 0;
+
+    private void NonPlayable(int count_w, string word)
+    {
+        switch (word)
+        {
+            case "coins":
+                if (count_w == 0)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 3)
+                    {
+                        silver = Random.Range(12, 1500);
+                        gold = Random.Range(2, 10);
+                    }
+                    else if (rareCoins > 3 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(30000, 50000);
+                        gold = Random.Range(25, 50);
+                    }
+                }
+                if (count_w == 1)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 25)
+                    {
+                        silver = Random.Range(50, 2000);
+                        gold = Random.Range(5, 15);
+                    }
+                    else if (rareCoins > 25 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(24000, 28000);
+                        gold = Random.Range(40, 70);
+                    }
+                }
+                if (count_w == 2)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 60)
+                    {
+                        silver = Random.Range(50, 2000);
+                        gold = Random.Range(5, 15);
+                    }
+                    else if (rareCoins > 60 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(5800, 7000);
+                        gold = Random.Range(50, 150);
+                    }
+                }
+                if (count_w == 3)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 50)
+                    {
+                        silver = Random.Range(50, 2000);
+                        gold = Random.Range(5, 15);
+                    }
+                    else if (rareCoins > 50 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(500, 2000);
+                        gold = Random.Range(70, 150);
+                    }
+                }
+                if (count_w == 4)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 3)
+                    {
+                        silver = Random.Range(50, 2000);
+                        gold = Random.Range(5, 15);
+                    }
+                    else if (rareCoins > 3 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(17000, 25000);
+                        gold = Random.Range(1500, 5000);
+                    }
+                }
+                if (count_w == 5)
+                {
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 90)
+                    {
+                        silver = Random.Range(12, 1500);
+                        gold = Random.Range(2, 10);
+                    }
+                    else if (rareCoins > 90 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(10000, 40000);
+                        gold = Random.Range(20, 50);
+                    }
+                }
+                if (count_w > 5)
+                {
+                    //countWin = Random.Range(1, 4);
+                    rareCoins = Random.Range(0, 100);
+                    if (rareCoins <= 90)
+                    {
+                        silver = Random.Range(12, 1500);
+                        gold = Random.Range(2, 10);
+                    }
+                    else if (rareCoins > 90 && rareCoins <= 100)
+                    {
+                        silver = Random.Range(10000, 40000);
+                        gold = Random.Range(20, 50);
+                    }
+                }
+                break;
+            case "item":
+                if (count_w == 0)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 3)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 3 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w == 1)
+                {
+
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 25)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 25 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w == 2)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 60)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 60 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w == 3)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 50)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 50 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w == 4)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 3)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 3 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w == 5)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 80)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 80 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                }
+                if (count_w > 5)
+                {
+                    caseId = Random.Range(0, g.cases.Length);
+                    rareTOP = Random.Range(0, 100);
+                    if (rareTOP >= 0 && rareTOP <= 70)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group < 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+                    else if (rareTOP > 70 && rareTOP < 100)
+                    {
+                        int i = 0;
+                        while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
+                        {
+                            i++;
+                        }
+                        itemId = Random.Range(i, g.cases[caseId].items.Length);
+                    }
+
+                }
+                break;
+            case "STOLB":
+                if (count_w == 0)
+                {
+                    countWin = 3;
+                    winOrLose = 2;
+                }
+                if (count_w == 1)
+                {
+                    countWin = 2;
+                    winOrLose = 2;
+                }
+                if (count_w == 2)
+                {
+                    countWin = 1;
+                    winOrLose = 2;
+                }
+                if (count_w == 3)
+                {
+                    countWin = 1;
+                    winOrLose = 2;
+                }
+                if (count_w == 4)
+                {
+                    countWin = 0;
+                    winOrLose = 1;
+                }
+                if (count_w == 5)
+                {
+                    countWin = 1;
+                    winOrLose = 2;
+                }
+                if (count_w > 5)
+                {
+                    countWin = Random.Range(1, 4);
+                    winOrLose = Random.Range(1, 3);
+                }
+                break;
+        }
+    }
+    #endregion
+
 
     public void BuyGame()
     {
+        
         g.silver = g.silver - price;
         group[2].SetActive(false);
+        NonPlayable(count_win, "STOLB");
+        Raund();
         for (int i = 0; i < 6; i++)
         {
             button[i].GetComponent<Button>().interactable = true;
@@ -43,6 +366,7 @@ public class MiniGames : MonoBehaviour
 
     public void RestartGame()
     {
+        count_win += 1;
         count = 0;
         for (int i = 0; i < 6; i++)
         {
@@ -70,13 +394,13 @@ public class MiniGames : MonoBehaviour
         JacpotBlock[id].transform.GetChild(3).gameObject.SetActive(true);
         JacpotBlock[id].transform.GetChild(3).GetComponent<Rev>().rev = 1;
         JacpotBlock[id].transform.GetChild(3).GetComponent<Image>().sprite = spr;
-       // JacpotBlock[id].transform.GetChild(3).GetComponent<Animator>().SetBool("isFalse", false);
+        // JacpotBlock[id].transform.GetChild(3).GetComponent<Animator>().SetBool("isFalse", false);
         typeOfPrise = Random.Range(1, 4);
         switch (typeOfPrise)
         {
             case 1:
-                int silver = Random.Range(50, 40000);
-
+                NonPlayable(count_win, "coins");
+                //silver = Random.Range(50, 40000);
                 JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
                 JacpotBlock[id].transform.GetChild(4).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
@@ -90,7 +414,8 @@ public class MiniGames : MonoBehaviour
                 }
                 break;
             case 2:
-                int gold = Random.Range(5, 250);
+                NonPlayable(count_win, "coins");
+                //gold = Random.Range(5, 250);
                 JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
                 JacpotBlock[id].transform.GetChild(4).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(5).gameObject.SetActive(true);
@@ -104,13 +429,7 @@ public class MiniGames : MonoBehaviour
                 }
                 break;
             case 3:
-                int caseId = Random.Range(0, g.cases.Length);
-                int i = 0;
-                while (i < g.cases[caseId].items.Length && g.cases[caseId].items[i].group != 4)
-                {
-                    i++;
-                }
-                int itemId = Random.Range(i, g.cases[caseId].items.Length);
+                NonPlayable(count_win, "item");
                 JacpotBlock[id].transform.GetChild(1).gameObject.SetActive(false);
                 JacpotBlock[id].transform.GetChild(2).gameObject.SetActive(true);
                 JacpotBlock[id].transform.GetChild(2).GetComponent<Rev>().rev = 1;
@@ -126,7 +445,6 @@ public class MiniGames : MonoBehaviour
                 break;
         }
     }
-
 
     public void clickCircle(GameObject thisObj)
     {
@@ -149,7 +467,7 @@ public class MiniGames : MonoBehaviour
                 //Lep[id + 3].SetActive(true);
                 Prise(id, trueGet, true);
                 group[0].transform.GetChild(0).GetComponent<Text>().text = "Поздравляем!";
-               
+
             }
             else Prise(id, falseGet, false);
         }
@@ -193,7 +511,8 @@ public class MiniGames : MonoBehaviour
         {
             button[i].GetComponent<Button>().interactable = false;
         }
-        winOrLose = Random.Range(1, 3);
+        //winOrLose = Random.Range(1, 3);
+      
         if (winOrLose == 1)
         {
             for (int i = 0; i < 3; i++)
@@ -207,8 +526,8 @@ public class MiniGames : MonoBehaviour
         if (winOrLose == 2)
         {
             // число выигрышных столбцов
-            countWin = Random.Range(1, 4);
-            countWin = 2;
+            //countWin = Random.Range(1, 4);
+
             switch (countWin)
             {
                 case 1:
