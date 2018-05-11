@@ -340,14 +340,26 @@ public class MiniGames : MonoBehaviour
                 }
                 if (count_w > 5)
                 {
-                    countWin = Random.Range(1, 4);
+                    
                     winOrLose = Random.Range(1, 3);
+                    if (winOrLose == 2)
+                    {
+                        countWin = Random.Range(1, 4);
+                    }
+                    else
+                        countWin = 0;
                 }
                 break;
         }
     }
     #endregion
 
+    private string conversionFunction(int number)
+    {
+        string converted = number.ToString("#,###,##0");
+        converted = converted.Replace(",", " ");
+        return converted;
+    }
 
     public void BuyGame()
     {
@@ -407,7 +419,7 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(5).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[0];
-                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = silver.ToString();
+                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = conversionFunction(silver);
                 if (isWin)
                 {
                     g.silver = g.silver + silver;
@@ -422,7 +434,7 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(5).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[1];
-                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = gold.ToString();
+                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = conversionFunction(gold); 
                 if (isWin)
                 {
                     g.gold = g.gold + gold;
@@ -480,6 +492,7 @@ public class MiniGames : MonoBehaviour
     private void Start()
     {
         Raund();
+        priceText.text = conversionFunction(price);
     }
 
     void UnicRand() // Для генерации рандомных позиций целей

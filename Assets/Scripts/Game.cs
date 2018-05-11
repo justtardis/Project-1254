@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 
 public class Game : MonoBehaviour
 {
@@ -96,7 +99,7 @@ public class Game : MonoBehaviour
     [Header("Все панели и окна")]
     public GameObject[] Panels;
     public GameObject PanelAct;
-    public int curPanelId; 
+    public int curPanelId;
 
     // 0 - Main
     // 1 - Inventory
@@ -109,6 +112,8 @@ public class Game : MonoBehaviour
     // 8 - Preview
     #endregion
 
+
+    public Text username_menu;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
     private void Awake()
     {
@@ -119,9 +124,16 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) => {
+           if(success) username_menu.text = Social.localUser.userName;
+        });
+        
+
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
-        
+
+       
 
         for (int i = 0; i < cases.Length; i++)
         {
