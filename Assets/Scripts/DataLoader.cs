@@ -2,29 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataLoader : MonoBehaviour {
+public class DataLoader : MonoBehaviour
+{
 
     string siteName = "https://elminaross.000webhostapp.com";
     public Game g;
-    private string GoogleID = "123jklffskj4nmsdfm53";
-    private string UserName = "Administrator";
 
     public string[] res;
+    //public string[] getData;
+    public string getData;
 
-	// Use this for initialization
+    // Use this for initialization
 
     void Start()
     {
         StartCoroutine(getMainData());
     }
 
-	/*IEnumerator Start () {
+    /*IEnumerator Start () {
         siteName = "http://casesim/getUserNum.php";
         WWW userData = new WWW(siteName);
         yield return userData;
         res = userData.text;
         Debug.Log(res);
     }*/
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) StartCoroutine(LoginOrInsertData("6984412st50933dc", "LemonS"));
+    }
 
     IEnumerator getMainData()
     {
@@ -48,6 +54,27 @@ public class DataLoader : MonoBehaviour {
         string siteName2 = siteName + "/updateData.php";
         WWW www = new WWW(siteName2, form);
         //res = www.text;
+    }
+
+    IEnumerator LoginOrInsertData(string google_ID, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("google_id", google_ID);
+        form.AddField("user_name", username);
+        string siteName2 = siteName + "/Login.php";
+        WWW www = new WWW(siteName2, form);
+        yield return www;
+    //    getData = www.text;
+    //    public string[] r = new string[5];
+    //r= getData.Split('—');
+       // print(GetDataValue(getData[0], "silver:"));
+    }
+
+    string GetDataValue(string data, string index)
+    {
+        string value = data.Substring(data.IndexOf(index) + index.Length);
+        value = value.Remove(value.IndexOf("—"));
+        return value;
     }
 
 

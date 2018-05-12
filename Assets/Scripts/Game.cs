@@ -85,6 +85,7 @@ public class Game : MonoBehaviour
     public Sprite[] text_lot1_en;
     public Sprite[] text_lot1_ru;
     public string nickname = "Jack";
+    public string google_id = string.Empty;
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
     /*public LotteryItem[] it;
@@ -126,7 +127,17 @@ public class Game : MonoBehaviour
     {
         PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool success) => {
-           if(success) username_menu.text = Social.localUser.userName;
+            if (success)
+            {
+                nickname = Social.localUser.userName;
+                google_id = Social.localUser.id;
+                username_menu.text = nickname;
+            }
+            else
+            {
+                nickname = "LemonS";
+                google_id = "6984412st50933dc";
+            }
         });
         
 
