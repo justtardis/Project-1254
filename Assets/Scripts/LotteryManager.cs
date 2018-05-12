@@ -61,38 +61,91 @@ public class LotteryManager : MonoBehaviour
 
     }
 
+    public void buyTickets()
+    {
+        int max = (int)(((ticketNum - tickets) / botCount) * 0.3);
+        int count = 0;
+        for (int i = 0; i < botCount; i++)
+        {
+            count = 0;
+            int n = UnityEngine.Random.Range(0, max + 1);
+            while (count < n && tickets < ticketNum)
+            {
+                int cellId = UnityEngine.Random.Range(0, ticketNum);
+                if (!it[cellId].isBusy)
+                {
+                    ConfirmLotteryItem(cellId + 1, bot[i].name, bot[i].color, bot[i].icon); // подтверждаем покупку
+                    count++;
+                }
+            }
+        }
+    }
+
     public void LoadLottery()
     {
         string name = id.ToString() + "lottery";
         if (PlayerPrefs.HasKey(name))
         {
             sv = JsonUtility.FromJson<SaveLottery>(PlayerPrefs.GetString(name));
-            reward = sv.reward;
-            tickets = sv.tickets;
-            rewardItem[0] = sv.itemCaseId;
-            rewardItem[1] = sv.itemItemId;
-            //sv.bots = new string[bot.Length];
-            //sv.it = new string[it.Length];
             start = new System.DateTime(sv.start[0], sv.start[1], sv.start[2], sv.start[3], sv.start[4], sv.start[5]);
-            isFinished = sv.isFinished;
-            bot = JsonHelper.FromJson<BOT>(sv.bots);
-            LotteryItemS[] it2 = new LotteryItemS[it.Length];
-            it2 = JsonHelper.FromJson<LotteryItemS>(sv.it);
-            for (int i = 0; i < it.Length; i++)
+            if ((DateTime.Now - start).TotalMinutes > (lotteryTime))
             {
-                it[i].id = it2[i].id;
-                it[i].isBusy = it2[i].isBusy;
-                it[i].NameOfBusy = it2[i].NameOfBusy;
-                if (it[i].isBusy)
+                if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
                 {
-                    for (int j = 0; j < bot.Length; j++)
+                    double delta = (DateTime.Now - start).TotalMinutes - (lotteryTime + waitTime);
+                    startLottery();
+                    int seconds = UnityEngine.Random.Range(0, (int)(delta * 60));
+                    start.Subtract(new DateTime(0, 0, 0, seconds / 3600, seconds / 60, seconds % 60));
+                    //buyTickets();
+                }
+            }
+            else
+            {
+                reward = sv.reward;
+                tickets = sv.tickets;
+                arrIcon = JsonHelper.FromJson<int>(sv.arrIcon);
+                rewardItem[0] = sv.itemCaseId;
+                rewardItem[1] = sv.itemItemId;
+                botCount = sv.botCount;
+                //sv.bots = new string[bot.Length];
+                //sv.it = new string[it.Length];
+                isFinished = sv.isFinished;
+                bot = JsonHelper.FromJson<BOT>(sv.bots);
+                for (int i = 0; i < bot.Length; i++)
+                {
+                    bot[i].icon = g.botIcon[arrIcon[i]];
+                    bot[i].color = g.color[i + 3];
+                }
+                LotteryItemS[] it2 = new LotteryItemS[it.Length];
+                it2 = JsonHelper.FromJson<LotteryItemS>(sv.it);
+                for (int i = 0; i < it.Length; i++)
+                {
+                    it[i].id = it2[i].id;
+                    it[i].isBusy = it2[i].isBusy;
+                    it[i].NameOfBusy = it2[i].NameOfBusy;
+                    if (it[i].isBusy)
                     {
-                        if (bot[j].name == it2[i].NameOfBusy)
+                        for (int j = 0; j < bot.Length; j++)
                         {
-                            it[i].icon.sprite = bot[j].icon;
-                            it[i].GetComponent<Image>().color = bot[j].color;
+                            if (bot[j].name == it2[i].NameOfBusy)
+                            {
+                                //it[i].icon.sprite = bot[j].icon;
+                                it[i].transform.GetChild(0).gameObject.SetActive(false);
+                                it[i].transform.GetChild(1).gameObject.SetActive(true);
+                                it[i].transform.GetChild(1).GetComponent<Image>().sprite = bot[j].icon;
+                                it[i].GetComponent<Image>().color = bot[j].color;
+                            }
+                        }
+                        if (g.nickname == it2[i].NameOfBusy)
+                        {
+                            it[i].GetComponent<Image>().color = g.color[1];
                         }
                     }
+                    //buyTickets();
+                }
+                for (int i = 0; i < botCount; i++)
+                {
+                    StartCoroutine(BotActive(bot[i]));
                 }
             }
         }
@@ -105,8 +158,9 @@ public class LotteryManager : MonoBehaviour
 
     public void updateCover()
     {
-        ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
-        fillAm.fillAmount = (float)(tickets / ticketNum);
+        ticketsText.text = (ticketNum - tickets).ToString() + " / " + ticketNum.ToString();
+        //fillAm.fillAmount = (float)(tickets / ticketNum);
+        fillAm.fillAmount = (float)tickets / ticketNum;
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
         costText.text = price.ToString();
         if (rewardSpr != null)
@@ -416,7 +470,9 @@ public class LotteryManager : MonoBehaviour
         sv.start[3] = start.Hour;
         sv.start[4] = start.Minute;
         sv.start[5] = start.Second;
+        sv.arrIcon = JsonHelper.ToJson<int>(arrIcon);
         sv.isFinished = isFinished;
+        sv.botCount = botCount;
         sv.tickets = tickets;
         sv.bots = JsonHelper.ToJson<BOT>(bot);
         LotteryItemS[] it2 = new LotteryItemS[it.Length];
@@ -465,8 +521,10 @@ public class SaveLottery
     public int itemCaseId;
     public int itemItemId;
     public int tickets;
+    public int botCount;
     public string bots;
     public string it;
+    public string arrIcon;
     public int[] start = new int[6];
     public bool isFinished;
 }
