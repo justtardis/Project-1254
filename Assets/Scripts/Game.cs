@@ -52,6 +52,7 @@ public class Game : MonoBehaviour
     public int casesNum; //сколько открыто кейсов
     public int itemsSold; //сколько продано товаров
     public int bonuses; //получено на ежедневных бонусах
+    public int level = 0;
     [Space(5f)]
     [Header("Тогглы")]
     public int id_toggle;
@@ -87,7 +88,14 @@ public class Game : MonoBehaviour
     public GameObject[] touchSecond;
     public bool[] SettingsBool;
     public bool[] move;
-   
+
+    [Space(5f)]
+    [Header("Достижения")]
+    public Text levelText; // Номер уровня
+    public Text casesOfLevelText; // Число открытых кейсов из необходимых
+    public Text levelPerc; // Процент открытых кейсов
+    public Image caseFill; // Полоса заполнения кейсов
+
     [Space(5f)]
     [Header("Лотерея")]
     public Sprite[] spr_lot1;
@@ -254,6 +262,21 @@ public class Game : MonoBehaviour
             else if (casesNum == 1000) ach.achievments[2].get = true;
             else if (casesNum == 5000) ach.achievments[3].get = true;
             else if (casesNum == 10000) ach.achievments[4].get = true;
+            if (casesNum == Cases_Level[level])
+            {
+                level++;
+                levelText.text = "Уровень " + level.ToString(); 
+            }
+            casesOfLevelText.text = casesNum.ToString() + "/" + Cases_Level[level];
+            if (level != 0)
+            {
+                levelPerc.text = (int)(((casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100) + "%";
+            }
+            else
+            {
+                levelPerc.text = (int)((casesNum / Cases_Level[level]) * 100) + "%";
+            }
+
             scr.OpenCase(id);
         }
         else
