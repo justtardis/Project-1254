@@ -64,11 +64,19 @@ public class Game : MonoBehaviour
     public bool[] changes;
     [Space(5f)]
     [Header("Лидерборд")]
+    public GameObject groupList;
+    private GameObject tempList;
     public Sprite FilledBtn;
     public Sprite LinearBtn;
     public GameObject[] L;
     public Image[] Btn;
     public Text Header;
+
+    public Text user;
+    public Text count_cases;
+    public Text topLevel;
+    Texture2D userPicture;
+
     [Space(5f)]
     [Header("Настройки")]
     public Color[] color;
@@ -79,6 +87,7 @@ public class Game : MonoBehaviour
     public GameObject[] touchSecond;
     public bool[] SettingsBool;
     public bool[] move;
+   
     [Space(5f)]
     [Header("Лотерея")]
     public Sprite[] spr_lot1;
@@ -101,7 +110,8 @@ public class Game : MonoBehaviour
     public GameObject[] Panels;
     public GameObject PanelAct;
     public int curPanelId;
-
+    public Image avatar;
+    public Image avatar_menu;
     // 0 - Main
     // 1 - Inventory
     // 2 - Shop
@@ -112,40 +122,63 @@ public class Game : MonoBehaviour
     // 7 - Lottery
     // 8 - Preview
     #endregion
-
-
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     public Text username_menu;
+    public bool suc = false;
+    public int[] Cases_Level;
+    public AudioClip[] ac;
+    public AudioSource _as;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
-    private void Awake()
+    public void playClip()
     {
-        //silver = 99; 
-        //gold = 5;
+        audioSource.clip = audioClip;
+        audioSource.Play();
     }
-
-    // Use this for initialization
-    void Start()
+    
+    
+    public void auth()
     {
         PlayGamesPlatform.Activate();
-        Social.localUser.Authenticate((bool success) => {
+        Social.localUser.Authenticate((bool success) =>
+        {
             if (success)
             {
                 nickname = Social.localUser.userName;
                 google_id = Social.localUser.id;
                 username_menu.text = nickname;
+                suc = true;
+                StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
+               // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f),50f);
             }
             else
             {
                 nickname = "LemonS";
                 google_id = "6984412st50933dc";
+                StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
             }
+            StartCoroutine(dl.getMainData());
+            StartCoroutine(dl.getDataTop());
+            StartCoroutine(LoadImage());
         });
-        
+    }
 
+    IEnumerator LoadImage()
+    {
+        while (Social.localUser.image == null)
+        {
+            yield return null;
+        }
+        avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 50f);
+        avatar_menu.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 50f);
+        //Social.localUser.image is not null any more
+    }
+    // Use this for initialization
+    void Start()
+    {
+        auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
-
-       
-
         for (int i = 0; i < cases.Length; i++)
         {
             GameObject A = Instantiate(casePref, casePref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
@@ -163,6 +196,7 @@ public class Game : MonoBehaviour
             touchOne[0].transform.localPosition = new Vector2(77.5f, touchOne[0].transform.localPosition.y);
             touchOne[1].transform.localPosition = new Vector2(221f, touchOne[1].transform.localPosition.y);
             touchOne[2].transform.localPosition = new Vector2(-31.665f, touchOne[2].transform.localPosition.y);
+            gameObject.GetComponent<AudioSource>().mute = false;
         }
         else
         {
@@ -170,6 +204,7 @@ public class Game : MonoBehaviour
             touchOne[0].transform.localPosition = new Vector2(-77.5f, touchOne[0].transform.localPosition.y);
             touchOne[1].transform.localPosition = new Vector2(31.665f, touchOne[1].transform.localPosition.y);
             touchOne[2].transform.localPosition = new Vector2(-221f, touchOne[2].transform.localPosition.y);
+            gameObject.GetComponent<AudioSource>().mute = true;
         }
         if (SettingsBool[1])
         {
@@ -214,7 +249,7 @@ public class Game : MonoBehaviour
                     break;
             }
             casesNum++;
-            dl.updateData(userId, casesNum);
+            dl.updateData(google_id, casesNum);
             if (casesNum == 100) ach.achievments[1].get = true;
             else if (casesNum == 1000) ach.achievments[2].get = true;
             else if (casesNum == 5000) ach.achievments[3].get = true;
@@ -230,6 +265,7 @@ public class Game : MonoBehaviour
     public void OpenPreview(int id)
     {
         main.SetActive(false);
+        playClip();
         id_toggle = -1; //чтобы можно было узнать, что никто не запущен
         DefaultUPDToggle(); //дефолтные значения тогглов наверху
         scrollPreview.verticalNormalizedPosition = 1f;
@@ -310,6 +346,7 @@ public class Game : MonoBehaviour
 
     public void ClickMenu()
     {
+       // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 20f);
         // блок, если меню нужно
         if (!MenuActive && !Get)
         {
@@ -371,7 +408,7 @@ public class Game : MonoBehaviour
         {
             for (int i = 0; i < Panels.Length; i++)
             {
-                if (Panels[i]== panelActive)
+                if (Panels[i] == panelActive)
                 {
                     PanelAct = panelActive;
                     curPanelId = i;
@@ -381,7 +418,7 @@ public class Game : MonoBehaviour
                     Panels[i].SetActive(false);
                 }
             }
-            
+
             for (int i = 0; i < 7; i++)
             {
                 Menu_panel.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().color = whiteDisabled; // Иконки всех меняем на светло-белый 
@@ -516,6 +553,7 @@ public class Game : MonoBehaviour
         {
             if (SettingsBool[0])
             {
+                gameObject.GetComponent<AudioSource>().mute = false;
                 touchOne[2].SetActive(true);
                 touchOne[0].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[0].transform.localPosition.x, 77.5f, 4 * Time.deltaTime), touchOne[0].transform.localPosition.y);
                 touchOne[1].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[1].transform.localPosition.x, 221f, 4 * Time.deltaTime), touchOne[1].transform.localPosition.y);
@@ -536,11 +574,12 @@ public class Game : MonoBehaviour
                         touchOne[1].SetActive(false);
                     }
                     move[0] = false;
-
+                    
                 }
             }
             else if (!SettingsBool[0])
             {
+                gameObject.GetComponent<AudioSource>().mute = true;
                 touchOne[1].SetActive(true);
                 touchOne[0].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[0].transform.localPosition.x, -77.5f, 4 * Time.deltaTime), touchOne[0].transform.localPosition.y);
                 touchOne[1].transform.localPosition = new Vector2(Mathf.Lerp(touchOne[1].transform.localPosition.x, 31.665f, 4 * Time.deltaTime), touchOne[1].transform.localPosition.y);
@@ -561,6 +600,7 @@ public class Game : MonoBehaviour
                         touchOne[2].SetActive(false);
                     }
                     move[0] = false;
+                   
                 }
             }
         }

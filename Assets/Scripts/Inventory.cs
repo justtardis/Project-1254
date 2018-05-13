@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour {
     public GameObject sellPanel; // кнопка множественной продажи
     public GameObject multSell; // подтверждение множественной продажи
     public GameObject moneyPanel; // деньхи
+    public MiniGames mg;
     public int multSum = 0; // сколько денех стоят отмеченные товары 
 
     private void Awake()
@@ -50,6 +51,8 @@ public class Inventory : MonoBehaviour {
             g.gold = sv.gold;
             g.silver = sv.silver;
             g.casesNum = sv.casesNum;
+            g.SettingsBool[0] = sv.sound;
+            mg.count_win = sv.count_win;
         }
         catch (System.Exception e)
         {
@@ -286,6 +289,8 @@ public class Inventory : MonoBehaviour {
 
     public void SaveGame()
     {
+        sv.sound = g.SettingsBool[0];
+        sv.count_win = mg.count_win;
         sv.gold = g.gold;
         sv.silver = g.silver;
         sv.invSize = invSize;
@@ -315,6 +320,8 @@ public class Save
     public int gold;
     public int casesNum;
     public bool[] achievments;
+    public bool sound; // добавил
+    public int count_win; // добавил
 }
 
 public static class JsonHelper

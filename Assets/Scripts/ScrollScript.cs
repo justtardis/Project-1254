@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScrollScript : MonoBehaviour {
+public class ScrollScript : MonoBehaviour
+{
 
     public Game g;
     public Inventory inv;
@@ -20,21 +21,26 @@ public class ScrollScript : MonoBehaviour {
     public Text timer;
     public Text progressCounter;
     public Image progressFill;
+    private bool wasPlayed = false;
+    private bool wasPlayedDrop = false;
+    private string index;
     // Use this for initialization
-    void Start () {
-       
+    void Start()
+    {
+        g._as = gameObject.GetComponent<AudioSource>();
         //speed = -14.2f;
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		if (isOpened)
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (isOpened)
         {
             speed = Mathf.MoveTowards(speed, 0, velocity * Time.deltaTime);
             scrollCont.transform.Translate(new Vector2(speed, 0) * Time.deltaTime); //явно указал контейнер с объектами, а не gameobject
             timeLeft = speed * (-1) / velocity;
             timer.text = "00:" + timeLeft.ToString("00.00#");
-            progressCounter.text = (100-(int)((timeLeft / allTime) * 100)) + "%";
+            progressCounter.text = (100 - (int)((timeLeft / allTime) * 100)) + "%";
             progressFill.fillAmount = 1 - timeLeft / allTime;
             RaycastHit2D hit = Physics2D.Raycast(Vector2.down, Vector2.up);
             Debug.DrawLine(Vector2.down, Vector2.up);
@@ -47,6 +53,18 @@ public class ScrollScript : MonoBehaviour {
                     progressPanel.SetActive(false);
                     resPanel.SetActive(true);
                     isOpened = false;
+                    g._as.PlayOneShot(g.ac[1]);
+
+                }
+                else if (!wasPlayed)
+                {
+                    g._as.PlayOneShot(g.ac[0]);
+                    index = hit.collider.gameObject.name;
+                    wasPlayed = true;
+                }
+                if (index != hit.collider.gameObject.name)
+                {
+                    wasPlayed = false;
                 }
             }
             else if (speed == 0)
@@ -54,8 +72,8 @@ public class ScrollScript : MonoBehaviour {
                 speed = Mathf.MoveTowards(speed, -5f, velocity * Time.deltaTime);
             }
         }
-        
-	}
+
+    }
 
     public void ShowResult()
     {
@@ -89,6 +107,7 @@ public class ScrollScript : MonoBehaviour {
 
     public void OpenCase(int id)
     {
+
         //Я зарандомил значения скорости и торможения, чтобы игра была чуть интересней.
         int rnd = Random.Range(1, 3);
         if (rnd == 1)
@@ -106,6 +125,7 @@ public class ScrollScript : MonoBehaviour {
         progressPanel.SetActive(true);
         resPanel.SetActive(false);
         g.preview.SetActive(false);
+
         int count1 = 0;
         int count2 = 0;
         int count3 = 0;
@@ -202,11 +222,12 @@ public class ScrollScript : MonoBehaviour {
             A.transform.GetComponent<Item_ID>().id = g.cases[id].items[itemID].id;
             //A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[id].items[i].picture;
             A.transform.GetChild(0).gameObject.SetActive(g.cases[id].items[itemID].group == 4);
+            A.name += i.ToString();
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
         }
         /*g.preview.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = "$" + cases[id].price;
         g.preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";*/
-       
+
         timeLeft = speed * (-1) / velocity;
         allTime = timeLeft;
         isOpened = true;
