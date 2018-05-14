@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour {
             string line = sr.ReadLine();
             sv = JsonUtility.FromJson<Save>(line);
             invSize = sv.invSize;
+            g.level = sv.level;
             items = new int[1000][];
             for (int i = 0; i < 1000; i++)
             {
@@ -53,6 +54,16 @@ public class Inventory : MonoBehaviour {
             g.casesNum = sv.casesNum;
             g.SettingsBool[0] = sv.sound;
             mg.count_win = sv.count_win;
+            g.levelText.text = "Уровень " + g.level.ToString();
+            g.casesOfLevelText.text = g.casesNum.ToString() + "/" + g.Cases_Level[g.level];
+            if (g.level != 0)
+            {
+                g.levelPerc.text = (int)(((g.casesNum - g.Cases_Level[g.level - 1]) / (g.Cases_Level[g.level] - g.Cases_Level[g.level - 1])) * 100) + "%";
+            }
+            else
+            {
+                g.levelPerc.text = (int)((g.casesNum / g.Cases_Level[g.level]) * 100) + "%";
+            }
         }
         catch (System.Exception e)
         {
@@ -292,6 +303,7 @@ public class Inventory : MonoBehaviour {
         sv.sound = g.SettingsBool[0];
         sv.count_win = mg.count_win;
         sv.gold = g.gold;
+        sv.level = g.level;
         sv.silver = g.silver;
         sv.invSize = invSize;
         sv.casesNum = g.casesNum;
@@ -319,6 +331,7 @@ public class Save
     public int silver; 
     public int gold;
     public int casesNum;
+    public int level;
     public bool[] achievments;
     public bool sound; // добавил
     public int count_win; // добавил
