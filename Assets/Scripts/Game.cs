@@ -129,6 +129,10 @@ public class Game : MonoBehaviour
     public int[] Cases_Level;
     public AudioClip[] ac;
     public AudioSource _as;
+
+    public Image fillSlider;
+    public Slider sld;
+    public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
     public void playClip()
     {
@@ -136,6 +140,11 @@ public class Game : MonoBehaviour
         audioSource.Play();
     }
     
+    public void CustomSlider()
+    {
+        fillSlider.fillAmount = sld.value;
+        percent.text = (sld.value * 100 ).ToString("#0")+"%";
+    }
     
     public void auth()
     {
@@ -176,6 +185,7 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        sld.value = 0.59f;
         auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
