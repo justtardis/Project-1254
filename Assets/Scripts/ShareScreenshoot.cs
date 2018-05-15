@@ -54,7 +54,7 @@ public class ShareScreenshoot : MonoBehaviour
         yield return new WaitUntil(() => isFocus);
         //CanvasShareObj.SetActive(false);
         isProcessing = false;
-           
+        if (!ach.achievments[9].get) ach.getAch(9);
     }
 
     private void OnApplicationFocus(bool focus)

@@ -157,7 +157,7 @@ public class Game : MonoBehaviour
     
     public void auth()
     {
-        //PlayGamesPlatform.Activate();
+        PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool success) =>
         {
             if (success)
