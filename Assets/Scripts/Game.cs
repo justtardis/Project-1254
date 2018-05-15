@@ -95,6 +95,7 @@ public class Game : MonoBehaviour
     public Text casesOfLevelText; // Число открытых кейсов из необходимых
     public Text levelPerc; // Процент открытых кейсов
     public Image caseFill; // Полоса заполнения кейсов
+    public Sprite[] medals;
 
     [Space(5f)]
     [Header("Лотерея")]
