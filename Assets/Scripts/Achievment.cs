@@ -7,11 +7,13 @@ public class Achievment : MonoBehaviour {
 
     public Achievment_item[] achievments;
     public Game g;
+    public GameObject push;
 
 
     // Use this for initialization
     void Start () {
         achievments[6].get = checkElite();
+        achievments[11].get = checkAll();
         LoadWindow();
 	}
 	
@@ -33,6 +35,16 @@ public class Achievment : MonoBehaviour {
         return res;
     }
 
+    public bool checkAll()
+    {
+        bool res = true;
+        for (int i = 0; i < achievments.Length - 1; i++)
+        {
+            if (achievments[i].get == false) res = false;
+        }
+        return res;
+    }
+
     public void LoadWindow()
     {
         GameObject panel = g.Panels[4];
@@ -41,9 +53,19 @@ public class Achievment : MonoBehaviour {
         {
             GameObject A = group.transform.GetChild(i).gameObject;
             //A.transform.GetChild(0).GetComponent<Image>().sprite =  ставим иконку
-            A.transform.GetChild(1).GetComponent<Text>().text = achievments[i].header;
-            A.transform.GetChild(2).GetComponent<Text>().text = achievments[i].description;
+            A.transform.GetChild(2).GetComponent<Text>().text = achievments[i].header;
+            A.transform.GetChild(3).GetComponent<Text>().text = achievments[i].description;
+            A.transform.GetChild(1).gameObject.SetActive(!achievments[i].get);
         }
+    }
+
+    public void getAch(int id)
+    {
+        achievments[id].get = true;
+        push.transform.GetChild(5).GetComponent<Text>().text = achievments[id].header;
+        push.SetActive(true);
+        achievments[11].get = checkAll();
+        LoadWindow();
     }
 
 }

@@ -206,7 +206,7 @@ public class Inventory : MonoBehaviour {
             }
         }
         g.itemsSold++;
-        if (g.itemsSold == 100) g.ach.achievments[5].get = true;
+        if (g.itemsSold == 500) g.ach.getAch(5);
         invSize--;
         addEmpty();
     }

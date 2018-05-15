@@ -8,6 +8,7 @@ public class ShareScreenshoot : MonoBehaviour
 
     private bool isProcessing = false;
     private bool isFocus = false;
+    public Achievment ach;
 
     public void ShareBtnPress()
     {
@@ -53,6 +54,7 @@ public class ShareScreenshoot : MonoBehaviour
         yield return new WaitUntil(() => isFocus);
         //CanvasShareObj.SetActive(false);
         isProcessing = false;
+           
     }
 
     private void OnApplicationFocus(bool focus)

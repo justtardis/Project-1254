@@ -34,4 +34,9 @@ public class idMini : MonoBehaviour
         }
     }
 
+    void AnimationComplete()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

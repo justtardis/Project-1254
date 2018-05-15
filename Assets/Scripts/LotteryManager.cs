@@ -289,6 +289,7 @@ public class LotteryManager : MonoBehaviour
                 inv.LoadInventory();
             }
             g.silver = g.silver + reward;
+            if (!g.ach.achievments[8].get) g.ach.getAch(8);
         }
         if (it[winner1 - 1].isBusy)
         {
@@ -407,6 +408,7 @@ public class LotteryManager : MonoBehaviour
             {
                 if (lotType != 3) g.silver = g.silver - price;
                 else g.gold = g.gold - price;
+                if (!g.ach.achievments[7].get) g.ach.getAch(7);
             }
             it[id - 1].isBusy = true;
             it[id - 1].NameOfBusy = name;

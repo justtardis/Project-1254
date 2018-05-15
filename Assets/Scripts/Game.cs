@@ -156,7 +156,7 @@ public class Game : MonoBehaviour
     
     public void auth()
     {
-        PlayGamesPlatform.Activate();
+        //PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool success) =>
         {
             if (success)
@@ -245,6 +245,14 @@ public class Game : MonoBehaviour
 
         print(Base64Encode("Какой-то текст"));
         print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
+        if (!ach.achievments[0].get)
+        {
+            ach.getAch(0);
+        }
+        int perc = ((int)(((float)(casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100));
+        percent.text = perc + "%";
+        fillSlider.fillAmount = (float)perc / 100;
+        sld.value = (float)perc / 100;
     }
 
     public void CheckCase(int id)
@@ -268,24 +276,20 @@ public class Game : MonoBehaviour
             }
             casesNum++;
             dl.updateData(google_id, casesNum);
-            if (casesNum == 100) ach.achievments[1].get = true;
-            else if (casesNum == 1000) ach.achievments[2].get = true;
-            else if (casesNum == 5000) ach.achievments[3].get = true;
-            else if (casesNum == 10000) ach.achievments[4].get = true;
+            if (casesNum == 100) ach.getAch(1);
+            else if (casesNum == 1000) ach.getAch(2);
+            else if (casesNum == 5000) ach.getAch(3);
+            else if (casesNum == 10000) ach.getAch(4);
             if (casesNum == Cases_Level[level])
             {
                 level++;
                 levelText.text = "Уровень " + level.ToString(); 
             }
             casesOfLevelText.text = casesNum.ToString() + "/" + Cases_Level[level];
-            if (level != 0)
-            {
-                levelPerc.text = (int)(((casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100) + "%";
-            }
-            else
-            {
-                levelPerc.text = (int)((casesNum / Cases_Level[level]) * 100) + "%";
-            }
+            int perc = ((int)(((float)(casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100));
+            percent.text = perc + "%";
+            fillSlider.fillAmount = (float)perc / 100;
+            sld.value = (float)perc / 100;
 
             scr.OpenCase(id);
         }
