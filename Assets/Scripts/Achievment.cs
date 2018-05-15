@@ -8,6 +8,7 @@ public class Achievment : MonoBehaviour {
     public Achievment_item[] achievments;
     public Game g;
     public GameObject push;
+    public Image medal;
 
 
     // Use this for initialization
@@ -15,12 +16,42 @@ public class Achievment : MonoBehaviour {
         achievments[6].get = checkElite();
         achievments[11].get = checkAll();
         LoadWindow();
-	}
+        updateMedal();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void updateMedal()
+    {
+        if (g.level == 30)
+        {
+            medal.sprite = g.medals[5];
+        }
+        else if (g.level > 23)
+        {
+            medal.sprite = g.medals[4];
+        }
+        else if (g.level > 17)
+        {
+            medal.sprite = g.medals[3];
+        }
+        else if (g.level > 11)
+        {
+            medal.sprite = g.medals[2];
+        }
+        else if (g.level > 5)
+        {
+            medal.sprite = g.medals[1];
+        }
+        else
+        {
+            medal.sprite = g.medals[0];
+        }
+    }
 
     //функция для проверки, получена ли ачивка Элита
     public bool checkElite()

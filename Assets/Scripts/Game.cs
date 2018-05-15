@@ -291,7 +291,7 @@ public class Game : MonoBehaviour
             percent.text = perc + "%";
             fillSlider.fillAmount = (float)perc / 100;
             sld.value = (float)perc / 100;
-
+            ach.updateMedal();
             scr.OpenCase(id);
         }
         else
