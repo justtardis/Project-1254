@@ -55,15 +55,6 @@ public class Inventory : MonoBehaviour {
             g.SettingsBool[0] = sv.sound;
             mg.count_win = sv.count_win;
             g.levelText.text = "Уровень " + g.level.ToString();
-            g.casesOfLevelText.text = g.casesNum.ToString() + "/" + g.Cases_Level[g.level];
-            if (g.level != 0)
-            {
-                g.levelPerc.text = (int)(((g.casesNum - g.Cases_Level[g.level - 1]) / (g.Cases_Level[g.level] - g.Cases_Level[g.level - 1])) * 100) + "%";
-            }
-            else
-            {
-                g.levelPerc.text = (int)((g.casesNum / g.Cases_Level[g.level]) * 100) + "%";
-            }
         }
         catch (System.Exception e)
         {

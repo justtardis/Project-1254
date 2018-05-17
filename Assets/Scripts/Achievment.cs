@@ -17,7 +17,13 @@ public class Achievment : MonoBehaviour {
         achievments[11].get = checkAll();
         LoadWindow();
         updateMedal();
-
+        g.levelText.text = "Уровень " + g.level.ToString();
+        int perc = ((int)(((float)(g.casesNum - g.Cases_Level[g.level - 1]) / (g.Cases_Level[g.level] - g.Cases_Level[g.level - 1])) * 100));
+        g.percent.text = perc + "%";
+        g.fillSlider.fillAmount = (float)perc / 100;
+        g.sld.value = (float)perc / 100;
+        g.caseFill.fillAmount = (float)perc / 100;
+        g.levelLead.text = g.level.ToString();
     }
 	
 	// Update is called once per frame

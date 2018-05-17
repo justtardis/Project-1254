@@ -92,7 +92,7 @@ public class Game : MonoBehaviour
     [Space(5f)]
     [Header("Достижения")]
     public Text levelText; // Номер уровня
-    public Text casesOfLevelText; // Число открытых кейсов из необходимых
+    public Text levelLead; // Уровень в лидерборде
     public Text levelPerc; // Процент открытых кейсов
     public Image caseFill; // Полоса заполнения кейсов
     public Sprite[] medals;
@@ -157,7 +157,7 @@ public class Game : MonoBehaviour
     
     public void auth()
     {
-        PlayGamesPlatform.Activate();
+        //PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool success) =>
         {
             if (success)
@@ -286,11 +286,12 @@ public class Game : MonoBehaviour
                 level++;
                 levelText.text = "Уровень " + level.ToString(); 
             }
-            casesOfLevelText.text = casesNum.ToString() + "/" + Cases_Level[level];
             int perc = ((int)(((float)(casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100));
             percent.text = perc + "%";
             fillSlider.fillAmount = (float)perc / 100;
             sld.value = (float)perc / 100;
+            caseFill.fillAmount = (float)perc / 100;
+            levelLead.text = level.ToString();
             ach.updateMedal();
             scr.OpenCase(id);
         }

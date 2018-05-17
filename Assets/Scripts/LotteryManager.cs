@@ -96,7 +96,7 @@ public class LotteryManager : MonoBehaviour
                     startLottery();
                     int seconds = UnityEngine.Random.Range(0, (int)(delta * 60));
                     start.Subtract(new DateTime(0, 0, 0, seconds / 3600, seconds / 60, seconds % 60));
-                    //buyTickets();
+                    buyTickets();
                 }
             }
             else
@@ -141,8 +141,9 @@ public class LotteryManager : MonoBehaviour
                             it[i].GetComponent<Image>().color = g.color[1];
                         }
                     }
-                    //buyTickets();
-                }
+                    
+                    }
+                buyTickets();
                 for (int i = 0; i < botCount; i++)
                 {
                     StartCoroutine(BotActive(bot[i]));
@@ -414,7 +415,7 @@ public class LotteryManager : MonoBehaviour
             it[id - 1].NameOfBusy = name;
             isBusyCell[id - 1] = true;
             countBusy -= 1;
-            tickets += 1;
+            tickets = tickets + 1;
             countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
             ticketsText.text = (ticketNum - tickets).ToString() + " / " + ticketNum.ToString();
             fillAm.fillAmount = (float)tickets / ticketNum;
