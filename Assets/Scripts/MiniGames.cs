@@ -5,6 +5,51 @@ using UnityEngine.UI;
 
 public class MiniGames : MonoBehaviour
 {
+    // Крэш, игра №2
+    public float time = 0;
+    public float counter = 1f;
+    public float stopCounter = 0;
+    public float TimerRestart = 10f;
+    public Text coef;
+    public Text _timer;
+    public Text cashSilver;
+    public bool startCrash = false;
+    public bool restart = false;
+    public bool startGame = false;
+    public int betCount = 0;
+    public int autoCash = 0;
+    public InputField betInp;
+    public InputField AutoCashOutInp;
+    public GameObject buttonStart;
+    public float TotalCash = 0;
+    public Color[] c = new Color[2];
+    public Sprite[] but = new Sprite[2];
+    public float[] history = new float[4];
+    public GameObject groupHist;
+
+    //Рулетка, игра №3
+    public Color[] mainColor; // 0 - серый, 1 - красный, 2 - голубой и 3 - желтый
+    public bool isRotate = false;
+    public bool isRestart = false;
+    public float speed = -90f;
+    public float velocity = 3f;
+    public GameObject roulette;
+    public Image arrow;
+    public int idElement = 0;
+    public float timeRound = 0f;
+    public Text TimerRound;
+    public Text moneyT;
+    public InputField betRoulette;
+    public GameObject groupBut;
+    int bet = 0;
+    public int[] bets = new int[4];
+    public int[] multiplay = new int[4] { 2, 3, 5, 50 };
+    float[] alpha = new float[2] { 0.5f, 1f };
+    Color col;
+    public GameObject panel;
+    public int[] historyColor = new int[16];
+    public GameObject historyGroup;
+
     public Sprite trueGet;
     public Sprite falseGet;
     public GameObject[] JacpotBlock;
@@ -36,6 +81,320 @@ public class MiniGames : MonoBehaviour
     int rareTOP = 0;
     #region
     public int count_win = 0;
+
+    public void BetInp()
+    {
+        if (betRoulette.text != "")
+        {
+            bet = int.Parse(betRoulette.text);
+            if (bet > 500000 && g.silver > 500000) bet = 500000;
+            else if (bet > g.silver) bet = g.silver;
+            betRoulette.text = bet.ToString();
+            if (bet == 0) betRoulette.text = string.Empty;
+        }
+    }
+
+    public void ClickButton(int id)
+    {
+        if (betRoulette.text != "" && g.silver >= bet)
+        {
+            bets[id - 1] += bet;
+            col = groupBut.transform.GetChild(id - 1).GetChild(0).GetComponent<Text>().color;
+            col.a = 1f;
+            groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().color = col;
+            groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().text = bets[id - 1].ToString();
+            g.silver -= bet;
+        }
+    }
+
+    private void RouletteRules()
+    {
+        speed = Random.Range(-30f, -80f);
+        timeRound = 15f;
+        if (isRotate)
+        {
+            betRoulette.interactable = !isRotate;
+            for (int i = 0; i < 4; i++)
+            {
+                groupBut.transform.GetChild(i).GetComponent<Button>().interactable = !isRotate;
+                col = groupBut.transform.GetChild(i).GetChild(0).GetComponent<Text>().color;
+                col.a = 0.5f;
+                groupBut.transform.GetChild(i).GetChild(0).GetComponent<Text>().color = col;
+                groupBut.transform.GetChild(i).GetChild(1).GetComponent<Text>().color = col;
+            }
+        }
+    }
+
+    void ShiftElementsColor(int element0)
+    {
+        int[] temp1 = new int[16];
+        for (int i = 0; i < 16; i++) temp1[i] = historyColor[i];
+        for (int i = 0; i < 15; i++) historyColor[i + 1] = temp1[i];
+        historyColor[0] = element0;
+        showColor();
+    }
+
+    private void showColor()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            historyGroup.transform.GetChild(i).GetComponent<Image>().color = mainColor[historyColor[i] - 1];
+        }
+    }
+
+    void ShiftElements(float element0)
+    {
+        float[] temp = new float[4];
+        for (int i = 0; i < 4; i++) temp[i] = history[i];
+        for (int i = 0; i < 3; i++) history[i + 1] = temp[i];
+        history[0] = element0;
+        showHistory();
+    }
+
+    void showHistory()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            groupHist.transform.GetChild(i).GetComponent<Text>().text = "x" + history[i].ToString("0.00");
+            if (history[i] < 2.00f) groupHist.transform.GetChild(i).GetComponent<Text>().color = new Color(212f, 0f, 0f);
+            else if (history[i] > 2.00f && history[i] < 5.00f) groupHist.transform.GetChild(i).GetComponent<Text>().color = new Color(255f, 255f, 255f);
+            else if (history[i] > 5.00f) groupHist.transform.GetChild(i).GetComponent<Text>().color = c[2];
+        }
+    }
+
+    void CrashRules()
+    {
+        int rand = Random.Range(0, 1000);
+        if (rand >= 0 && rand < 480) stopCounter = Random.Range(1f, 2f);
+        if (rand >= 480 && rand < 630) stopCounter = Random.Range(1f, 2.5f);
+        if (rand >= 630 && rand < 730) stopCounter = Random.Range(2.5f, 6f);
+        if (rand >= 730 && rand < 820) stopCounter = Random.Range(6f, 15f);
+        if (rand >= 820 && rand < 900) stopCounter = Random.Range(15f, 40f);
+        if (rand >= 900 && rand < 950) stopCounter = Random.Range(40f, 80f);
+        if (rand >= 950 && rand < 980) stopCounter = Random.Range(80f, 150f);
+        if (rand >= 980 && rand < 995) stopCounter = Random.Range(150f, 230f);
+        if (rand >= 995 && rand < 1000) stopCounter = 0f;
+        coef.GetComponent<Text>().color = new Color(255f, 255f, 255f);
+        TimerRestart = 10f;
+        counter = 1f;
+        time = 0f;
+        _timer.text = string.Empty;
+        cashSilver.text = g.convertMoney(g.silver);
+        buttonStart.GetComponent<Image>().sprite = but[0]; // зеленый
+        buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
+        buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+        buttonStart.GetComponent<Button>().interactable = !startGame;
+        betInp.interactable = false; // выключаем все инпуты
+        AutoCashOutInp.interactable = false;
+    }
+
+    public void AutoCash()
+    {
+        if (AutoCashOutInp.text != "")
+        {
+            autoCash = int.Parse(AutoCashOutInp.text);
+            if (autoCash == 0 || autoCash < betCount) AutoCashOutInp.text = string.Empty;
+        }
+    }
+
+    public void BetCorrect()
+    {
+        if (betInp.text != "")
+        {
+            betCount = int.Parse(betInp.text);
+            if (betCount > 500000 && g.silver > 500000) betCount = 500000;
+            else if (betCount > g.silver) betCount = g.silver;
+            betInp.text = betCount.ToString();
+            if (betCount == 0) betInp.text = string.Empty;
+            AutoCash();
+        }
+    }
+
+    public void StartGame()
+    {
+        if (startCrash && !startGame)
+        {
+            buttonStart.GetComponent<Button>().interactable = false;
+            buttonStart.GetComponent<Image>().sprite = but[1]; // серый
+            buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+            betInp.interactable = true; // выключаем все инпуты
+            AutoCashOutInp.interactable = true;
+            buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Ожидание нового раунда";
+        }
+        if (betCount != 0) // если ставка не нулевая
+        {
+            if (!startCrash) // и игра еще не началась
+            {
+                startGame = true;
+                g.silver -= betCount; // снимаем деньги сразу  
+                buttonStart.GetComponent<Image>().sprite = but[1];
+                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                buttonStart.GetComponent<Button>().interactable = false; // выключаем кнопку
+                betInp.interactable = false; // выключаем все инпуты
+                AutoCashOutInp.interactable = false;
+            }
+            else if (startGame)
+            {
+                startGame = false;
+                buttonStart.GetComponent<Button>().interactable = false;
+                buttonStart.GetComponent<Image>().sprite = but[1];
+                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                g.silver += (int)TotalCash;
+                //startGame = false;
+                //g.silver += (int)TotalCash;
+            }
+        }
+
+    }
+
+
+    private void Update()
+    {
+
+        if (isRotate)
+        {
+            speed = Mathf.MoveTowards(speed, 0, velocity * Time.deltaTime);
+            roulette.transform.Rotate(new Vector3(0, 0, speed) * Time.deltaTime);
+            RaycastHit2D hit = Physics2D.Raycast(arrow.transform.position, Vector3.down);
+            Debug.DrawRay(arrow.transform.position, Vector3.down);
+            if (hit.collider != null)
+            {
+                idElement = hit.collider.gameObject.GetComponent<ColorElement>().Type;
+                arrow.color = mainColor[idElement - 1];
+                if (speed == 0)
+                {
+                    ShiftElementsColor(idElement);
+                    isRotate = false;
+                    isRestart = true;
+                    groupBut.transform.GetChild(idElement - 1).GetComponent<Button>().interactable = !isRotate;
+                    col = groupBut.transform.GetChild(idElement - 1).GetChild(0).GetComponent<Text>().color;
+                    col.a = 1f;
+                    groupBut.transform.GetChild(idElement - 1).GetChild(0).GetComponent<Text>().color = col;
+                    if (bets[idElement - 1] != 0)
+                    {
+                        bets[idElement - 1] *= multiplay[idElement - 1];
+                        col = groupBut.transform.GetChild(idElement - 1).GetChild(0).GetComponent<Text>().color;
+                        col.a = 1f;
+                        groupBut.transform.GetChild(idElement - 1).GetChild(0).GetComponent<Text>().color = col;
+                        groupBut.transform.GetChild(idElement - 1).GetChild(1).GetComponent<Text>().text = bets[idElement - 1].ToString();
+                        groupBut.transform.GetChild(idElement - 1).GetChild(1).GetComponent<Text>().color = col;
+                        panel.SetActive(true);
+                        panel.GetComponent<Image>().color = mainColor[idElement - 1];
+                        panel.transform.GetChild(0).GetComponent<Text>().text = g.convertMoney(bets[idElement - 1]);
+                        g.silver += bets[idElement - 1];
+                    }
+                }
+            }
+        }
+        if (isRestart)
+        {
+            timeRound -= Time.deltaTime;
+            if (timeRound < 10f)
+            {
+                betRoulette.interactable = !isRotate;
+                for (int i = 0; i < 4; i++)
+                {
+                    groupBut.transform.GetChild(i).GetComponent<Button>().interactable = !isRotate;
+                    col = groupBut.transform.GetChild(i).GetChild(0).GetComponent<Text>().color;
+                    col.a = 1f;
+                    groupBut.transform.GetChild(i).GetChild(0).GetComponent<Text>().color = col;
+                }
+                panel.SetActive(false);
+                TimerRound.text = timeRound.ToString("0.0") + "с";
+            }
+            if (timeRound < 10f && timeRound > 9.8f)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    groupBut.transform.GetChild(i).GetChild(1).GetComponent<Text>().text = string.Empty;
+                    bets[i] = 0;
+                }
+            }
+            if (timeRound <= 0f)
+            {
+                TimerRound.text = string.Empty;
+                isRestart = false;
+                isRotate = true;
+                RouletteRules();
+                
+            }
+        }
+        
+        if (startCrash)
+        {
+            if (!startGame)
+            {
+                buttonStart.GetComponent<Button>().interactable = false;
+                buttonStart.GetComponent<Image>().sprite = but[1]; // серый
+                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Ожидание нового раунда";
+            }
+            if (counter < stopCounter)
+            {
+                counter = (0.09f * time) * (0.09f * time) + 1;
+                time += Time.deltaTime;
+                if (startGame)
+                {
+                    TotalCash = betCount * counter;
+                    buttonStart.GetComponent<Image>().sprite = but[0]; // зеленый
+                    buttonStart.GetComponent<Button>().interactable = true;
+                    buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
+                    buttonStart.transform.GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(TotalCash);
+                }
+                if (autoCash != 0)
+                {
+                    if (TotalCash >= autoCash && startGame)
+                    {
+                        startGame = false;
+                        buttonStart.GetComponent<Button>().interactable = false;
+                        buttonStart.GetComponent<Image>().sprite = but[1];
+                        buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                        buttonStart.transform.GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(autoCash);
+                        g.silver += autoCash;
+                    }
+                }
+            }
+            else
+            {
+                ShiftElements(counter);
+                startCrash = false;
+                coef.GetComponent<Text>().color = new Color(212f, 0f, 0f);
+                startGame = false;
+                restart = true;
+                buttonStart.GetComponent<Button>().interactable = true;
+                buttonStart.GetComponent<Image>().sprite = but[0];
+                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+            }
+            coef.text = "x" + (counter).ToString("#.#0");
+        }
+        if (restart)
+        {
+
+            betInp.interactable = true; // выключаем все инпуты
+            AutoCashOutInp.interactable = true;
+            TimerRestart -= Time.deltaTime;
+            if (TimerRestart < 5f)
+            {
+                coef.text = string.Empty;
+                _timer.text = "Следующий раунд через " + TimerRestart.ToString("0.0") + "с";
+                //buttonStart.GetComponent<Button>().interactable = true;
+                //buttonStart.GetComponent<Image>().sprite = but[0];
+                //buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+            }
+            if (TimerRestart <= 0f)
+            {
+                _timer.text = string.Empty;
+                restart = false;
+                CrashRules();
+                startCrash = true;
+            }
+        }
+        cashSilver.text = g.convertMoney(g.silver);
+        moneyT.text = g.convertMoney(g.silver);
+    }
+
 
     private void NonPlayable(int count_w, string word)
     {
@@ -340,7 +699,7 @@ public class MiniGames : MonoBehaviour
                 }
                 if (count_w > 5)
                 {
-                    
+
                     winOrLose = Random.Range(1, 3);
                     if (winOrLose == 2)
                     {
@@ -363,7 +722,7 @@ public class MiniGames : MonoBehaviour
 
     public void BuyGame()
     {
-        
+
         g.silver = g.silver - price;
         group[2].SetActive(false);
         NonPlayable(count_win, "STOLB");
@@ -434,7 +793,7 @@ public class MiniGames : MonoBehaviour
                 JacpotBlock[id].transform.GetChild(5).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Rev>().rev = 1;
                 JacpotBlock[id].transform.GetChild(4).GetComponent<Image>().sprite = money[1];
-                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = conversionFunction(gold); 
+                JacpotBlock[id].transform.GetChild(5).GetComponent<Text>().text = conversionFunction(gold);
                 if (isWin)
                 {
                     g.gold = g.gold + gold;
@@ -491,7 +850,15 @@ public class MiniGames : MonoBehaviour
 
     private void Start()
     {
+        showHistory();
+        CrashRules();
+        startCrash = true;
         Raund();
+        showColor();
+        isRotate = true;
+        RouletteRules();
+
+
         priceText.text = conversionFunction(price);
     }
 
@@ -525,7 +892,7 @@ public class MiniGames : MonoBehaviour
             button[i].GetComponent<Button>().interactable = false;
         }
         //winOrLose = Random.Range(1, 3);
-      
+
         if (winOrLose == 1)
         {
             for (int i = 0; i < 3; i++)

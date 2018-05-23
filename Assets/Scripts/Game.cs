@@ -27,7 +27,7 @@ public class Game : MonoBehaviour
     public GameObject noMoney;
     public ScrollScript scr;
     public Achievment ach;
-    public int userId = 2;
+    //public int userId = 2;
 
     [Header("----------------------------------------------------------")]
     public Color whiteEnabled;
@@ -134,7 +134,7 @@ public class Game : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Text username_menu;
-    public bool suc = false;
+   
     public int[] Cases_Level;
     public AudioClip[] ac;
     public AudioSource _as;
@@ -157,7 +157,7 @@ public class Game : MonoBehaviour
     
     public void auth()
     {
-        //PlayGamesPlatform.Activate();
+        PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool success) =>
         {
             if (success)
@@ -165,7 +165,7 @@ public class Game : MonoBehaviour
                 nickname = Social.localUser.userName;
                 google_id = Social.localUser.id;
                 username_menu.text = nickname;
-                suc = true;
+                //suc = true;
                 StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
                // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f),50f);
             }
@@ -173,11 +173,25 @@ public class Game : MonoBehaviour
             {
                 nickname = "LemonS";
                 google_id = "6984412st50933dc";
+                username_menu.text = nickname;
                 StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
             }
-            StartCoroutine(dl.getMainData());
-            StartCoroutine(dl.getDataTop());
             StartCoroutine(LoadImage());
+            StartCoroutine(dl.getMainData());
+            StartCoroutine(dl.getDataTop());           
+        });
+    }
+
+    public void W()
+    {
+        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success)
+            {
+                nickname = Social.localUser.userName;
+                google_id = Social.localUser.id;
+            }
         });
     }
 
@@ -194,8 +208,9 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        sld.value = 0.59f;
-        auth();
+        W();
+            sld.value = 0.59f;
+      //  auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
@@ -312,7 +327,7 @@ public class Game : MonoBehaviour
         for (int i = 0; i < cases[id].items.Length; i++)
         {
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
-            A.transform.GetChild(0).GetComponent<Text>().text = cases[id].items[i].price.ToString();
+            A.transform.GetChild(0).GetComponent<Text>().text = convertMoneyFloat(cases[id].items[i].price);
             A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
             A.transform.GetChild(2).gameObject.SetActive(cases[id].items[i].group == 4);
             A.SetActive(true);
@@ -915,6 +930,16 @@ public class Game : MonoBehaviour
         else
         {
             res = money.ToString("#,###,###,##0");
+            res = res.Replace(",", " ");
+        }
+        return res;
+    }
+    public string convertMoneyFloat(float money)
+    {
+        string res = "";
+        if (money < 1000000) 
+        {
+            res = money.ToString("#,##0");
             res = res.Replace(",", " ");
         }
         return res;

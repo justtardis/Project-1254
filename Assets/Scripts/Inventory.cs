@@ -4,8 +4,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
+    public DataLoader dl;
     public int[][] items; // первое число - id кейса, второе - id товара
     public int invSize = 0; // количество предметов в инвентаре
     public Save sv;
@@ -43,12 +45,23 @@ public class Inventory : MonoBehaviour {
                 {
                     items[j] = JsonHelper.FromJson<int>(sv.items[j]);
                 }
-                
+
             }
             for (int i = 0; i < g.ach.achievments.Length; i++)
             {
                 g.ach.achievments[i].get = sv.achievments[i];
             }
+
+            for (int i = 0; i < 4; i++)
+            {
+                mg.history[i] = sv.historyG[i];
+            }
+
+            for (int i = 0; i < 16; i++)
+            {
+                mg.historyColor[i] = sv.historyCol[i];
+            }
+
             g.gold = sv.gold;
             g.silver = sv.silver;
             g.casesNum = sv.casesNum;
@@ -69,12 +82,14 @@ public class Inventory : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        // g.auth();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         moneyPanel.transform.GetChild(1).GetComponent<Text>().text = g.convertMoney(g.silver);
     }
 
@@ -183,15 +198,16 @@ public class Inventory : MonoBehaviour {
                 GameObject A = invPanel.transform.GetChild(i).gameObject;
                 A.SetActive(false);
             }
-            else { 
+            else
+            {
                 items[i][0] = items[i + 1][0];
                 items[i][1] = items[i + 1][1];
                 GameObject A = invPanel.transform.GetChild(i).gameObject;
-                A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
+                A.transform.GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(g.cases[items[i][0]].items[items[i][1]].price);
                 A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
-                A.transform.GetChild(3).gameObject.SetActive(invPanel.transform.GetChild(i+1).GetChild(3).gameObject.activeSelf);
+                A.transform.GetChild(3).gameObject.SetActive(invPanel.transform.GetChild(i + 1).GetChild(3).gameObject.activeSelf);
                 //A.transform.GetChild(3).gameObject.SetActive(false);
                 A.GetComponent<Item_ID>().id = i;
             }
@@ -233,7 +249,7 @@ public class Inventory : MonoBehaviour {
         }
         else
         {
-            
+
         }
         //вдруг если чего ещё дописать
     }
@@ -246,7 +262,7 @@ public class Inventory : MonoBehaviour {
             int i = item.GetComponent<Item_ID>().id;
             if (item.transform.GetChild(3).gameObject.activeSelf)
             {
-                multSum = multSum + (int)g.cases[items[i][0]].items[items[i][1]].price; 
+                multSum = multSum + (int)g.cases[items[i][0]].items[items[i][1]].price;
             }
             else
             {
@@ -275,22 +291,33 @@ public class Inventory : MonoBehaviour {
         if (pauseStatus)
         {
             SaveGame();
+            dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
         }
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+        dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
     }
+
 
     public void restartGame()
     {
-        PlayerPrefs.DeleteAll();
-        Application.LoadLevel(Application.loadedLevel);        
+        //PlayerPrefs.DeleteAll();
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     public void SaveGame()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            sv.historyG[i] = mg.history[i];
+        }
+        for (int i = 0; i < 16; i++)
+        {
+            sv.historyCol[i] = mg.historyColor[i];
+        }
         sv.sound = g.SettingsBool[0];
         sv.count_win = mg.count_win;
         sv.gold = g.gold;
@@ -319,13 +346,15 @@ public class Save
 {
     public string[] items; // первое число - id кейса, второе - id товара
     public int invSize;
-    public int silver; 
+    public int silver;
     public int gold;
     public int casesNum;
     public int level;
     public bool[] achievments;
     public bool sound; // добавил
     public int count_win; // добавил
+    public float[] historyG = new float[4];
+    public int[] historyCol = new int[16];
 }
 
 public static class JsonHelper

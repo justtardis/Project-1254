@@ -78,7 +78,7 @@ public class ScrollScript : MonoBehaviour
     public void ShowResult()
     {
         resPanel.transform.GetChild(3).GetComponent<Text>().text = g.cases[caseID].items[resItem].name.ToUpper(); //Добавил toUpper для верхнего регистра
-        resPanel.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[resItem].price.ToString();
+        resPanel.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(g.cases[caseID].items[resItem].price);
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
     }

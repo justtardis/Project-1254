@@ -75,12 +75,11 @@ public class DataLoader : MonoBehaviour
             form.AddField("user_name", g.nickname);
             WWW userData = new WWW(siteName1, form);
             yield return userData;
-            downloadComplete = true;            
+            downloadComplete = true;               
             topData = userData.text.Split(new[] { "<br/>" }, System.StringSplitOptions.RemoveEmptyEntries);            
             splitTop();
             setTopList();
             g.user.text = g.nickname;
-            
             yield return new WaitForSeconds(10f);
         }
     }
@@ -101,7 +100,17 @@ public class DataLoader : MonoBehaviour
         }
     }
 
-  
+    public void Upload(string google_ID, int silver, int gold, int cases)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("google_id", google_ID);
+        form.AddField("cases", cases.ToString());
+        form.AddField("silvers", silver.ToString());
+        form.AddField("golds", gold.ToString());
+        string siteName2 = siteName + "/Upload.php";
+        WWW www = new WWW(siteName2, form);
+        //res = www.text;
+    }
 
     public void updateData(string google_ID, int cases)
     {
@@ -126,6 +135,8 @@ public class DataLoader : MonoBehaviour
             string Data = www.text;
             getData = Data.Split('—');
             g.count_cases.text = g.convertMoney(int.Parse(getData[2]));
+            //g.silver = int.Parse(getData[0]);
+            //g.gold = int.Parse(getData[1]);
             yield return new WaitForSeconds(10f);
         }        
     }
