@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using UnityEngine.SocialPlatforms;
+
 
 public class Game : MonoBehaviour
 {
@@ -157,42 +155,42 @@ public class Game : MonoBehaviour
     
     public void auth()
     {
-        PlayGamesPlatform.Activate();
-        Social.localUser.Authenticate((bool success) =>
-        {
-            if (success)
-            {
-                nickname = Social.localUser.userName;
-                google_id = Social.localUser.id;
-                username_menu.text = nickname;
-                //suc = true;
-                StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
-               // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f),50f);
-            }
-            else
-            {
-                nickname = "LemonS";
-                google_id = "6984412st50933dc";
-                username_menu.text = nickname;
-                StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
-            }
-            StartCoroutine(LoadImage());
-            StartCoroutine(dl.getMainData());
-            StartCoroutine(dl.getDataTop());           
-        });
+        //PlayGamesPlatform.Activate();
+        //Social.localUser.Authenticate((bool success) =>
+        //{
+        //    if (success)
+        //    {
+        //        nickname = Social.localUser.userName;
+        //        google_id = Social.localUser.id;
+        //        username_menu.text = nickname;
+        //        //suc = true;
+        ////        StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
+        //       // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f),50f);
+        //    }
+        //    else
+        //    {
+        //        nickname = "LemonS";
+        //        google_id = "6984412st50933dc";
+        //        username_menu.text = nickname;
+        //        StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
+        //    }
+        //    StartCoroutine(LoadImage());
+        //    StartCoroutine(dl.getMainData());
+        //    StartCoroutine(dl.getDataTop());           
+        //});
     }
 
     public void W()
     {
-        PlayGamesPlatform.Activate();
-        Social.localUser.Authenticate((bool success) =>
-        {
-            if (success)
-            {
-                nickname = Social.localUser.userName;
-                google_id = Social.localUser.id;
-            }
-        });
+        //PlayGamesPlatform.Activate();
+        //Social.localUser.Authenticate((bool success) =>
+        //{
+        //    if (success)
+        //    {
+        //        nickname = Social.localUser.userName;
+        //        google_id = Social.localUser.id;
+        //    }
+        //});
     }
 
     IEnumerator LoadImage()

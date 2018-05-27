@@ -70,7 +70,7 @@ public class MiniGames : MonoBehaviour
     int stolb;
     int[] arr = new int[2];
     public bool[] check = new bool[6];
-    public GameObject[] Lep;
+    public GameObject Game1;
     int index = 0;
     int count = 0;
     int silver = 0;
@@ -245,6 +245,30 @@ public class MiniGames : MonoBehaviour
             }
         }
 
+    }
+
+    public void Default()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            button[i].GetComponent<Animator>().SetBool("Click", false);
+            check[i] = false;
+        }
+        group[0].SetActive(false);
+        Game1.transform.GetChild(4).gameObject.SetActive(true);
+        Game1.transform.GetChild(5).gameObject.SetActive(true);
+        for (int j = 0; j < 3; j++)
+        {
+            JacpotBlock[j].transform.GetChild(1).gameObject.SetActive(true);
+            JacpotBlock[j].transform.GetChild(2).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(2).GetComponent<Rev>().rev = 2;
+            JacpotBlock[j].transform.GetChild(3).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(3).GetComponent<Rev>().rev = 2;
+            JacpotBlock[j].transform.GetChild(4).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(4).GetComponent<Rev>().rev = 2;
+            JacpotBlock[j].transform.GetChild(5).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(5).GetComponent<Rev>().rev = 2;
+        }
     }
 
 
