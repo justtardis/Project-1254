@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class Game : MonoBehaviour
 {
+    private static Names name = new Names();
+    public string json = "";
+    public string[] botNames = new string[72];
+
+    public Sprite noImage;
     #region Переменные
     public int silver; // серебро | заменил на целые числа
     public int gold; // золото
@@ -132,7 +138,7 @@ public class Game : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Text username_menu;
-   
+
     public int[] Cases_Level;
     public AudioClip[] ac;
     public AudioSource _as;
@@ -141,18 +147,41 @@ public class Game : MonoBehaviour
     public Slider sld;
     public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
+
+    private void Awake()
+    {
+        LoadNick();
+    }
+
     public void playClip()
     {
         audioSource.clip = audioClip;
         audioSource.Play();
     }
-    
+
     public void CustomSlider()
     {
         fillSlider.fillAmount = sld.value;
-        percent.text = (sld.value * 100 ).ToString("#0")+"%";
+        percent.text = (sld.value * 100).ToString("#0") + "%";
     }
-    
+
+    private void LoadNick()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        string path = Path.Combine(Application.streamingAssetsPath, "/nicknames.json");
+        WWW reader = new WWW(path);
+        while (!reader.isDone) { }
+        json = reader.text;
+#else
+        json = File.ReadAllText(Application.streamingAssetsPath + "/nicknames.json");
+#endif
+        name = JsonUtility.FromJson<Names>(json);
+        for (int i = 0; i < name.botNickname.Length; i++)
+        {
+            botNames[i] = name.botNickname[i];
+        }
+    }
+
     public void auth()
     {
         //PlayGamesPlatform.Activate();
@@ -207,8 +236,8 @@ public class Game : MonoBehaviour
     void Start()
     {
         W();
-            sld.value = 0.59f;
-      //  auth();
+        sld.value = 0.59f;
+        //  auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
@@ -297,7 +326,7 @@ public class Game : MonoBehaviour
             if (casesNum == Cases_Level[level])
             {
                 level++;
-                levelText.text = "Уровень " + level.ToString(); 
+                levelText.text = "Уровень " + level.ToString();
             }
             int perc = ((int)(((float)(casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100));
             percent.text = perc + "%";
@@ -321,12 +350,22 @@ public class Game : MonoBehaviour
         id_toggle = -1; //чтобы можно было узнать, что никто не запущен
         DefaultUPDToggle(); //дефолтные значения тогглов наверху
         scrollPreview.verticalNormalizedPosition = 1f;
+
         //Отображаем товары кейса
         for (int i = 0; i < cases[id].items.Length; i++)
         {
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
-            A.transform.GetChild(0).GetComponent<Text>().text = convertMoneyFloat(cases[id].items[i].price);
-            A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
+           
+            if (id != 10)
+            {
+                A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
+                A.transform.GetChild(0).GetComponent<Text>().text = convertMoneyFloat(cases[id].items[i].price);
+            }
+            else
+            {
+                A.transform.GetChild(1).GetComponent<Image>().sprite = noImage;
+                A.transform.GetChild(0).GetComponent<Text>().text = "-";
+            }
             A.transform.GetChild(2).gameObject.SetActive(cases[id].items[i].group == 4);
             A.SetActive(true);
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
@@ -337,6 +376,8 @@ public class Game : MonoBehaviour
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
             A.SetActive(false);
         }
+
+
         preview.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
         preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\"";
         preview.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
@@ -398,7 +439,7 @@ public class Game : MonoBehaviour
 
     public void ClickMenu()
     {
-       // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 20f);
+        // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 20f);
         // блок, если меню нужно
         if (!MenuActive && !Get)
         {
@@ -626,7 +667,7 @@ public class Game : MonoBehaviour
                         touchOne[1].SetActive(false);
                     }
                     move[0] = false;
-                    
+
                 }
             }
             else if (!SettingsBool[0])
@@ -652,7 +693,7 @@ public class Game : MonoBehaviour
                         touchOne[2].SetActive(false);
                     }
                     move[0] = false;
-                   
+
                 }
             }
         }
@@ -935,7 +976,7 @@ public class Game : MonoBehaviour
     public string convertMoneyFloat(float money)
     {
         string res = "";
-        if (money < 1000000) 
+        if (money < 1000000)
         {
             res = money.ToString("#,##0");
             res = res.Replace(",", " ");
@@ -944,7 +985,11 @@ public class Game : MonoBehaviour
     }
 }
 
-
+[System.Serializable]
+public class Names
+{
+    public string[] botNickname = new string[72];
+}
 
 //Класс кейса
 [System.Serializable]

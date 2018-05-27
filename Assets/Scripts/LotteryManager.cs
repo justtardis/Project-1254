@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class LotteryManager : MonoBehaviour
 {
+    
+    public int[] unicNames = new int[8];
+
     public int[] arrIcon = new int[8];
     public Game g;
     public int[] arrTicket = new int[42];
@@ -55,8 +58,13 @@ public class LotteryManager : MonoBehaviour
     public Image rewardSpr; //джекпот картиночкой
     public GameObject winner; //победитель
 
+   
+
+   
+
     void Start()
     {
+        UnicRandNames();
         LoadLottery();
 
     }
@@ -141,8 +149,8 @@ public class LotteryManager : MonoBehaviour
                             it[i].GetComponent<Image>().color = g.color[1];
                         }
                     }
-                    
-                    }
+
+                }
                 buyTickets();
                 for (int i = 0; i < botCount; i++)
                 {
@@ -213,7 +221,8 @@ public class LotteryManager : MonoBehaviour
         botCount = UnityEngine.Random.Range(3, 9);
         for (int i = 0; i < botCount; i++)
         {
-            bot[i].name = BOT_NAMES[UnityEngine.Random.Range(0, BOT_NAMES.Length)];
+            //bot[i].name = BOT_NAMES[UnityEngine.Random.Range(0, BOT_NAMES.Length)];
+            bot[i].name = g.botNames[unicNames[i]];
             bot[i].countCell = UnityEngine.Random.Range(1, countCell + 1);
             //bot[i].startTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
             bot[i].waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot[i].countCell);
@@ -347,7 +356,28 @@ public class LotteryManager : MonoBehaviour
             }
         }
     }
-
+    void UnicRandNames() // Для генерации рандомных позиций целей
+    {
+        bool already;
+        for (int i = 0; i < 8;)
+        {
+            already = false;
+            int newRandomValue = UnityEngine.Random.Range(0, 72);
+            for (int j = 0; j < i; j++)
+            {
+                if (arrIcon[j] == newRandomValue)
+                {
+                    already = true;
+                    break;
+                }
+            }
+            if (!already)
+            {
+                unicNames[i] = newRandomValue;
+                i++;
+            }
+        }
+    }
     /*void Razdacha(BOT bot)
     {
         int sum = MINIMAL + bot.countCell;
@@ -493,6 +523,8 @@ public class LotteryManager : MonoBehaviour
         PlayerPrefs.SetString(name, JsonUtility.ToJson(sv));
     }
 }
+
+
 
 [System.Serializable]
 public class BOT
