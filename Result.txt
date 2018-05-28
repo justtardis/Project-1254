@@ -1,0 +1,1 @@
+{"items":[],"invSize":0,"silver":57000,"gold":150,"casesNum":0,"level":1,"achievments":[true,false,false,false,false,false,false,true,true,false,false,false],"sound":true,"count_win":0,"historyG":[1.6254609823226929,1.6268211603164673,1.8137025833129883,1.8350703716278077],"historyCol":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}

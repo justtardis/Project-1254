@@ -310,6 +310,7 @@ public class Inventory : MonoBehaviour
 
     public void SaveGame()
     {
+        sv.historyG = new float[4];
         for (int i = 0; i < 4; i++)
         {
             sv.historyG[i] = mg.history[i];

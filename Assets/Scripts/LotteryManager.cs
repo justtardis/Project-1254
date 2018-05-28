@@ -98,9 +98,54 @@ public class LotteryManager : MonoBehaviour
             start = new System.DateTime(sv.start[0], sv.start[1], sv.start[2], sv.start[3], sv.start[4], sv.start[5]);
             if ((DateTime.Now - start).TotalMinutes > (lotteryTime))
             {
+                reward = sv.reward;
+                tickets = sv.tickets;
+                arrIcon = JsonHelper.FromJson<int>(sv.arrIcon);
+                rewardItem[0] = sv.itemCaseId;
+                rewardItem[1] = sv.itemItemId;
+                botCount = sv.botCount;
+                //sv.bots = new string[bot.Length];
+                //sv.it = new string[it.Length];
+                bot = JsonHelper.FromJson<BOT>(sv.bots);
+                for (int i = 0; i < bot.Length; i++)
+                {
+                    bot[i].icon = g.botIcon[arrIcon[i]];
+                    bot[i].color = g.color[i + 3];
+                }
+                LotteryItemS[] it2 = new LotteryItemS[it.Length];
+                it2 = JsonHelper.FromJson<LotteryItemS>(sv.it);
+                for (int i = 0; i < it.Length; i++)
+                {
+                    it[i].id = it2[i].id;
+                    it[i].isBusy = it2[i].isBusy;
+                    it[i].NameOfBusy = it2[i].NameOfBusy;
+                    if (it[i].isBusy)
+                    {
+                        for (int j = 0; j < bot.Length; j++)
+                        {
+                            if (bot[j].name == it2[i].NameOfBusy)
+                            {
+                                //it[i].icon.sprite = bot[j].icon;
+                                it[i].transform.GetChild(0).gameObject.SetActive(false);
+                                it[i].transform.GetChild(1).gameObject.SetActive(true);
+                                it[i].transform.GetChild(1).GetComponent<Image>().sprite = bot[j].icon;
+                                it[i].GetComponent<Image>().color = bot[j].color;
+                            }
+                        }
+                        if (g.nickname == it2[i].NameOfBusy)
+                        {
+                            it[i].GetComponent<Image>().color = g.color[1];
+                        }
+                    }
+
+                }
+                //isFinished = sv.isFinished;
+                showWinner();
+                winner.SetActive(true);
                 if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
                 {
                     double delta = (DateTime.Now - start).TotalMinutes - (lotteryTime + waitTime);
+                    timer.transform.parent.gameObject.GetComponent<Button>().interactable = true;
                     startLottery();
                     int seconds = UnityEngine.Random.Range(0, (int)(delta * 60));
                     start.Subtract(new DateTime(0, 0, 0, seconds / 3600, seconds / 60, seconds % 60));
@@ -298,13 +343,16 @@ public class LotteryManager : MonoBehaviour
                 inv.invSize++;
                 inv.LoadInventory();
             }
-            g.silver = g.silver + reward;
             if (!g.ach.achievments[8].get) g.ach.getAch(8);
         }
         if (it[winner1 - 1].isBusy)
         {
             winner.SetActive(true);
             winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+        }
+        else
+        {
+            winner.SetActive(false);
         }
         for (int i = 0; i < ticketNum; i++)
         {
