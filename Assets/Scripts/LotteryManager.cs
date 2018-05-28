@@ -140,7 +140,7 @@ public class LotteryManager : MonoBehaviour
 
                 }
                 //isFinished = sv.isFinished;
-                showWinner();
+                //showWinner();
                 winner.SetActive(true);
                 if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
                 {
@@ -426,49 +426,43 @@ public class LotteryManager : MonoBehaviour
             }
         }
     }
-    /*void Razdacha(BOT bot)
-    {
-        int sum = MINIMAL + bot.countCell;
-        for (int i = MINIMAL; i < MINIMAL + bot.countCell; i++)
-        {
-            bot.arrayTicket[i] = arrTicket[i];
-        }
-        MINIMAL += bot.countCell;
-        print(MINIMAL);
-    }*/
-
+   
 
     // Каждому боту известно число занимаемых ячеек
     // Бегаем по массиву всех ячеек это количество раз и выкупаем свободные билеты рандомно.
     IEnumerator BotActive(BOT bot)
     {
-        // Цикл ограничен числом билетов у бота
-        while (!isFinished)
-        {
-            for (int i = 0; i < bot.countCell; i++)
-            {
-                // если билет уже куплен, двигаемся к ближайшему незанятому
-                // после повторяем операцию
-                yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
+        yield return null; // заглушка
 
-                bool isBought = false;
-                int cellId = UnityEngine.Random.Range(0, ticketNum);
-                bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
-                while (!isBought && !isFinished && countBusy != 0)
-                {
-                    if (!it[cellId].isBusy)
-                    {
-                        ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
-                        bot.leftCell--;
-                        isBought = true;
-                    }
-                    else
-                    {
-                        cellId = UnityEngine.Random.Range(0, ticketNum);
-                    }
-                }
-            }
-        }
+        ////Цикл ограничен числом билетов у бота
+        //while (!isFinished)
+        //{
+        //   // 
+        //    for (int i = 0; i < bot.countCell; i++)
+        //    {
+        //        // если билет уже куплен, двигаемся к ближайшему незанятому
+        //        // после повторяем операцию
+        //        yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
+
+        //        bool isBought = false;
+        //        int cellId = UnityEngine.Random.Range(0, ticketNum);
+        //        bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
+        //        while (!isBought && !isFinished && countBusy != 0)
+        //        {
+        //            if (!it[cellId].isBusy)
+        //            {
+        //                ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
+        //                bot.leftCell--;
+        //                isBought = true;
+        //            }
+        //            else
+        //            {
+        //                cellId = UnityEngine.Random.Range(0, ticketNum);
+        //            }
+        //        }
+        //    }
+        //}
+
     }
 
     public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)

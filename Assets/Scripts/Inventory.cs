@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
             invSize = sv.invSize;
             g.level = sv.level;
             items = new int[1000][];
+            g.idAvatar = sv.idAvatar;
             for (int i = 0; i < 1000; i++)
             {
                 items[i] = new int[2];
@@ -291,14 +292,14 @@ public class Inventory : MonoBehaviour
         if (pauseStatus)
         {
             SaveGame();
-            dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
+            //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
         }
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
-        dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
+        //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
     }
 
 
@@ -319,6 +320,7 @@ public class Inventory : MonoBehaviour
         {
             sv.historyCol[i] = mg.historyColor[i];
         }
+        sv.idAvatar = g.idAvatar;
         sv.sound = g.SettingsBool[0];
         sv.count_win = mg.count_win;
         sv.gold = g.gold;
@@ -356,6 +358,7 @@ public class Save
     public int count_win; // добавил
     public float[] historyG = new float[4];
     public int[] historyCol = new int[16];
+    public int idAvatar;
 }
 
 public static class JsonHelper

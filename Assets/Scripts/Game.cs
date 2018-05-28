@@ -11,6 +11,11 @@ public class Game : MonoBehaviour
     public string json = "";
     public string[] botNames = new string[72];
 
+    // Avatar
+    public int idAvatar = 5;
+    public GameObject PanelAv;
+    public Image[] avG;
+
     public Sprite noImage;
     #region Переменные
     public int silver; // серебро | заменил на целые числа
@@ -80,10 +85,11 @@ public class Game : MonoBehaviour
     public Text user;
     public Text count_cases;
     public Text topLevel;
-    Texture2D userPicture;
+    
 
     [Space(5f)]
     [Header("Настройки")]
+    public GameObject setObj;
     public Color[] color;
     public float[] t;
     public bool[] change;
@@ -107,7 +113,7 @@ public class Game : MonoBehaviour
     public Sprite[] text_lot1_en;
     public Sprite[] text_lot1_ru;
     public string nickname = "Jack";
-    public string google_id = string.Empty;
+    public string deviceID = string.Empty;
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
     /*public LotteryItem[] it;
@@ -147,10 +153,26 @@ public class Game : MonoBehaviour
     public Slider sld;
     public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
+    
 
     private void Awake()
     {
+        deviceID = SystemInfo.deviceUniqueIdentifier;
+        setObj.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<Text>().text = nickname;
         LoadNick();
+    }
+    public void ReplaseSpace(InputField inp)
+    {
+        inp.text = inp.text.Replace(" ", "_");
+        nickname = inp.text;
+        username_menu.text = nickname;
+        user.text = nickname;
+        setObj.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<Text>().text = nickname;
+    }
+    public void EditNick(GameObject panelNick)
+    {
+        panelNick.SetActive(true);
+        panelNick.transform.GetChild(0).GetChild(0).GetComponent<InputField>().text = nickname;        
     }
 
     public void playClip()
@@ -209,18 +231,7 @@ public class Game : MonoBehaviour
         //});
     }
 
-    public void W()
-    {
-        //PlayGamesPlatform.Activate();
-        //Social.localUser.Authenticate((bool success) =>
-        //{
-        //    if (success)
-        //    {
-        //        nickname = Social.localUser.userName;
-        //        google_id = Social.localUser.id;
-        //    }
-        //});
-    }
+    
 
     IEnumerator LoadImage()
     {
@@ -235,7 +246,7 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        W();
+        AvatarSet();
         sld.value = 0.59f;
         //  auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
@@ -318,7 +329,7 @@ public class Game : MonoBehaviour
                     break;
             }
             casesNum++;
-            dl.updateData(google_id, casesNum);
+            //dl.updateData(google_id, casesNum);
             if (casesNum == 100) ach.getAch(1);
             else if (casesNum == 1000) ach.getAch(2);
             else if (casesNum == 5000) ach.getAch(3);
@@ -355,7 +366,7 @@ public class Game : MonoBehaviour
         for (int i = 0; i < cases[id].items.Length; i++)
         {
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
-           
+
             if (id != 10)
             {
                 A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
@@ -598,7 +609,24 @@ public class Game : MonoBehaviour
     }*/
     #endregion
 
+    public void AvatarDefault()
+    {
+        PanelAv.transform.GetChild(1).GetChild(0).GetChild(idAvatar).GetChild(0).gameObject.SetActive(true);
+        PanelAv.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PanelAv.transform.GetChild(1).GetChild(0).GetChild(idAvatar).GetComponent<Image>().sprite;
+    }
+    void AvatarSet()
+    {
+        for (int i = 0; i < 4; i++) avG[i].sprite = PanelAv.transform.GetChild(1).GetChild(0).GetChild(idAvatar).GetComponent<Image>().sprite;
+    }
 
+    public void AvatarClick(GameObject obj)
+    {
+        PanelAv.transform.GetChild(1).GetChild(0).GetChild(idAvatar).GetChild(0).gameObject.SetActive(false);
+        idAvatar = obj.GetComponent<Item_ID>().id;
+
+        obj.transform.GetChild(0).gameObject.SetActive(true);
+        AvatarSet();
+    }
 
     #region МЕТОДЫ КОДИРОВАНИЯ ДЛЯ СОКРЫТИЯ ИНФОРМАЦИИ
     //Не каждый сообразит, что это base64 и не каждый смекнет, че с ним делать
