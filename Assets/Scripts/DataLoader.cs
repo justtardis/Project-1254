@@ -38,11 +38,7 @@ public class DataLoader : MonoBehaviour
         Debug.Log(res);
     }*/
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L)) StartCoroutine(getDataTop());
-    }
-
+    
     public IEnumerator getMainData()
     {
         while (true)
@@ -100,10 +96,10 @@ public class DataLoader : MonoBehaviour
         }
     }
 
-    public void Upload(string google_ID, int silver, int gold, int cases)
+    public void Upload(string device_id, int silver, int gold, int cases)
     {
         WWWForm form = new WWWForm();
-        form.AddField("google_id", google_ID);
+        form.AddField("device_id", device_id);
         form.AddField("cases", cases.ToString());
         form.AddField("silvers", silver.ToString());
         form.AddField("golds", gold.ToString());
@@ -112,28 +108,42 @@ public class DataLoader : MonoBehaviour
         //res = www.text;
     }
 
-    public void updateData(string google_ID, int cases)
+    public void updateData(string device_id, int cases)
     {
         WWWForm form = new WWWForm();
-        form.AddField("google_id", google_ID);
+        form.AddField("device_id", device_id);
         form.AddField("cases", cases.ToString());
         string siteName2 = siteName + "/updateData.php";
         WWW www = new WWW(siteName2, form);
         //res = www.text;
     }
 
-    public IEnumerator LoginOrInsertData(string google_ID, string username)
+    public void updateNickname(string device_id, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("user_name", username);
+        form.AddField("device_id", device_id);
+        string siteName2 = siteName + "/UpdateNickname.php";
+        WWW www = new WWW(siteName2, form);
+        //res = www.text;
+    }
+
+    public IEnumerator LoginOrInsertData(string device_id, string username)
     {
         while (true)
         {
             WWWForm form = new WWWForm();
-            form.AddField("google_id", google_ID);
+            form.AddField("device_id", device_id);
             form.AddField("user_name", username);
             string siteName2 = siteName + "/Login.php";
             WWW www = new WWW(siteName2, form);
             yield return www;
-            string Data = www.text;
+            string Data = www.text;     
             getData = Data.Split('—');
+            g.nickname = getData[0];
+            g.username_menu.text = getData[0];
+            g.user.text = getData[0];
+            g.setObj.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<Text>().text = getData[0];
             g.count_cases.text = g.convertMoney(int.Parse(getData[2]));
             //g.silver = int.Parse(getData[0]);
             //g.gold = int.Parse(getData[1]);

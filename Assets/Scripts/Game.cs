@@ -112,7 +112,7 @@ public class Game : MonoBehaviour
     public Sprite[] spr_lot1;
     public Sprite[] text_lot1_en;
     public Sprite[] text_lot1_ru;
-    public string nickname = "Jack";
+    public string nickname;
     public string deviceID = string.Empty;
     public LotteryManager Lm;
     public GameObject LotteryConfirm;
@@ -168,11 +168,13 @@ public class Game : MonoBehaviour
         username_menu.text = nickname;
         user.text = nickname;
         setObj.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<Text>().text = nickname;
+        dl.updateNickname(deviceID, nickname);
     }
     public void EditNick(GameObject panelNick)
     {
         panelNick.SetActive(true);
-        panelNick.transform.GetChild(0).GetChild(0).GetComponent<InputField>().text = nickname;        
+        panelNick.transform.GetChild(0).GetChild(0).GetComponent<InputField>().text = nickname;
+       
     }
 
     public void playClip()
@@ -206,6 +208,10 @@ public class Game : MonoBehaviour
 
     public void auth()
     {
+        StartCoroutine(dl.getMainData());
+        StartCoroutine(dl.getDataTop());
+        StartCoroutine(dl.LoginOrInsertData(deviceID, nickname));
+
         //PlayGamesPlatform.Activate();
         //Social.localUser.Authenticate((bool success) =>
         //{
@@ -232,23 +238,12 @@ public class Game : MonoBehaviour
     }
 
     
-
-    IEnumerator LoadImage()
-    {
-        while (Social.localUser.image == null)
-        {
-            yield return null;
-        }
-        avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 50f);
-        avatar_menu.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 50f);
-        //Social.localUser.image is not null any more
-    }
     // Use this for initialization
     void Start()
     {
         AvatarSet();
         sld.value = 0.59f;
-        //  auth();
+        auth();
         silverText.text = convertMoney(silver); //отображаем серебро в панели на главной
         goldText.text = gold.ToString(); //отображаем золото в панели на главной
         for (int i = 0; i < cases.Length; i++)
@@ -329,7 +324,7 @@ public class Game : MonoBehaviour
                     break;
             }
             casesNum++;
-            //dl.updateData(google_id, casesNum);
+            dl.updateData(deviceID, casesNum);
             if (casesNum == 100) ach.getAch(1);
             else if (casesNum == 1000) ach.getAch(2);
             else if (casesNum == 5000) ach.getAch(3);
