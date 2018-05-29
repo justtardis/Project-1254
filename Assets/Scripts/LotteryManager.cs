@@ -48,7 +48,7 @@ public class LotteryManager : MonoBehaviour
     public Text countHeader;
     public Image fillAm;
     //int allTickets = 0;
-    int tickets = 0;
+    public int tickets = 0;
 
     //Обекты для вывода информации на обложку лотереи
     public Text timer; //время лотереи
@@ -196,11 +196,13 @@ public class LotteryManager : MonoBehaviour
                     }
 
                 }
+                tickets = countTickets();
                 buyTickets();
                 for (int i = 0; i < botCount; i++)
                 {
                     StartCoroutine(BotActive(bot[i]));
                 }
+                winner.SetActive(false);
             }
         }
         else
@@ -228,6 +230,16 @@ public class LotteryManager : MonoBehaviour
         }
     }
 
+    public int countTickets()
+    {
+        int res = 0;
+        for (int i = 0; i < it.Length; i++)
+        {
+            if (it[i].isBusy) res++;
+        }
+        return res;
+    }
+
     public void startLottery()
     {
         ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
@@ -238,6 +250,13 @@ public class LotteryManager : MonoBehaviour
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
         costText.text = price.ToString();
         isFinished = false;
+        for (int i = 0; i < ticketNum; i++)
+        {
+            it[i].isBusy = false;
+            it[i].transform.GetChild(0).gameObject.SetActive(true);
+            it[i].transform.GetChild(1).gameObject.SetActive(false);
+            it[i].GetComponent<Image>().color = g.color[2];
+        }
         if (rewardSpr != null)
         {
             int rand = UnityEngine.Random.Range(0, 13);
@@ -434,34 +453,34 @@ public class LotteryManager : MonoBehaviour
     {
         yield return null; // заглушка
 
-        ////Цикл ограничен числом билетов у бота
-        //while (!isFinished)
-        //{
-        //   // 
-        //    for (int i = 0; i < bot.countCell; i++)
-        //    {
-        //        // если билет уже куплен, двигаемся к ближайшему незанятому
-        //        // после повторяем операцию
-        //        yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
+        //Цикл ограничен числом билетов у бота
+        while (!isFinished)
+        {
+            // 
+            for (int i = 0; i < bot.countCell; i++)
+            {
+                // если билет уже куплен, двигаемся к ближайшему незанятому
+                // после повторяем операцию
+                yield return new WaitForSeconds(bot.waitTime); // Задержка перед покупкой
 
-        //        bool isBought = false;
-        //        int cellId = UnityEngine.Random.Range(0, ticketNum);
-        //        bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
-        //        while (!isBought && !isFinished && countBusy != 0)
-        //        {
-        //            if (!it[cellId].isBusy)
-        //            {
-        //                ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
-        //                bot.leftCell--;
-        //                isBought = true;
-        //            }
-        //            else
-        //            {
-        //                cellId = UnityEngine.Random.Range(0, ticketNum);
-        //            }
-        //        }
-        //    }
-        //}
+                bool isBought = false;
+                int cellId = UnityEngine.Random.Range(0, ticketNum);
+                bot.waitTime = UnityEngine.Random.Range(1, lotteryTime * 60 / bot.countCell);
+                while (!isBought && !isFinished && tickets < ticketNum)
+                {
+                    if (!it[cellId].isBusy)
+                    {
+                        ConfirmLotteryItem(cellId + 1, bot.name, bot.color, bot.icon); // подтверждаем покупку
+                        bot.leftCell--;
+                        isBought = true;
+                    }
+                    else
+                    {
+                        cellId = UnityEngine.Random.Range(0, ticketNum);
+                    }
+                }
+            }
+        }
 
     }
 
