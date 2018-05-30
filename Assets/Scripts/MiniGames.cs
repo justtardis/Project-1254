@@ -9,7 +9,7 @@ public class MiniGames : MonoBehaviour
     public float time = 0;
     public float counter = 1f;
     public float stopCounter = 0;
-    public float TimerRestart = 10f;
+    public float TimerRestart =15f;
     public Text coef;
     public Text _timer;
     public Text cashSilver;
@@ -56,6 +56,8 @@ public class MiniGames : MonoBehaviour
     public Sprite[] money;
     public GameObject[] group;
     public Game g;
+    public GameObject list;
+   
 
     public GameObject[] button;
     public Sprite defIc;
@@ -70,7 +72,7 @@ public class MiniGames : MonoBehaviour
     int stolb;
     int[] arr = new int[2];
     public bool[] check = new bool[6];
-    public GameObject Game1;
+    
     int index = 0;
     int count = 0;
     int silver = 0;
@@ -81,6 +83,19 @@ public class MiniGames : MonoBehaviour
     int rareTOP = 0;
     #region
     public int count_win = 0;
+
+    public void CheckOpen(GameObject mini)
+    {
+        if (g._time == 4.2f)
+        {
+            mini.SetActive(true);
+            list.SetActive(false);
+        }
+        else
+        {
+           
+        }
+    }
 
     public void BetInp()
     {
@@ -175,7 +190,7 @@ public class MiniGames : MonoBehaviour
         if (rand >= 980 && rand < 995) stopCounter = Random.Range(150f, 230f);
         if (rand >= 995 && rand < 1000) stopCounter = 0f;
         coef.GetComponent<Text>().color = new Color(255f, 255f, 255f);
-        TimerRestart = 10f;
+        TimerRestart = 15f;
         counter = 1f;
         time = 0f;
         _timer.text = string.Empty;
@@ -249,26 +264,28 @@ public class MiniGames : MonoBehaviour
 
     public void Default()
     {
+       
+        count = 0;
         for (int i = 0; i < 6; i++)
         {
+            //button[i].GetComponent<Button>().interactable = fa;
             button[i].GetComponent<Animator>().SetBool("Click", false);
             check[i] = false;
         }
-        group[0].SetActive(false);
-        Game1.transform.GetChild(4).gameObject.SetActive(true);
-        Game1.transform.GetChild(5).gameObject.SetActive(true);
+        group[0].GetComponent<Animator>().SetBool("AnimTrigger", true);
+        group[0].GetComponent<Rev>().rev = 2;
         for (int j = 0; j < 3; j++)
         {
-            JacpotBlock[j].transform.GetChild(1).gameObject.SetActive(true);
-            JacpotBlock[j].transform.GetChild(2).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(2).GetComponent<Animator>().SetBool("AnimTrigger", true);
             JacpotBlock[j].transform.GetChild(2).GetComponent<Rev>().rev = 2;
-            JacpotBlock[j].transform.GetChild(3).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(3).GetComponent<Animator>().SetBool("AnimTrigger", true);
             JacpotBlock[j].transform.GetChild(3).GetComponent<Rev>().rev = 2;
-            JacpotBlock[j].transform.GetChild(4).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(4).GetComponent<Animator>().SetBool("AnimTrigger", true);
             JacpotBlock[j].transform.GetChild(4).GetComponent<Rev>().rev = 2;
-            JacpotBlock[j].transform.GetChild(5).gameObject.SetActive(false);
+            JacpotBlock[j].transform.GetChild(5).GetComponent<Animator>().SetBool("AnimTrigger", true);
             JacpotBlock[j].transform.GetChild(5).GetComponent<Rev>().rev = 2;
         }
+
     }
 
 
@@ -340,10 +357,10 @@ public class MiniGames : MonoBehaviour
                 isRestart = false;
                 isRotate = true;
                 RouletteRules();
-                
+
             }
         }
-        
+
         if (startCrash)
         {
             if (!startGame)
@@ -398,7 +415,7 @@ public class MiniGames : MonoBehaviour
             betInp.interactable = true; // выключаем все инпуты
             AutoCashOutInp.interactable = true;
             TimerRestart -= Time.deltaTime;
-            if (TimerRestart < 5f)
+            if (TimerRestart < 10f)
             {
                 coef.text = string.Empty;
                 _timer.text = "Следующий раунд через " + TimerRestart.ToString("0.0") + "с";

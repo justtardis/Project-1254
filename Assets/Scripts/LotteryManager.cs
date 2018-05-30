@@ -49,7 +49,7 @@ public class LotteryManager : MonoBehaviour
     public Image fillAm;
     //int allTickets = 0;
     public int tickets = 0;
-
+    public string lastWinner;
     //Обекты для вывода информации на обложку лотереи
     public Text timer; //время лотереи
     public Text ticketsText; //количество билетов
@@ -96,6 +96,7 @@ public class LotteryManager : MonoBehaviour
         {
             sv = JsonUtility.FromJson<SaveLottery>(PlayerPrefs.GetString(name));
             start = new System.DateTime(sv.start[0], sv.start[1], sv.start[2], sv.start[3], sv.start[4], sv.start[5]);
+            lastWinner = sv.lastWinner;
             if ((DateTime.Now - start).TotalMinutes > (lotteryTime))
             {
                 reward = sv.reward;
@@ -139,9 +140,11 @@ public class LotteryManager : MonoBehaviour
                     }
 
                 }
-                //isFinished = sv.isFinished;
+                isFinished = sv.isFinished;
                 //showWinner();
+                winner.transform.GetChild(0).GetComponent<Text>().text = lastWinner;
                 winner.SetActive(true);
+                timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
                 if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
                 {
                     double delta = (DateTime.Now - start).TotalMinutes - (lotteryTime + waitTime);
@@ -373,6 +376,7 @@ public class LotteryManager : MonoBehaviour
         {
             winner.SetActive(false);
         }
+        lastWinner = it[winner1 - 1].NameOfBusy;
         for (int i = 0; i < ticketNum; i++)
         {
             it[i].isBusy = false;
@@ -565,6 +569,7 @@ public class LotteryManager : MonoBehaviour
         sv.start[4] = start.Minute;
         sv.start[5] = start.Second;
         sv.arrIcon = JsonHelper.ToJson<int>(arrIcon);
+        sv.lastWinner = lastWinner;
         sv.isFinished = isFinished;
         sv.botCount = botCount;
         sv.tickets = tickets;
@@ -618,6 +623,7 @@ public class SaveLottery
     public int itemItemId;
     public int tickets;
     public int botCount;
+    public string lastWinner;
     public string bots;
     public string it;
     public string arrIcon;

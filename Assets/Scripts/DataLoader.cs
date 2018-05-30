@@ -49,7 +49,7 @@ public class DataLoader : MonoBehaviour
             res = userData.text.Split('|');
             g.usersText.text = res[0];
             g.casesText.text = g.convertMoney(int.Parse(res[1]));
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(8f);
         }
     }
 
@@ -76,7 +76,7 @@ public class DataLoader : MonoBehaviour
             splitTop();
             setTopList();
             g.user.text = g.nickname;
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(8f);
         }
     }
 
@@ -144,10 +144,10 @@ public class DataLoader : MonoBehaviour
             g.username_menu.text = getData[0];
             g.user.text = getData[0];
             g.setObj.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<Text>().text = getData[0];
-            g.count_cases.text = g.convertMoney(int.Parse(getData[2]));
+            g.count_cases.text = g.convertMoney(int.Parse(getData[1]));
             //g.silver = int.Parse(getData[0]);
             //g.gold = int.Parse(getData[1]);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(8f);
         }        
     }
 }

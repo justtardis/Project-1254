@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,15 @@ public class Game : MonoBehaviour
     public string json = "";
     public string[] botNames = new string[72];
 
+    // Свайпы
+    float startPosX, startPosY;
+    // костыль на мини-игру
+    public GameObject BG, MiniGames1, padlock;
+    public float _time = 4.2f;
+    public bool exitGame = false;
+
     // Avatar
-    public int idAvatar = 5;
+    public int idAvatar = 0;
     public GameObject PanelAv;
     public Image[] avG;
 
@@ -85,7 +93,7 @@ public class Game : MonoBehaviour
     public Text user;
     public Text count_cases;
     public Text topLevel;
-    
+
 
     [Space(5f)]
     [Header("Настройки")]
@@ -153,7 +161,62 @@ public class Game : MonoBehaviour
     public Slider sld;
     public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
-    
+
+    public void exitGame1()
+    {
+        BG.SetActive(true);
+        exitGame = true;
+        _time = 4.2f;
+    }
+
+    private void Swipe()
+    {
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            startPosX = Input.mousePosition.x;
+            startPosY = Input.mousePosition.y;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            //endTouchPosition = Input.GetTouch(0).position;
+            float delta = Input.mousePosition.x - startPosX;
+            float deltaHigh = Input.mousePosition.y - startPosY;
+            if (delta > 50f && deltaHigh < 100 && deltaHigh > -100 && !MenuActive)
+            {
+                print(delta + "X");
+                print(deltaHigh + "Y");
+                ClickMenu();
+            }
+            else if (delta < -50f && deltaHigh < 100 && deltaHigh > -100 && MenuActive)
+            {
+                print(delta + "X");
+                print(deltaHigh + "Y");
+                ClickMenu();
+            }
+        }
+#elif UNITY_ANDROID && !UNITY_EDITOR
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            startPosX = Input.GetTouch(0).position.x;
+            startPosY = Input.GetTouch(0).position.y;
+        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            //endTouchPosition = Input.GetTouch(0).position;
+            float delta = Input.GetTouch(0).position.x - startPosX;
+            float deltaHigh = Input.GetTouch(0).position.y - startPosY;
+            if (delta > 50f && deltaHigh < 100 && deltaHigh > -100 && !MenuActive)
+            {
+                ClickMenu();
+            }
+            else if (delta < -50f && deltaHigh < 100 && deltaHigh > -100 && MenuActive)
+            {
+                ClickMenu();
+            }
+        }
+#endif
+    }
 
     private void Awake()
     {
@@ -174,7 +237,7 @@ public class Game : MonoBehaviour
     {
         panelNick.SetActive(true);
         panelNick.transform.GetChild(0).GetChild(0).GetComponent<InputField>().text = nickname;
-       
+
     }
 
     public void playClip()
@@ -192,12 +255,12 @@ public class Game : MonoBehaviour
     private void LoadNick()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        string path = Path.Combine(Application.streamingAssetsPath, "/nicknames.json");
+        string path = Path.Combine(Application.streamingAssetsPath, "Names/" + "nicknames" + ".json");
         WWW reader = new WWW(path);
         while (!reader.isDone) { }
         json = reader.text;
 #else
-        json = File.ReadAllText(Application.streamingAssetsPath + "/nicknames.json");
+        json = File.ReadAllText(Application.streamingAssetsPath + "/Names/" + "nicknames" + ".json");
 #endif
         name = JsonUtility.FromJson<Names>(json);
         for (int i = 0; i < name.botNickname.Length; i++)
@@ -211,33 +274,9 @@ public class Game : MonoBehaviour
         StartCoroutine(dl.getMainData());
         StartCoroutine(dl.getDataTop());
         StartCoroutine(dl.LoginOrInsertData(deviceID, nickname));
-
-        //PlayGamesPlatform.Activate();
-        //Social.localUser.Authenticate((bool success) =>
-        //{
-        //    if (success)
-        //    {
-        //        nickname = Social.localUser.userName;
-        //        google_id = Social.localUser.id;
-        //        username_menu.text = nickname;
-        //        //suc = true;
-        ////        StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
-        //       // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f),50f);
-        //    }
-        //    else
-        //    {
-        //        nickname = "LemonS";
-        //        google_id = "6984412st50933dc";
-        //        username_menu.text = nickname;
-        //        StartCoroutine(dl.LoginOrInsertData(google_id, nickname));
-        //    }
-        //    StartCoroutine(LoadImage());
-        //    StartCoroutine(dl.getMainData());
-        //    StartCoroutine(dl.getDataTop());           
-        //});
     }
 
-    
+
     // Use this for initialization
     void Start()
     {
@@ -362,7 +401,7 @@ public class Game : MonoBehaviour
         {
             GameObject A = itemContainer.transform.GetChild(i).gameObject;
 
-            if (id != 10)
+            if (id != 11)
             {
                 A.transform.GetChild(1).GetComponent<Image>().sprite = cases[id].items[i].picture;
                 A.transform.GetChild(0).GetComponent<Text>().text = convertMoneyFloat(cases[id].items[i].price);
@@ -547,61 +586,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    /*public void ConfirmLotteryItem(int id, string name, Color color1, Sprite spr)
-    {
-        if (!it[id - 1].isBusy)
-        {
 
-                it[id - 1].GetComponent<Image>().color = color1;
-                if (color1 != color[1])
-                {
-                    it[id - 1].transform.GetChild(0).gameObject.SetActive(false);
-                    it[id - 1].transform.GetChild(1).gameObject.SetActive(true);
-                    it[id - 1].transform.GetChild(1).GetComponent<Image>().sprite = spr;
-                }
-                else
-                {
-                    silver = silver - Lm.price;
-                }
-                it[id - 1].isBusy = true;
-                it[id - 1].NameOfBusy = name;
-                Lm.isBusyCell[id - 1] = true;
-                Lm.countBusy -= 1;
-                tickets += 1;
-                countHeader.text = tickets.ToString() + " / " + allTickets.ToString();
-                fillAm.fillAmount = (float)tickets / allTickets;
-                Lm.FlagRefresh(); // нужно для обновления ячеекы
-        }
-        else
-        {
-            Inform_item.SetActive(true);
-            _InfText.text = string.Format("Билет {0} занят игроком {1}", it[id - 1].id, it[id - 1].NameOfBusy);
-        }
-    }
-
-    public void LotteryClickItem(LotteryItem item)
-    {
-        if (item.isBusy && item.NameOfBusy != nickname)
-        {
-            Inform_item.SetActive(true);
-            _InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
-           // print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
-        }
-        else if (!item.isBusy)
-        {
-            if (silver >= Lm.price)
-            {
-                LotteryConfirm.SetActive(true);
-                LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
-                LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
-                LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, nickname, color[1], Lm.botIcon[1]); }); // подтверждаем выбор
-            }
-            else
-            {
-                noMoney.SetActive(true);
-            }
-        }
-    }*/
     #endregion
 
     public void AvatarDefault()
@@ -623,6 +608,25 @@ public class Game : MonoBehaviour
         AvatarSet();
     }
 
+    private void Update()
+    {
+        Swipe();
+        if (exitGame)
+        {
+            _time -= Time.deltaTime;
+            padlock.SetActive(true);
+            if (_time < 0)
+            {
+                padlock.SetActive(false);
+                _time = 4.2f;
+                MiniGames1.SetActive(false);
+                BG.SetActive(false);
+                exitGame = false;
+            }
+        }
+    }
+
+
     #region МЕТОДЫ КОДИРОВАНИЯ ДЛЯ СОКРЫТИЯ ИНФОРМАЦИИ
     //Не каждый сообразит, что это base64 и не каждый смекнет, че с ним делать
     public static string Base64Encode(string plainText)
@@ -640,6 +644,7 @@ public class Game : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         #region ВОТ ЭТОТ КОД ОТВЕЧАЕТ ЗА ПРЕЛОАДЕР И АКТИВАЦИЮ НУЖНОЙ ПАНЕЛИ ПОСЛЕ
         if (preLoaderActive)
         {

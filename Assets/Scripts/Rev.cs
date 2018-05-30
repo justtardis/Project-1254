@@ -23,7 +23,7 @@ public class Rev : MonoBehaviour
     {
         if (rev == 2)
         {
-            for(int i=0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (!Object[i].activeSelf)
                 {
