@@ -12,8 +12,13 @@ public class Game : MonoBehaviour
     public string json = "";
     public string[] botNames = new string[72];
 
+    public float RAZRESHENIE;
+    private float finishX = 0f;
+
     // Свайпы
-    float startPosX, startPosY;
+    private float startPosX, startPosY;
+    public GameObject RoulettePanel;
+    public Button menu;
     // костыль на мини-игру
     public GameObject BG, MiniGames1, padlock;
     public float _time = 4.2f;
@@ -162,6 +167,32 @@ public class Game : MonoBehaviour
     public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
 
+    private void GetResolutionScreen()
+    {
+        float h = Screen.height;
+        float w = Screen.width;
+        RAZRESHENIE = h / w;
+        print(RAZRESHENIE.ToString());
+        if (RAZRESHENIE > 1.76f && RAZRESHENIE < 1.78f)
+        {
+            finishX = -239f;
+        }
+        else if (RAZRESHENIE > 1.65f && RAZRESHENIE < 1.67f)
+        {
+            finishX = -260f;
+        }
+        else if (RAZRESHENIE > 1.69f && RAZRESHENIE < 1.71f)
+        {
+            finishX = -252f;
+        }
+        else if (RAZRESHENIE >= 1.59f && RAZRESHENIE < 1.61f)
+        {
+            finishX = -287f;
+        }
+        print(finishX);
+    }
+
+
     public void exitGame1()
     {
         BG.SetActive(true);
@@ -169,30 +200,46 @@ public class Game : MonoBehaviour
         _time = 4.2f;
     }
 
+    public void menuState()
+    {
+        if (RoulettePanel.activeSelf)
+        {
+            menu.interactable = false;
+        }
+        else
+        {
+            menu.interactable = true;
+        }
+    }
+
     private void Swipe()
     {
 #if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
+
+        if (!RoulettePanel.activeSelf)
         {
-            startPosX = Input.mousePosition.x;
-            startPosY = Input.mousePosition.y;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            //endTouchPosition = Input.GetTouch(0).position;
-            float delta = Input.mousePosition.x - startPosX;
-            float deltaHigh = Input.mousePosition.y - startPosY;
-            if (delta > 50f && deltaHigh < 100 && deltaHigh > -100 && !MenuActive)
+            if (Input.GetMouseButtonDown(0))
             {
-                print(delta + "X");
-                print(deltaHigh + "Y");
-                ClickMenu();
+                startPosX = Input.mousePosition.x;
+                startPosY = Input.mousePosition.y;
             }
-            else if (delta < -50f && deltaHigh < 100 && deltaHigh > -100 && MenuActive)
+            if (Input.GetMouseButtonUp(0))
             {
-                print(delta + "X");
-                print(deltaHigh + "Y");
-                ClickMenu();
+                //endTouchPosition = Input.GetTouch(0).position;
+                float delta = Input.mousePosition.x - startPosX;
+                float deltaHigh = Input.mousePosition.y - startPosY;
+                if (delta > 50f && deltaHigh < 100 && deltaHigh > -100 && !MenuActive)
+                {
+                    print(delta + "X");
+                    print(deltaHigh + "Y");
+                    ClickMenu();
+                }
+                else if (delta < -50f && deltaHigh < 100 && deltaHigh > -100 && MenuActive)
+                {
+                    print(delta + "X");
+                    print(deltaHigh + "Y");
+                    ClickMenu();
+                }
             }
         }
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -276,10 +323,17 @@ public class Game : MonoBehaviour
         StartCoroutine(dl.LoginOrInsertData(deviceID, nickname));
     }
 
+    public void VK()
+    {
+        Application.OpenURL("https://vk.com/casesgames");
+    }
 
     // Use this for initialization
     void Start()
     {
+        //print(StringCipher.Encrypt("Какой-то текст"));
+        //print(StringCipher.Decrypt("2QO8XdO1vwYddW7fB/71+v8As3GRql7liST1HCn1nbE="));
+        GetResolutionScreen();
         AvatarSet();
         sld.value = 0.59f;
         auth();
@@ -331,8 +385,8 @@ public class Game : MonoBehaviour
         //Тут альфа-значения для тогглов в превью. 
         DefaultUPDToggle();
 
-        print(Base64Encode("Какой-то текст"));
-        print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
+        //print(Base64Encode("Какой-то текст"));
+        //print(Base64Decode("0JrQsNC60L7QuS3RgtC+INGC0LXQutGB0YI="));
         if (!ach.achievments[0].get)
         {
             ach.getAch(0);
@@ -381,6 +435,7 @@ public class Game : MonoBehaviour
             levelLead.text = level.ToString();
             ach.updateMedal();
             scr.OpenCase(id);
+            menuState();
         }
         else
         {
@@ -428,16 +483,18 @@ public class Game : MonoBehaviour
         preview.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
         preview.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
         preview.SetActive(true);
+
     }
 
     #region СЮДА ПИШЕМ ВЕСЬ КОД НА РАЗНЫЕ КНОПКИ
 
-    private void DefaultUPDToggle()
+    public void DefaultUPDToggle()
     {
         for (int i = 0; i < 3; i++)
         {
             bgTogglePreview[i].color = color[0];
             toggleActive[i] = false;
+            changes[i] = false;
         }
         togglePreview[1].SetActive(true);
         togglePreview[4].SetActive(true);
@@ -959,8 +1016,8 @@ public class Game : MonoBehaviour
             {
                 Menu_panel.SetActive(MenuActive);
                 // Везем его к нужной точке. Позже заменим -300 на переменную, значение которое присваиваем в зависимости от разрешения экрана
-                Menu_panel.transform.localPosition = new Vector2(Mathf.Lerp(Menu_panel.transform.localPosition.x, -300, 6 * Time.deltaTime), Menu_panel.transform.localPosition.y);
-                if (Menu_panel.transform.localPosition.x >= -302)
+                Menu_panel.transform.localPosition = new Vector2(Mathf.Lerp(Menu_panel.transform.localPosition.x, finishX, 6 * Time.deltaTime), Menu_panel.transform.localPosition.y);
+                if (Menu_panel.transform.localPosition.x >= finishX)
                 {
                     inMove = false;
                 }

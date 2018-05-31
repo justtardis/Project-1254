@@ -763,17 +763,21 @@ public class MiniGames : MonoBehaviour
 
     public void BuyGame()
     {
-
-        g.silver = g.silver - price;
-        group[2].SetActive(false);
-        NonPlayable(count_win, "STOLB");
-        Raund();
-        for (int i = 0; i < 6; i++)
+        if (price < g.silver)
         {
-            button[i].GetComponent<Button>().interactable = true;
-            button[i].GetComponent<Animator>().SetBool("Click", false);
-            check[i] = false;
+            g.silver = g.silver - price;
+            group[2].SetActive(false);
+            NonPlayable(count_win, "STOLB");
+            Raund();
+            for (int i = 0; i < 6; i++)
+            {
+                button[i].GetComponent<Button>().interactable = true;
+                button[i].GetComponent<Animator>().SetBool("Click", false);
+                check[i] = false;
+            }
         }
+        else
+            g.noMoney.SetActive(true);       
     }
 
     public void RestartGame()

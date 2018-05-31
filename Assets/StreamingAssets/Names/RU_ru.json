@@ -1,0 +1,104 @@
+{  
+   "case1":[
+   	"Ручки",
+   	"Ключ от кейса \"Спектр\"",
+   	"Сгущенка",
+   	"Чашка кофе",
+   	"Жвачка \"Love is\"",
+   	"USB-лампа",
+   	"Nesquik",
+   	"Электронные часы",
+   	"Тепловентилятор",
+   	"MP3-плеер",
+   	"Пицца",
+   	"Гамбургер"
+    ],
+
+   "case4":[ 
+   	"Gut Knife - Damascus Steel",
+   	"Gut Knife - Marble Fade",
+   	"Shadow Daggers - Urban Masked",
+   	"Flip Knife - Slaughter",
+   	"Shadow Daggers - Fade",
+   	"Falchion Knife - Damascus Steel",
+   	"Bowie Knife - Fade",
+   	"Karambit - Tiger Tooth",
+   	"Huntsman Knife - Case Hardened",
+   	"Bayonet - Autotronic",
+   	"Bayonet - Black Laminate",
+   	"M9 Bayonet - Lore",
+   	"Karambit - Case Hardened"
+   ],
+
+   "case9":[ 
+   	"Wismec Predator 228",
+   	"Power Bank 5000mAh",
+   	"Электробритва Braun",
+   	"Кабель Xtorm Type-C USB",
+   	"Спиннер",
+   	"Флешка 4 Гб",
+   	"Windows 10 Pro",
+   	"Радиуправляемая машинка",
+   	"Наушники",
+   	"Кофемашина",
+   	"Робот-пылесос",
+   	"GoPro HERO5",
+   	"Sony PlayStation 4 Pro 1 ТБ",
+   	"Microsoft Xbox One X 1 ТБ",
+   	"Nvidia GeForce GTX 1080 Ti"
+   ],
+
+   "case10":[ 
+   	"Антивирус Касперского",
+   	"Ключ SW: Battlefront II - 4400 кристаллов",
+   	"Маска Пилы",
+   	"Термокружка",
+   	"Монопод для селфи",
+   	"Флешка 32 Гб",
+   	"МФУ",
+   	"Мышь Razer DeathAdder Elite",
+   	"Страйкбольный Beretta M92",
+   	"Телевизор Haier LE42K5500TF",
+   	"Часы G-SHOCK GA-1100-9G",
+   	"Фотокамера Canon 1300D",
+   	"Монитор ASUS MG278Q",
+   	"Apple iPad Gold 256 Гб"
+   ],
+
+   "case11":[ 
+   	"Зажигалка Zippo",
+   	"Браслет HUAWEI Band 2 PRO",
+   	"Кабель Xtorm Type-C USB",
+   	"USB-хаб",
+   	"Флешка 4 Гб",
+   	"SSD 240 Гб",
+   	"Смарт-часы",
+   	"Наушники",
+   	"Кофемашина",
+   	"Перфоратор",
+   	"Гироскутер",
+   	"Клавиатура Corsair K95 RGB Platinum",
+   	"Sony PlayStation 4 Pro 1 ТБ"
+   ],
+
+   "case12":[ 
+   	"Mazda CX-5, 2017",
+   	"BMW X4, 2017",
+   	"Cadillac Escalade, 2016",
+   	"Inspire 1 v2.0",
+   	"Inspire 2 combo",
+   	"Bayonet - Black Laminate",
+   	"M9 Bayonet - Lore",
+   	"Karambit - Case Hardened",
+   	"T34",
+   	"LÖWE",
+   	"Bitcoin",
+   	"Apple iPhone X 256 ГБ",
+   	"ASUS ROG GX800VH",
+   	"Sony PlayStation 4 Pro 1 ТБ",
+   	"Microsoft Xbox One X 1 ТБ",
+   	"Nvidia GeForce GTX 1080 Ti",
+   	"Монитор ASUS MG278Q",
+   	"Apple iPad Gold 256 Гб"
+   ]
+}

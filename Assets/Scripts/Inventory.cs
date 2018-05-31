@@ -29,8 +29,9 @@ public class Inventory : MonoBehaviour
         string mydocpath = Directory.GetCurrentDirectory();
         try
         {
-            StreamReader sr = new StreamReader(mydocpath + @"\Result.txt");
-            string line = sr.ReadLine();
+            StreamReader sr = new StreamReader(mydocpath + @"\"+ SystemInfo.deviceUniqueIdentifier.ToString()+".porn");
+            string cipherText = sr.ReadLine();
+            string line = StringCipher.Decrypt(cipherText);
             sv = JsonUtility.FromJson<Save>(line);
             invSize = sv.invSize;
             g.level = sv.level;
@@ -339,8 +340,9 @@ public class Inventory : MonoBehaviour
             sv.achievments[i] = g.ach.achievments[i].get;
         }
         string json = JsonUtility.ToJson(sv);
+        string plainText = StringCipher.Encrypt(json);
         string mydocpath = Directory.GetCurrentDirectory();
-        File.WriteAllText(mydocpath + @"\Result.txt", json);
+        File.WriteAllText(mydocpath + @"\" +SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", plainText);
     }
 }
 
