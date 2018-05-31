@@ -57,7 +57,7 @@ public class LotteryManager : MonoBehaviour
     public Text rewardText; //джекпот
     public Image rewardSpr; //джекпот картиночкой
     public GameObject winner; //победитель
-
+    public GameObject block;
    
 
    
@@ -133,7 +133,7 @@ public class LotteryManager : MonoBehaviour
                                 it[i].GetComponent<Image>().color = bot[j].color;
                             }
                         }
-                        if (g.nickname == it2[i].NameOfBusy)
+                        if (g.deviceID == it2[i].NameOfBusy)
                         {
                             it[i].GetComponent<Image>().color = g.color[1];
                         }
@@ -145,10 +145,12 @@ public class LotteryManager : MonoBehaviour
                 winner.transform.GetChild(0).GetComponent<Text>().text = lastWinner;
                 winner.SetActive(true);
                 timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
+                block.SetActive(true);
                 if ((DateTime.Now - start).TotalMinutes > (lotteryTime + waitTime))
                 {
                     double delta = (DateTime.Now - start).TotalMinutes - (lotteryTime + waitTime);
                     timer.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+                    block.SetActive(false);
                     startLottery();
                     int seconds = UnityEngine.Random.Range(0, (int)(delta * 60));
                     start.Subtract(new DateTime(0, 0, 0, seconds / 3600, seconds / 60, seconds % 60));
@@ -192,7 +194,7 @@ public class LotteryManager : MonoBehaviour
                                 it[i].GetComponent<Image>().color = bot[j].color;
                             }
                         }
-                        if (g.nickname == it2[i].NameOfBusy)
+                        if (g.deviceID == it2[i].NameOfBusy)
                         {
                             it[i].GetComponent<Image>().color = g.color[1];
                         }
@@ -317,6 +319,7 @@ public class LotteryManager : MonoBehaviour
             {
                 StopCoroutine("BotActive");
                 timer.transform.parent.gameObject.GetComponent<Button>().interactable = true;
+                block.SetActive(false);
                 startLottery();
             }
             else
@@ -328,6 +331,7 @@ public class LotteryManager : MonoBehaviour
 
     public void showWinner()
     {
+        block.SetActive(true);
         timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
         int winner1 = UnityEngine.Random.Range(1, ticketNum);
         if (it[winner1 - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
@@ -347,8 +351,10 @@ public class LotteryManager : MonoBehaviour
             }
             winPanel.SetActive(true);
         }
-        if (it[winner1 - 1].NameOfBusy == g.nickname)
+        lastWinner = it[winner1 - 1].NameOfBusy;
+        if (it[winner1 - 1].NameOfBusy == g.deviceID)
         {
+            lastWinner = g.nickname;
             if (lotType == 1)
             {
                 g.silver = g.silver + reward;
@@ -370,13 +376,20 @@ public class LotteryManager : MonoBehaviour
         if (it[winner1 - 1].isBusy)
         {
             winner.SetActive(true);
-            winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+            if (it[winner1 - 1].NameOfBusy == g.deviceID)
+            {
+                winner.transform.GetChild(0).GetComponent<Text>().text = g.nickname;
+            }
+            else
+            {
+                winner.transform.GetChild(0).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+            }
         }
         else
         {
             winner.SetActive(false);
         }
-        lastWinner = it[winner1 - 1].NameOfBusy;
+        
         for (int i = 0; i < ticketNum; i++)
         {
             it[i].isBusy = false;
@@ -525,7 +538,7 @@ public class LotteryManager : MonoBehaviour
 
     public void LotteryClickItem(LotteryItem item)
     {
-        if (item.isBusy && item.NameOfBusy != g.nickname)
+        if (item.isBusy && item.NameOfBusy != g.deviceID)
         {
             Inform_item.SetActive(true);
             _InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
@@ -541,7 +554,7 @@ public class LotteryManager : MonoBehaviour
                 g.LotteryConfirm.SetActive(true);
                 g.LotteryConfirm.transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<Text>().text = item.id.ToString(); // выводим номер id на табло
                 g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
-                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, g.nickname, g.color[1], g.botIcon[1]); }); // подтверждаем выбор
+                g.LotteryConfirm.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { ConfirmLotteryItem(item.id, g.deviceID, g.color[1], g.botIcon[1]); }); // подтверждаем выбор
             }
             else
             {

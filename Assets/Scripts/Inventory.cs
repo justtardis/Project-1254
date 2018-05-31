@@ -101,7 +101,7 @@ public class Inventory : MonoBehaviour
             if (i < 100)
             {
                 GameObject A = invPanel.transform.GetChild(i).gameObject;
-                A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
+                A.transform.GetChild(0).GetComponent<Text>().text = g.convertMoney((int)g.cases[items[i][0]].items[items[i][1]].price);
                 A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
@@ -117,7 +117,7 @@ public class Inventory : MonoBehaviour
             {
                 GameObject A = Instantiate(itemPref, itemPref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
                 A.transform.SetParent(invPanel.transform, false);
-                A.transform.GetChild(0).GetComponent<Text>().text = g.cases[items[i][0]].items[items[i][1]].price.ToString();
+                A.transform.GetChild(0).GetComponent<Text>().text = g.convertMoney((int)g.cases[items[i][0]].items[items[i][1]].price);
                 A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[items[i][0]].items[items[i][1]].picture;
                 A.transform.GetComponent<Image>().sprite = itemPrev;
                 A.transform.GetChild(2).gameObject.SetActive(g.cases[items[i][0]].items[items[i][1]].group == 4);
@@ -269,7 +269,7 @@ public class Inventory : MonoBehaviour
             {
                 multSum = multSum - (int)g.cases[items[i][0]].items[items[i][1]].price;
             }
-            multSell.transform.GetChild(2).GetComponent<Text>().text = multSum.ToString();
+            multSell.transform.GetChild(2).GetComponent<Text>().text = g.convertMoney(multSum);
         }
         else
         {
@@ -279,7 +279,7 @@ public class Inventory : MonoBehaviour
             prevPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].name.ToUpper();
             prevPanel.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[itemID].picture;
             prevPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(g.cases[caseID].items[itemID].group == 4);
-            prevPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].price.ToString();
+            prevPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Text>().text = g.convertMoney((int)g.cases[caseID].items[itemID].price);
             int temp = id;
             prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
             prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(temp); });
