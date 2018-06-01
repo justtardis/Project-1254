@@ -345,7 +345,7 @@ public class Game : MonoBehaviour
             A.transform.SetParent(caseContainer.transform, false);
             A.transform.GetChild(0).GetComponent<Image>().sprite = cases[i].picture;
             A.transform.GetChild(1).GetComponent<Text>().text = cases[i].price.ToString();
-            A.transform.GetChild(3).GetComponent<Text>().text = cases[i].name;
+            A.transform.GetChild(3).GetComponent<Text>().text =   LangSystem.lng.namesCases[i]; // cases[i].name;
             int id = cases[i].id;
             A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { OpenPreview(id); });
         }

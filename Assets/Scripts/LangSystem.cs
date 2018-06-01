@@ -11,7 +11,7 @@ public class LangSystem : MonoBehaviour
     private string[] langArray = { "RU_ru", "EN_en" };
 
     bool s;
-    public Text t;
+    
 
     private void LangLoad()
     {
@@ -22,14 +22,16 @@ public class LangSystem : MonoBehaviour
         while (!reader.isDone) { }
         json = reader.text;
 #else
-        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/" + PlayerPrefs.GetString("Language") + ".json");
+        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/EN_en.json");
 #endif
+        print(json);
         lng = JsonUtility.FromJson<lang>(json);
 
     }
 
     private void Awake()
     {
+
         if (!PlayerPrefs.HasKey("Language"))
         {
             if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
@@ -37,7 +39,7 @@ public class LangSystem : MonoBehaviour
             else PlayerPrefs.SetString("Language", "EN_en");
         }
         LangLoad();
-
+        print(PlayerPrefs.GetString("Language"));
     }
 
 
@@ -53,6 +55,7 @@ public class LangSystem : MonoBehaviour
 [System.Serializable]
 public class lang
 {
-    public string[] menu = new string[7];
+    //public string[] menu = new string[7];
+    public string[] namesCases = new string[12];
    
 }
