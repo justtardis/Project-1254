@@ -466,6 +466,7 @@ public class Game : MonoBehaviour
                 A.transform.GetChild(1).GetComponent<Image>().sprite = noImage;
                 A.transform.GetChild(0).GetComponent<Text>().text = "-";
             }
+            A.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = LangSystem.lng.roulette[2];
             A.transform.GetChild(2).gameObject.SetActive(cases[id].items[i].group == 4);
             A.SetActive(true);
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);

@@ -221,6 +221,7 @@ public class ScrollScript : MonoBehaviour
             A.transform.GetComponent<Image>().sprite = g.cases[id].items[itemID].picture;
             A.transform.GetComponent<Item_ID>().id = g.cases[id].items[itemID].id;
             //A.transform.GetChild(1).GetComponent<Image>().sprite = g.cases[id].items[i].picture;
+            A.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = LangSystem.lng.roulette[2];
             A.transform.GetChild(0).gameObject.SetActive(g.cases[id].items[itemID].group == 4);
             A.name = i.ToString();
             //A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OpenPreview);
