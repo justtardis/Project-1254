@@ -12,5 +12,294 @@
       "ELECTRONICS #2",
       "ELECTRONICS #3",
       "RANDOM TOP"
+   ],
+
+   "main":[
+      "PLAYERS",
+      "TOTAL",
+      "CASES",
+      "OPENED",
+      "BUY",
+      "CASES"
+   ],
+
+   "preview":[
+      "CASE",
+      "+ 5% к шансу за <color=\"#FFB900\">3</color>",
+      "+ 10% к шансу за <color=\"#FFB900\">7</color>",
+      "+ 15% к шансу за <color=\"#FFB900\">10</color>",
+      "Цена за кейс",
+      "ON",
+      "OFF",
+      "< BACK",
+      "BUY"
+   ],
+
+   "roulette":[
+      "SECONDS",
+      "...RESULT",
+      "TOP",
+      "SELL",
+      "SHARE",
+      "TAKE"
+   ],
+
+   "noMoneyPanel":[
+   	"На вашем счету не хватает денег. Нам очень грустно :(",
+   	"CLOSE"
+   ],
+
+   "disconnect":[
+   	"CONNECTION FAILED",
+   	"Check your Internet connection and try again",
+	"Retry"
+	],
+
+   "inventory":[
+   	"INVENTORY",
+   	"SELL",
+   	"SEVERAL",
+   	"CREDITS",
+   	"SELL",
+   	"TOP"
+   ],
+
+   "store": [
+   	"STORE",
+   	"GOLD",
+   	"SILVER"
+   ],
+
+   "settings":[
+   	"SETTINGS",
+   	"Choose",
+   	"Sounds",
+   	"ON",
+   	"OFF",
+   	"LANGUAGE",
+   	"Russian",
+   	"Server",
+   	"Delete All*",
+   	"Clear",
+   	"*Удаление инвентаря и всех достижений. Все золото и серебро сохраняются на сервере при подключении к сети.",
+   	"SAVE",
+   	"Enter a new nickname"
+   ],
+
+   "leaderboard":[
+	"TOP-10 BEST",
+	"PERSONAL",
+	"TOP",
+	"CASES OPENED",
+	"RATING IN THE TOP",
+	"LEVEL",
+	"PLAYER",
+	"CASES"
+   ],
+
+   "achievments":[
+	"ACHIEVEMENTS",
+	"Level",
+	"НАГРАДЫ",
+	"Inspector Gadget",
+	"Install app",
+	"Discoverer",
+	"Open 100 cases",
+	"Safecracker",
+	"Open 1000 cases",
+	"Titan",
+	"Open 5000 cases",
+	"Obsessed",
+	"Open 10000 cases",
+	"Big Sale!",
+	"Sell 500 items from inventory",
+	"Elite",
+	"Получить все топовые предметы из всех кейсов",
+	"\"На зубок\"",
+	"Take part in the lottery",
+	"Lucky",
+	"Win the lottery",
+	"Popular",
+	"Share a screenshot in social networks",
+	"Golden fever",
+	"Collect 1000 gold on daily bonuses",
+	"Master",
+	"Get all achievements",
+	"Achievement unlocked"
+   ],
+
+   "listL":[
+   	"LOTTERY",
+   	"GAMES",
+   	"ДО КОНЦА ЛОТЕРЕИ",
+   	"WAITING",   	
+   	"LEFT",
+   	"TICKET PRICE",
+   	"JACKPOT",
+      "ENDING",
+   	"TICKETS",
+   	"FOR TICKET", 
+   	"GOLD",
+   	"SILVER FOR TICKET",
+   	"TICKET",
+   	"TICKETS<color=\"#de2d19\">PRICE</color>",
+      "БИЛЕТ №",
+      "Билет {0} занят игроком {1}"
+   ],
+
+   "game1":[
+   	"INSTANT LOTTERY",
+   	"PRIZE",
+   	"Верхнее число столбца должно быть меньше нижнего, чтобы получить приз.",
+   	"Unfortunately, you did not win anything",
+   	"Congratulations!",
+   	"BACK",
+   	"SHARE",
+   	"REPEAT"
+   ],
+
+   "game2":[
+	"Следующий раунд через ",
+	"BET (max 500 000)",
+	"AUTO WITHDRAW",
+	"Waiting for a new round",
+	"Play",
+	"BACK",
+	"SHARE",
+   "s"
+   ],
+
+   "game3":[
+	"ROULETTE",
+	"BET (max 500 000)",
+	"BACK",
+	"SHARE"
+   ],
+
+   "lotteryWindow":[
+   	"Select free cells",
+   	"До конца лотереи:",
+   	"Вы выбрали ячейку",
+   	"NO",
+   	"YES",
+   	"Ticket",
+   	"busy with the player"
+   ],
+
+   "menu":[
+      "Main",
+      "Inventory",
+      "Store",
+      "Games",
+      "Награды",
+      "TOP-10",
+      "Settings",
+      "Наша группа Вконтакте",
+      "Присоединиться",
+      "Базовый аккаунт"
+   ],
+
+
+   "case1":[
+   	"Ручки",
+   	"Ключ от кейса \"Спектр\"",
+   	"Сгущенка",
+   	"Чашка кофе",
+   	"Жвачка \"Love is\"",
+   	"USB-лампа",
+   	"Nesquik",
+   	"Электронные часы",
+   	"Тепловентилятор",
+   	"MP3-плеер",
+   	"Пицца",
+   	"Гамбургер"
+    ],
+
+   "case4":[ 
+   	"★ Нож с лезвием-крюком | Дамасская сталь",
+   	"★ Нож с лезвием-крюком | Мраморный градиент",
+   	"★ Тычковые ножи | Городская маскировка",
+   	"★ Складной нож | Убийство",
+   	"★ Тычковые ножи | Градиент",
+   	"★ Фальшион | Дамасская сталь",
+   	"★ Нож Боуи | Градиент",
+   	"★ Керамбит | Зуб тигра",
+   	"★ Охотничий нож | Поверхностная закалка",
+   	"★ Штык-нож | Автотроника",
+   	"★ Штык-нож | Черный глянец",
+   	"★ Штык-нож M9 | Легенды",
+   	"★ Керамбит | Поверхностная закалка"
+   ],
+
+   "case9":[ 
+   	"Wismec Predator 228",
+   	"Power Bank 5000mAh",
+   	"Электробритва Braun",
+   	"Кабель Xtorm Type-C USB",
+   	"Спиннер",
+   	"Флешка 4 Гб",
+   	"Windows 10 Pro",
+   	"Радиуправляемая машинка",
+   	"Наушники",
+   	"Кофемашина",
+   	"Робот-пылесос",
+   	"GoPro HERO5",
+   	"Sony PlayStation 4 Pro 1 ТБ",
+   	"Microsoft Xbox One X 1 ТБ",
+   	"Nvidia GeForce GTX 1080 Ti"
+   ],
+
+   "case10":[ 
+   	"Антивирус Касперского",
+   	"Ключ SW: Battlefront II - 4400 кристаллов",
+   	"Маска Пилы",
+   	"Термокружка",
+   	"Монопод для селфи",
+   	"Флешка 32 Гб",
+   	"МФУ",
+   	"Мышь Razer DeathAdder Elite",
+   	"Страйкбольный Beretta M92",
+   	"Телевизор Haier LE42K5500TF",
+   	"Часы G-SHOCK GA-1100-9G",
+   	"Фотокамера Canon 1300D",
+   	"Монитор ASUS MG278Q",
+   	"Apple iPad Gold 256 Гб"
+   ],
+
+   "case11":[ 
+   	"Зажигалка Zippo",
+   	"Браслет HUAWEI Band 2 PRO",
+   	"Кабель Xtorm Type-C USB",
+   	"USB-хаб",
+   	"Флешка 4 Гб",
+   	"SSD 240 Гб",
+   	"Смарт-часы",
+   	"Наушники",
+   	"Кофемашина",
+   	"Перфоратор",
+   	"Гироскутер",
+   	"Клавиатура Corsair K95 RGB Platinum",
+   	"Sony PlayStation 4 Pro 1 ТБ"
+   ],
+
+   "case12":[ 
+   	"Mazda CX-5, 2017",
+   	"BMW X4, 2017",
+   	"Cadillac Escalade, 2016",
+   	"Inspire 1 v2.0",
+   	"Inspire 2 combo",
+   	"★ Штык-нож | Черный глянец",
+    "★ Штык-нож M9 | Легенды",
+    "★ Керамбит | Поверхностная закалка",
+   	"T34",
+   	"LÖWE",
+   	"Bitcoin",
+   	"Apple iPhone X 256 ГБ",
+   	"ASUS ROG GX800VH",
+   	"Sony PlayStation 4 Pro 1 ТБ",
+   	"Microsoft Xbox One X 1 ТБ",
+   	"Nvidia GeForce GTX 1080 Ti",
+   	"Монитор ASUS MG278Q",
+   	"Apple iPad Gold 256 Гб"
    ]
 }

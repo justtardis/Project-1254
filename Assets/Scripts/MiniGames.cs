@@ -197,7 +197,7 @@ public class MiniGames : MonoBehaviour
         cashSilver.text = g.convertMoney(g.silver);
         buttonStart.GetComponent<Image>().sprite = but[0]; // зеленый
         buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
-        buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+        buttonStart.transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game2[4];// "Играть";
         buttonStart.GetComponent<Button>().interactable = !startGame;
         betInp.interactable = false; // выключаем все инпуты
         AutoCashOutInp.interactable = false;
@@ -234,7 +234,7 @@ public class MiniGames : MonoBehaviour
             buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
             betInp.interactable = true; // выключаем все инпуты
             AutoCashOutInp.interactable = true;
-            buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Ожидание нового раунда";
+            buttonStart.transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game2[3]; //"Ожидание нового раунда";
         }
         if (betCount != 0) // если ставка не нулевая
         {
@@ -368,7 +368,7 @@ public class MiniGames : MonoBehaviour
                 buttonStart.GetComponent<Button>().interactable = false;
                 buttonStart.GetComponent<Image>().sprite = but[1]; // серый
                 buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
-                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Ожидание нового раунда";
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game2[3]; //"Ожидание нового раунда";
             }
             if (counter < stopCounter)
             {
@@ -405,7 +405,7 @@ public class MiniGames : MonoBehaviour
                 buttonStart.GetComponent<Button>().interactable = true;
                 buttonStart.GetComponent<Image>().sprite = but[0];
                 buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
-                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game2[4];// "Играть";
             }
             coef.text = "x" + (counter).ToString("#.#0");
         }
@@ -418,11 +418,11 @@ public class MiniGames : MonoBehaviour
             if (TimerRestart < 10f)
             {
                 coef.text = string.Empty;
-                _timer.text = "Следующий раунд через " + TimerRestart.ToString("0.0") + "с";
+                _timer.text = LangSystem.lng.game2[0] + /* "Следующий раунд через "*/ TimerRestart.ToString("0.0") + LangSystem.lng.game2[7];
                 //buttonStart.GetComponent<Button>().interactable = true;
                 //buttonStart.GetComponent<Image>().sprite = but[0];
                 //buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[0];// зеленый
-                buttonStart.transform.GetChild(0).GetComponent<Text>().text = "Играть";
+                buttonStart.transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game2[4];// "Играть";
             }
             if (TimerRestart <= 0f)
             {
@@ -882,7 +882,7 @@ public class MiniGames : MonoBehaviour
                 //Lep[id].SetActive(true);
                 //Lep[id + 3].SetActive(true);
                 Prise(id, trueGet, true);
-                group[0].transform.GetChild(0).GetComponent<Text>().text = "Поздравляем!";
+                group[0].transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game1[4];// "Поздравляем!";
 
             }
             else Prise(id, falseGet, false);
@@ -944,7 +944,7 @@ public class MiniGames : MonoBehaviour
             {
                 firstString[i] = Random.Range(2, 9);
                 secondString[i] = Random.Range(1, firstString[i]);
-                group[0].transform.GetChild(0).GetComponent<Text>().text = "К сожалению, вы ничего не выиграли";
+                group[0].transform.GetChild(0).GetComponent<Text>().text = LangSystem.lng.game1[3];//"К сожалению, вы ничего не выиграли";
             }
         }
         // победа

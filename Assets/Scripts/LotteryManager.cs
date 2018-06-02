@@ -336,7 +336,7 @@ public class LotteryManager : MonoBehaviour
         int winner1 = UnityEngine.Random.Range(1, ticketNum);
         if (it[winner1 - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
-            winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = "БИЛЕТ №" + winner;
+            winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = LangSystem.lng.listL[14]/* "БИЛЕТ №"*/ + winner;
             winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
             timeText.transform.parent.gameObject.SetActive(false);
             if (lotType != 4)
@@ -532,7 +532,8 @@ public class LotteryManager : MonoBehaviour
         else
         {
             Inform_item.SetActive(true);
-            _InfText.text = string.Format("Билет {0} занят игроком {1}", it[id - 1].id, it[id - 1].NameOfBusy);
+            //_InfText.text = string.Format("Билет {0} занят игроком {1}", it[id - 1].id, it[id - 1].NameOfBusy);
+            _InfText.text = string.Format(LangSystem.lng.listL[15], it[id - 1].id, it[id - 1].NameOfBusy);
         }
     }
 
@@ -541,7 +542,8 @@ public class LotteryManager : MonoBehaviour
         if (item.isBusy && item.NameOfBusy != g.deviceID)
         {
             Inform_item.SetActive(true);
-            _InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
+            _InfText.text = string.Format(LangSystem.lng.listL[15], item.id, item.NameOfBusy);
+            //_InfText.text = string.Format("Билет {0} занят игроком {1}", item.id, item.NameOfBusy);
             // print(string.Format("ячейка {0} занята игроком {1}", item.id, item.NameOfBusy));
         }
         else if (!item.isBusy)
