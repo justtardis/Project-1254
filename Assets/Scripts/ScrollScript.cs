@@ -92,15 +92,18 @@ public class ScrollScript : MonoBehaviour
         g.roulett.SetActive(false);
         g.Get = true;
         g.Preloader(g.Panels[0]); // Переход на главную
+        g.menu.interactable = true;
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }
 
     public void sellItem()
     {
+        g.menu.interactable = true;
         g.silver = g.silver + (int)g.cases[caseID].items[resItem].price;
         g.roulett.SetActive(false);
-        g.Get = true;
+        g.Get = false;
         g.OpenPreview(caseID);
+       
         //
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }

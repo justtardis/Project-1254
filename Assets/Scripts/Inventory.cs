@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
             StreamReader sr = new StreamReader(mydocpath + @"\"+ SystemInfo.deviceUniqueIdentifier.ToString()+".porn");
             string cipherText = sr.ReadLine();
             string line = StringCipher.Decrypt(cipherText);
+            print(line);
             sv = JsonUtility.FromJson<Save>(line);
             invSize = sv.invSize;
             g.level = sv.level;
@@ -69,7 +70,7 @@ public class Inventory : MonoBehaviour
             g.casesNum = sv.casesNum;
             g.SettingsBool[0] = sv.sound;
             mg.count_win = sv.count_win;
-            g.levelText.text = "Уровень " + g.level.ToString();
+            g.levelText.text = LangSystem.lng.achievments[1] /*"Уровень "*/ + g.level.ToString();
         }
         catch (System.Exception e)
         {
@@ -294,14 +295,14 @@ public class Inventory : MonoBehaviour
     {
         if (pauseStatus)
         {
-            SaveGame();
+         //   SaveGame();
             //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
         }
     }
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+       // SaveGame();
         //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
     }
 

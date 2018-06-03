@@ -29,6 +29,8 @@ public class Game : MonoBehaviour
     public GameObject PanelAv;
     public Image[] avG;
 
+    private int _st = 0;
+
     public Sprite noImage;
     #region Переменные
     public int silver; // серебро | заменил на целые числа
@@ -192,24 +194,16 @@ public class Game : MonoBehaviour
         print(finishX);
     }
 
+    public void _store(int st)
+    {
+        _st = st;
+    }
 
     public void exitGame1()
     {
         BG.SetActive(true);
         exitGame = true;
         _time = 4.2f;
-    }
-
-    public void menuState()
-    {
-        if (RoulettePanel.activeSelf)
-        {
-            menu.interactable = false;
-        }
-        else
-        {
-            menu.interactable = true;
-        }
     }
 
     private void Swipe()
@@ -243,6 +237,8 @@ public class Game : MonoBehaviour
             }
         }
 #elif UNITY_ANDROID && !UNITY_EDITOR
+        if (!RoulettePanel.activeSelf)
+        {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             startPosX = Input.GetTouch(0).position.x;
@@ -261,6 +257,7 @@ public class Game : MonoBehaviour
             {
                 ClickMenu();
             }
+        }
         }
 #endif
     }
@@ -328,6 +325,13 @@ public class Game : MonoBehaviour
         Application.OpenURL("https://vk.com/casesgames");
     }
 
+    public void ClearFile()
+    {
+        string json = "{\"items\":[],\"invSize\":0,\"silver\":1000,\"gold\":40,\"casesNum\":0,\"level\":1,\"achievments\":[true,false,false,false,false,false,false,false,false,false,false,false],\"sound\":true,\"count_win\":0,\"historyG\":[12.760000228881836,15.020000457763672,5.079999923706055,1.2100000381469727],\"historyCol\":[1,3,3,2,1,2,3,4,3,1,3,3,3,1,1,1],\"idAvatar\":0}";
+        string plainText = StringCipher.Encrypt(json);
+        string mydocpath = Directory.GetCurrentDirectory();
+        File.WriteAllText(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", json);
+    }
     // Use this for initialization
     void Start()
     {
@@ -345,7 +349,7 @@ public class Game : MonoBehaviour
             A.transform.SetParent(caseContainer.transform, false);
             A.transform.GetChild(0).GetComponent<Image>().sprite = cases[i].picture;
             A.transform.GetChild(1).GetComponent<Text>().text = cases[i].price.ToString();
-            A.transform.GetChild(3).GetComponent<Text>().text =   LangSystem.lng.namesCases[i]; // cases[i].name;
+            A.transform.GetChild(3).GetComponent<Text>().text = LangSystem.lng.namesCases[i]; // cases[i].name;
             int id = cases[i].id;
             A.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { OpenPreview(id); });
         }
@@ -425,7 +429,7 @@ public class Game : MonoBehaviour
             if (casesNum == Cases_Level[level])
             {
                 level++;
-                levelText.text = "Уровень " + level.ToString();
+                levelText.text = LangSystem.lng.achievments[1] /*"Уровень "*/ + level.ToString();
             }
             int perc = ((int)(((float)(casesNum - Cases_Level[level - 1]) / (Cases_Level[level] - Cases_Level[level - 1])) * 100));
             percent.text = perc + "%";
@@ -435,11 +439,12 @@ public class Game : MonoBehaviour
             levelLead.text = level.ToString();
             ach.updateMedal();
             scr.OpenCase(id);
-            menuState();
+            menu.interactable = false;
         }
         else
         {
             noMoney.SetActive(true);
+            menu.interactable = true;
         }
     }
 
@@ -479,8 +484,8 @@ public class Game : MonoBehaviour
         }
 
 
-        preview.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Text>().text = cases[id].price.ToString();
-        preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text = "КЕЙС\n\"" + cases[id].name + "\""; 
+        preview.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Text>().text = convertMoney(cases[id].price);
+        preview.transform.GetChild(1).GetChild(3).GetComponent<Text>().text =/* "КЕЙС\n\""*/ LangSystem.lng.preview[0] + "\n\"" + LangSystem.lng.namesCases[id] /* cases[id].name*/ + "\"";
         preview.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
         preview.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(delegate { CheckCase(id); });
         preview.SetActive(true);
@@ -523,7 +528,7 @@ public class Game : MonoBehaviour
             L[1].SetActive(false);
             Btn[0].sprite = FilledBtn;
             Btn[1].sprite = LinearBtn;
-            Header.text = "ЛИЧНЫЙ ПРОГРЕСС";
+            Header.text = LangSystem.lng.leaderboard[0];// "ЛИЧНЫЙ ПРОГРЕСС";
         }
     }
 
@@ -535,7 +540,7 @@ public class Game : MonoBehaviour
             L[1].SetActive(true);
             Btn[0].sprite = LinearBtn;
             Btn[1].sprite = FilledBtn;
-            Header.text = "ТОП-10 ЛУЧШИХ";
+            Header.text = LangSystem.lng.leaderboard[1];//"ТОП-10 ЛУЧШИХ";
         }
 
     }
@@ -544,16 +549,20 @@ public class Game : MonoBehaviour
     {
         // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 20f);
         // блок, если меню нужно
-        if (!MenuActive && !Get)
+        if (_st != 1)
         {
-            MenuActive = true;
-            inMove = true;
-        }
-        // блок, если меню не нужно
-        else
-        {
-            MenuActive = false;
-            inMove = true;
+            if (!MenuActive && !Get)
+            {
+                MenuActive = true;
+                inMove = true;
+            }
+            // блок, если меню не нужно
+            else
+            {
+                MenuActive = false;
+                inMove = true;
+
+            }
         }
     }
 
@@ -612,6 +621,7 @@ public class Game : MonoBehaviour
                 else
                 {
                     Panels[i].SetActive(false);
+                    
                 }
             }
 

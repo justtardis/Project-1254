@@ -6,6 +6,7 @@ using System.Text;
 
 public class LangSystem : MonoBehaviour
 {
+    public Game g;
     private string json = "";
     public static lang lng = new lang();
     private string[] langArray = { "RU_ru", "EN_en" };
@@ -24,7 +25,11 @@ public class LangSystem : MonoBehaviour
     public Text[] game1;
     public Text[] game2;
     public Text[] game3;
+    public Text[] lotteryWindow;
+    
     public Text[] menu;
+    public Image[] LOT1;
+    string lang;
 
     private void LangLoad()
     {
@@ -35,11 +40,11 @@ public class LangSystem : MonoBehaviour
         while (!reader.isDone) { }
         json = reader.text;
 #else
-        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/EN_en.json");
+        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/" + PlayerPrefs.GetString("Language") + ".json");
 #endif
         print(json);
         lng = JsonUtility.FromJson<lang>(json);
-
+        Translator();
     }
 
     private void Awake()
@@ -51,24 +56,30 @@ public class LangSystem : MonoBehaviour
                 PlayerPrefs.SetString("Language", "RU_ru");
             else PlayerPrefs.SetString("Language", "EN_en");
         }
+        lang = PlayerPrefs.GetString("Language");
         LangLoad();
         print(PlayerPrefs.GetString("Language"));
-        Translator();
+        
     }
 
 
 
-    public void swBtn(int index)
+    public void swBtn()
     {
-        PlayerPrefs.SetString("Language", langArray[index - 1]);
+        if (lang == "RU_ru")
+            lang = "EN_en";
+        else
+            lang = "RU_ru";
+        PlayerPrefs.SetString("Language", lang);
         LangLoad();
     }
 
     private void Translator()
     {
         for (int i = 0; i < lng.menu.Length; i++) menu[i].text = lng.menu[i];
-        for (int j = 0; j < lng.main.Length; j++) main[j].text = lng.main[j];
-
+        for (int j = 0; j < 6; j++) main[j].text = lng.main[j];
+        main[6].text = lng.inventory[3];
+        
         preview[0].text = lng.preview[1];
         preview[1].text = lng.preview[2];
         preview[2].text = lng.preview[3];
@@ -131,6 +142,24 @@ public class LangSystem : MonoBehaviour
         game2[1].text = lng.game2[2];
         game2[2].text = lng.game2[5];
         game2[3].text = lng.game2[6];
+
+        for (int i = 0; i < lng.game3.Length; i++) game3[i].text = lng.game3[i];
+
+        for(int i = 0; i<6; i++) lotteryWindow[i].text = lng.lotteryWindow[0];
+        for (int i = 6; i < 12; i++) lotteryWindow[i].text = lng.lotteryWindow[1];
+        lotteryWindow[12].text = lng.lotteryWindow[2];
+        lotteryWindow[13].text = lng.lotteryWindow[3];
+        lotteryWindow[14].text = lng.lotteryWindow[4];
+
+        if(lang == "RU_ru")
+        {
+            for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_ru[i];
+        }
+        else
+        {
+            for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_en[i];
+        }
+        
     }
 }
 
@@ -145,7 +174,7 @@ public class lang
     public string[] roulette = new string[6];
     public string[] noMoneyPanel = new string[2];
     public string[] disconnect = new string[3];
-    public string[] inventory = new string[6];
+    public string[] inventory = new string[7];
     public string[] store = new string[3];
     public string[] settings = new string[13];
     public string[] leaderboard = new string[8];
