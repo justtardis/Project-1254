@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class MiniGames : MonoBehaviour
 {
+    public AdManager ad;
     // Крэш, игра №2
     public float time = 0;
     public float counter = 1f;
     public float stopCounter = 0;
-    public float TimerRestart =15f;
+    public float TimerRestart = 15f;
     public Text coef;
     public Text _timer;
     public Text cashSilver;
@@ -49,6 +50,7 @@ public class MiniGames : MonoBehaviour
     public GameObject panel;
     public int[] historyColor = new int[16];
     public GameObject historyGroup;
+    private int com = 0;
 
     public Sprite trueGet;
     public Sprite falseGet;
@@ -57,7 +59,7 @@ public class MiniGames : MonoBehaviour
     public GameObject[] group;
     public Game g;
     public GameObject list;
-   
+
 
     public GameObject[] button;
     public Sprite defIc;
@@ -72,7 +74,7 @@ public class MiniGames : MonoBehaviour
     int stolb;
     int[] arr = new int[2];
     public bool[] check = new bool[6];
-    
+
     int index = 0;
     int count = 0;
     int silver = 0;
@@ -93,7 +95,7 @@ public class MiniGames : MonoBehaviour
         }
         else
         {
-           
+
         }
     }
 
@@ -111,14 +113,18 @@ public class MiniGames : MonoBehaviour
 
     public void ClickButton(int id)
     {
-        if (betRoulette.text != "" && g.silver >= bet)
+        if (timeRound <= 10f)
         {
-            bets[id - 1] += bet;
-            col = groupBut.transform.GetChild(id - 1).GetChild(0).GetComponent<Text>().color;
-            col.a = 1f;
-            groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().color = col;
-            groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().text = bets[id - 1].ToString();
-            g.silver -= bet;
+            if (betRoulette.text != "" && g.silver >= bet)
+            {
+
+                bets[id - 1] += bet;
+                col = groupBut.transform.GetChild(id - 1).GetChild(0).GetComponent<Text>().color;
+                col.a = 1f;
+                groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().color = col;
+                groupBut.transform.GetChild(id - 1).GetChild(1).GetComponent<Text>().text = bets[id - 1].ToString();
+                g.silver -= bet;
+            }
         }
     }
 
@@ -238,6 +244,7 @@ public class MiniGames : MonoBehaviour
         }
         if (betCount != 0) // если ставка не нулевая
         {
+
             if (!startCrash) // и игра еще не началась
             {
                 startGame = true;
@@ -255,6 +262,16 @@ public class MiniGames : MonoBehaviour
                 buttonStart.GetComponent<Image>().sprite = but[1];
                 buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
                 g.silver += (int)TotalCash;
+                if (ad.counter == 6)
+                {
+                    ad.showInterstital();
+                    ad.ReqInter();
+                    ad.counter = 1;
+                }
+                else
+                {
+                    ad.counter += 1;
+                }
                 //startGame = false;
                 //g.silver += (int)TotalCash;
             }
@@ -262,9 +279,17 @@ public class MiniGames : MonoBehaviour
 
     }
 
+    public void ClickAd()
+    {
+        if (com != 1)
+        {
+            com += 1;
+        }
+    }
+
     public void Default()
     {
-       
+
         count = 0;
         for (int i = 0; i < 6; i++)
         {
@@ -291,7 +316,6 @@ public class MiniGames : MonoBehaviour
 
     private void Update()
     {
-
         if (isRotate)
         {
             speed = Mathf.MoveTowards(speed, 0, velocity * Time.deltaTime);
@@ -304,6 +328,21 @@ public class MiniGames : MonoBehaviour
                 arrow.color = mainColor[idElement - 1];
                 if (speed == 0)
                 {
+                    if (com == 1)
+                    {
+                        if (ad.counter == 6)
+                        {
+                            ad.showInterstital();
+                            ad.ReqInter();
+                            ad.counter = 1;
+                            com = 0;
+                        }
+                        else
+                        {
+                            ad.counter += 1;
+                            com = 0;
+                        }
+                    }
                     ShiftElementsColor(idElement);
                     isRotate = false;
                     isRestart = true;
@@ -777,7 +816,7 @@ public class MiniGames : MonoBehaviour
             }
         }
         else
-            g.noMoney.SetActive(true);       
+            g.noMoney.SetActive(true);
     }
 
     public void RestartGame()
@@ -992,6 +1031,16 @@ public class MiniGames : MonoBehaviour
                     }
                     break;
             }
+        }
+        if (ad.counter == 6)
+        {
+            ad.showInterstital();
+            ad.ReqInter();
+            ad.counter = 1;
+        }
+        else
+        {
+            ad.counter += 1;
         }
     }
 }

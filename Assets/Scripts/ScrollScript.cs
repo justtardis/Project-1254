@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScrollScript : MonoBehaviour
 {
-
+    public AdManager ad;
     public Game g;
     public Inventory inv;
     public GameObject scrollCont;
@@ -81,6 +81,16 @@ public class ScrollScript : MonoBehaviour
         resPanel.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(g.cases[caseID].items[resItem].price);
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
+        if (ad.counter == 6)
+        {
+            ad.showInterstital();
+            ad.ReqInter();
+            ad.counter = 1;
+        }
+        else
+        {
+            ad.counter += 1;
+        }
     }
 
     public void addToInventory()
