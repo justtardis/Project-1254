@@ -327,10 +327,11 @@ public class Game : MonoBehaviour
 
     public void ClearFile()
     {
-        string json = "{\"items\":[],\"invSize\":0,\"silver\":1000,\"gold\":40,\"casesNum\":0,\"level\":1,\"achievments\":[true,false,false,false,false,false,false,false,false,false,false,false],\"sound\":true,\"count_win\":0,\"historyG\":[12.760000228881836,15.020000457763672,5.079999923706055,1.2100000381469727],\"historyCol\":[1,3,3,2,1,2,3,4,3,1,3,3,3,1,1,1],\"idAvatar\":0}";
+        /*string json = "{\"items\":[],\"invSize\":0,\"silver\":1000,\"gold\":40,\"casesNum\":0,\"level\":1,\"achievments\":[true,false,false,false,false,false,false,false,false,false,false,false],\"sound\":true,\"count_win\":0,\"historyG\":[12.760000228881836,15.020000457763672,5.079999923706055,1.2100000381469727],\"historyCol\":[1,3,3,2,1,2,3,4,3,1,3,3,3,1,1,1],\"idAvatar\":0}";
         string plainText = StringCipher.Encrypt(json);
         string mydocpath = Directory.GetCurrentDirectory();
-        File.WriteAllText(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", json);
+        File.WriteAllText(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", json);*/
+        
     }
     // Use this for initialization
     void Start()
@@ -563,6 +564,10 @@ public class Game : MonoBehaviour
                 inMove = true;
 
             }
+        }
+        else
+        {
+            _st = 0;
         }
     }
 

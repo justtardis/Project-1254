@@ -139,6 +139,13 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void ClearFile()
+    {
+        invSize = 0;
+        LoadInventory();
+
+    }
+
     //функция добавления пустых ячеек
     public void addEmpty()
     {
@@ -295,14 +302,14 @@ public class Inventory : MonoBehaviour
     {
         if (pauseStatus)
         {
-         //   SaveGame();
+            SaveGame();
             //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
         }
     }
 
     private void OnApplicationQuit()
     {
-       // SaveGame();
+        SaveGame();
         //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
     }
 
