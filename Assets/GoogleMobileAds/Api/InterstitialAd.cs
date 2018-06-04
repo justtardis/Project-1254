@@ -13,8 +13,6 @@
 // limitations under the License.
 
 using System;
-using System.Reflection;
-
 using GoogleMobileAds.Common;
 
 namespace GoogleMobileAds.Api
@@ -26,53 +24,48 @@ namespace GoogleMobileAds.Api
         // Creates an InterstitialAd.
         public InterstitialAd(string adUnitId)
         {
-            Type googleMobileAdsClientFactory = Type.GetType(
-                "GoogleMobileAds.GoogleMobileAdsClientFactory,Assembly-CSharp");
-            MethodInfo method = googleMobileAdsClientFactory.GetMethod(
-                "BuildInterstitialClient",
-                BindingFlags.Static | BindingFlags.Public);
-            this.client = (IInterstitialClient)method.Invoke(null, null);
+            client = GoogleMobileAdsClientFactory.BuildInterstitialClient();
             client.CreateInterstitialAd(adUnitId);
 
             this.client.OnAdLoaded += (sender, args) =>
-            {
-                if (this.OnAdLoaded != null)
                 {
-                    this.OnAdLoaded(this, args);
-                }
-            };
+                    if(this.OnAdLoaded != null)
+                    {
+                        this.OnAdLoaded(this, args);
+                    }
+                };
 
             this.client.OnAdFailedToLoad += (sender, args) =>
-            {
-                if (this.OnAdFailedToLoad != null)
                 {
-                    this.OnAdFailedToLoad(this, args);
-                }
-            };
+                    if(this.OnAdFailedToLoad != null)
+                    {
+                        this.OnAdFailedToLoad(this, args);
+                    }
+                };
 
             this.client.OnAdOpening += (sender, args) =>
-            {
-                if (this.OnAdOpening != null)
                 {
-                    this.OnAdOpening(this, args);
-                }
-            };
+                    if(this.OnAdOpening != null)
+                    {
+                        this.OnAdOpening(this, args);
+                    }
+                };
 
             this.client.OnAdClosed += (sender, args) =>
-            {
-                if (this.OnAdClosed != null)
                 {
-                    this.OnAdClosed(this, args);
-                }
-            };
+                    if(this.OnAdClosed != null)
+                    {
+                        this.OnAdClosed(this, args);
+                    }
+                };
 
             this.client.OnAdLeavingApplication += (sender, args) =>
-            {
-                if (this.OnAdLeavingApplication != null)
                 {
-                    this.OnAdLeavingApplication(this, args);
-                }
-            };
+                    if(this.OnAdLeavingApplication != null)
+                    {
+                        this.OnAdLeavingApplication(this, args);
+                    }
+                };
         }
 
         // These are the ad callback events that can be hooked into.
@@ -108,12 +101,6 @@ namespace GoogleMobileAds.Api
         public void Destroy()
         {
             client.DestroyInterstitial();
-        }
-
-        // Returns the mediation adapter class name.
-        public string MediationAdapterClassName()
-        {
-            return this.client.MediationAdapterClassName();
         }
     }
 }

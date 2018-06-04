@@ -6,6 +6,7 @@ using System.Text;
 
 public class LangSystem : MonoBehaviour
 {
+    public Achievment ac;
     public Game g;
     private string json = "";
     public static lang lng = new lang();
@@ -26,9 +27,12 @@ public class LangSystem : MonoBehaviour
     public Text[] game2;
     public Text[] game3;
     public Text[] lotteryWindow;
-    
+    public Text[] achievments;
     public Text[] menu;
     public Image[] LOT1;
+    public Sprite[] games;
+    public Image[] gamesHolder;
+    
     string lang;
 
     private void LangLoad()
@@ -153,13 +157,76 @@ public class LangSystem : MonoBehaviour
 
         if(lang == "RU_ru")
         {
+            for (int i = 0; i < 3; i++) gamesHolder[i].sprite = games[i];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_ru[i];
         }
         else
         {
+           gamesHolder[0].sprite = games[3];
+            gamesHolder[1].sprite = games[4];
+            gamesHolder[2].sprite = games[5];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_en[i];
         }
-        
+
+        achievments[0].text = lng.achievments[0];
+        achievments[1].text = lng.achievments[2];
+        achievments[2].text = lng.achievments[27];
+        //for(int i=1; i<27; i++)
+        //{
+        //    achievments[i].text = lng.achievments[i+1];
+        //}
+        ac.achievments[0].header = lng.achievments[3];
+        ac.achievments[1].header = lng.achievments[5];
+        ac.achievments[2].header = lng.achievments[7];
+        ac.achievments[3].header = lng.achievments[9];
+        ac.achievments[4].header = lng.achievments[11];
+        ac.achievments[5].header = lng.achievments[13];
+        ac.achievments[6].header = lng.achievments[15];
+        ac.achievments[7].header = lng.achievments[17];
+        ac.achievments[8].header = lng.achievments[19];
+        ac.achievments[9].header = lng.achievments[21];
+        ac.achievments[10].header = lng.achievments[23];
+        ac.achievments[11].header = lng.achievments[25];       
+        ac.achievments[0].description = lng.achievments[4];
+        ac.achievments[1].description = lng.achievments[6];
+        ac.achievments[2].description = lng.achievments[8];
+        ac.achievments[3].description = lng.achievments[10];
+        ac.achievments[4].description = lng.achievments[12];
+        ac.achievments[5].description = lng.achievments[14];
+        ac.achievments[6].description = lng.achievments[16];
+        ac.achievments[7].description = lng.achievments[18];
+        ac.achievments[8].description = lng.achievments[20];
+        ac.achievments[9].description = lng.achievments[22];
+        ac.achievments[10].description = lng.achievments[24];
+        ac.achievments[11].description = lng.achievments[26];
+
+        ac.LoadWindow();
+        //achievments[1].text = lng.achievments[2];
+        //achievments[2].text = lng.achievments[3];
+        //achievments[3].text = lng.achievments[4];
+        //achievments[4].text = lng.achievments[5];
+        //achievments[5].text = lng.achievments[6];
+        //achievments[6].text = lng.achievments[7];
+        //achievments[7].text = lng.achievments[8];
+        //achievments[8].text = lng.achievments[3];
+        //achievments[9].text = lng.achievments[3];
+        //achievments[10].text = lng.achievments[3];
+        //achievments[11].text = lng.achievments[3];
+        //achievments[12].text = lng.achievments[3];
+        //achievments[13].text = lng.achievments[3];
+        //achievments[14].text = lng.achievments[3];
+        //achievments[15].text = lng.achievments[3];
+        //achievments[16].text = lng.achievments[4];
+        //achievments[17].text = lng.achievments[3];
+        //achievments[18].text = lng.achievments[3];
+        //achievments[19].text = lng.achievments[3];
+        //achievments[20].text = lng.achievments[3];
+        //achievments[21].text = lng.achievments[3];
+        //achievments[22].text = lng.achievments[3];
+        //achievments[23].text = lng.achievments[3];
+        //achievments[24].text = lng.achievments[3];
+        //achievments[25].text = lng.achievments[3];
+        //achievments[26].text = lng.achievments[3];       
     }
 }
 

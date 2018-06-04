@@ -20,7 +20,6 @@ using System.Collections.Generic;
 
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Api.Mediation;
-using GoogleMobileAds.Common;
 
 namespace GoogleMobileAds.Android
 {
@@ -45,7 +44,8 @@ namespace GoogleMobileAds.Android
         public const string PlayStorePurchaseListenerClassName =
             "com.google.android.gms.ads.purchase.PlayStorePurchaseListener";
 
-        public const string MobileAdsClassName = "com.google.android.gms.ads.MobileAds";
+        public const string InAppPurchaseListenerClassName =
+            "com.google.android.gms.ads.purchase.InAppPurchaseListener";
 
         #endregion
 
@@ -57,6 +57,8 @@ namespace GoogleMobileAds.Android
 
         public const string RewardBasedVideoClassName = "com.google.unity.ads.RewardBasedVideo";
 
+        public const string NativeExpressAdViewClassName = "com.google.unity.ads.NativeExpressAd";
+
         public const string NativeAdLoaderClassName = "com.google.unity.ads.NativeAdLoader";
 
         public const string UnityAdListenerClassName = "com.google.unity.ads.UnityAdListener";
@@ -64,8 +66,8 @@ namespace GoogleMobileAds.Android
         public const string UnityRewardBasedVideoAdListenerClassName =
             "com.google.unity.ads.UnityRewardBasedVideoAdListener";
 
-        public const string UnityAdLoaderListenerClassName =
-            "com.google.unity.ads.UnityAdLoaderListener";
+        public const string UnityCustomNativeAdListener =
+            "com.google.unity.ads.UnityCustomNativeAdListener";
 
         public const string PluginUtilsClassName = "com.google.unity.ads.PluginUtils";
 
@@ -136,18 +138,18 @@ namespace GoogleMobileAds.Android
                 int? genderCode = null;
                 switch (request.Gender.GetValueOrDefault())
                 {
-                    case Gender.Unknown:
-                        genderCode = new AndroidJavaClass(AdRequestClassName)
-                                .GetStatic<int>("GENDER_UNKNOWN");
-                        break;
-                    case Gender.Male:
-                        genderCode = new AndroidJavaClass(AdRequestClassName)
-                                .GetStatic<int>("GENDER_MALE");
-                        break;
-                    case Gender.Female:
-                        genderCode = new AndroidJavaClass(AdRequestClassName)
-                                .GetStatic<int>("GENDER_FEMALE");
-                        break;
+                case Gender.Unknown:
+                    genderCode = new AndroidJavaClass(AdRequestClassName)
+                            .GetStatic<int>("GENDER_UNKNOWN");
+                    break;
+                case Gender.Male:
+                    genderCode = new AndroidJavaClass(AdRequestClassName)
+                            .GetStatic<int>("GENDER_MALE");
+                    break;
+                case Gender.Female:
+                    genderCode = new AndroidJavaClass(AdRequestClassName)
+                            .GetStatic<int>("GENDER_FEMALE");
+                    break;
                 }
 
                 if (genderCode.HasValue)
@@ -173,8 +175,6 @@ namespace GoogleMobileAds.Android
                 bundle.Call("putString", entry.Key, entry.Value);
             }
 
-            bundle.Call("putString", "is_unity", "1");
-
             AndroidJavaObject extras = new AndroidJavaObject(AdMobExtrasClassName, bundle);
             adRequestBuilder.Call<AndroidJavaObject>("addNetworkExtras", extras);
 
@@ -192,13 +192,10 @@ namespace GoogleMobileAds.Android
                 AndroidJavaObject mediationExtras =
                         mediationExtrasBundleBuilder.Call<AndroidJavaObject>("buildExtras", map);
 
-                if (mediationExtras != null)
-                {
-                    adRequestBuilder.Call<AndroidJavaObject>(
+                adRequestBuilder.Call<AndroidJavaObject>(
                         "addNetworkExtrasBundle",
                         mediationExtrasBundleBuilder.Call<AndroidJavaClass>("getAdapterClass"),
                         mediationExtras);
-                }
             }
 
             return adRequestBuilder.Call<AndroidJavaObject>("build");

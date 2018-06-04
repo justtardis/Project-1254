@@ -17,7 +17,7 @@ using System;
 using GoogleMobileAds.Api;
 
 namespace GoogleMobileAds.Common {
-    public interface IInterstitialClient
+    internal interface IInterstitialClient
     {
         // Ad event fired when the interstitial ad has been received.
         event EventHandler<EventArgs> OnAdLoaded;
@@ -44,8 +44,5 @@ namespace GoogleMobileAds.Common {
 
         // Destroys an InterstitialAd.
         void DestroyInterstitial();
-
-        // Returns the mediation adapter class name.
-        string MediationAdapterClassName();
     }
 }

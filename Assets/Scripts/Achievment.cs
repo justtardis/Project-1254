@@ -9,7 +9,7 @@ public class Achievment : MonoBehaviour {
     public Game g;
     public GameObject push;
     public Image medal;
-
+    public ScrollRect scroll;
 
     // Use this for initialization
     void Start () {
@@ -17,7 +17,7 @@ public class Achievment : MonoBehaviour {
         achievments[11].get = checkAll();
         LoadWindow();
         updateMedal();
-        g.levelText.text = "Уровень " + g.level.ToString();
+        g.levelText.text = LangSystem.lng.achievments[1] + g.level.ToString();
         int perc = ((int)(((float)(g.casesNum - g.Cases_Level[g.level - 1]) / (g.Cases_Level[g.level] - g.Cases_Level[g.level - 1])) * 100));
         g.percent.text = perc + "%";
         g.fillSlider.fillAmount = (float)perc / 100;
@@ -84,6 +84,8 @@ public class Achievment : MonoBehaviour {
 
     public void LoadWindow()
     {
+        scroll.verticalNormalizedPosition = 1f;
+        g.levelText.text = LangSystem.lng.achievments[1] + g.level.ToString();
         GameObject panel = g.Panels[4];
         GameObject group = panel.transform.GetChild(1).GetChild(0).gameObject;
         for (int i = 0; i < 12; i++)
@@ -98,6 +100,7 @@ public class Achievment : MonoBehaviour {
 
     public void getAch(int id)
     {
+        
         achievments[id].get = true;
         push.transform.GetChild(5).GetComponent<Text>().text = achievments[id].header;
         push.SetActive(true);

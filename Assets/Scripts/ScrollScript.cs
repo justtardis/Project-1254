@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScrollScript : MonoBehaviour
 {
     public AdManager ad;
+    bool one_two = false;
     public Game g;
     public Inventory inv;
     public GameObject scrollCont;
@@ -81,11 +82,21 @@ public class ScrollScript : MonoBehaviour
         resPanel.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = g.convertMoneyFloat(g.cases[caseID].items[resItem].price);
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
-        if (ad.counter == 6)
+
+        if (ad.counter == 5)
         {
-            ad.showInterstital();
-            ad.ReqInter();
-            ad.counter = 1;
+            if (!one_two)
+            {
+                ad.showInterstital();
+                ad.ReqInter();
+                ad.counter = 1;
+                one_two = true;
+            }
+            else if (one_two)
+            {
+                ad.VideoAds();
+                one_two = false;
+            }
         }
         else
         {
@@ -113,7 +124,7 @@ public class ScrollScript : MonoBehaviour
         g.roulett.SetActive(false);
         g.Get = false;
         g.OpenPreview(caseID);
-       
+
         //
         //inv.invPanel.transform.parent.parent.gameObject.SetActive(true);
     }

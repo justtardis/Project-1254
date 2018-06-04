@@ -26,14 +26,12 @@ namespace GoogleMobileAds.Android
     public class AdLoaderClient : AndroidJavaProxy, IAdLoaderClient
     {
         private AndroidJavaObject adLoader;
-        private Dictionary<string, Action<CustomNativeTemplateAd, string>> CustomNativeTemplateCallbacks
-        {
-            get; set;
-        }
+        private Dictionary<string, Action<CustomNativeTemplateAd, string>>
+                CustomNativeTemplateCallbacks { get; set; }
         public event EventHandler<AdFailedToLoadEventArgs> OnAdFailedToLoad;
         public event EventHandler<CustomNativeEventArgs> OnCustomNativeTemplateAdLoaded;
 
-        public AdLoaderClient(AdLoader unityAdLoader) : base(Utils.UnityAdLoaderListenerClassName)
+        public AdLoaderClient(AdLoader unityAdLoader) : base(Utils.UnityCustomNativeAdListener)
         {
             AndroidJavaClass playerClass = new AndroidJavaClass(Utils.UnityActivityClassName);
             AndroidJavaObject activity =
@@ -63,8 +61,7 @@ namespace GoogleMobileAds.Android
         {
             if (this.OnCustomNativeTemplateAdLoaded != null)
             {
-                CustomNativeEventArgs args = new CustomNativeEventArgs()
-                {
+                CustomNativeEventArgs args = new CustomNativeEventArgs() {
                     nativeAd = new CustomNativeTemplateAd(new CustomNativeTemplateClient(ad))
                 };
                 this.OnCustomNativeTemplateAdLoaded(this, args);
@@ -73,11 +70,14 @@ namespace GoogleMobileAds.Android
 
         void onAdFailedToLoad(string errorReason)
         {
-            AdFailedToLoadEventArgs args = new AdFailedToLoadEventArgs()
+            if (this.OnAdFailedToLoad != null)
             {
-                Message = errorReason
-            };
-            OnAdFailedToLoad(this, args);
+                AdFailedToLoadEventArgs args = new AdFailedToLoadEventArgs()
+                {
+                    Message = errorReason
+                };
+                this.OnAdFailedToLoad(this, args);
+            }
         }
 
         public void onCustomClick(AndroidJavaObject ad, string assetName)

@@ -223,8 +223,14 @@ public class MiniGames : MonoBehaviour
         if (betInp.text != "")
         {
             betCount = int.Parse(betInp.text);
-            if (betCount > 500000 && g.silver > 500000) betCount = 500000;
-            else if (betCount > g.silver) betCount = g.silver;
+            if (betCount > 500000 && g.silver > 500000)
+            {
+                betCount = 500000;
+            }
+            else if (betCount > g.silver)
+            {
+                betCount = g.silver;
+            }    
             betInp.text = betCount.ToString();
             if (betCount == 0) betInp.text = string.Empty;
             AutoCash();
@@ -244,37 +250,43 @@ public class MiniGames : MonoBehaviour
         }
         if (betCount != 0) // если ставка не нулевая
         {
-
-            if (!startCrash) // и игра еще не началась
+            if (betCount >= g.silver)
             {
-                startGame = true;
-                g.silver -= betCount; // снимаем деньги сразу  
-                buttonStart.GetComponent<Image>().sprite = but[1];
-                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
-                buttonStart.GetComponent<Button>().interactable = false; // выключаем кнопку
-                betInp.interactable = false; // выключаем все инпуты
-                AutoCashOutInp.interactable = false;
-            }
-            else if (startGame)
-            {
-                startGame = false;
-                buttonStart.GetComponent<Button>().interactable = false;
-                buttonStart.GetComponent<Image>().sprite = but[1];
-                buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
-                g.silver += (int)TotalCash;
-                if (ad.counter == 6)
+                if (!startCrash) // и игра еще не началась
                 {
-                    ad.showInterstital();
-                    ad.ReqInter();
-                    ad.counter = 1;
+                    startGame = true;
+                    g.silver -= betCount; // снимаем деньги сразу  
+                    buttonStart.GetComponent<Image>().sprite = but[1];
+                    buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                    buttonStart.GetComponent<Button>().interactable = false; // выключаем кнопку
+                    betInp.interactable = false; // выключаем все инпуты
+                    AutoCashOutInp.interactable = false;
                 }
-                else
+                else if (startGame)
                 {
-                    ad.counter += 1;
+                    startGame = false;
+                    buttonStart.GetComponent<Button>().interactable = false;
+                    buttonStart.GetComponent<Image>().sprite = but[1];
+                    buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
+                    g.silver += (int)TotalCash;
+                    if (ad.counter == 5)
+                    {
+                        ad.showInterstital();
+                        ad.ReqInter();
+                        ad.counter = 1;
+                    }
+                    else
+                    {
+                        ad.counter += 1;
+                    }
+                    startGame = false;
+                    g.silver += (int)TotalCash;
                 }
-                //startGame = false;
-                //g.silver += (int)TotalCash;
             }
+        }
+        else
+        {
+            g.noMoney.SetActive(true);
         }
 
     }
@@ -330,7 +342,7 @@ public class MiniGames : MonoBehaviour
                 {
                     if (com == 1)
                     {
-                        if (ad.counter == 6)
+                        if (ad.counter == 5)
                         {
                             ad.showInterstital();
                             ad.ReqInter();
@@ -1032,7 +1044,7 @@ public class MiniGames : MonoBehaviour
                     break;
             }
         }
-        if (ad.counter == 6)
+        if (ad.counter == 5)
         {
             ad.showInterstital();
             ad.ReqInter();

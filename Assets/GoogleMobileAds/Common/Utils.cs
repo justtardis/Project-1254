@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2017 Google, Inc.
+﻿// Copyright (C) 2016 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,8 +13,6 @@
 // limitations under the License.
 
 using System;
-using System.Collections.Generic;
-
 using UnityEngine;
 
 namespace GoogleMobileAds.Common
@@ -31,9 +29,8 @@ namespace GoogleMobileAds.Common
                 throw new InvalidOperationException(@"Could not load custom native template
                         image asset as texture");
             }
-
             return nativeAdTexture;
         }
-
     }
 }
+

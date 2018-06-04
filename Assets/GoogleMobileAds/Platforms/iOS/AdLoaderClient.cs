@@ -20,23 +20,21 @@ using System.Runtime.InteropServices;
 
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
+using UnityEngine;
 
 namespace GoogleMobileAds.iOS
 {
-    [StructLayout(LayoutKind.Sequential),Serializable]
-    // The System.Boolean (bool in C#) type is special. A bool within a structure is marshaled in a different format
-    // than when passed as an argument to a function (4-byte integer vs 2-byte integer, non zero = true vs -1 = true).
-    // Using ints instead for simplicity.
     public struct NativeAdTypes
     {
-        public int CustomTemplateAd;
+        public bool CustomTemplateAd;
+        public bool AppInstallAd;
+        public bool ContentAd;
     }
 
-    public class AdLoaderClient : IAdLoaderClient, IDisposable
+    internal class AdLoaderClient : IAdLoaderClient, IDisposable
     {
         private IntPtr adLoaderPtr;
         private IntPtr adLoaderClientPtr;
-        private NativeAdTypes adTypes;
 
         private Dictionary<string, Action<CustomNativeTemplateAd, string>>
             customNativeTemplateCallbacks;
@@ -49,10 +47,10 @@ namespace GoogleMobileAds.iOS
             string[] templateIdsArray = new string[unityAdLoader.TemplateIds.Count];
             unityAdLoader.TemplateIds.CopyTo(templateIdsArray);
 
-            this.adTypes = new NativeAdTypes();
+            NativeAdTypes adTypes = new NativeAdTypes();
             if (unityAdLoader.AdTypes.Contains(NativeAdType.CustomTemplate))
             {
-                adTypes.CustomTemplateAd = 1;
+                adTypes.CustomTemplateAd = true;
             }
 
             this.AdLoaderPtr = Externs.GADUCreateAdLoader(
@@ -135,6 +133,7 @@ namespace GoogleMobileAds.iOS
                 };
                 client.OnCustomNativeTemplateAdLoaded(client, args);
             }
+
         }
 
         [MonoPInvokeCallback(typeof(GADUAdLoaderDidFailToReceiveAdWithErrorCallback))]

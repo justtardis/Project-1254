@@ -59,6 +59,7 @@ public class Game : MonoBehaviour
     [Space(5f)]
     [Header("CКРОЛЛ ВСЯКИЙ")]
     public ScrollRect scrollPreview;
+    public ScrollRect scrollMain;
     [Space(5f)]
     [Header("Меню и его компоненты")]
     public GameObject Menu_panel; // сама менюшка
@@ -168,6 +169,11 @@ public class Game : MonoBehaviour
     public Slider sld;
     public Text percent;
     //Перенес в Awake, потому что нужно задавать положения плюсика у баланса
+
+    public void Scroll(ScrollRect scr)
+    {
+        scr.verticalNormalizedPosition = 1f;
+    }
 
     private void GetResolutionScreen()
     {
@@ -331,7 +337,7 @@ public class Game : MonoBehaviour
         string plainText = StringCipher.Encrypt(json);
         string mydocpath = Directory.GetCurrentDirectory();
         File.WriteAllText(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", json);*/
-        
+
     }
     // Use this for initialization
     void Start()
@@ -626,7 +632,7 @@ public class Game : MonoBehaviour
                 else
                 {
                     Panels[i].SetActive(false);
-                    
+
                 }
             }
 

@@ -2,8 +2,8 @@
 
 #import "GADUBanner.h"
 
-#import <CoreGraphics/CoreGraphics.h>
-#import <UIKit/UIKit.h>
+@import CoreGraphics;
+@import UIKit;
 
 #import "GADUPluginUtil.h"
 #import "UnityAppController.h"
@@ -25,21 +25,11 @@
                               width:(CGFloat)width
                              height:(CGFloat)height
                          adPosition:(GADAdPosition)adPosition {
+  GADAdSize adSize = GADAdSizeFromCGSize(CGSizeMake(width, height));
   return [self initWithBannerClientReference:bannerClient
                                     adUnitID:adUnitID
-                                      adSize:[GADUPluginUtil adSizeForWidth:width height:height]
+                                      adSize:adSize
                                   adPosition:adPosition];
-}
-
-- (id)initWithBannerClientReference:(GADUTypeBannerClientRef *)bannerClient
-                           adUnitID:(NSString *)adUnitID
-                              width:(CGFloat)width
-                             height:(CGFloat)height
-                   customAdPosition:(CGPoint)customAdPosition {
-  return [self initWithBannerClientReference:bannerClient
-                                    adUnitID:adUnitID
-                                      adSize:[GADUPluginUtil adSizeForWidth:width height:height]
-                            customAdPosition:customAdPosition];
 }
 
 - (id)initWithSmartBannerSizeAndBannerClientReference:(GADUTypeBannerClientRef *)bannerClient
@@ -84,7 +74,7 @@
   if (self) {
     _bannerClient = bannerClient;
     _adPosition = adPosition;
-    _bannerView = [[GADBannerView alloc] initWithAdSize:[GADUPluginUtil safeAdSizeForAdSize:size]];
+    _bannerView = [[GADBannerView alloc] initWithAdSize:size];
     _bannerView.adUnitID = adUnitID;
     _bannerView.delegate = self;
     _bannerView.rootViewController = [GADUPluginUtil unityGLViewController];
@@ -101,7 +91,7 @@
     _bannerClient = bannerClient;
     _customAdPosition = customAdPosition;
     _adPosition = kGADAdPositionCustom;
-    _bannerView = [[GADBannerView alloc] initWithAdSize:[GADUPluginUtil safeAdSizeForAdSize:size]];
+    _bannerView = [[GADBannerView alloc] initWithAdSize:size];
     _bannerView.adUnitID = adUnitID;
     _bannerView.delegate = self;
     _bannerView.rootViewController = [GADUPluginUtil unityGLViewController];
@@ -145,42 +135,6 @@
   [self.bannerView removeFromSuperview];
 }
 
-- (NSString *)mediationAdapterClassName {
-  return [self.bannerView adNetworkClassName];
-}
-
-- (CGFloat)heightInPixels {
-  return CGRectGetHeight(CGRectStandardize(self.bannerView.frame)) * [UIScreen mainScreen].scale;
-}
-
-- (CGFloat)widthInPixels {
-  return CGRectGetWidth(CGRectStandardize(self.bannerView.frame)) * [UIScreen mainScreen].scale;
-}
-
-- (void)setAdPosition:(GADAdPosition)adPosition {
-  _adPosition = adPosition;
-  [self positionBannerView];
-}
-
-- (void)setCustomAdPosition:(CGPoint)customPosition {
-  _customAdPosition = customPosition;
-  _adPosition = kGADAdPositionCustom;
-  [self positionBannerView];
-}
-
-- (void)positionBannerView {
-  /// Align the bannerView in the Unity view bounds.
-  UIView *unityView = [GADUPluginUtil unityGLViewController].view;
-
-  if (self.adPosition != kGADAdPositionCustom) {
-    [GADUPluginUtil positionView:self.bannerView inParentView:unityView adPosition:self.adPosition];
-  } else {
-    [GADUPluginUtil positionView:self.bannerView
-                    inParentView:unityView
-                  customPosition:self.customAdPosition];
-  }
-}
-
 #pragma mark GADBannerViewDelegate implementation
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
@@ -193,7 +147,15 @@
   /// Align the bannerView in the Unity view bounds.
   UIView *unityView = [GADUPluginUtil unityGLViewController].view;
 
-  [self positionBannerView];
+  if (self.adPosition != kGADAdPositionCustom) {
+    [GADUPluginUtil positionView:self.bannerView
+                  inParentBounds:unityView.bounds
+                      adPosition:self.adPosition];
+  } else {
+    [GADUPluginUtil positionView:self.bannerView
+                  inParentBounds:unityView.bounds
+                  customPosition:self.customAdPosition];
+  }
 
   [unityView addSubview:self.bannerView];
 

@@ -15,6 +15,7 @@
 #if UNITY_ANDROID
 
 using System;
+using System.Collections.Generic;
 
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
@@ -22,7 +23,7 @@ using UnityEngine;
 
 namespace GoogleMobileAds.Android
 {
-    public class InterstitialClient : AndroidJavaProxy, IInterstitialClient
+    internal class InterstitialClient : AndroidJavaProxy, IInterstitialClient
     {
         private AndroidJavaObject interstitial;
 
@@ -75,12 +76,6 @@ namespace GoogleMobileAds.Android
         public void DestroyInterstitial()
         {
             this.interstitial.Call("destroy");
-        }
-
-        // Returns the mediation adapter class name.
-        public string MediationAdapterClassName()
-        {
-            return this.interstitial.Call<string>("getMediationAdapterClassName");
         }
 
         #endregion

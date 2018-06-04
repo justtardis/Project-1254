@@ -12,11 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System;
 using System.Collections.Generic;
+using UnityEngine;
+
+using GoogleMobileAds.Api;
 
 namespace GoogleMobileAds.Common
 {
-    public interface ICustomNativeTemplateClient
+    internal interface ICustomNativeTemplateClient
     {
         string GetTemplateId();
         byte[] GetImageByteArray(string key);

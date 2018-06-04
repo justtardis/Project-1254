@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-
+    string path = "";
+    string line = "";
+    string cipherText = "";
+    private string json = "";
     public DataLoader dl;
     public int[][] items; // первое число - id кейса, второе - id товара
     public int invSize = 0; // количество предметов в инвентаре
@@ -24,16 +27,25 @@ public class Inventory : MonoBehaviour
     public MiniGames mg;
     public int multSum = 0; // сколько денех стоят отмеченные товары 
 
+
     private void Awake()
     {
-        string mydocpath = Directory.GetCurrentDirectory();
+        
         try
         {
-            StreamReader sr = new StreamReader(mydocpath + @"\"+ SystemInfo.deviceUniqueIdentifier.ToString()+".porn");
+            
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+             string mydocpath = Application.persistentDataPath;
+#else
+            string mydocpath = Directory.GetCurrentDirectory();
+#endif
+            StreamReader sr = new StreamReader(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".fg");
             string cipherText = sr.ReadLine();
             string line = StringCipher.Decrypt(cipherText);
             print(line);
             sv = JsonUtility.FromJson<Save>(line);
+
             invSize = sv.invSize;
             g.level = sv.level;
             items = new int[1000][];
@@ -303,14 +315,14 @@ public class Inventory : MonoBehaviour
         if (pauseStatus)
         {
             SaveGame();
-            //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
+            dl.Upload(g.deviceID, g.silver, g.gold, g.casesNum);
         }
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
-        //dl.Upload(g.google_id, g.silver, g.gold, g.casesNum);
+        dl.Upload(g.deviceID, g.silver, g.gold, g.casesNum);
     }
 
 
@@ -351,8 +363,15 @@ public class Inventory : MonoBehaviour
         }
         string json = JsonUtility.ToJson(sv);
         string plainText = StringCipher.Encrypt(json);
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+       string mydocpath = Application.persistentDataPath;
+#else
         string mydocpath = Directory.GetCurrentDirectory();
-        File.WriteAllText(mydocpath + @"\" +SystemInfo.deviceUniqueIdentifier.ToString() + ".porn", plainText);
+        
+#endif
+        File.WriteAllText(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".fg", plainText);
+
     }
 }
 

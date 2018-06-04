@@ -1,8 +1,7 @@
 // Copyright 2014 Google Inc. All Rights Reserved.
 
-#import <Foundation/Foundation.h>
-
-#import <GoogleMobileAds/GoogleMobileAds.h>
+@import Foundation;
+@import GoogleMobileAds;
 
 #import "GADUTypes.h"
 
@@ -26,8 +25,7 @@
 /// Initializes a GADUBanner with specified width and height at the specified point.
 - (id)initWithBannerClientReference:(GADUTypeBannerClientRef *)bannerClient
                            adUnitID:(NSString *)adUnitID
-                              width:(CGFloat)width
-                             height:(CGFloat)height
+                             adSize:(GADAdSize)size
                    customAdPosition:(CGPoint)customAdPosition;
 
 /// Initializes a full-width GADUBanner with specified width and height at the specified point.
@@ -56,15 +54,6 @@
 /// The will leave application callback into Unity.
 @property(nonatomic, assign) GADUAdViewWillLeaveApplicationCallback willLeaveCallback;
 
-// Returns the mediation adapter class name.
-@property(nonatomic, readonly, copy) NSString *mediationAdapterClassName;
-
-// Returns the height of the banner view in pixels.
-@property(nonatomic, readonly) CGFloat heightInPixels;
-
-// Returns the width of the banner view in pixels.
-@property(nonatomic, readonly) CGFloat widthInPixels;
-
 /// Makes an ad request. Additional targeting options can be supplied with a request object.
 - (void)loadRequest:(GADRequest *)request;
 
@@ -76,11 +65,5 @@
 
 /// Removes the GADBannerView from the view hierarchy.
 - (void)removeBannerView;
-
-/// Set the GADBannerView's position on screen using a standard position.
-- (void)setAdPosition:(GADAdPosition)adPosition;
-
-/// Set the GADBannerView's position on screen using a custom position.
-- (void)setCustomAdPosition:(CGPoint)customPosition;
 
 @end

@@ -4,12 +4,12 @@
 #import "GADUBanner.h"
 #import "GADUInterstitial.h"
 #import "GADUNativeCustomTemplateAd.h"
-#import "GADUPluginUtil.h"
-#import "GADUAdNetworkExtras.h"
+#import "GADUNativeExpressAd.h"
 #import "GADUObjectCache.h"
 #import "GADURequest.h"
 #import "GADURewardBasedVideoAd.h"
 #import "GADUTypes.h"
+#import "GADUAdNetworkExtras.h"
 
 /// Returns an NSString copying the characters from |bytes|, a C array of UTF8-encoded bytes.
 /// Returns nil if |bytes| is NULL.
@@ -33,7 +33,7 @@ static const char **cStringArrayCopy(NSArray *array) {
 
   const char **stringArray;
 
-  stringArray = calloc(array.count, sizeof(char *));
+  stringArray = malloc(array.count * sizeof(char *));
   for (int i = 0; i < array.count; i++) {
     stringArray[i] = cStringCopy([array[i] UTF8String]);
   }
@@ -42,33 +42,10 @@ static const char **cStringArrayCopy(NSArray *array) {
 
 /// Defines the native ad types.
 struct AdTypes {
-  int CustomTemplateAd;
+  bool customTemplateAd;
+  bool appInstallAd;
+  bool contentAd;
 };
-
-/// Configures the SDK using the settings associated with the given application ID.
-void GADUInitialize(const char *appId) {
-  [GADMobileAds configureWithApplicationID:GADUStringFromUTF8String(appId)];
-}
-
-// The application’s audio volume. Affects audio volumes of all ads relative to
-// other audio output. Valid ad volume values range from 0.0 (silent) to 1.0
-// (current device volume). Use this method only if your application has its own
-// volume controls (e.g., custom music or sound effect volumes). Defaults
-// to 1.0.
-void GADUSetApplicationVolume(float volume) {
-  [[GADMobileAds sharedInstance] setApplicationVolume:volume];
-}
-
-// Indicates if the application’s audio is muted. Affects initial mute state for
-// all ads. Use this method only if your application has its own volume controls
-// (e.g., custom music or sound effect muting). Defaults to NO.
-void GADUSetApplicationMuted(BOOL muted) {
-  [[GADMobileAds sharedInstance] setApplicationMuted:muted];
-}
-
-// Indicates if the Unity app should be paused when a full screen ad (interstitial
-// or rewarded video ad) is displayed.
-void GADUSetiOSAppPauseOnBackground(BOOL pause) { [GADUPluginUtil setPauseOnBackground:pause]; }
 
 /// Creates a GADBannerView with the specified width, height, and position. Returns a reference to
 /// the GADUBannerView.
@@ -78,8 +55,8 @@ GADUTypeBannerRef GADUCreateBannerView(GADUTypeBannerClientRef *bannerClient, co
   GADUBanner *banner =
       [[GADUBanner alloc] initWithBannerClientReference:bannerClient
                                                adUnitID:GADUStringFromUTF8String(adUnitID)
-                                                  width:(int)width
-                                                 height:(int)height
+                                                  width:width
+                                                 height:height
                                              adPosition:adPosition];
   GADUObjectCache *cache = [GADUObjectCache sharedInstance];
   [cache.references setObject:banner forKey:[banner gadu_referenceKey]];
@@ -93,11 +70,11 @@ GADUTypeBannerRef GADUCreateBannerViewWithCustomPosition(GADUTypeBannerClientRef
                                                          NSInteger height, NSInteger x,
                                                          NSInteger y) {
   CGPoint adPosition = CGPointMake(x, y);
+  GADAdSize adSize = GADAdSizeFromCGSize(CGSizeMake(width, height));
   GADUBanner *banner =
       [[GADUBanner alloc] initWithBannerClientReference:bannerClient
                                                adUnitID:GADUStringFromUTF8String(adUnitID)
-                                                  width:(int)width
-                                                 height:(int)height
+                                                 adSize:adSize
                                        customAdPosition:adPosition];
   GADUObjectCache *cache = [GADUObjectCache sharedInstance];
   [cache.references setObject:banner forKey:[banner gadu_referenceKey]];
@@ -155,25 +132,22 @@ GADUTypeRewardBasedVideoAdRef GADUCreateRewardBasedVideoAd(
 
 /// Creates a GADUAdLoader and returns its reference.
 GADUTypeAdLoaderRef GADUCreateAdLoader(GADUTypeAdLoaderClientRef *adLoaderClient,
-                                       const char *adUnitID,
-                                       const char **templateIDs, NSInteger templateIDLength,
-                                       struct AdTypes *types) {
+                                       const char *adUnitID, const char **templateIDs,
+                                       NSInteger templateIDLength, struct AdTypes *types) {
   NSMutableArray *templateIDsArray = [[NSMutableArray alloc] init];
   for (int i = 0; i < templateIDLength; i++) {
     [templateIDsArray addObject:GADUStringFromUTF8String(templateIDs[i])];
   }
   NSMutableArray *adTypesArray = [[NSMutableArray alloc] init];
-  if (types->CustomTemplateAd) {
+  if (types->customTemplateAd) {
     [adTypesArray addObject:kGADAdLoaderAdTypeNativeCustomTemplate];
   }
-  NSArray *options = nil;
 
   GADUAdLoader *adLoader =
       [[GADUAdLoader alloc] initWithAdLoaderClientReference:adLoaderClient
                                                    adUnitID:GADUStringFromUTF8String(adUnitID)
                                                 templateIDs:templateIDsArray
-                                                    adTypes:adTypesArray
-                                                    options:options];
+                                                    adTypes:adTypesArray];
   GADUObjectCache *cache = [GADUObjectCache sharedInstance];
   [cache.references setObject:adLoader forKey:[adLoader gadu_referenceKey]];
   return (__bridge GADUTypeAdLoaderRef)adLoader;
@@ -218,8 +192,7 @@ void GADUSetRewardBasedVideoAdCallbacks(
     GADURewardBasedVideoAdDidStartPlayingCallback didStartCallback,
     GADURewardBasedVideoAdDidCloseCallback didCloseCallback,
     GADURewardBasedVideoAdDidRewardCallback didRewardCallback,
-    GADURewardBasedVideoAdWillLeaveApplicationCallback willLeaveCallback,
-    GADURewardBasedVideoAdDidCompleteCallback didCompleteCallback) {
+    GADURewardBasedVideoAdWillLeaveApplicationCallback willLeaveCallback) {
   GADURewardBasedVideoAd *internalRewardBasedVideoAd =
       (__bridge GADURewardBasedVideoAd *)rewardBasedVideoAd;
   internalRewardBasedVideoAd.adReceivedCallback = adReceivedCallback;
@@ -229,16 +202,65 @@ void GADUSetRewardBasedVideoAdCallbacks(
   internalRewardBasedVideoAd.didCloseCallback = didCloseCallback;
   internalRewardBasedVideoAd.didRewardCallback = didRewardCallback;
   internalRewardBasedVideoAd.willLeaveCallback = willLeaveCallback;
-  internalRewardBasedVideoAd.didCompleteCallback = didCompleteCallback;
+}
+
+/// Sets the native express callback methods to be invoked during native express ad events.
+void GADUSetNativeExpressAdCallbacks(
+    GADUTypeNativeExpressAdRef nativeExpressAd,
+    GADUNativeExpressAdViewDidReceiveAdCallback adReceivedCallback,
+    GADUNativeExpressAdViewDidFailToReceiveAdWithErrorCallback adFailedCallback,
+    GADUNativeExpressAdViewWillPresentScreenCallback willPresentScreenCallback,
+    GADUNativeExpressAdViewDidDismissScreenCallback didDismissScreenCallback,
+    GADUNativeExpressAdViewWillLeaveApplicationCallback willLeaveAppCallback) {
+  GADUNativeExpressAd *internalNativeExpressAd = (__bridge GADUNativeExpressAd *)nativeExpressAd;
+  internalNativeExpressAd.adReceivedCallback = adReceivedCallback;
+  internalNativeExpressAd.adFailedCallback = adFailedCallback;
+  internalNativeExpressAd.willPresentScreenCallback = willPresentScreenCallback;
+  internalNativeExpressAd.didDismissScreenCallback = didDismissScreenCallback;
+  internalNativeExpressAd.willLeaveAppCallback = willLeaveAppCallback;
+}
+
+/// Creates a GADNativeExpressAdView with the specified width, height, and position. Returns
+/// a reference to the GADUNativeExpressAdView.
+GADUTypeNativeExpressAdRef GADUCreateNativeExpressAdView(
+    GADUTypeNativeExpressAdClientRef *nativeExpressAdClient, const char *adUnitID, NSInteger width,
+    NSInteger height, GADAdPosition adPosition) {
+  GADUNativeExpressAd *nativeExpressAd = [[GADUNativeExpressAd alloc]
+      initWithNativeExpressAdClientReference:nativeExpressAdClient
+                                    adUnitID:GADUStringFromUTF8String(adUnitID)
+                                       width:width
+                                      height:height
+                                  adPosition:adPosition];
+
+  GADUObjectCache *cache = [GADUObjectCache sharedInstance];
+  [cache.references setObject:nativeExpressAd forKey:[nativeExpressAd gadu_referenceKey]];
+  return (__bridge GADUTypeNativeExpressAdRef)nativeExpressAd;
+}
+
+/// Creates a GADNativeExpressAdView with the specified width, height, and custom position. Returns
+/// a reference to the GADUNativeExpressAdView.
+GADUTypeNativeExpressAdRef GADUCreateNativeExpressAdViewWithCustomPosition(
+    GADUTypeNativeExpressAdClientRef *nativeExpressAdClient, const char *adUnitID, NSInteger width,
+    NSInteger height, NSInteger x, NSInteger y) {
+  CGPoint adPosition = CGPointMake(x, y);
+  GADAdSize adSize = GADAdSizeFromCGSize(CGSizeMake(width, height));
+  GADUNativeExpressAd *nativeExpressAd = [[GADUNativeExpressAd alloc]
+      initWithNativeExpressAdClientReference:nativeExpressAdClient
+                                    adUnitID:GADUStringFromUTF8String(adUnitID)
+                                      adSize:adSize
+                            customAdPosition:adPosition];
+  GADUObjectCache *cache = [GADUObjectCache sharedInstance];
+  [cache.references setObject:nativeExpressAd forKey:[nativeExpressAd gadu_referenceKey]];
+  return (__bridge GADUTypeNativeExpressAdRef)nativeExpressAd;
 }
 
 /// Sets the banner callback methods to be invoked during native ad events.
 void GADUSetAdLoaderCallbacks(
     GADUTypeAdLoaderRef adLoader,
-    GADUAdLoaderDidReceiveNativeCustomTemplateAdCallback customTemplateAdReceivedCallback,
+    GADUAdLoaderDidReceiveNativeCustomTemplateAdCallback adReceivedCallback,
     GADUAdLoaderDidFailToReceiveAdWithErrorCallback adFailedCallback) {
   GADUAdLoader *internalAdLoader = (__bridge GADUAdLoader *)adLoader;
-  internalAdLoader.customTemplateAdReceivedCallback = customTemplateAdReceivedCallback;
+  internalAdLoader.adReceivedCallback = adReceivedCallback;
   internalAdLoader.adFailedCallback = adFailedCallback;
 }
 
@@ -260,14 +282,22 @@ void GADURemoveBannerView(GADUTypeBannerRef banner) {
   [internalBanner removeBannerView];
 }
 
-float GADUGetBannerViewHeightInPixels(GADUTypeBannerRef banner) {
-  GADUBanner *internalBanner = (__bridge GADUBanner *)banner;
-  return internalBanner.heightInPixels;
+/// Hides the GADNativeExpressAdView.
+void GADUHideNativeExpressAdView(GADUTypeNativeExpressAdRef nativeExpressAd) {
+  GADUNativeExpressAd *internalNativeExpressAd = (__bridge GADUNativeExpressAd *)nativeExpressAd;
+  [internalNativeExpressAd hideNativeExpressAdView];
 }
 
-float GADUGetBannerViewWidthInPixels(GADUTypeBannerRef banner) {
-  GADUBanner *internalBanner = (__bridge GADUBanner *)banner;
-  return internalBanner.widthInPixels;
+/// Shows the GADNativeExpressAdView.
+void GADUShowNativeExpressAdView(GADUTypeBannerRef nativeExpressAd) {
+  GADUNativeExpressAd *internalNativeExpressAd = (__bridge GADUNativeExpressAd *)nativeExpressAd;
+  [internalNativeExpressAd showNativeExpressAdView];
+}
+
+/// Removes the GADNativeExpressAdView from the view hierarchy.
+void GADURemoveNativeExpressAdView(GADUTypeNativeExpressAdRef nativeExpressAd) {
+  GADUNativeExpressAd *internalNativeExpressAd = (__bridge GADUNativeExpressAd *)nativeExpressAd;
+  [internalNativeExpressAd removeNativeExpressAdView];
 }
 
 /// Returns YES if the GADInterstitial is ready to be shown.
@@ -287,14 +317,6 @@ BOOL GADURewardBasedVideoAdReady(GADUTypeRewardBasedVideoAdRef rewardBasedVideo)
   GADURewardBasedVideoAd *internalRewardBasedVideoAd =
       (__bridge GADURewardBasedVideoAd *)rewardBasedVideo;
   return [internalRewardBasedVideoAd isReady];
-}
-
-/// Sets the user ID to be used in server-to-server reward callbacks.
-void GADUSetRewardBasedVideoAdUserId(GADUTypeRewardBasedVideoAdRef rewardBasedVideo,
-                                     const char *userId) {
-  GADURewardBasedVideoAd *internalRewardBasedVideoAd =
-      (__bridge GADURewardBasedVideoAd *)rewardBasedVideo;
-  [internalRewardBasedVideoAd setUserId:GADUStringFromUTF8String(userId)];
 }
 
 /// Shows the GADRewardBasedVideo.
@@ -402,16 +424,6 @@ void GADURequestBannerAd(GADUTypeBannerRef banner, GADUTypeRequestRef request) {
   [internalBanner loadRequest:[internalRequest request]];
 }
 
-void GADUSetBannerViewAdPosition(GADUTypeBannerRef banner, int position) {
-  GADUBanner *internalBanner = (__bridge GADUBanner *)banner;
-  [internalBanner setAdPosition:(GADAdPosition)position];
-}
-
-void GADUSetBannerViewCustomPosition(GADUTypeBannerRef banner, int x, int y) {
-  GADUBanner *internalBanner = (__bridge GADUBanner *)banner;
-  [internalBanner setCustomAdPosition:CGPointMake(x, y)];
-}
-
 /// Makes an interstitial ad request.
 void GADURequestInterstitial(GADUTypeInterstitialRef interstitial, GADUTypeRequestRef request) {
   GADUInterstitial *internalInterstitial = (__bridge GADUInterstitial *)interstitial;
@@ -429,6 +441,14 @@ void GADURequestRewardBasedVideoAd(GADUTypeRewardBasedVideoAdRef rewardBasedVide
                              withAdUnitID:GADUStringFromUTF8String(adUnitID)];
 }
 
+/// Makes a native express ad request.
+void GADURequestNativeExpressAd(GADUTypeNativeExpressAdRef nativeExpressAd,
+                                GADUTypeRequestRef request) {
+  GADUNativeExpressAd *internalNativeExpressAd = (__bridge GADUNativeExpressAd *)nativeExpressAd;
+  GADURequest *internalRequest = (__bridge GADURequest *)request;
+  [internalNativeExpressAd loadRequest:[internalRequest request]];
+}
+
 /// Makes a native ad request.
 void GADURequestNativeAd(GADUTypeAdLoaderRef adLoader, GADUTypeRequestRef request) {
   GADUAdLoader *internalAdLoader = (__bridge GADUAdLoader *)adLoader;
@@ -441,7 +461,7 @@ const char *GADUNativeCustomTemplateAdTemplateID(
     GADUTypeNativeCustomTemplateAdRef nativeCustomTemplateAd) {
   GADUNativeCustomTemplateAd *internalNativeCustomTemplateAd =
       (__bridge GADUNativeCustomTemplateAd *)nativeCustomTemplateAd;
-  return cStringCopy([internalNativeCustomTemplateAd templateID].UTF8String);
+  return cStringCopy([[internalNativeCustomTemplateAd templateID] UTF8String]);
 }
 
 /// Returns the image corresponding to the specifed key as a base64 encoded byte array.
@@ -451,8 +471,8 @@ const char *GADUNativeCustomTemplateAdImageAsBytesForKey(
       (__bridge GADUNativeCustomTemplateAd *)nativeCustomTemplateAd;
   NSData *imageData = UIImageJPEGRepresentation(
       [internalNativeCustomTemplateAd imageForKey:GADUStringFromUTF8String(key)], 0.0);
-  NSString *base64String = [imageData base64EncodedStringWithOptions:nil];
-  return cStringCopy(base64String.UTF8String);
+  NSString *base64String = [imageData base64Encoding];
+  return cStringCopy([base64String UTF8String]);
 }
 
 /// Returns the string corresponding to the specifed key.
@@ -461,7 +481,7 @@ const char *GADUNativeCustomTemplateAdStringForKey(
   GADUNativeCustomTemplateAd *internalNativeCustomTemplateAd =
       (__bridge GADUNativeCustomTemplateAd *)nativeCustomTemplateAd;
   return cStringCopy(
-      [internalNativeCustomTemplateAd stringForKey:GADUStringFromUTF8String(key)].UTF8String);
+      [[internalNativeCustomTemplateAd stringForKey:GADUStringFromUTF8String(key)] UTF8String]);
 }
 
 /// Call when the ad is played on screen to the user.
@@ -523,20 +543,4 @@ void GADURelease(GADUTypeRef ref) {
     GADUObjectCache *cache = [GADUObjectCache sharedInstance];
     [cache.references removeObjectForKey:[(__bridge NSObject *)ref gadu_referenceKey]];
   }
-}
-
-const char *GADUMediationAdapterClassNameForBannerView(GADUTypeBannerRef bannerView) {
-  GADUBanner *banner = (__bridge GADUBanner *)bannerView;
-  return cStringCopy(banner.mediationAdapterClassName.UTF8String);
-}
-
-const char *GADUMediationAdapterClassNameForRewardedVideo(
-    GADUTypeRewardBasedVideoAdRef rewardedVideo) {
-  GADURewardBasedVideoAd *rewarded = (__bridge GADURewardBasedVideoAd *)rewardedVideo;
-  return cStringCopy(rewarded.mediationAdapterClassName.UTF8String);
-}
-
-const char *GADUMediationAdapterClassNameForInterstitial(GADUTypeInterstitialRef interstitial) {
-  GADUInterstitial *interstitialAd = (__bridge GADUInterstitial *)interstitial;
-  return cStringCopy(interstitialAd.mediationAdapterClassName.UTF8String);
 }

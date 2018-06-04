@@ -1,13 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 using GoogleMobileAds.Api;
+using UnityEngine.Advertisements;
 
 public class AdManager : MonoBehaviour
 {
 
+   
+
     InterstitialAd interstitial;
     public int counter = 1;
-   
+    public bool videoCounter = false;
+    public void VideoAds()
+    {
+        if (!videoCounter)
+        {
+            if (Advertisement.IsReady("video"))
+            {
+                Advertisement.Show("video");
+            }
+            videoCounter = true;
+        }
+        else if(videoCounter)
+        {
+            if (Advertisement.IsReady("rewardedVideo"))
+            {
+                Advertisement.Show("rewardedVideo");
+            }
+            videoCounter = false;
+        }
+    }
 
     void Start()
     {
@@ -25,14 +47,14 @@ public class AdManager : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
 
-        // Initialize an InterstitialAd.
+        //// Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         interstitial.LoadAd(request);
     }
-    
+
     public void ReqInter()
     {
         RequestInterstitial();

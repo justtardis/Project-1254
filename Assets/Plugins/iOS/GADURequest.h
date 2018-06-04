@@ -1,8 +1,7 @@
 // Copyright 2014 Google Inc. All Rights Reserved.
 
-#import <Foundation/Foundation.h>
-
-#import <GoogleMobileAds/GoogleMobileAds.h>
+@import Foundation;
+@import GoogleMobileAds;
 
 /// Genders to help deliver more relevant ads.
 typedef NS_ENUM(NSInteger, GADUGender) {
