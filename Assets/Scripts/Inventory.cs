@@ -110,6 +110,11 @@ public class Inventory : MonoBehaviour
 
     public void LoadInventory()
     {
+        for (int i = 100; i < invPanel.transform.childCount; i++)
+        {
+            GameObject A = invPanel.transform.GetChild(i).gameObject;
+            Destroy(A);
+        }
         for (int i = 0; i < invSize; i++)
         {
             if (i < 100)
@@ -190,6 +195,7 @@ public class Inventory : MonoBehaviour
             else
             {
                 GameObject A = Instantiate(itemPref, itemPref.transform.position = new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                A.transform.SetParent(invPanel.transform, false);
                 A.transform.GetChild(0).gameObject.SetActive(false);
                 A.transform.GetChild(1).gameObject.SetActive(false);
                 A.transform.GetComponent<Image>().sprite = emptyPrev;
@@ -280,33 +286,36 @@ public class Inventory : MonoBehaviour
 
     public void clickOnItem(GameObject item)
     {
-        if (isMult)
+        int id = item.GetComponent<Item_ID>().id;
+        if (id != -1)
         {
-            item.transform.GetChild(3).gameObject.SetActive(!item.transform.GetChild(3).gameObject.activeSelf);
-            int i = item.GetComponent<Item_ID>().id;
-            if (item.transform.GetChild(3).gameObject.activeSelf)
+            if (isMult)
             {
-                multSum = multSum + (int)g.cases[items[i][0]].items[items[i][1]].price;
+                item.transform.GetChild(3).gameObject.SetActive(!item.transform.GetChild(3).gameObject.activeSelf);
+                int i = item.GetComponent<Item_ID>().id;
+                if (item.transform.GetChild(3).gameObject.activeSelf)
+                {
+                    multSum = multSum + (int)g.cases[items[i][0]].items[items[i][1]].price;
+                }
+                else
+                {
+                    multSum = multSum - (int)g.cases[items[i][0]].items[items[i][1]].price;
+                }
+                multSell.transform.GetChild(2).GetComponent<Text>().text = g.convertMoney(multSum);
             }
             else
             {
-                multSum = multSum - (int)g.cases[items[i][0]].items[items[i][1]].price;
+                int caseID = items[id][0];
+                int itemID = items[id][1];
+                prevPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].name.ToUpper();
+                prevPanel.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[itemID].picture;
+                prevPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(g.cases[caseID].items[itemID].group == 4);
+                prevPanel.transform.GetChild(0).GetChild(4).GetChild(1).GetComponent<Text>().text = g.convertMoney((int)g.cases[caseID].items[itemID].price);
+                int temp = id;
+                prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+                prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(temp); });
+                prevPanel.SetActive(true);
             }
-            multSell.transform.GetChild(2).GetComponent<Text>().text = g.convertMoney(multSum);
-        }
-        else
-        {
-            int id = item.GetComponent<Item_ID>().id;
-            int caseID = items[id][0];
-            int itemID = items[id][1];
-            prevPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = g.cases[caseID].items[itemID].name.ToUpper();
-            prevPanel.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[itemID].picture;
-            prevPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(g.cases[caseID].items[itemID].group == 4);
-            prevPanel.transform.GetChild(0).GetChild(4).GetChild(1).GetComponent<Text>().text = g.convertMoney((int)g.cases[caseID].items[itemID].price);
-            int temp = id;
-            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
-            prevPanel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { sellItem(temp); });
-            prevPanel.SetActive(true);
         }
     }
 

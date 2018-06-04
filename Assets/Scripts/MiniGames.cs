@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MiniGames : MonoBehaviour
 {
     public AdManager ad;
+    public bool one_two = false;
     // Крэш, игра №2
     public float time = 0;
     public float counter = 1f;
@@ -269,11 +270,21 @@ public class MiniGames : MonoBehaviour
                     buttonStart.GetComponent<Image>().sprite = but[1];
                     buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
                     g.silver += (int)TotalCash;
-                    if (ad.counter == 5)
+                    if (ad.counter == 3)
                     {
-                        ad.showInterstital();
-                        ad.ReqInter();
-                        ad.counter = 1;
+                        if (!one_two)
+                        {
+                            ad.showInterstital();
+                            ad.ReqInter();
+                            ad.counter = 1;
+                            one_two = true;
+                        }
+                        else
+                        {
+                            ad.VideoAds();
+                            ad.counter = 1;
+                            one_two = false;
+                        }
                     }
                     else
                     {
@@ -340,20 +351,25 @@ public class MiniGames : MonoBehaviour
                 arrow.color = mainColor[idElement - 1];
                 if (speed == 0)
                 {
-                    if (com == 1)
+                    if (ad.counter == 3)
                     {
-                        if (ad.counter == 5)
+                        if (!one_two)
                         {
                             ad.showInterstital();
                             ad.ReqInter();
                             ad.counter = 1;
-                            com = 0;
+                            one_two = true;
                         }
                         else
                         {
-                            ad.counter += 1;
-                            com = 0;
+                            ad.VideoAds();
+                            ad.counter = 1;
+                            one_two = false;
                         }
+                    }
+                    else
+                    {
+                        ad.counter += 1;
                     }
                     ShiftElementsColor(idElement);
                     isRotate = false;
@@ -1044,11 +1060,21 @@ public class MiniGames : MonoBehaviour
                     break;
             }
         }
-        if (ad.counter == 5)
+        if (ad.counter == 3)
         {
-            ad.showInterstital();
-            ad.ReqInter();
-            ad.counter = 1;
+            if (!one_two)
+            {
+                ad.showInterstital();
+                ad.ReqInter();
+                ad.counter = 1;
+                one_two = true;
+            }
+            else
+            {
+                ad.VideoAds();
+                ad.counter = 1;
+                one_two = false;
+            }
         }
         else
         {

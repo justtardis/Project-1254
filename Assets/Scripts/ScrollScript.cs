@@ -83,7 +83,7 @@ public class ScrollScript : MonoBehaviour
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
 
-        if (ad.counter == 5)
+        if (ad.counter == 3)
         {
             if (!one_two)
             {
@@ -92,9 +92,10 @@ public class ScrollScript : MonoBehaviour
                 ad.counter = 1;
                 one_two = true;
             }
-            else if (one_two)
+            else
             {
                 ad.VideoAds();
+                ad.counter = 1;
                 one_two = false;
             }
         }

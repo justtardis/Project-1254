@@ -21,7 +21,7 @@ public class AdManager : MonoBehaviour
             }
             videoCounter = true;
         }
-        else if(videoCounter)
+        else
         {
             if (Advertisement.IsReady("rewardedVideo"))
             {
