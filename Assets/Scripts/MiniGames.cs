@@ -270,7 +270,7 @@ public class MiniGames : MonoBehaviour
                     buttonStart.GetComponent<Image>().sprite = but[1];
                     buttonStart.transform.GetChild(0).GetComponent<Text>().color = c[1];
                     g.silver += (int)TotalCash;
-                    if (ad.counter == 3)
+                    if (ad.counter == 6)
                     {
                         if (!one_two)
                         {
@@ -351,7 +351,7 @@ public class MiniGames : MonoBehaviour
                 arrow.color = mainColor[idElement - 1];
                 if (speed == 0)
                 {
-                    if (ad.counter == 3)
+                    if (ad.counter == 6)
                     {
                         if (!one_two)
                         {
@@ -1060,7 +1060,7 @@ public class MiniGames : MonoBehaviour
                     break;
             }
         }
-        if (ad.counter == 3)
+        if (ad.counter == 6)
         {
             if (!one_two)
             {

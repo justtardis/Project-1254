@@ -83,7 +83,7 @@ public class ScrollScript : MonoBehaviour
         resPanel.transform.GetChild(2).GetComponent<Image>().sprite = g.cases[caseID].items[resItem].picture;
         resPanel.transform.GetChild(7).gameObject.SetActive(g.cases[caseID].items[resItem].group == 4);
 
-        if (ad.counter == 3)
+        if (ad.counter == 6)
         {
             if (!one_two)
             {
