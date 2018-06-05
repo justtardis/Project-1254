@@ -274,14 +274,14 @@ public class MiniGames : MonoBehaviour
                     {
                         if (!one_two)
                         {
-                            ad.showInterstital();
-                            ad.ReqInter();
+                            //ad.showInterstital();
+                            //ad.ReqInter();
                             ad.counter = 1;
                             one_two = true;
                         }
                         else
                         {
-                            ad.VideoAds();
+                            //ad.VideoAds();
                             ad.counter = 1;
                             one_two = false;
                         }
@@ -355,14 +355,14 @@ public class MiniGames : MonoBehaviour
                     {
                         if (!one_two)
                         {
-                            ad.showInterstital();
-                            ad.ReqInter();
+                            //ad.showInterstital();
+                            //ad.ReqInter();
                             ad.counter = 1;
                             one_two = true;
                         }
                         else
                         {
-                            ad.VideoAds();
+                            //ad.VideoAds();
                             ad.counter = 1;
                             one_two = false;
                         }
@@ -1064,14 +1064,14 @@ public class MiniGames : MonoBehaviour
         {
             if (!one_two)
             {
-                ad.showInterstital();
-                ad.ReqInter();
+                //ad.showInterstital();
+                //ad.ReqInter();
                 ad.counter = 1;
                 one_two = true;
             }
             else
             {
-                ad.VideoAds();
+                //ad.VideoAds();
                 ad.counter = 1;
                 one_two = false;
             }

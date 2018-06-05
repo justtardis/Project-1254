@@ -11,7 +11,7 @@ public class AdManager : MonoBehaviour
     InterstitialAd interstitial;
     public int counter = 1;
     public bool videoCounter = false;
-    public void VideoAds()
+    /*public void VideoAds()
     {
         if (!videoCounter)
         {
@@ -29,13 +29,13 @@ public class AdManager : MonoBehaviour
             }
             videoCounter = false;
         }
-    }
+    }*/
 
-    void Start()
+    /*void Start()
     {
-        RequestInterstitial();
+        /*RequestInterstitial();
         //RequestBanner();
-    }
+    }*/
 
     private void RequestInterstitial()
     {
@@ -47,25 +47,25 @@ public class AdManager : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
 
-        //// Initialize an InterstitialAd.
-        interstitial = new InterstitialAd(adUnitId);
-        // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the interstitial with the request.
-        interstitial.LoadAd(request);
-    }
+    //// Initialize an InterstitialAd.
+    /*interstitial = new InterstitialAd(adUnitId);
+    // Create an empty ad request.
+    AdRequest request = new AdRequest.Builder().Build();
+    // Load the interstitial with the request.
+    interstitial.LoadAd(request);
+}
 
-    public void ReqInter()
+public void ReqInter()
+{
+    RequestInterstitial();
+}
+// Update is called once per frame
+public void showInterstital()
+{
+    if (interstitial.IsLoaded())
     {
-        RequestInterstitial();
-    }
-    // Update is called once per frame
-    public void showInterstital()
-    {
-        if (interstitial.IsLoaded())
-        {
-            interstitial.Show();
-            print("show");
-        }
+        interstitial.Show();
+        print("show");
+    }*/
     }
 }

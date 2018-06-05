@@ -58,9 +58,9 @@ public class LotteryManager : MonoBehaviour
     public Image rewardSpr; //джекпот картиночкой
     public GameObject winner; //победитель
     public GameObject block;
-   
+    public Text waitOrPlay;
 
-   
+
 
     void Start()
     {
@@ -223,7 +223,7 @@ public class LotteryManager : MonoBehaviour
         //fillAm.fillAmount = (float)(tickets / ticketNum);
         fillAm.fillAmount = (float)tickets / ticketNum;
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
-        costText.text = price.ToString();
+        costText.text = g.convertMoney(price);
         if (rewardSpr != null)
         {
             int rand = (reward - 4000) / 500;
@@ -250,10 +250,14 @@ public class LotteryManager : MonoBehaviour
         ticketsText.text = ticketNum.ToString() + " / " + ticketNum.ToString();
         winner.SetActive(false);
         UnicRand();
+        if (waitOrPlay != null)
+        {
+            waitOrPlay.text = "До конца лотереи";
+        }
         tickets = 0;
         fillAm.fillAmount = (float)(tickets / ticketNum);
         countHeader.text = tickets.ToString() + " / " + ticketNum.ToString();
-        costText.text = price.ToString();
+        costText.text = g.convertMoney(price);
         isFinished = false;
         for (int i = 0; i < ticketNum; i++)
         {
@@ -283,6 +287,11 @@ public class LotteryManager : MonoBehaviour
             rewardItem[0] = caseId;
             rewardItem[1] = itemId;
         }
+        if (lotType == 2 || lotType == 3)
+        {
+            reward = UnityEngine.Random.Range(rewardMin, rewardMin);
+            rewardText.text = g.convertMoney(reward);
+        }
         start = DateTime.Now;
         //lotteryTime = 2;
         countBusy = ticketNum;
@@ -308,8 +317,10 @@ public class LotteryManager : MonoBehaviour
             isFinished = (DateTime.Now - start).TotalMinutes > (lotteryTime);
             if (!isFinished)
             {
-                timeText.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
-                timer.text = "00:" + (lotteryTime - 1 - (DateTime.Now - start).Minutes).ToString("0#") + ":" + (59 - (DateTime.Now - start).Seconds).ToString("0#");
+                DateTime end = start.AddMinutes(lotteryTime);
+                TimeSpan left = end - DateTime.Now;
+                timeText.text = (left.Hours).ToString("0#") + ":" + (left.Minutes).ToString("0#") + ":" + (left.Seconds).ToString("0#");
+                timer.text = (left.Hours).ToString("0#") + ":" + (left.Minutes).ToString("0#") + ":" + (left.Seconds).ToString("0#");
             }
             else showWinner();
         }
@@ -333,6 +344,10 @@ public class LotteryManager : MonoBehaviour
     {
         block.SetActive(true);
         timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
+        if (waitOrPlay != null)
+        {
+            waitOrPlay.text = "Ожидание";
+        }
         int winner1 = UnityEngine.Random.Range(1, ticketNum);
         if (it[winner1 - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
