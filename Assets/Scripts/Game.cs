@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
     public Image[] avG;
 
     private int _st = 0;
+    private bool _win = false;
 
     public Sprite noImage;
     #region Переменные
@@ -205,6 +206,11 @@ public class Game : MonoBehaviour
         _st = st;
     }
 
+    public void _wins(bool win)
+    {
+        _win = win;
+    }
+
     public void exitGame1()
     {
         BG.SetActive(true);
@@ -215,7 +221,7 @@ public class Game : MonoBehaviour
     private void Swipe()
     {
 #if UNITY_EDITOR
-
+      
         if (!RoulettePanel.activeSelf)
         {
             if (Input.GetMouseButtonDown(0))
@@ -276,7 +282,16 @@ public class Game : MonoBehaviour
     }
     public void ReplaseSpace(InputField inp)
     {
-        inp.text = inp.text.Replace(" ", "_");
+        string check = inp.text;
+        if(check == string.Empty || check == "")
+        {
+            check = "LOL";
+            inp.text = check;
+        }
+        else
+        {
+            inp.text = inp.text.Replace(" ", "_");
+        }
         nickname = inp.text;
         username_menu.text = nickname;
         user.text = nickname;
@@ -342,6 +357,10 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (gold > 45000)
+        {
+            gold = 40;
+        }
         //print(StringCipher.Encrypt("Какой-то текст"));
         //print(StringCipher.Decrypt("2QO8XdO1vwYddW7fB/71+v8As3GRql7liST1HCn1nbE="));
         GetResolutionScreen();
@@ -406,6 +425,7 @@ public class Game : MonoBehaviour
         percent.text = perc + "%";
         fillSlider.fillAmount = (float)perc / 100;
         sld.value = (float)perc / 100;
+        
     }
 
     public void CheckCase(int id)
@@ -556,7 +576,7 @@ public class Game : MonoBehaviour
     {
         // avatar.sprite = Sprite.Create(Social.localUser.image, new Rect(0, 0, Social.localUser.image.width, Social.localUser.image.height), new Vector2(0.5f, 0.5f), 20f);
         // блок, если меню нужно
-        if (_st != 1)
+        if (_st != 1 && !_win)
         {
             if (!MenuActive && !Get)
             {
@@ -574,6 +594,7 @@ public class Game : MonoBehaviour
         else
         {
             _st = 0;
+            _win = false;
         }
     }
 

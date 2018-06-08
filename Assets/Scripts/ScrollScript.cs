@@ -70,8 +70,13 @@ public class ScrollScript : MonoBehaviour
             }
             else if (speed == 0)
             {
-                speed = Mathf.MoveTowards(speed, -5f, velocity * Time.deltaTime);
+                speed = -3.5f;
             }
+            //else if (speed == 0)
+            //{
+            //    speed = Mathf.MoveTowards(speed, -5f, velocity * Time.deltaTime);
+
+            //}
         }
 
     }
@@ -87,14 +92,14 @@ public class ScrollScript : MonoBehaviour
         {
             if (!one_two)
             {
-                //ad.showInterstital();
-                //ad.ReqInter();
+                ad.showInterstital();
+                ad.ReqInter();
                 ad.counter = 1;
                 one_two = true;
             }
             else
             {
-                //ad.VideoAds();
+                ad.VideoAds();
                 ad.counter = 1;
                 one_two = false;
             }
@@ -145,6 +150,8 @@ public class ScrollScript : MonoBehaviour
             speed = -20f;
             velocity = Random.Range(3.94f, 3.96f);
         }
+        //speed = -20f;
+        //velocity = 10.7f;
         scrollCont.transform.localPosition = new Vector2(4799f, 0f);
         caseID = id;
         progressPanel.SetActive(true);
@@ -222,7 +229,7 @@ public class ScrollScript : MonoBehaviour
             }
         }
         //Отображаем товары
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 33; i++)
         {
             int rand = Random.Range(0, 1000);
             int itemID = 0;

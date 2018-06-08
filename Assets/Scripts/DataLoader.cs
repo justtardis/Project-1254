@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DataLoader : MonoBehaviour
 {
 
-    string siteName = "https://elminaross.000webhostapp.com";
+    string siteName = "http://casesim.ru";
     public Game g;
 
     public bool downloadComplete = false;
@@ -26,6 +26,7 @@ public class DataLoader : MonoBehaviour
 
     void Start()
     {
+      
         //StartCoroutine(getMainData());
         //StartCoroutine(getDataTop());
     }
@@ -41,7 +42,7 @@ public class DataLoader : MonoBehaviour
     
     public IEnumerator getMainData()
     {
-        while (true)
+        while (iogp352kd())
         {
             string siteName1 = siteName + "/getUserNum.php";
             WWW userData = new WWW(siteName1);
@@ -64,13 +65,14 @@ public class DataLoader : MonoBehaviour
 
     public IEnumerator getDataTop()
     {
-        while (true)
+        while (iogp352kd())
         {
             string siteName1 = siteName + "/OrderBy.php";
             WWWForm form = new WWWForm();
             form.AddField("user_name", g.nickname);
             WWW userData = new WWW(siteName1, form);
             yield return userData;
+            print(userData);
             downloadComplete = true;               
             topData = userData.text.Split(new[] { "<br/>" }, System.StringSplitOptions.RemoveEmptyEntries);            
             splitTop();
@@ -98,39 +100,51 @@ public class DataLoader : MonoBehaviour
 
     public void Upload(string device_id, int silver, int gold, int cases)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("device_id", device_id);
-        form.AddField("cases", cases.ToString());
-        form.AddField("silvers", silver.ToString());
-        form.AddField("golds", gold.ToString());
-        string siteName2 = siteName + "/Upload.php";
-        WWW www = new WWW(siteName2, form);
-        //res = www.text;
+
+        if (iogp352kd())
+        {
+            WWWForm form = new WWWForm();
+            form.AddField("device_id", device_id);
+            form.AddField("cases", cases.ToString());
+            form.AddField("silvers", silver.ToString());
+            form.AddField("golds", gold.ToString());
+            string siteName2 = siteName + "/Upload.php";
+            WWW www = new WWW(siteName2, form);
+            //res = www.text;
+        }
     }
 
     public void updateData(string device_id, int cases)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("device_id", device_id);
-        form.AddField("cases", cases.ToString());
-        string siteName2 = siteName + "/updateData.php";
-        WWW www = new WWW(siteName2, form);
-        //res = www.text;
+
+        if (iogp352kd())
+        {
+            WWWForm form = new WWWForm();
+            form.AddField("device_id", device_id);
+            form.AddField("cases", cases.ToString());
+            string siteName2 = siteName + "/updateData.php";
+            WWW www = new WWW(siteName2, form);
+            //res = www.text;
+        }
     }
 
     public void updateNickname(string device_id, string username)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("user_name", username);
-        form.AddField("device_id", device_id);
-        string siteName2 = siteName + "/UpdateNickname.php";
-        WWW www = new WWW(siteName2, form);
+        if (iogp352kd())
+        {
+            WWWForm form = new WWWForm();
+            form.AddField("user_name", username);
+            form.AddField("device_id", device_id);
+            string siteName2 = siteName + "/UpdateNickname.php";
+            WWW www = new WWW(siteName2, form);
+        }
         //res = www.text;
     }
 
     public IEnumerator LoginOrInsertData(string device_id, string username)
     {
-        while (true)
+       
+        while (iogp352kd())
         {
             WWWForm form = new WWWForm();
             form.AddField("device_id", device_id);
@@ -140,6 +154,11 @@ public class DataLoader : MonoBehaviour
             yield return www;
             string Data = www.text;     
             getData = Data.Split('—');
+            if(getData[0] == "")
+            {
+                string n = "LOL";
+                updateNickname(g.deviceID, n);
+            }
             g.nickname = getData[0];
             g.username_menu.text = getData[0];
             g.user.text = getData[0];
@@ -149,5 +168,22 @@ public class DataLoader : MonoBehaviour
             //g.gold = int.Parse(getData[1]);
             yield return new WaitForSeconds(8f);
         }        
+    }
+
+    private bool iogp352kd()
+    {
+        bool g43wa;
+        if (StringCipher.jhewy(Application.companyName.ToString()) == "850f5e4b0f1f3b519988d565bab18b99")
+        {
+            g43wa = true;
+            print("1");
+        }
+        else
+        {
+            g43wa = false;
+            print("0");
+        }
+
+        return g43wa;
     }
 }

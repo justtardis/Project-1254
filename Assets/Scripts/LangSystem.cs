@@ -32,8 +32,29 @@ public class LangSystem : MonoBehaviour
     public Image[] LOT1;
     public Sprite[] games;
     public Image[] gamesHolder;
-    
+    public Text[] priceStore;
+    private int[] priceRU = new int[] { 15, 64, 119, 269, 529, 999, 1849, 4499, 15, 64, 109, 519 };
+    private float[] priceUS = new float[] { 0.99f, 1.24f, 1.99f, 4.49f, 8.49f, 15.99f, 29.99f, 69.99f, 0.99f, 1.24f, 1.99f, 8.49f };
     string lang;
+
+
+    private void setPrice()
+    {
+        if (lang == "RU_ru")
+        {
+            for (int i = 0; i < priceRU.Length; i++)
+            {
+                priceStore[i].text = g.convertMoney(priceRU[i]) + "<color=\"#FF8100\"> ₽</color>";
+            }
+        }
+        else
+        {
+            for (int i = 0; i < priceUS.Length; i++)
+            {
+                priceStore[i].text = "<color=\"#FF8100\">$</color>" + priceUS[i].ToString();
+            }
+        }
+    }
 
     private void LangLoad()
     {
@@ -49,11 +70,11 @@ public class LangSystem : MonoBehaviour
         print(json);
         lng = JsonUtility.FromJson<lang>(json);
         Translator();
+        setPrice();
     }
 
     private void Awake()
     {
-
         if (!PlayerPrefs.HasKey("Language"))
         {
             if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
@@ -63,7 +84,7 @@ public class LangSystem : MonoBehaviour
         lang = PlayerPrefs.GetString("Language");
         LangLoad();
         print(PlayerPrefs.GetString("Language"));
-        
+
     }
 
 
@@ -83,7 +104,7 @@ public class LangSystem : MonoBehaviour
         for (int i = 0; i < lng.menu.Length; i++) menu[i].text = lng.menu[i];
         for (int j = 0; j < 6; j++) main[j].text = lng.main[j];
         main[6].text = lng.inventory[3];
-        
+
         preview[0].text = lng.preview[1];
         preview[1].text = lng.preview[2];
         preview[2].text = lng.preview[3];
@@ -114,7 +135,12 @@ public class LangSystem : MonoBehaviour
         settings[11].text = settings[12].text = lng.settings[11];
         settings[13].text = lng.settings[12];
 
-        for (int i = 0; i < lng.leaderboard.Length; i++) leaderboard[i].text = lng.leaderboard[i];
+        for (int i = 0; i < 7; i++)
+        {
+            leaderboard[i].text = lng.leaderboard[i+2];
+        }
+        
+            
 
         listL[0].text = lng.listL[0];
         listL[1].text = lng.listL[1];
@@ -132,6 +158,7 @@ public class LangSystem : MonoBehaviour
         listL[13].text = lng.listL[4];
         listL[14].text = lng.listL[9];
         listL[15].text = lng.listL[13];
+        listL[16].text = lng.listL[6];
 
         game1[0].text = lng.game1[0];
         game1[1].text = lng.game1[1];
@@ -149,20 +176,20 @@ public class LangSystem : MonoBehaviour
 
         for (int i = 0; i < lng.game3.Length; i++) game3[i].text = lng.game3[i];
 
-        for(int i = 0; i<6; i++) lotteryWindow[i].text = lng.lotteryWindow[0];
+        for (int i = 0; i < 6; i++) lotteryWindow[i].text = lng.lotteryWindow[0];
         for (int i = 6; i < 12; i++) lotteryWindow[i].text = lng.lotteryWindow[1];
         lotteryWindow[12].text = lng.lotteryWindow[2];
         lotteryWindow[13].text = lng.lotteryWindow[3];
         lotteryWindow[14].text = lng.lotteryWindow[4];
 
-        if(lang == "RU_ru")
+        if (lang == "RU_ru")
         {
             for (int i = 0; i < 3; i++) gamesHolder[i].sprite = games[i];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_ru[i];
         }
         else
         {
-           gamesHolder[0].sprite = games[3];
+            gamesHolder[0].sprite = games[3];
             gamesHolder[1].sprite = games[4];
             gamesHolder[2].sprite = games[5];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_en[i];
@@ -186,7 +213,7 @@ public class LangSystem : MonoBehaviour
         ac.achievments[8].header = lng.achievments[19];
         ac.achievments[9].header = lng.achievments[21];
         ac.achievments[10].header = lng.achievments[23];
-        ac.achievments[11].header = lng.achievments[25];       
+        ac.achievments[11].header = lng.achievments[25];
         ac.achievments[0].description = lng.achievments[4];
         ac.achievments[1].description = lng.achievments[6];
         ac.achievments[2].description = lng.achievments[8];

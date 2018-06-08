@@ -9,12 +9,22 @@ public class ShareScreenshoot : MonoBehaviour
     private bool isProcessing = false;
     private bool isFocus = false;
     public Achievment ach;
+    string text1;
 
-    public void ShareBtnPress()
+    public void ShareBtnPress(int text)
     {
         if (!isProcessing)
         {
             CanvasShareObj.SetActive(true);
+            if (text == 1)
+            {
+               text1 = "Смотри, что выбил из кейса!\nКейс Симулятор Реальных Вещей\n" + "https:" + "//" + "play.google.com/store/apps/details?id=com.ForgeGames.cs";
+                //text1 = "Смотри, что выбил из кейса!\nКейс Симулятор Реальных Вещей\n" + "http:"+"////"+ "play.google.com//apps//publish//?hl=ru&account=8491254212155528099#AppDashboardPlace:p=com.forgegames.miningclicker&appid=4972617207827160832";
+            }
+            else if (text == 2)
+            {
+                text1 = "Кейс Симулятор Реальных Вещей\n" + "https:" + "//" + "play.google.com/store/apps/details?id=com.ForgeGames.cs";
+            }
             StartCoroutine(ShareScreenshot());
         }
     }
@@ -40,7 +50,7 @@ public class ShareScreenshoot : MonoBehaviour
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"),
                 uriObject);
             intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"),
-                "Смотри, что выбил из кейса!\nКейс-симулятор реальных вещей\n"+"http:'\\google.com");
+               text1);// );
             intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
             AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");

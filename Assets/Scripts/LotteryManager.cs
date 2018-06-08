@@ -252,7 +252,7 @@ public class LotteryManager : MonoBehaviour
         UnicRand();
         if (waitOrPlay != null)
         {
-            waitOrPlay.text = "До конца лотереи";
+            waitOrPlay.text = LangSystem.lng.listL[2]; //"До конца лотереи";
         }
         tickets = 0;
         fillAm.fillAmount = (float)(tickets / ticketNum);
@@ -346,13 +346,20 @@ public class LotteryManager : MonoBehaviour
         timer.transform.parent.gameObject.GetComponent<Button>().interactable = false;
         if (waitOrPlay != null)
         {
-            waitOrPlay.text = "Ожидание";
+            waitOrPlay.text = LangSystem.lng.listL[3];// "Ожидание";
         }
         int winner1 = UnityEngine.Random.Range(1, ticketNum);
         if (it[winner1 - 1].isBusy && timeText.transform.parent.gameObject.activeSelf)
         {
             winPanel.transform.GetChild(4).GetChild(1).GetComponent<Text>().text = LangSystem.lng.listL[14]/* "БИЛЕТ №"*/ + winner;
-            winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+            if (it[winner1 - 1].NameOfBusy == g.deviceID)
+            {
+                winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = g.nickname;
+            }
+            else
+            {
+                winPanel.transform.GetChild(4).GetChild(2).GetComponent<Text>().text = it[winner1 - 1].NameOfBusy;
+            }
             timeText.transform.parent.gameObject.SetActive(false);
             if (lotType != 4)
             {

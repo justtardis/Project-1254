@@ -45,7 +45,6 @@ public class Inventory : MonoBehaviour
             string line = StringCipher.Decrypt(cipherText);
             print(line);
             sv = JsonUtility.FromJson<Save>(line);
-
             invSize = sv.invSize;
             g.level = sv.level;
             items = new int[1000][];
@@ -360,6 +359,8 @@ public class Inventory : MonoBehaviour
         sv.silver = g.silver;
         sv.invSize = invSize;
         sv.casesNum = g.casesNum;
+     
+
         sv.items = new string[invSize];
         sv.achievments = new bool[g.ach.achievments.Length];
         for (int j = 0; j < invSize; j++)
@@ -399,6 +400,8 @@ public class Save
     public float[] historyG = new float[4];
     public int[] historyCol = new int[16];
     public int idAvatar;
+    public int casesSUM;
+    public int playersSUM;
 }
 
 public static class JsonHelper

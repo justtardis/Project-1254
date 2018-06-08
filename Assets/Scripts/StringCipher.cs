@@ -7,6 +7,17 @@ using System.Linq;
 
 public static class StringCipher
 {
+    public static string jhewy(string gfd52fd)
+    {
+        MD5CryptoServiceProvider g3sd = new MD5CryptoServiceProvider();
+        UTF8Encoding utf8 = new UTF8Encoding();        
+        byte[] result = g3sd.ComputeHash(utf8.GetBytes(gfd52fd));
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < result.Length; i++)
+            str.Append(result[i].ToString("x2"));
+        return str.ToString();
+    }
+
     public static string Encrypt(string clearText)
     {
         string EncryptionKey = UnityEngine.SystemInfo.deviceUniqueIdentifier;
