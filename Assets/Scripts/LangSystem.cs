@@ -6,8 +6,10 @@ using System.Text;
 
 public class LangSystem : MonoBehaviour
 {
+    public GameObject Notification;
     public Achievment ac;
     public Game g;
+    public GameObject container;
     private string json = "";
     public static lang lng = new lang();
     private string[] langArray = { "RU_ru", "EN_en" };
@@ -33,11 +35,18 @@ public class LangSystem : MonoBehaviour
     public Sprite[] games;
     public Image[] gamesHolder;
     public Text[] priceStore;
+    public Text[] thanks;
     private int[] priceRU = new int[] { 15, 64, 119, 269, 529, 999, 1849, 4499, 15, 64, 109, 519 };
     private float[] priceUS = new float[] { 0.99f, 1.24f, 1.99f, 4.49f, 8.49f, 15.99f, 29.99f, 69.99f, 0.99f, 1.24f, 1.99f, 8.49f };
     string lang;
 
-
+    public void Tr()
+    {
+        for (int i = 0; i < g.cases.Length; i++)
+        {
+            container.transform.GetChild(i).GetChild(3).GetComponent<Text>().text = lng.namesCases[i]; // cases[i].name;
+        }
+    }
     private void setPrice()
     {
         if (lang == "RU_ru")
@@ -67,7 +76,7 @@ public class LangSystem : MonoBehaviour
 #else
         json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/" + PlayerPrefs.GetString("Language") + ".json");
 #endif
-        print(json);
+
         lng = JsonUtility.FromJson<lang>(json);
         Translator();
         setPrice();
@@ -83,7 +92,7 @@ public class LangSystem : MonoBehaviour
         }
         lang = PlayerPrefs.GetString("Language");
         LangLoad();
-        print(PlayerPrefs.GetString("Language"));
+
 
     }
 
@@ -92,15 +101,25 @@ public class LangSystem : MonoBehaviour
     public void swBtn()
     {
         if (lang == "RU_ru")
+        {
             lang = "EN_en";
+            Notification.SetActive(true);
+        }
+
         else
+        {
             lang = "RU_ru";
+            Notification.SetActive(false);
+        }
         PlayerPrefs.SetString("Language", lang);
         LangLoad();
+        Tr();
     }
 
     private void Translator()
     {
+
+
         for (int i = 0; i < lng.menu.Length; i++) menu[i].text = lng.menu[i];
         for (int j = 0; j < 6; j++) main[j].text = lng.main[j];
         main[6].text = lng.inventory[3];
@@ -137,10 +156,10 @@ public class LangSystem : MonoBehaviour
 
         for (int i = 0; i < 7; i++)
         {
-            leaderboard[i].text = lng.leaderboard[i+2];
+            leaderboard[i].text = lng.leaderboard[i + 2];
         }
-        
-            
+
+
 
         listL[0].text = lng.listL[0];
         listL[1].text = lng.listL[1];
@@ -186,6 +205,9 @@ public class LangSystem : MonoBehaviour
         {
             for (int i = 0; i < 3; i++) gamesHolder[i].sprite = games[i];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_ru[i];
+            thanks[0].text = "Спасибо, что вы с нами. В честь 100 000 открытых ящиков мы дарим вам  100 золотых монет. Приятной игры)";
+            thanks[1].text = "ЗАКРЫТЬ";
+            Notification.SetActive(true);
         }
         else
         {
@@ -193,6 +215,9 @@ public class LangSystem : MonoBehaviour
             gamesHolder[1].sprite = games[4];
             gamesHolder[2].sprite = games[5];
             for (int i = 0; i < 4; i++) LOT1[i].sprite = g.text_lot1_en[i];
+            thanks[0].text = "Thank you for being with us. In honor of 100,000 open boxes, we give you 100 gold coins. Have a good game)";
+            thanks[1].text = "CLOSE";
+            Notification.SetActive(false);
         }
 
         achievments[0].text = lng.achievments[0];
@@ -228,6 +253,8 @@ public class LangSystem : MonoBehaviour
         ac.achievments[11].description = lng.achievments[26];
 
         ac.LoadWindow();
+
+
         //achievments[1].text = lng.achievments[2];
         //achievments[2].text = lng.achievments[3];
         //achievments[3].text = lng.achievments[4];
@@ -262,7 +289,7 @@ public class LangSystem : MonoBehaviour
 public class lang
 {
     //public string[] menu = new string[7];
-    public string[] namesCases = new string[12]; // сделано
+    public string[] namesCases = new string[14]; // сделано
     public string[] main = new string[6];
     public string[] preview = new string[8];
     public string[] roulette = new string[6];

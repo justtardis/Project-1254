@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     private static Names name = new Names();
+    public GameObject thanksPanel;
+    private bool getR = false;
     public string json = "";
     public string[] botNames = new string[72];
 
@@ -337,8 +339,7 @@ public class Game : MonoBehaviour
     public void auth()
     {
         StartCoroutine(dl.getMainData());
-        StartCoroutine(dl.getDataTop());
-        StartCoroutine(dl.LoginOrInsertData(deviceID, nickname));
+        StartCoroutine(dl.getDataTop());        
     }
 
     public void VK()
@@ -357,10 +358,31 @@ public class Game : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (gold > 45000)
-        {
-            gold = 40;
-        }
+        //if (!PlayerPrefs.HasKey("get100000"))
+        //{
+        //    PlayerPrefs.SetInt("get100000", 0);
+        //}
+        StartCoroutine(dl.LoginOrInsertData(deviceID, nickname));
+        //int plS = PlayerPrefs.GetInt("get100000");
+        //if (plS != 1)
+        //{
+        //    getR = false;
+        //}
+        //else
+        //{
+        //    getR = true;
+        //}
+        //if (gold > 30000)
+        //{
+        //    gold = 40;
+        //}
+        //if (int.Parse(dl.res[1]) >= 100000 && !getR)
+        //{
+        //    thanksPanel.SetActive(true);
+        //    gold += 100;
+        //    getR = true;
+        //    PlayerPrefs.SetInt("get100000", 1);
+        //}
         //print(StringCipher.Encrypt("Какой-то текст"));
         //print(StringCipher.Decrypt("2QO8XdO1vwYddW7fB/71+v8As3GRql7liST1HCn1nbE="));
         GetResolutionScreen();

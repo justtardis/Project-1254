@@ -24,18 +24,18 @@ public class CheckConnection : MonoBehaviour {
 
     IEnumerator Check()
     {
-        WWW www = new WWW("http://google.com");
+        WWW www = new WWW("http://casesim.ru");
         yield return www;
         if (www.error != null)
         {
             active = false;
             dl.downloadComplete = false;
-            panelDisconnect.SetActive(true);
+            //panelDisconnect.SetActive(true);
             StopCoroutine(Wait());
             print("Offline");
         }
-        else
-            panelDisconnect.SetActive(false);
+        //else
+        //panelDisconnect.SetActive(false);
 
     }
 

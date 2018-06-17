@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
             StreamReader sr = new StreamReader(mydocpath + @"\" + SystemInfo.deviceUniqueIdentifier.ToString() + ".fg");
             string cipherText = sr.ReadLine();
             string line = StringCipher.Decrypt(cipherText);
-            print(line);
+
             sv = JsonUtility.FromJson<Save>(line);
             invSize = sv.invSize;
             g.level = sv.level;
